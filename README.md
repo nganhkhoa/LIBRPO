@@ -11,3 +11,12 @@ Include chứa file h
 
 Src chứa file cpp, Khoa chưa biết cách để chia thư mục và cho Makefile hoạt động được
 
+Hiện tại đã có thể
+
+Đăng nhập
+
+Đăng thoát
+
+Duyệt sách
+
+Đổi mật khẩu
