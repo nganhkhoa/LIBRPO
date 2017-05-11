@@ -1,4 +1,5 @@
 /*
+*	Last update: 12/5/2017, 00:00:00
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
@@ -22,7 +23,7 @@
 	~~Login screen with username /no password~~
 	~~Choose account after username insert correct~~
 	~~Input password and check~~
-	Change password
+	~~Change password~~
 	New book notification
 
 		Find book
@@ -191,7 +192,7 @@ int main() {
 					break;
 				case BrowseOption:
 					//without loging in, the user can still browse
-					//we use CurrentUser.Active to know if loggin or not
+					//we use CurrentUser.Active to know if logged in or not
 					//if no, we would not let them borrow, buy?
 					Browse(CurrentUser, BookData);
 					system("pause");

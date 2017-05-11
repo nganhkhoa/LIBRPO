@@ -6,7 +6,7 @@ int ChooseUtilities(LoggedInUser CurrentUser) {
 
 		//return choice
 		//of role
-		//availabel for user
+		//available for user
 
 	cout << "Ban hay chon chuc nang muon su dung " << endl;
 	for (int role = 0; role < CurrentUser.RoleId.size(); role++) {
