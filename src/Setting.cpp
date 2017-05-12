@@ -15,7 +15,7 @@ int SettingMenu() {
 	return Choice;
 }
 
-void Setting(vector<User>& UserData, LoggedInUser CurrentUser, bool debug) {
+void Setting(vector<User>& UserData, LoggedInUser& CurrentUser, bool debug) {
 	enum Choice {PwdChange = 1, Exit};
 	while (true) {
 		switch (SettingMenu())
@@ -25,10 +25,10 @@ void Setting(vector<User>& UserData, LoggedInUser CurrentUser, bool debug) {
 				if (!ChangePassword(UserData, CurrentUser, debug)) {
 					break;
 				}
-				//CurrentUser.Active = false;
+				CurrentUser.Active = false;
 				//passing by reference maybe????
 				//to logout the user here
-				//LogoutHistory(CurrentUser);
+				LogoutHistory(CurrentUser);
 				//???????????
 				return;
 			case Exit:{
