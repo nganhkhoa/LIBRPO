@@ -1,4 +1,4 @@
-#include "..\include\CommonLib.h"
+#include <CommonLib.h>
 
 using namespace std;
 

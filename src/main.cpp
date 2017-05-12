@@ -75,18 +75,18 @@ Manager
 */
 
 
-#include "..\include\CommonLib.h"
+#include <CommonLib.h>
 
-#include "..\include\ReadBook.h"
-#include "..\include\ReadData.h"
+#include <ReadBook.h>
+#include <ReadData.h>
 
-#include "..\include\Welcome.h"
-	#include "..\include\Login.h"
-	#include "..\include\Utilities.h"
-	#include "..\include\Browse.h"
-	#include "..\include\Setting.h"
+#include <Welcome.h>
+	#include <Login.h>
+	#include <Utilities.h>
+	#include <Browse.h>
+	#include <Setting.h>
 
-#include "..\include\History.h"
+#include <History.h>
 
 using namespace std;
 

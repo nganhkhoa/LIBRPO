@@ -1,4 +1,4 @@
-#include "..\include\CommonLib.h"
+#include <CommonLib.h>
 
 const int MAX_CHARACTER = 1000;
 

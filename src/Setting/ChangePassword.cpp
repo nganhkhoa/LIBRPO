@@ -1,4 +1,4 @@
-#include "..\..\include\Setting.h"
+#include <Setting.h>
 
 using namespace std;
 

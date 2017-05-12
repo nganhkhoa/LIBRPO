@@ -1,4 +1,4 @@
-#include "..\..\include\Welcome.h"
+#include <Welcome.h>
 
 using namespace std;
 

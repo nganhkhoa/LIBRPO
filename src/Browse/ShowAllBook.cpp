@@ -1,4 +1,4 @@
-#include "..\..\include\Browse.h"
+#include <Browse.h>
 
 using namespace std;
 

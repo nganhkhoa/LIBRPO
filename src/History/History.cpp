@@ -1,4 +1,4 @@
-#include "..\..\include\History.h"
+#include <History.h>
 
 using namespace std;
 

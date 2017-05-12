@@ -1,4 +1,4 @@
-#include "..\..\include\ReadData.h"
+#include <ReadData.h>
 
 using namespace std;
 
