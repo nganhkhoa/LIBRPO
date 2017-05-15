@@ -38,6 +38,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}\\include",
+                "C:\\Users\\DELL\\Dropbox\\programming\\C++\\project\\LIBPRO\\include",
 				"C:\\MinGW\\include\\c++\\3.4.5",
                 "C:\\MinGW\\include"
             ],
@@ -48,6 +49,7 @@
             "browse": {
                 "path": [
                     "${workspaceRoot}\\include",
+                    "C:\\Users\\DELL\\Dropbox\\programming\\C++\\project\\LIBPRO\\include",
                     "C:\\MinGW\\include\\c++\\3.4.5",
                     "C:\\MinGW\\include"
                 ],

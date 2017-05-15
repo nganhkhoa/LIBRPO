@@ -6,5 +6,18 @@
 int ChooseUtilities(LoggedInUser);
 void Utilities(LoggedInUser);
 
+//Reader
+int ReaderChoice();
+void Reader(LoggedInUser);
+bool CreateRequestBoorowBook(LoggedInUser, std::string);
+void BorrowBook(LoggedInUser);
+
+//Accountant
+
+
+//Admin
+
+
+//Money
 
 #endif

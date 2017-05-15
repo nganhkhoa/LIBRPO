@@ -5,10 +5,10 @@
 			"name": "C++ Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/bin/LIBPRO.exe",
+			"program": "${workspaceRoot}/test/bin/LIBPRO_test.exe",
 			"args": [],
 			"stopAtEntry": false,
-			"cwd": "${workspaceRoot}/bin",
+			"cwd": "${workspaceRoot}/test/bin",
 			"environment": [],
 			"externalConsole": true,
 			"linux": {

@@ -27,6 +27,7 @@ bool ReadBookData(vector<Book>& BookData, bool debug) {
 					case 3: TempBook.Publisher 	= TempString; break;
 					case 4: TempBook.Year 		= TempString; break;
 					case 5: TempBook.Quantity 	= stoi(TempString); break;
+					case 6: TempBook.Borrowed 	= stoi(TempString); break;
 				}
 				TempString = "";
 				continue;
@@ -41,6 +42,7 @@ bool ReadBookData(vector<Book>& BookData, bool debug) {
 			cout << "Book Publisher:" << TempBook.Publisher << endl;
 			cout << "Book Year:" << TempBook.Year << endl;
 			cout << "Book Quantity:" << TempBook.Quantity << endl;
+			cout << "Book Borrowed: " << TempBook.Borrowed << endl;
 			cout << "Book num = " << BookData.size() << endl;
 		}
 
