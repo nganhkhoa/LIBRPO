@@ -88,7 +88,8 @@ VPATH = src\
 		src/ReadData\
 		src/Setting\
 		src/Utilities\
-		src/Welcome
+			src/Utilities/Reader\
+		src/Welcome\
 
 TEST_SRCDIR = test/src
 
@@ -102,7 +103,7 @@ OBJEXT = o
 #CPP_FILES = $(wildcard *.cpp)
 #OBJ_FILES = $(addprefix build/,$(notdir $(CPP_FILES:.cpp=.o)))
 OBJ = $(wildcard build/*.$(OBJEXT))
-TEST_OBJ = $(wildcard test/build/*.$(OBJEXT))
+TEST_OBJ = $(wildcard test/buildtest/*.$(OBJEXT))
 
 
 
