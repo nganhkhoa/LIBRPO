@@ -1,8 +1,9 @@
 #include <Utilities.h>
+#include <ReadBook.h>
 
 using namespace std;
 
-bool GetBorrowData(vector<BorrowBookSubmit> BorrowBookData) {
+bool GetBorrowData(vector<BorrowBookSubmit> &BorrowBookData) {
 	ifstream borrowfile(FILEBorrowBook, ios::in);
 
 	if (!borrowfile.is_open()) {
@@ -29,7 +30,7 @@ bool GetBorrowData(vector<BorrowBookSubmit> BorrowBookData) {
 	return true;
 }
 
-bool UpdateBorrowData(vector<BorrowBookSubmit> BorrowBookData) {
+bool UpdateBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 	ofstream borrowfile(FILEBorrowBook, ios::out);
 
 	if (!borrowfile.is_open()) {
@@ -40,16 +41,17 @@ bool UpdateBorrowData(vector<BorrowBookSubmit> BorrowBookData) {
 
 	for (int index = 0; index < BorrowBookData.size(); index++)
 	{
-		borrowfile << BorrowBookData[index].Status
-				   << BorrowBookData[index].User_num
-				   << BorrowBookData[index].Account_num
-				   << BorrowBookData[index].ISBN;
-		
-		if (BorrowBookData[index] == 0)
-			continue;
+		borrowfile << BorrowBookData[index].Status << "\t"
+				   << BorrowBookData[index].User_num << "\t"
+				   << BorrowBookData[index].Account_num << "\t"
+				   << BorrowBookData[index].ISBN << "\t";
 
+		if (BorrowBookData[index].Status == 0) {
+			cout << endl;
+			continue;
+		}
 		//if validated, log the accountant info
-		borrowfile << BorrowBookData[index].Accountant_User_num
+		borrowfile << BorrowBookData[index].Accountant_User_num << "\t"
 				   << BorrowBookData[index].Accountant_Account_num
 				   << endl;
 	}
@@ -59,7 +61,7 @@ bool UpdateBorrowData(vector<BorrowBookSubmit> BorrowBookData) {
 }
 
 bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
-	ofstream borrowrecord(, ios::out | ios::app);
+	ofstream borrowrecord(FILEBorrowRecord, ios::out | ios::app);
 
 	if (!borrowrecord.is_open()) {
 		cout << "Khong mo duoc file borrowrecord.txt" << endl;
@@ -74,8 +76,8 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 						//1 for received
 						//2 for returned
 					<< BorrowBookData.User_num << "\t"
-					<< BorrowBookData.Accout_num << "\t"
-					<< BorrowBookData.ISBN << "\t"
+					<< BorrowBookData.Account_num << "\t"
+					<< BorrowBookData.ISBN
 					//day
 					//month
 					//year
@@ -87,14 +89,19 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 int ValidateBorrowBook(	LoggedInUser CurrentUser, 
 						vector<Book>& BookData, 
 						BorrowBookSubmit BorrowBookData) {
-	
+	system("cls");
+
 	//show book info
-	int Book_num = FindBookByISBN(BookData, BorrowBookData.ISBN);
+	int Book_num = 0; 
+		//1984 has book_num 0
+		//FindBookByISBN(BookData, BorrowBookData.ISBN);
+		//need to create this function
+	cout << "Quyen sach can duoc muon:" << endl;
 	ShowBookData(BookData, Book_num);
 
 	//user to lend to info
 	cout << "Nguoi muon muon sach nay la:" << endl;
-	cout << CurrentUser.AccId << endl;
+	cout << BorrowBookData.User_num << "\t" << BorrowBookData.Account_num << endl;
 
 	//show choice
 	cout << "Ban co muon cho khach hang nay muon sach?" << endl;
@@ -106,6 +113,7 @@ int ValidateBorrowBook(	LoggedInUser CurrentUser,
 		 << "Thoat" << endl;
 
 	cout << "Moi ban chon: ";
+	int Choice;
 	cin >> Choice;
 	while (Choice < 1 || Choice > 3) {
 		cout << "Lua chon khong co, moi ban chon lai: ";
@@ -118,6 +126,7 @@ int ValidateBorrowBook(	LoggedInUser CurrentUser,
 
 
 void BrowseBorrowBook(LoggedInUser CurrentUser, vector<Book>& BookData) {
+	system("cls");
 
 	vector<BorrowBookSubmit> BorrowBookData;
 

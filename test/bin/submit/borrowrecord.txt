@@ -1,0 +1,4 @@
+{Record = 0, Received, Returned}	User_num	Account_num		ISBN	Day		Month	Year
+0	0	0	978-0451524935	
+0	0	0	978-0451524935
+0	0	0	978-0451524935

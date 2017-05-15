@@ -188,7 +188,7 @@ int main() {
 					Setting(UserData, CurrentUser, debug);
 					break;
 				case UtilitiesUser:
-					Utilities(CurrentUser); //void utilities
+					Utilities(CurrentUser, BookData); //void utilities
 					break;
 				case BrowseOption:
 					//without loging in, the user can still browse

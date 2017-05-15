@@ -1,6 +1,2 @@
-Duyet?		User_num	Account_num		ISBN	Accountant_User_num		Accountant_Account_num
-0	0	0	21.113.85.100
-0	0	0	21.113.85.100
-0	0	0	21.113.85.100
-0	0	0	21.113.85.100
-0	0	0	21.113.85.100
+1	0	0	978-0451524935	0	1
+2	0	0	978-0451524935	0	1

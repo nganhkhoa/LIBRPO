@@ -36,7 +36,7 @@ void Accountant(LoggedInUser CurrentUser, vector<Book>& BookData) {
 		switch (AccountantChoice())
 		{
 			case ChoiceBrowseBorrowSubmition:
-				BrowseBorrowSubmition(CurrentUser, BookData);
+				BrowseBorrowBook(CurrentUser, BookData);
 				break;
 			case ChoiceBrowseBuySubmition:
 				//ChoiceBrowseBuySubmition();
