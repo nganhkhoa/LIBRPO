@@ -14,7 +14,8 @@ void BorrowFromCart(LoggedInUser, std::vector<Book> &);
 void BorrowBook(LoggedInUser);
 
 //Accountant
-
+int AccountantChoice();
+void Accountant(LoggedInUser);
 
 //Admin
 

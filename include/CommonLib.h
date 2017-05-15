@@ -11,6 +11,8 @@
 #include <sstream>
 #include <iomanip>
 
+#include <ctime>
+
 //
 // ─── USER DATA ──────────────────────────────────────────────────────────────────
 //
@@ -120,17 +122,34 @@
 // ─── BORROWING ──────────────────────────────────────────────────────────────────
 //
 
+	typedef struct _BorrowBookSubmit {
+		int Status; 
+			//0 no browse
+			//1 accept
+			//2 reject
+		int User_num;
+		int Account_num;
+			//passing these to lock user
+			//lock by accountant
+			//also to get record
+		std::string ISBN;
+		int Accountant_User_num;
+		int Accountant_Account_num;
+			//to know who have done what
+	} BorrowBookSubmit;
+
 	extern const int MAX_BORROW;
 
 	extern std::string SUBMITDIRECTORY;
 	extern std::string FILEBorrowBook;
+	extern std::string FILEBorrowRecord;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
 
 //
 // ─── COMMON FUNCTION ────────────────────────────────────────────────────────────
-//
+	//
 
 	void Help();
 	std::string TrimString(std::string);

@@ -24,7 +24,7 @@ int ChooseUtilities(LoggedInUser CurrentUser) {
 
 }
 
-void Utilities(LoggedInUser CurrentUser) {
+void Utilities(LoggedInUser CurrentUser, vector<Book>& BookData) {
 	while (true) {
 		system("cls");
 
@@ -49,7 +49,7 @@ void Utilities(LoggedInUser CurrentUser) {
 			case ThuThuRole:
 				cout << "Ban dang lua chon chuc nang thu thu" << endl;
 				system("pause");
-				//Accountant();
+				Accountant(CurrentUser, BookData);
 				break;
 			case QLNDRole:
 				cout << "Ban dang lua chon chuc nang quan ly nguoi dung" << endl;

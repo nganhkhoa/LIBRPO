@@ -32,3 +32,4 @@ std::string FILELock 				= FILEDIRECTORY + "lock.txt"; 			//link to lock file
 
 std::string SUBMITDIRECTORY 		= "submit/";
 std::string FILEBorrowBook 			= SUBMITDIRECTORY + "borrow.txt";
+std::string FILEBorrowRecord 		= SUBMITDIRECTORY + "borrowrecord.txt";

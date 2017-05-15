@@ -89,6 +89,9 @@ VPATH = src\
 		src/Setting\
 		src/Utilities\
 			src/Utilities/Reader\
+			src/Utilities/Accountant\
+			src/Utilities/Admin\
+			src/Utilities/Money\
 		src/Welcome\
 
 TEST_SRCDIR = test/src

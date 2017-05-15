@@ -1,3 +1,4 @@
+Duyet?		User_num	Account_num		ISBN	Accountant_User_num		Accountant_Account_num
 0	0	0	21.113.85.100
 0	0	0	21.113.85.100
 0	0	0	21.113.85.100
