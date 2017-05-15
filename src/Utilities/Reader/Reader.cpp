@@ -29,15 +29,15 @@ void Reader(LoggedInUser CurrentUser) {
 			case ChoiceBorrow: 
 				cin.ignore();
 				BorrowBook(CurrentUser);
-				return;
+				break;
 			case ChoiceReturn:
 				cin.ignore();
 				//ReturnBook(CurrentUser);
-				return;
+				break;
 			case ChoiceBuy:
 				cin.ignore();
 				//BuyBook(CurrentUser);
-				return;
+				break;
 			case Exit:
 				return;
 		}

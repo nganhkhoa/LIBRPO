@@ -10,6 +10,7 @@ void Utilities(LoggedInUser);
 int ReaderChoice();
 void Reader(LoggedInUser);
 bool CreateRequestBoorowBook(LoggedInUser, std::string);
+void BorrowFromCart(LoggedInUser, std::vector<Book> &);
 void BorrowBook(LoggedInUser);
 
 //Accountant

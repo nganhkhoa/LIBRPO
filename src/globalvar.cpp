@@ -6,6 +6,8 @@ const int MAX_ATTEMPT = 3;
 
 const int BOOK_PER_PAGE = 3;
 
+const int MAX_BORROW = 3;
+
 Role LibraryRole[MAX_ROLE] {
 	{1, "DOC GIA", "Chi co quyen doc"},
 	{2, "THU THU", "Khong biet thu thu lam gi"},
@@ -27,3 +29,6 @@ std::string FILEUser 				= FILEDIRECTORY + "user.txt"; 			//link to user file
 std::string FILEAccount 			= FILEDIRECTORY + "account.txt"; 		//link to account file
 std::string FILEAccountRoleMap 		= FILEDIRECTORY + "accountrolemap.txt"; //link to account role map file
 std::string FILELock 				= FILEDIRECTORY + "lock.txt"; 			//link to lock file
+
+std::string SUBMITDIRECTORY 		= "submit/";
+std::string FILEBorrowBook 			= SUBMITDIRECTORY + "borrow.txt";
