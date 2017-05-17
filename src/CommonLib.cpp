@@ -8,12 +8,12 @@ void Help() {
 
 string TrimString(string str) {
 	char* StringModified = new char[str.length()];
-	int beginLetter = 0;
-	//remove white space at begining
-	while (str[beginLetter] == ' ') beginLetter++;
+	int beginLetter      = 0;
+	// remove white space at begining
+	while (str[beginLetter] == ' ')
+		beginLetter++;
 	int letter = 0;
-	for (int index = beginLetter; index < str.length(); index++)
-	{
+	for (int index = beginLetter; index < str.length(); index++) {
 		if (str[index] == ' ') {
 			StringModified[letter++] = ' ';
 			while (str[index + 1] == ' ') {
@@ -23,9 +23,13 @@ string TrimString(string str) {
 				StringModified[letter - 1] = '\0';
 				break;
 			}
-		} else {
+		}
+		else {
 			StringModified[letter++] = str[index];
-			if (str[index + 1] == '\0') {StringModified[letter] = '\0'; break;}
+			if (str[index + 1] == '\0') {
+				StringModified[letter] = '\0';
+				break;
+			}
 		}
 	}
 	string NewString(StringModified);

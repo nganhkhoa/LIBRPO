@@ -5,12 +5,17 @@ using namespace std;
 int AccountantChoice() {
 	system("cls");
 	int Choice;
-	cout << "1\t" << "Duyet sach muon" << endl;
-	cout << "2\t" << "Duyet sach mua" << endl;
-	cout << "3\t" << "Them sach vao thu vien" << endl;
-	cout << "4\t" << "Chinh sua sach trong thu vien" << endl;
-	//view changes to database????????????
-	cout << "5\t" << "Thoat" << endl;
+	cout << "1\t"
+	     << "Duyet sach muon" << endl;
+	cout << "2\t"
+	     << "Duyet sach mua" << endl;
+	cout << "3\t"
+	     << "Them sach vao thu vien" << endl;
+	cout << "4\t"
+	     << "Chinh sua sach trong thu vien" << endl;
+	// view changes to database????????????
+	cout << "5\t"
+	     << "Thoat" << endl;
 
 	cout << "Moi ban chon: ";
 	cin >> Choice;
@@ -23,7 +28,7 @@ int AccountantChoice() {
 }
 
 void Accountant(LoggedInUser CurrentUser, vector<Book>& BookData) {
-	
+
 	while (true) {
 		enum Choice
 		{
@@ -33,23 +38,20 @@ void Accountant(LoggedInUser CurrentUser, vector<Book>& BookData) {
 			ChoiceModifyBook,
 			Exit
 		};
-		switch (AccountantChoice())
-		{
+		switch (AccountantChoice()) {
 			case ChoiceBrowseBorrowSubmition:
 				BrowseBorrowBook(CurrentUser, BookData);
 				break;
 			case ChoiceBrowseBuySubmition:
-				//ChoiceBrowseBuySubmition();
+				// ChoiceBrowseBuySubmition();
 				break;
 			case ChoiceAddBook:
-				//ChoiceAddBook();
+				// ChoiceAddBook();
 				break;
 			case ChoiceModifyBook:
-				//ChoiceModifyBook();
+				// ChoiceModifyBook();
 				break;
-			case Exit:
-				return;
+			case Exit: return;
 		}
 	}
-	
 }

@@ -3,10 +3,10 @@
 using namespace std;
 
 bool ReadAuthor(vector<Book>& BookData, bool debug) {
-		//read the file
-		//read author's name
-		//read books in rows
-		//find and add to vector
+	// read the file
+	// read author's name
+	// read books in rows
+	// find and add to vector
 	ifstream authorfile(FILEAuthor);
 	if (!authorfile.is_open()) return false;
 
@@ -21,13 +21,13 @@ bool ReadAuthor(vector<Book>& BookData, bool debug) {
 		string TempString;
 		string Author;
 		int Book_num;
-		
+
 		stringstream scin(str);
-		while (true){
+		while (true) {
 			scin >> TempString;
 			if (TempString == "|") break;
 			Author += " ";
-			Author +=  TempString;
+			Author += TempString;
 		}
 		Author = TrimString(Author);
 		while (!scin.eof()) {

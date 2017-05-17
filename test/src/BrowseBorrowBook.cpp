@@ -1,9 +1,9 @@
-#include <Utilities.h>
 #include <ReadBook.h>
+#include <Utilities.h>
 
 using namespace std;
 
-bool GetBorrowData(vector<BorrowBookSubmit> &BorrowBookData) {
+bool GetBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 	ifstream borrowfile(FILEBorrowBook, ios::in);
 
 	if (!borrowfile.is_open()) {
@@ -14,15 +14,12 @@ bool GetBorrowData(vector<BorrowBookSubmit> &BorrowBookData) {
 
 	string str;
 	while (getline(borrowfile, str)) {
-		if (str.empty())
-			continue;
+		if (str.empty()) continue;
 
 		stringstream scin(str);
 		BorrowBookSubmit TempBorrowBookData;
-		scin 	>> TempBorrowBookData.Status 
-				>> TempBorrowBookData.User_num 
-				>> TempBorrowBookData.Account_num 
-				>> TempBorrowBookData.ISBN;
+		scin >> TempBorrowBookData.Status >> TempBorrowBookData.User_num >>
+		  TempBorrowBookData.Account_num >> TempBorrowBookData.ISBN;
 
 		BorrowBookData.push_back(TempBorrowBookData);
 	}
@@ -39,21 +36,19 @@ bool UpdateBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 		return false;
 	}
 
-	for (int index = 0; index < BorrowBookData.size(); index++)
-	{
+	for (int index = 0; index < BorrowBookData.size(); index++) {
 		borrowfile << BorrowBookData[index].Status << "\t"
-				   << BorrowBookData[index].User_num << "\t"
-				   << BorrowBookData[index].Account_num << "\t"
-				   << BorrowBookData[index].ISBN << "\t";
+		           << BorrowBookData[index].User_num << "\t"
+		           << BorrowBookData[index].Account_num << "\t"
+		           << BorrowBookData[index].ISBN << "\t";
 
 		if (BorrowBookData[index].Status == 0) {
 			cout << endl;
 			continue;
 		}
-		//if validated, log the accountant info
+		// if validated, log the accountant info
 		borrowfile << BorrowBookData[index].Accountant_User_num << "\t"
-				   << BorrowBookData[index].Accountant_Account_num
-				   << endl;
+		           << BorrowBookData[index].Accountant_Account_num << endl;
 	}
 
 	borrowfile.close();
@@ -69,48 +64,48 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 		return false;
 	}
 
-	
-	borrowrecord 	<< 0 << "\t"
-					//first number
-						//0 for nothing
-						//1 for received
-						//2 for returned
-					<< BorrowBookData.User_num << "\t"
-					<< BorrowBookData.Account_num << "\t"
-					<< BorrowBookData.ISBN
-					//day
-					//month
-					//year
-					//when user received book
-					<< endl;
+	borrowrecord << 0 << "\t"
+	             // first number
+	             // 0 for nothing
+	             // 1 for received
+	             // 2 for returned
+	             << BorrowBookData.User_num << "\t"
+	             << BorrowBookData.Account_num << "\t" << BorrowBookData.ISBN
+	             // day
+	             // month
+	             // year
+	             // when user received book
+	             << endl;
 	return true;
 }
 
-int ValidateBorrowBook(	LoggedInUser CurrentUser, 
-						vector<Book>& BookData, 
-						BorrowBookSubmit BorrowBookData) {
+int ValidateBorrowBook(
+  LoggedInUser CurrentUser,
+  vector<Book>& BookData,
+  BorrowBookSubmit BorrowBookData) {
 	system("cls");
 
-	//show book info
-	int Book_num = 0; 
-		//1984 has book_num 0
-		//FindBookByISBN(BookData, BorrowBookData.ISBN);
-		//need to create this function
+	// show book info
+	int Book_num = 0;
+	// 1984 has book_num 0
+	// FindBookByISBN(BookData, BorrowBookData.ISBN);
+	// need to create this function
 	cout << "Quyen sach can duoc muon:" << endl;
 	ShowBookData(BookData, Book_num);
 
-	//user to lend to info
+	// user to lend to info
 	cout << "Nguoi muon muon sach nay la:" << endl;
-	cout << BorrowBookData.User_num << "\t" << BorrowBookData.Account_num << endl;
+	cout << BorrowBookData.User_num << "\t" << BorrowBookData.Account_num
+	     << endl;
 
-	//show choice
+	// show choice
 	cout << "Ban co muon cho khach hang nay muon sach?" << endl;
 	cout << "1\t"
-		 << "Co" << endl;
+	     << "Co" << endl;
 	cout << "2\t"
-		 << "Khong" << endl;
+	     << "Khong" << endl;
 	cout << "3\t"
-		 << "Thoat" << endl;
+	     << "Thoat" << endl;
 
 	cout << "Moi ban chon: ";
 	int Choice;
@@ -122,8 +117,6 @@ int ValidateBorrowBook(	LoggedInUser CurrentUser,
 
 	return Choice;
 }
-
-
 
 void BrowseBorrowBook(LoggedInUser CurrentUser, vector<Book>& BookData) {
 	system("cls");
@@ -137,36 +130,35 @@ void BrowseBorrowBook(LoggedInUser CurrentUser, vector<Book>& BookData) {
 	}
 
 	for (int index = 0; index < BorrowBookData.size(); index++) {
-		if (BorrowBookData[index].Status != 0)
-			continue;//book validated
+		if (BorrowBookData[index].Status != 0) continue;    // book validated
 
-		BorrowBookData[index].Status 
-			= ValidateBorrowBook(CurrentUser, BookData, BorrowBookData[index]);
+		BorrowBookData[index].Status =
+		  ValidateBorrowBook(CurrentUser, BookData, BorrowBookData[index]);
 
-		if (BorrowBookData[index].Status == 3){
-			BorrowBookData[index].Status = 0;//return state
-			break; //exit
+		if (BorrowBookData[index].Status == 3) {
+			BorrowBookData[index].Status = 0;    // return state
+			break;                               // exit
 		}
-		
-		//if not exit, 
-		//log the accountant who has made the validation
-		BorrowBookData[index].Accountant_User_num = CurrentUser.User_num;
+
+		// if not exit,
+		// log the accountant who has made the validation
+		BorrowBookData[index].Accountant_User_num    = CurrentUser.User_num;
 		BorrowBookData[index].Accountant_Account_num = CurrentUser.Account_num;
 
 		if (BorrowBookData[index].Status == 2)
-			continue;//reject so nothing happens
-			//maybe announce to the user??????
+			continue;    // reject so nothing happens
+		// maybe announce to the user??????
 
 		if (!CreateBorrowRecord(BorrowBookData[index])) {
 			cout << "Khong the cap nhat ban ghi muon" << endl;
 			system("pause");
 			return;
 		}
-		//until the accountant gives the book to client
-		//the record is hold
-		//if the user has receive
-		//update in date ///and time///
-		//we only care about days passed
+		// until the accountant gives the book to client
+		// the record is hold
+		// if the user has receive
+		// update in date ///and time///
+		// we only care about days passed
 	}
 
 	UpdateBorrowData(BorrowBookData);

@@ -12,7 +12,8 @@ bool WriteUser(vector<User>& UserData, bool debug) {
 	}
 
 	for (int index = 0; index < UserData.size(); index++) {
-		userfile << UserData[index].uid << "\t" << UserData[index].Username << endl;
+		userfile << UserData[index].uid << "\t" << UserData[index].Username
+		         << endl;
 	}
 	return true;
 }
@@ -28,12 +29,13 @@ bool WriteAccount(vector<User>& UserData, bool debug) {
 	}
 
 	for (int index = 0; index < UserData.size(); index++) {
-		for (int account = 0; account < UserData[index].AccountList.size(); account++) {
+		for (int account = 0; account < UserData[index].AccountList.size();
+		     account++) {
 			accountfile << UserData[index].uid << "\t"
-						<< UserData[index].AccountList[account].AccId << "\t"
-						<< UserData[index].AccountList[account].Password << "\t"
-						<< boolalpha
-						<< UserData[index].AccountList[account].Active << endl;
+			            << UserData[index].AccountList[account].AccId << "\t"
+			            << UserData[index].AccountList[account].Password << "\t"
+			            << boolalpha
+			            << UserData[index].AccountList[account].Active << endl;
 		}
 	}
 	return true;
@@ -50,10 +52,14 @@ bool WriteAccountRoleMap(vector<User>& UserData, bool debug) {
 	}
 
 	for (int index = 0; index < UserData.size(); index++) {
-		for (int account = 0; account < UserData[index].AccountList.size(); account++) {
-			for (int role = 0; role < UserData[index].AccountList[account].RoleId.size(); role++) {
-				accountrolemapfile 	<< UserData[index].AccountList[account].AccId << "\t"
-									<< UserData[index].AccountList[account].RoleId[role] << endl;
+		for (int account = 0; account < UserData[index].AccountList.size();
+		     account++) {
+			for (int role = 0;
+			     role < UserData[index].AccountList[account].RoleId.size();
+			     role++) {
+				accountrolemapfile
+				  << UserData[index].AccountList[account].AccId << "\t"
+				  << UserData[index].AccountList[account].RoleId[role] << endl;
 			}
 		}
 	}
@@ -61,11 +67,17 @@ bool WriteAccountRoleMap(vector<User>& UserData, bool debug) {
 }
 
 
-bool UpdatePassword(vector<User>& UserData, LoggedInUser CurrentUser, string NewPassword, bool debug) {
+bool UpdatePassword(
+  vector<User>& UserData,
+  LoggedInUser CurrentUser,
+  string NewPassword,
+  bool debug) {
 
-	//cypher here
+	// cypher here
 
-	UserData[CurrentUser.User_num].AccountList[CurrentUser.Account_num].Password = NewPassword;
+	UserData[CurrentUser.User_num]
+	  .AccountList[CurrentUser.Account_num]
+	  .Password = NewPassword;
 
 	if (!WriteUser(UserData, debug)) {
 		cout << "Failed to write in user file" << endl;
@@ -86,5 +98,4 @@ bool UpdatePassword(vector<User>& UserData, LoggedInUser CurrentUser, string New
 	}
 
 	return true;
-
 }

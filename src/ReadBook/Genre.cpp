@@ -3,7 +3,7 @@
 using namespace std;
 
 bool ReadGenre(vector<Book>& BookData, bool debug) {
-		//read the same rule as in author
+	// read the same rule as in author
 	ifstream genrefile(FILEGenre);
 	if (!genrefile.is_open()) return false;
 
@@ -19,14 +19,14 @@ bool ReadGenre(vector<Book>& BookData, bool debug) {
 		string TempString;
 		string Genre;
 		int Book_num;
-		
+
 		stringstream scin(str);
 
-		while (true){ //get the genre
+		while (true) {    // get the genre
 			scin >> TempString;
 			if (TempString == "|") break;
 			Genre += " ";
-			Genre +=  TempString;
+			Genre += TempString;
 		}
 
 		Genre = TrimString(Genre);

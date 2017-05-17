@@ -11,10 +11,9 @@ bool CreateRequestBorrowBook(LoggedInUser CurrentUser, string Book_name) {
 	}
 
 	string BookId = /*FindBookByName(str)*/ "978-0451524935";
-	requestborrowbook << "0" << "\t"
-					  << CurrentUser.User_num << "\t"
-					  << CurrentUser.Account_num << "\t"
-					  << BookId << endl;
+	requestborrowbook << "0"
+	                  << "\t" << CurrentUser.User_num << "\t"
+	                  << CurrentUser.Account_num << "\t" << BookId << endl;
 	requestborrowbook.close();
 	return true;
 }
@@ -41,8 +40,7 @@ void BorrowFromCart(LoggedInUser CurrentUser, vector<Book>& Cart) {
 	return;
 }
 
-
-void BorrowBook(LoggedInUser CurrentUser/*, vector<Book>& BorrowCart*/) {
+void BorrowBook(LoggedInUser CurrentUser /*, vector<Book>& BorrowCart*/) {
 	system("cls");
 	cout << "Nhap ten sach ban muon muon" << endl;
 	cout << "Neu de trong se quay ve" << endl;
@@ -51,14 +49,13 @@ void BorrowBook(LoggedInUser CurrentUser/*, vector<Book>& BorrowCart*/) {
 	string str;
 	getline(cin, str);
 
-	if (str.empty())
-		return;
-	if (str == "giosach"){
-		//BorrowFromCart(CurrentUser, BorrowCart);
+	if (str.empty()) return;
+	if (str == "giosach") {
+		// BorrowFromCart(CurrentUser, BorrowCart);
 		return;
 	}
 
-	if(!/*FindBookByName(str)*/true) {
+	if (!/*FindBookByName(str)*/ true) {
 		cout << "Ten sach khong tim thay" << endl;
 		cout << "Moi ban nhap lai" << endl;
 		BorrowBook(CurrentUser);

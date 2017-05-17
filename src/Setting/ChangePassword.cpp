@@ -2,18 +2,25 @@
 
 using namespace std;
 
-bool ComparePassword(vector<User>& UserData, LoggedInUser CurrentUser, string VerifyPassword) {
-	//cypher here
+bool ComparePassword(
+  vector<User>& UserData,
+  LoggedInUser CurrentUser,
+  string VerifyPassword) {
+	// cypher here
 
-	string OldPassword = UserData[CurrentUser.User_num].AccountList[CurrentUser.Account_num].Password;
+	string OldPassword = UserData[CurrentUser.User_num]
+	                       .AccountList[CurrentUser.Account_num]
+	                       .Password;
 
 	if (OldPassword == VerifyPassword) return true;
 	return false;
 }
 
 
-
-bool ChangePassword(vector<User>& UserData, LoggedInUser CurrentUser, bool debug) {
+bool ChangePassword(
+  vector<User>& UserData,
+  LoggedInUser CurrentUser,
+  bool debug) {
 	system("cls");
 	cout << "Sau day he thong se yeu cau ban nhap mat ma cu" << endl;
 	cout << "Neu ban khong muon thay doi thi hay de trong" << endl;
@@ -23,11 +30,13 @@ bool ChangePassword(vector<User>& UserData, LoggedInUser CurrentUser, bool debug
 
 	if (str.empty()) {
 		cout << "Ban muon thoat? (y/n) ";
-		string Answer; getline(cin, Answer);
+		string Answer;
+		getline(cin, Answer);
 		if (Answer != "y") {
 			return ChangePassword(UserData, CurrentUser, debug);
 		}
-		else return false;
+		else
+			return false;
 	}
 
 	if (!ComparePassword(UserData, CurrentUser, str)) {
@@ -37,16 +46,19 @@ bool ChangePassword(vector<User>& UserData, LoggedInUser CurrentUser, bool debug
 
 		/*
 		cout << "Ban con " << Attemps << " lan thu nua" << endl;
-		cout << "Tai khoan se bi khoa neu nhap sai qua " << MAX_ATTEMPTS << " lan" << endl;
+		cout << "Tai khoan se bi khoa neu nhap sai qua " << MAX_ATTEMPTS << "
+		lan" << endl;
 		//*/
 
 		cout << "Ban muon thu lai? (y/n) ";
-		
-		string Answer; getline(cin, Answer);
+
+		string Answer;
+		getline(cin, Answer);
 		if (Answer == "y") {
 			return ChangePassword(UserData, CurrentUser, debug);
 		}
-		else return false;
+		else
+			return false;
 	}
 
 	cout << "Ban hay nhap mat khau moi: ";
@@ -63,7 +75,4 @@ bool ChangePassword(vector<User>& UserData, LoggedInUser CurrentUser, bool debug
 	cout << "Bam enter de quay ve" << endl;
 	system("pause");
 	return true;
-
-
-
 }

@@ -5,10 +5,14 @@ using namespace std;
 int ReaderChoice() {
 	system("cls");
 	int Choice;
-	cout << "1\t" << "Muon sach" << endl;
-	cout << "2\t" << "Tra sach" << endl;
-	cout << "3\t" << "Mua sach" << endl;
-	cout << "4\t" << "Quay ve" << endl;
+	cout << "1\t"
+	     << "Muon sach" << endl;
+	cout << "2\t"
+	     << "Tra sach" << endl;
+	cout << "3\t"
+	     << "Mua sach" << endl;
+	cout << "4\t"
+	     << "Quay ve" << endl;
 
 	cout << "Moi ban chon: ";
 	cin >> Choice;
@@ -23,23 +27,27 @@ int ReaderChoice() {
 
 void Reader(LoggedInUser CurrentUser) {
 	while (true) {
-		enum Choice{ChoiceBorrow = 1, ChoiceReturn, ChoiceBuy, Exit};
-		switch (ReaderChoice())
+		enum Choice
 		{
-			case ChoiceBorrow: 
+			ChoiceBorrow = 1,
+			ChoiceReturn,
+			ChoiceBuy,
+			Exit
+		};
+		switch (ReaderChoice()) {
+			case ChoiceBorrow:
 				cin.ignore();
 				BorrowBook(CurrentUser);
 				break;
 			case ChoiceReturn:
 				cin.ignore();
-				//ReturnBook(CurrentUser);
+				// ReturnBook(CurrentUser);
 				break;
 			case ChoiceBuy:
 				cin.ignore();
-				//BuyBook(CurrentUser);
+				// BuyBook(CurrentUser);
 				break;
-			case Exit:
-				return;
+			case Exit: return;
 		}
 	}
 }

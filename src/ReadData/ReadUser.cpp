@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool ReadUser(vector<User> &UserData) {//read user file
+bool ReadUser(vector<User>& UserData) {    // read user file
 	ifstream userfile(FILEUser);
 	if (!userfile.is_open()) return false;
 
@@ -19,16 +19,18 @@ bool ReadUser(vector<User> &UserData) {//read user file
 	return true;
 }
 
-int FindUser(vector<User> &UserData, string uid) {//we have the uid only, find by uid
+int FindUser(
+  vector<User>& UserData,
+  string uid) {    // we have the uid only, find by uid
 	for (int i = 0; i < UserData.size(); i++) {
 		if (UserData[i].uid == uid) return i;
 	}
 	return UserData.size();
 }
 
-bool ReadAccount(vector<User> &UserData) {
-		//the file account has uid, 
-		//use finduser to find and put in vector
+bool ReadAccount(vector<User>& UserData) {
+	// the file account has uid,
+	// use finduser to find and put in vector
 	ifstream accountfile(FILEAccount);
 	if (!accountfile.is_open()) return false;
 
@@ -39,8 +41,8 @@ bool ReadAccount(vector<User> &UserData) {
 		Account Temp;
 		scin >> Temp.uid;
 		int user_no = FindUser(UserData, Temp.uid);
-		//if there is no user found?
-		//I think the file should always have enough user
+		// if there is no user found?
+		// I think the file should always have enough user
 
 		scin >> Temp.AccId;
 		scin >> Temp.Password;

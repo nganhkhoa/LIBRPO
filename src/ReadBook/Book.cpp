@@ -7,34 +7,34 @@ bool ReadBookData(vector<Book>& BookData, bool debug) {
 	if (!bookfile.is_open()) return false;
 
 	if (debug) {
-	cout << "Opened book" << endl;
-	system("pause");
+		cout << "Opened book" << endl;
+		system("pause");
 	}
 
 	string str;
 	while (getline(bookfile, str)) {
 		if (str.empty()) continue;
 		string TempString = "";
-		int count = 1;
+		int count         = 1;
 		Book TempBook;
 
 		for (int index = 0; index < str.length(); index++) {
 			if (str[index] == '|') {
 				TempString = TrimString(TempString);
 				switch (count++) {
-					case 1: TempBook.BookId 	= TempString; break;
-					case 2: TempBook.BookLabel 	= TempString; break;
-					case 3: TempBook.Publisher 	= TempString; break;
-					case 4: TempBook.Year 		= TempString; break;
-					case 5: TempBook.Quantity 	= stoi(TempString); break;
-					case 6: TempBook.Borrowed 	= stoi(TempString); break;
+					case 1: TempBook.BookId    = TempString; break;
+					case 2: TempBook.BookLabel = TempString; break;
+					case 3: TempBook.Publisher = TempString; break;
+					case 4: TempBook.Year      = TempString; break;
+					case 5: TempBook.Quantity  = stoi(TempString); break;
+					case 6: TempBook.Borrowed  = stoi(TempString); break;
 				}
 				TempString = "";
 				continue;
 			}
 			TempString += str[index];
 		}
-		
+
 		if (debug) {
 			cout << "Book read:" << endl;
 			cout << "Book ID: " << TempBook.BookId << endl;
@@ -58,7 +58,7 @@ bool ReadBookData(vector<Book>& BookData, bool debug) {
 }
 
 int FindBook(vector<Book>& BookData, string BookId, bool debug) {
-		//find book by ISBN
+	// find book by ISBN
 	if (debug) cout << "Finding for book with ID: " << BookId << endl;
 	for (int index = 0; index < BookData.size(); index++) {
 		if (BookData[index].BookId == BookId) {
