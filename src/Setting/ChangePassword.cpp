@@ -5,7 +5,7 @@ using namespace std;
 bool ComparePassword(
   vector<User>& UserData,
   LoggedInUser CurrentUser,
-  string VerifyPassword) {
+  string& VerifyPassword) {
 	// cypher here
 
 	string OldPassword = UserData[CurrentUser.User_num]

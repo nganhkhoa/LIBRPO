@@ -57,7 +57,7 @@ bool ReadBookData(vector<Book>& BookData, bool debug) {
 	return true;
 }
 
-int FindBook(vector<Book>& BookData, string BookId, bool debug) {
+int FindBook(vector<Book>& BookData, string& BookId, bool debug) {
 	// find book by ISBN
 	if (debug) cout << "Finding for book with ID: " << BookId << endl;
 	for (int index = 0; index < BookData.size(); index++) {

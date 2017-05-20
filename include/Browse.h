@@ -4,7 +4,7 @@
 #include "CommonLib.h"
 
 bool ChooseBack(int&);
-void ShowBookContent(std::string);
+void ShowBookContent(std::string&);
 void ChooseBookInformation(std::vector<Book>&, int&);
 void ChooseBook(LoggedInUser, std::vector<Book>&, int&);
 

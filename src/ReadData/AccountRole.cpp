@@ -2,7 +2,7 @@
 
 using namespace std;
 
-UserAccount FindAccount(vector<User>& UserData, string AccId) {
+UserAccount FindAccount(vector<User>& UserData, string& AccId) {
 	// we have the account name only
 	// find the account place in vector
 	UserAccount Num;

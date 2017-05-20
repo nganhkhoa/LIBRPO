@@ -21,7 +21,7 @@ bool ReadUser(vector<User>& UserData) {    // read user file
 
 int FindUser(
   vector<User>& UserData,
-  string uid) {    // we have the uid only, find by uid
+  string& uid) {    // we have the uid only, find by uid
 	for (int i = 0; i < UserData.size(); i++) {
 		if (UserData[i].uid == uid) return i;
 	}

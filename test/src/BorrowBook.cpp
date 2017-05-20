@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool CreateRequestBorrowBook(LoggedInUser CurrentUser, string Book_name) {
+bool CreateRequestBorrowBook(LoggedInUser CurrentUser, string& Book_name) {
 	ofstream requestborrowbook(FILEBorrowBook, ios::out | ios::app);
 	if (!requestborrowbook) {
 		cout << "Cannot open file" << endl;

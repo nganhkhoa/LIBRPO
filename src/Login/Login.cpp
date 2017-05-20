@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int FindUserByName(vector<User>& UserData, string str) {
+int FindUserByName(vector<User>& UserData, string& str) {
 	// find the f@#%@^@#^ user by his name
 	// because user input in the username
 	// we have to find it no matter what

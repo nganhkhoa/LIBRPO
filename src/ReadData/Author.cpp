@@ -20,7 +20,7 @@ bool ReadAuthor(vector<Book>& BookData, bool debug) {
 
 		string TempString;
 		string Author;
-		int Book_num;
+		
 
 		stringstream scin(str);
 		while (true) {
@@ -32,6 +32,7 @@ bool ReadAuthor(vector<Book>& BookData, bool debug) {
 		Author = TrimString(Author);
 		while (!scin.eof()) {
 			scin >> TempString;
+			int Book_num;
 			Book_num = FindBook(BookData, TempString, debug);
 			BookData[Book_num].Authors.push_back(Author);
 			TempString = "";

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void LockAccount(string Account) {
+void LockAccount(string& Account) {
 	ofstream lockfile(FILELock, ios::out | ios::app);
 	if (!lockfile.is_open()) { return; }
 	lockfile << Account << endl;
@@ -19,7 +19,7 @@ bool ReadLock() {
 	return true;
 }
 
-bool CheckLock(string StringToCompare) {
+bool CheckLock(string& StringToCompare) {
 	ifstream lockfile(FILELock);
 	if (!lockfile.is_open()) {
 		cout << "Khong mo duoc file lock.txt" << endl;

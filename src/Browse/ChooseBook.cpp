@@ -61,7 +61,7 @@ bool ChooseBack(int& books) {
 	}
 }
 
-void ShowBookContent(string Id) {
+void ShowBookContent(string& Id) {
 
 	// open file content and search for ISBN
 	// and get the information

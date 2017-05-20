@@ -7,7 +7,7 @@ bool ReadBookData(std::vector<Book>&, bool);
 bool ReadAuthor(std::vector<Book>&, bool);
 bool ReadGenre(std::vector<Book>&, bool);
 
-int FindBook(std::vector<Book>&, std::string, bool);
+int FindBook(std::vector<Book>&, std::string&, bool);
 
 bool ReadBook(std::vector<Book>&, bool);
 

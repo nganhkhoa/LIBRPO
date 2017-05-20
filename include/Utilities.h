@@ -9,7 +9,7 @@ void Utilities(LoggedInUser, std::vector<Book>&);
 //Reader
 int ReaderChoice();
 void Reader(LoggedInUser);
-	bool CreateRequestBoorowBook(LoggedInUser, std::string);
+	bool CreateRequestBoorowBook(LoggedInUser, std::string&);
 	void BorrowFromCart(LoggedInUser, std::vector<Book> &);
 	//this one
 	void BorrowBook(LoggedInUser);

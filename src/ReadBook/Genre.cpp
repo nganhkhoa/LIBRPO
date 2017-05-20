@@ -18,7 +18,6 @@ bool ReadGenre(vector<Book>& BookData, bool debug) {
 
 		string TempString;
 		string Genre;
-		int Book_num;
 
 		stringstream scin(str);
 
@@ -33,6 +32,7 @@ bool ReadGenre(vector<Book>& BookData, bool debug) {
 
 		while (!scin.eof()) {
 			scin >> TempString;
+			int Book_num;
 			Book_num = FindBook(BookData, TempString, debug);
 			BookData[Book_num].Genres.push_back(Genre);
 			TempString = "";

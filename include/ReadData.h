@@ -4,10 +4,10 @@
 #include "CommonLib.h"
 
 bool 		ReadUser(std::vector<User>&);
-int 		FindUser(std::vector<User>&, std::string);
+int 		FindUser(std::vector<User>&, std::string&);
 bool 		ReadAccount(std::vector<User>&);
 
-UserAccount	FindAccount(std::vector<User>&, std::string);
+UserAccount	FindAccount(std::vector<User>&, std::string&);
 bool 		ReadRole(std::vector<User>&);
 
 

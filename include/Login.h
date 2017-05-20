@@ -3,7 +3,7 @@
 
 #include "CommonLib.h"
 
-int FindUserByName(std::vector<User>&, std::string);
+int FindUserByName(std::vector<User>&, std::string&);
 bool UserLoginPrompt(std::vector<User>&, int&);
 
 void ShowRoleList(std::vector<User>&, UserAccount);
@@ -14,8 +14,8 @@ bool RightPassword(std::vector<User>&, int&, int&, int&);
 LoggedInUser CreateLoggedInUser(std::vector<User>&, int&, int&);
 LoggedInUser Login(std::vector<User>&);
 
-void 		LockAccount(std::string);
+void 		LockAccount(std::string&);
 bool		ReadLock();
-bool		CheckLock(std::string);
+bool		CheckLock(std::string&);
 
 #endif
