@@ -8,10 +8,14 @@ int AccountantChoice() {
 	cout << "1\t"
 	     << "Duyet sach muon" << endl;
 	cout << "2\t"
-	     << "Duyet sach mua" << endl;
+	     << "Ghi nhan muon sach" << endl;
 	cout << "3\t"
-	     << "Them sach vao thu vien" << endl;
+	     << "Duyet sach mua" << endl;
 	cout << "4\t"
+	     << "Ghi nhan mua sach" << endl;
+	cout << "5\t"
+	     << "Them sach vao thu vien" << endl;
+	cout << "6\t"
 	     << "Chinh sua sach trong thu vien" << endl;
 	// view changes to database????????????
 	cout << "5\t"
@@ -33,7 +37,9 @@ void Accountant(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 		enum Choice
 		{
 			ChoiceBrowseBorrowSubmition = 1,
+			ChoiceGetBorrowBook,
 			ChoiceBrowseBuySubmition,
+			ChoiceGetBuyBook,
 			ChoiceAddBook,
 			ChoiceModifyBook,
 			Exit
@@ -42,9 +48,11 @@ void Accountant(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 			case ChoiceBrowseBorrowSubmition:
 				BrowseBorrowBook(CurrentUser, BookData);
 				break;
+			case ChoiceGetBorrowBook: break;
 			case ChoiceBrowseBuySubmition:
 				// ChoiceBrowseBuySubmition();
 				break;
+			case ChoiceGetBuyBook: break;
 			case ChoiceAddBook:
 				// ChoiceAddBook();
 				break;
