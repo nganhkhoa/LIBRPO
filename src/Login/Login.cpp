@@ -1,19 +1,9 @@
 #include <Login.h>
+#include <Find.h>
 
 using namespace std;
 
-int FindUserByName(vector<User>& UserData, string& str) {
-	// find the f@#%@^@#^ user by his name
-	// because user input in the username
-	// we have to find it no matter what
 
-	// this is different from FindUser which is by uid
-	// I'm so lazy to change the name
-	for (int i = 0; i < UserData.size(); i++) {
-		if (UserData[i].Username == str) return i;
-	}
-	return UserData.size();
-}
 
 bool UserLoginPrompt(vector<User>& UserData, int& User_num) {
 	system("cls");

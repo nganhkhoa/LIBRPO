@@ -1,5 +1,5 @@
 #include <ReadData.h>
-
+#include <Find.h>
 using namespace std;
 
 bool ReadUser(vector<User>& UserData) {    // read user file
@@ -17,15 +17,6 @@ bool ReadUser(vector<User>& UserData) {    // read user file
 	}
 	userfile.close();
 	return true;
-}
-
-int FindUser(
-  vector<User>& UserData,
-  string& uid) {    // we have the uid only, find by uid
-	for (int i = 0; i < UserData.size(); i++) {
-		if (UserData[i].uid == uid) return i;
-	}
-	return UserData.size();
 }
 
 bool ReadAccount(vector<User>& UserData) {

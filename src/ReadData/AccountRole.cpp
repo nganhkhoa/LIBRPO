@@ -1,24 +1,9 @@
 #include <ReadData.h>
+#include <Find.h>
 
 using namespace std;
 
-UserAccount FindAccount(vector<User>& UserData, string& AccId) {
-	// we have the account name only
-	// find the account place in vector
-	UserAccount Num;
-	Num.User_num = UserData.size();
-	for (int User_num = 0; User_num < UserData.size(); User_num++) {
-		for (int Account_num = 0;
-		     Account_num < UserData[User_num].AccountList.size();
-		     Account_num++) {
-			if (UserData[User_num].AccountList[Account_num].AccId == AccId) {
-				Num = {User_num, Account_num};
-				return Num;
-			}
-		}
-	}
-	return Num;
-}
+
 
 bool ReadRole(vector<User>& UserData) {
 	// read file

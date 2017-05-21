@@ -11,7 +11,11 @@
 		"ostream": "cpp",
 		"cstdlib": "cpp",
 		"vector": "cpp",
-		"rope": "cpp"
+		"rope": "cpp",
+		"slist": "cpp",
+		"array": "cpp",
+		"initializer_list": "cpp",
+		"utility": "cpp"
 	},
 	"editor.formatOnType": true,
 	"editor.formatOnSave": false,

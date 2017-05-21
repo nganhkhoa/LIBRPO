@@ -3,7 +3,6 @@
 
 #include "CommonLib.h"
 
-int FindUserByName(std::vector<User>&, std::string&);
 bool UserLoginPrompt(std::vector<User>&, int&);
 
 void ShowRoleList(std::vector<User>&, UserAccount&);

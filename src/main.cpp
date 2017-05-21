@@ -76,6 +76,7 @@ Manager
 
 
 #include <CommonLib.h>
+#include <Find.h>
 
 #include <ReadBook.h>
 #include <ReadData.h>

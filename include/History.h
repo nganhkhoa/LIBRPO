@@ -1,4 +1,4 @@
-#ifndef LIBRPO_HISTORY_H
+#ifndef LIBPRO_HISTORY_H
 #define LIBPRO_HISTORY_H
 
 #include "CommonLib.h"
