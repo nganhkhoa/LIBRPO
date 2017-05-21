@@ -1,5 +1,5 @@
 /*
-*	Last update: 12/5/2017, 00:00:00
+*	Last update: 21/5/2017, 16:47:00
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
@@ -49,7 +49,7 @@
 
                 UserScope
 Reader
-    Find
+    ~~Find~~
     Return
 
 Thu thu

@@ -3,18 +3,17 @@
 
 #include "CommonLib.h"
 
-bool 		ReadUser(std::vector<User>&);
-int 		FindUser(std::vector<User>&, std::string&);
-bool 		ReadAccount(std::vector<User>&);
+bool ReadUser(std::vector<User>&);
+int FindUser(std::vector<User>&, std::string&);
+bool ReadAccount(std::vector<User>&);
 
-UserAccount	FindAccount(std::vector<User>&, std::string&);
-bool 		ReadRole(std::vector<User>&);
+UserAccount FindAccount(std::vector<User>&, std::string&);
+bool ReadRole(std::vector<User>&);
 
 
+bool ReadData(std::vector<User>&, bool);
 
-bool 		ReadData(std::vector<User>&, bool);
-
-//Show Data
+// Show Data
 
 void ShowData(std::vector<User>&);
 void ShowUserData(std::vector<User>&, int&);

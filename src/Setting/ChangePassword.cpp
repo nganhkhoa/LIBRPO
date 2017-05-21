@@ -4,7 +4,7 @@ using namespace std;
 
 bool ComparePassword(
   vector<User>& UserData,
-  LoggedInUser CurrentUser,
+  LoggedInUser& CurrentUser,
   string& VerifyPassword) {
 	// cypher here
 
@@ -19,7 +19,7 @@ bool ComparePassword(
 
 bool ChangePassword(
   vector<User>& UserData,
-  LoggedInUser CurrentUser,
+  LoggedInUser& CurrentUser,
   bool debug) {
 	system("cls");
 	cout << "Sau day he thong se yeu cau ban nhap mat ma cu" << endl;

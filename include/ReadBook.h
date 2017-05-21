@@ -11,7 +11,7 @@ int FindBook(std::vector<Book>&, std::string&, bool);
 
 bool ReadBook(std::vector<Book>&, bool);
 
-//Show Book 
+// Show Book
 
 void ShowBook(std::vector<Book>&);
 void ShowBookData(std::vector<Book>&, int&);

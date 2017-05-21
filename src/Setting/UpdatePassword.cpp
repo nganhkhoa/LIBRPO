@@ -69,7 +69,7 @@ bool WriteAccountRoleMap(vector<User>& UserData, bool debug) {
 
 bool UpdatePassword(
   vector<User>& UserData,
-  LoggedInUser CurrentUser,
+  LoggedInUser& CurrentUser,
   string& NewPassword,
   bool debug) {
 

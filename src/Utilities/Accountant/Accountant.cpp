@@ -27,7 +27,7 @@ int AccountantChoice() {
 	return Choice;
 }
 
-void Accountant(LoggedInUser CurrentUser, vector<Book>& BookData) {
+void Accountant(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 
 	while (true) {
 		enum Choice

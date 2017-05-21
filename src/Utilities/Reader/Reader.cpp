@@ -25,7 +25,7 @@ int ReaderChoice() {
 }
 
 
-void Reader(LoggedInUser CurrentUser) {
+void Reader(LoggedInUser& CurrentUser) {
 	while (true) {
 		enum Choice
 		{

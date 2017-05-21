@@ -3,32 +3,33 @@
 
 #include "CommonLib.h"
 
-int ChooseUtilities(LoggedInUser);
-void Utilities(LoggedInUser, std::vector<Book>&);
+int ChooseUtilities(LoggedInUser&);
+void Utilities(LoggedInUser&, std::vector<Book>&);
 
-//Reader
+// Reader
 int ReaderChoice();
-void Reader(LoggedInUser);
-	bool CreateRequestBoorowBook(LoggedInUser, std::string&);
-	void BorrowFromCart(LoggedInUser, std::vector<Book> &);
-	//this one
-	void BorrowBook(LoggedInUser);
+void Reader(LoggedInUser&);
 
-//Accountant
+bool CreateRequestBoorowBook(LoggedInUser&, std::string&);
+void BorrowFromCart(LoggedInUser&, std::vector<Book>&);
+// this one
+void BorrowBook(LoggedInUser&);
+
+// Accountant
 int AccountantChoice();
-void Accountant(LoggedInUser, std::vector<Book>&);
+void Accountant(LoggedInUser&, std::vector<Book>&);
 
-	bool GetBorrowData(std::vector<BorrowBookSubmit> &);
-	bool UpdateBorrowData(std::vector<BorrowBookSubmit> &);
-	bool CreateBorrowRecord(BorrowBookSubmit);
-	int ValidateBorrowBook(LoggedInUser, std::vector<Book> &, BorrowBookSubmit);
-	//this one 
-	void BrowseBorrowBook(LoggedInUser, std::vector<Book> &);
-
-
-//Admin
+bool GetBorrowData(std::vector<BorrowBookSubmit>&);
+bool UpdateBorrowData(std::vector<BorrowBookSubmit>&);
+bool CreateBorrowRecord(BorrowBookSubmit);
+int ValidateBorrowBook(LoggedInUser&, std::vector<Book>&, BorrowBookSubmit);
+// this one
+void BrowseBorrowBook(LoggedInUser&, std::vector<Book>&);
 
 
-//Money
+// Admin
+
+
+// Money
 
 #endif

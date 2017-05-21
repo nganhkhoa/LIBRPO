@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void ShowAllBook(LoggedInUser CurrentUser, vector<Book>& BookData) {
+void ShowAllBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 	system("cls");
 	for (int books = 0; books < BookData.size(); books++) {
 

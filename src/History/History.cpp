@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void LoginHistory(LoggedInUser CurrentUser) {
+void LoginHistory(LoggedInUser& CurrentUser) {
 	// loggin user in
 	ofstream logfile(FILELog, ios::out | ios::app);
 
@@ -18,7 +18,7 @@ void LoginHistory(LoggedInUser CurrentUser) {
 }
 
 
-void LogoutHistory(LoggedInUser CurrentUser) {
+void LogoutHistory(LoggedInUser& CurrentUser) {
 	// open file and append to it
 	// if you push exit button
 	// if you logout

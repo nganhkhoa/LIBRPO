@@ -127,7 +127,7 @@ void ChooseBookInformation(vector<Book>& BookData, int& BookToShow) {
 	return;
 }
 
-void ChooseBook(LoggedInUser CurrentUser, vector<Book>& BookData, int& books) {
+void ChooseBook(LoggedInUser& CurrentUser, vector<Book>& BookData, int& books) {
 
 	/// too bad we can't do switch here
 

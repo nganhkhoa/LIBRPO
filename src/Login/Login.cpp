@@ -30,7 +30,7 @@ bool UserLoginPrompt(vector<User>& UserData, int& User_num) {
 	return true;
 }
 
-void ShowRoleList(vector<User>& UserData, UserAccount recordNum) {
+void ShowRoleList(vector<User>& UserData, UserAccount& recordNum) {
 	// show role just for in vector struct
 	for (int Role_num = 0; Role_num < UserData[recordNum.User_num]
 	                                    .AccountList[recordNum.Account_num]
@@ -103,7 +103,7 @@ int AccountLoginPrompt(vector<User>& UserData, int& User_num) {
 
 bool RightPassword(
   vector<User>& UserData,
-  UserAccount recordNum,
+  UserAccount& recordNum,
   int& Attemps) {
 	system("cls");
 
@@ -156,7 +156,7 @@ bool RightPassword(
 	return true;
 }
 
-LoggedInUser CreateLoggedInUser(vector<User>& UserData, UserAccount recordNum) {
+LoggedInUser CreateLoggedInUser(vector<User>& UserData, UserAccount& recordNum) {
 	LoggedInUser NewUser;
 	NewUser.AccId =
 	  UserData[recordNum.User_num].AccountList[recordNum.Account_num].AccId;
@@ -206,6 +206,7 @@ LoggedInUser Login(vector<User>& UserData) {
 			getline(cin, str);
 			if (str == "y") {
 				return NewActiveUser;    // false
+				//run cppcheck retrun error Reference to auto variable returned.
 			}
 			else
 				continue;    // login prompt
@@ -214,7 +215,8 @@ LoggedInUser Login(vector<User>& UserData) {
 
 	int Account_num =
 	  AccountLoginPrompt(UserData, User_num) - 1;    // chose account
-	if (Account_num == -1) return NewActiveUser;     // no account choose
+	if (Account_num == -1) return NewActiveUser;     // no account chosen
+	//run cppcheck retrun error Reference to auto variable returned.
 	UserAccount recordNum = {User_num,
 	                         Account_num};    // save user place in vector
 
@@ -236,4 +238,5 @@ LoggedInUser Login(vector<User>& UserData) {
 	// create the LoggedInUser data to store
 
 	return NewActiveUser;
+	//run cppcheck retrun error Reference to auto variable returned.
 }

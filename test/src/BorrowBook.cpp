@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool CreateRequestBorrowBook(LoggedInUser CurrentUser, string& Book_name) {
+bool CreateRequestBorrowBook(LoggedInUser& CurrentUser, string& Book_name) {
 	ofstream requestborrowbook(FILEBorrowBook, ios::out | ios::app);
 	if (!requestborrowbook) {
 		cout << "Cannot open file" << endl;
@@ -18,7 +18,7 @@ bool CreateRequestBorrowBook(LoggedInUser CurrentUser, string& Book_name) {
 	return true;
 }
 
-void BorrowFromCart(LoggedInUser CurrentUser, vector<Book>& Cart) {
+void BorrowFromCart(LoggedInUser& CurrentUser, vector<Book>& Cart) {
 	for (int index = 0; index < Cart.size(); index++) {
 		if (index > MAX_BORROW /*- UserBorrow*/) {
 			cout << "Ban dang muon hon so quyen sach co the" << endl;
@@ -40,7 +40,7 @@ void BorrowFromCart(LoggedInUser CurrentUser, vector<Book>& Cart) {
 	return;
 }
 
-void BorrowBook(LoggedInUser CurrentUser /*, vector<Book>& BorrowCart*/) {
+void BorrowBook(LoggedInUser& CurrentUser /*, vector<Book>& BorrowCart*/) {
 	system("cls");
 	cout << "Nhap ten sach ban muon muon" << endl;
 	cout << "Neu de trong se quay ve" << endl;

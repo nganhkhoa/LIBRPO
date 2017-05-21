@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int ChooseUtilities(LoggedInUser CurrentUser) {
+int ChooseUtilities(LoggedInUser& CurrentUser) {
 
 	// return choice
 	// of role
@@ -25,7 +25,7 @@ int ChooseUtilities(LoggedInUser CurrentUser) {
 	return role;
 }
 
-void Utilities(LoggedInUser CurrentUser, vector<Book>& BookData) {
+void Utilities(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 	while (true) {
 		system("cls");
 

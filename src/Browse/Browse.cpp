@@ -38,7 +38,7 @@ int BrowseOption() {
 	return Choice;
 }
 
-void Browse(LoggedInUser CurrentUser, vector<Book>& BookData) {
+void Browse(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 
 	enum BrowseMode
 	{

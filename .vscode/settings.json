@@ -8,10 +8,17 @@
 		"iostream": "cpp",
 		"*.tcc": "cpp",
 		"fstream": "cpp",
-		"ostream": "cpp"
+		"ostream": "cpp",
+		"cstdlib": "cpp",
+		"vector": "cpp",
+		"rope": "cpp"
 	},
 	"editor.formatOnType": true,
 	"editor.formatOnSave": false,
 	"C_Cpp.clang_format_path": "C:\\Program Files\\LLVM\\bin\\clang-format.exe",
-	"C_Cpp.clang_format_style": "file"
+	"C_Cpp.clang_format_style": "file",
+	"cppcheck.includePaths": [
+		"${workspaceRoot}\\include",
+		"D:\\Dropbox\\programming\\C++\\project\\LIBPRO\\include"
+	]
 }

@@ -21,6 +21,10 @@ bool GetBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 		scin >> TempBorrowBookData.Status >> TempBorrowBookData.User_num >>
 		  TempBorrowBookData.Account_num >> TempBorrowBookData.ISBN;
 
+		  //running cpp check gives error
+		  //Accountant_User_num and Accountant_Account_num
+		  //not initialied
+
 		BorrowBookData.push_back(TempBorrowBookData);
 	}
 	borrowfile.close();
@@ -80,7 +84,7 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 }
 
 int ValidateBorrowBook(
-  LoggedInUser CurrentUser,
+  LoggedInUser& CurrentUser,
   vector<Book>& BookData,
   BorrowBookSubmit BorrowBookData) {
 	system("cls");
@@ -118,7 +122,7 @@ int ValidateBorrowBook(
 	return Choice;
 }
 
-void BrowseBorrowBook(LoggedInUser CurrentUser, vector<Book>& BookData) {
+void BrowseBorrowBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 	system("cls");
 
 	vector<BorrowBookSubmit> BorrowBookData;
