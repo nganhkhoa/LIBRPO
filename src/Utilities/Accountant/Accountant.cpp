@@ -18,7 +18,7 @@ int AccountantChoice() {
 	cout << "6\t"
 	     << "Chinh sua sach trong thu vien" << endl;
 	// view changes to database????????????
-	cout << "5\t"
+	cout << "7\t"
 	     << "Thoat" << endl;
 
 	cout << "Moi ban chon: ";
@@ -48,7 +48,9 @@ void Accountant(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 			case ChoiceBrowseBorrowSubmition:
 				BrowseBorrowBook(CurrentUser, BookData);
 				break;
-			case ChoiceGetBorrowBook: break;
+			case ChoiceGetBorrowBook:
+				// GetBookAuthentication(UserData, BookData, CurrentUser);
+				break;
 			case ChoiceBrowseBuySubmition:
 				// ChoiceBrowseBuySubmition();
 				break;

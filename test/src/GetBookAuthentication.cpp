@@ -27,7 +27,10 @@ bool LoadBorrowRecord(BorrowBookSubmit BorrowData) {
 }
 
 
-void GetBookAuthentication(vector<User>& UserData, vector<Book>& BookData, LoggedInUser& CurrentUser) {
+void GetBookAuthentication(
+  vector<User>& UserData,
+  vector<Book>& BookData,
+  LoggedInUser& CurrentUser) {
 
 	BorrowBookSubmit BorrowData;
 	if (!LoadBorrowRecord(BorrowData)) return;
