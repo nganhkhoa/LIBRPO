@@ -1,0 +1,185 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{vntex}
+\usepackage{extsizes}
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox}%Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}% For highlighting paragraph backgrounds
+\usepackage{caption,subcaption}
+\usepackage{logicproof}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\geometry{%?i?u ch?nh gi?y cho c? file
+	a4paper,%Gi?y A4
+	total={170mm,257mm},%C? gi?y
+	left=15mm,%L? tr?i
+	right=15mm,%L? ph?i
+	top=20mm,%L? tr?n
+	bottom=20mm,%L? d??i
+}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[unicode]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true}
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			{\scshape\large ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\par}
+					{\scshape\LARGE TRƯỜNG ĐẠI HỌC BÁCH KHOA\par}
+			{\scshape\Large KHOA KHOA HỌC - KỸ THUẬT MÁY TÍNH}
+			\vspace{2cm}
+
+		\end{center}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=.2]{LogoBK.jpg}
+		\end{figure}
+		\vspace{2cm}
+		\begin{center}
+			{\scshape\LARGE \textbf{Bộ môn Kỹ thuật lập trình}\par}
+			\vspace{1cm}
+			\Large \textbf{Báo cáo Bài tập lớn số 2: ffdfdfdfdfdChương trình quản lý thư viện LIBPRO}
+		\end{center}
+		\vspace{2cm}
+		\begin{center}
+			\begin{tabular}{r l}
+				GVHD:&TS. Lê Thành Sách\\
+				Sinh viên:&Nguyễn Anh Khoa - 1611617\\
+				&Phạm Quốc Nam - 1612128\\
+				&Nguyễn Minh Khôi - 1611657\\
+			\end{tabular}\\
+		\end{center}
+	\end{titlepage}
+\newpage
+\chapter{Tổng quan về LIBPRO}
+LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn Kỹ Thuật Lập Trình, là một phần mềm chuyên biệt quản trị các hoạt động trong các thư viện thông thường. LIBPRO tuy chưa phải phần mềm hoàn hảo nhất về các tiện ích và giao diện người dùng, nhưng đã đáp ứng được các yêu cầu cơ bản cho những người sử dụng. LIBPRO là sản phẩm của SIMple Group, gồm các thành viên Nguyễn Anh Khoa, Phạm Quốc Nam và Nguyễn MInh Khôi cùng phát triển.
+\chapter{Phần mềm Quản lý Thư viện LIBPRO}
+	\section{Đôi nét phân tích về định hướng phát triển LIBPRO}
+	Vì là phần mềm dành cho việc quản lý thư viện, LIBPRO hoạt động dựa trên các quy tắc căn bản của các thư viện, đáp ứng các yêu cầu sau đây
+		\subsection{Vai trò người sử dụng}
+		LIBPRO cung cấp 4 vai trò chủ yếu cho người sử dụng:
+		\begin{enumerate}
+			\item KHÁCH
+			\item ĐỘC GIẢ
+			\item THỦ THƯ
+			\item QUẢN LÝ NGƯỜI DÙNG
+		\end{enumerate}
+			\subsubsection{KHÁCH}
+				KHÁCH được định nghĩa là người được truy cập vào phần mềm LIBPRO, tuy nhiên, KHÁCH chỉ thao tác trên phần mềm ở mức \textbf{quan sát} (xem kỹ hơn ở mục...)\\
+				Số lượng KHÁCH truy cập vào phần mềm là không giới hạn
+			\subsubsection{ĐỘC GIẢ}
+				ĐỘC GIẢ được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng thao tác ở mức \textbf{tùy chỉnh} (xem kỹ hơn ở mục...) \\
+				Số lượng ĐỘC GIẢ truy cập vào phần mềm là có giới hạn, tùy theo quy định của thư viện
+			\subsubsection{THỦ THƯ}
+				THỦ THƯ được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng thao tác ở mức \textbf{quản lý tài nguyên} (xem kỹ hơn ở mục...) \\
+				Số lượng THỦ THƯ truy cập vào phần mềm chỉ từ 1-2 người.
+			\subsubsection{QUẢN LÝ NGƯỜI DÙNG}
+				QUẢN LÝ NGƯỜI DÙNG được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng thao tác ở mức \textbf{quản lý con người} (xem kỹ hơn ở mục...) \\
+				Số lượng QUẢN LÝ NGƯỜI DÙNG truy cập vào phần mềm chỉ từ 1-2 người.
+		\subsection{Mức thao tác}
+			\subsubsection{Mức Quan sát}
+			Thao tác ở mức này, người dùng có thể:
+			\begin{itemize}
+				\item Xem các sách có trong thư viện, và nội dung chính của các sách đó
+				\item Xem các thông báo chung của thư viện. Để rõ hơn về thông báo chung của thư viện, xem mục (...)
+			\end{itemize}
+
+			\subsubsection{Mức Tùy chỉnh}
+			Để thao tác ở mức này, người dùng BUỘC phải đăng ký tài khoản LIBPRO, sau đó có thể:
+			\begin{itemize}
+				\item Thực hiện các thao tác mức quan sát
+				\item Gửi yêu cầu mượn sách đến THỦ THƯ
+				\item Thay đổi các thông tin tài khoản cá nhân
+				\item Điều chỉnh giao diện và ngôn ngữ của LIBPRO ở cấp độ tài khoản
+			\end{itemize}
+
+			\subsubsection{Mức Quản lý tài nguyên}
+			Để thao tác ở mức này, người dùng BUỘC phải đăng ký tài khoản LIBPRO, sau đó có thể:
+			\begin{itemize}
+				\item Thực hiện các thao tác mức quan sát
+				\item Thêm sách hoặc xóa sách khỏi thư viện
+				\item Điều chỉnh các thông số của sách
+				\item Thêm các thông số thông tin tài khoản cá nhân. Xem kỹ hơn ở mục \textit{Thông số thông tin cá nhân}
+				\item Điều chỉnh giao diện và ngôn ngữ của LIBPRO ở cấp độ tài khoản
+				\item Gửi các yêu cầu đến QUẢN LÝ NGƯỜI DÙNG
+				\item Gửi các thông báo chung và riêng đến các tài khoản ĐỘC GIẢ
+			\end{itemize}
+
+			\subsubsection{Mức Quản lý Con người}
+			Để thao tác ở mức này, người dùng BUỘC phải đăng ký tài khoản LIBPRO, sau đó có thể
+			\begin{itemize}
+				\item Thực hiên các thao tác mưc quan sát
+				\item Thêm hoặc xóa hoặc khóa các tài khoản ĐỘC GIẢ hoặc THỦ THƯ
+				\item Điều chỉnh giao diện và ngôn ngữ của LIBPRO ở cấp độ tài khoản
+				\item Gửi các thông báo riêng đến các tài khoản khác
+			\end{itemize}
+		\subsection{Cấp độ quản lý và thực thi}
+			\subsubsection{Cấp Người dùng}
+			Đây là cấp lớn nhất và khái quát nhất trong môi trường LIBPRO.\\
+			Một số đặc điểm của cấp Người dùng:
+			\begin{enumerate}
+				\item Cấp người dùng sẽ được cấp phát cho người dùng sau khi QUẢN LÝ NGƯỜI DÙNG chấp thuận yêu cầu đăng ký của người dùng.
+				\item Tên gọi cấp Người dùng là duy nhất và không trùng lặp, xét cả trường hợp chữ in và chữ thường
+				\item Tên gọi cấp Người dùng có độ dài không quá 10 ký tự và không chứa các ký tự đặc biệt (về các ký tự đặc biệt, xem kỹ hơn ở mục...)
+				\item Một tên Người dùng có thể đăng ký nhiều tài khoản phân biệt và không trùng lặp
+				\item Cấp người dùng chỉ được xóa khi người dùng gửi yêu cầu đến QUẢN LÝ NGƯỜI DÙNG hoặc do người dùng vi phạm các quy định của thư viện ở mức \textbf{\textit{Rất Nghiêm trọng}} trở lên. (xem mục ...)
+			\end{enumerate}
+
+			\subsubsection{Cấp Tài khoản}
+			Đây là cấp thứ hai sau cấp Người dùng trong môi trường LIBPRO.\\
+			Một số đặc điểm của cấp Tài khoản:
+			\begin{enumerate}
+				\item Cấp Tài khoản sẽ được cấp phát cho người dùng sau khi QUẢN LÝ NGƯỜI DÙNG chấp thuận yêu cầu đăng ký của người dùng.
+				\item Tên gọi cấp Tài khoản là duy nhất và không trùng lặp, xét cả trường hợp chữ in và chữ thường
+				\item Tên gọi cấp Tài khoản có độ dài không quá 10 ký tự và không chứa các ký tự đặc biệt (về các ký tự đặc biệt, xem kỹ hơn ở mục...)
+				\item Một tên Tài khoản có thể đăng ký nhiều vai trò phân biệt và được trùng lặp
+				\item Cấp Tài khoản sẽ bị khóa nếu tài khoản đó được liệt vào danh sách đen. (Chi tiết về danh sách đen, xem mục...)
+				\item Cấp tài khoản chỉ được xóa khi người dùng gửi yêu cầu đến QUẢN LÝ NGƯỜI DÙNG hoặc do người dùng vi phạm các quy định của thư viện ở mức \textbf{\textit{Nghiêm trọng}} trở lên. (xem mục ...)
+			\end{enumerate}
+		\subsubsection{Cấp vai trò}
+		Như đã giới thiệu ở phần 2.1.1 về các vai trò người dùng, phần này xin bổ sung thêm một số quy định
+		\begin{enumerate}
+			\item Một tài khoản không thể vừa là QUẢN LÝ NGƯỜI DÙNG, vừa là ĐỘC GIẢ hoặc THỦ THƯ
+			\item Số vai trò trong 1 tài khoản tối đa có thể là 3
+			\item Trong cùng một tài khoản, không thể cùng lúc thao tác ở 2 vai trò khác nhau. BUỘC phải chuyển từ vai trò A sang vai trò B để thực hiện công việc của B chứ không thể thực hiên công việc của B khi đang ở vai trò A.
+			\item Về vai trò QUẢN LÝ NGƯỜI DÙNG, sẽ có thêm các quy định cụ thể khác
+		\end{enumerate}
+	\subsection{Thủ tục đăng ký và đăng nhập}
+	Viêc truy cập vào LIBPRO hoàn toàn chưa cần đến việc đăng ký, như đã nêu ở trên, nhưng để nâng cao mức thao tác, người sử dùng cần đăng ký người dùng và tài khoản LIBPRO.\\
+		\subsubsection{Về việc Đăng ký}
+		Người dùng sẽ nhấp vào ô đăng ký để thực hiên yêu cầu đăng ký của mình. Thông tin cần điền vào sẽ có những mục bắt buộc và không bắt buộc. Sau khi điền xong, người dùng sẽ nhấn nút gửi và chờ duyệt từ QUẢN LÝ NGƯỜI DÙNG. Vì thành viên của thư viện chỉ có giới hạn, nên không phải mọi người đều đăng ký thành công.\\
+		Việc đăng ký thường chỉ xảy ra khi muốn tạo thêm tài khoản mới cho cấp Người dùng hiện tại. Nếu muốn đăng ký cấp Người dùng mới, phải đăng xuất khỏi cấp người dùng hiện tại để đăng ký.\\
+
+		\subsubsection{Về việc Đăng nhập}
+		Người dùng sẽ nhấp vào ô đăng nhập để đăng nhập vào tài khoản của mình. Khi đăng nhập, chỉ cần điền tên tài khoản và password của tài khoản đó. Sau khi đăng nhập, mọi tùy chỉnh trước lần đăng xuất cuối cùng đều sẽ được giữ nguyên.\\
+		Việc đăng nhập thường xảy ra khi muốn nâng cao mức thao tác từ mức Quan sát lên để thực hiện các chức năng ứng với từng vai trò đăng nhập.\\
+		Khi người dùng muốn thoát chương trình, cần thực hiện bước đăng xuất trước khi thoát.\\
+		Nếu người dùng không đăng xuất trước khi thoát khỏi chương trình, ở lần mở chương trình tiếp theo, chương trình sẽ hiện lên tên tài khoản chưa đăng xuất và yêu cầu nhập password để truy cập vào tài khoản; hoặc truy cập như là KHÁCH.\\
+		\subsubsection{Về các ký tự đặc biệt}
+		Phần này chủ yếu dành cho việc đăt tên người dùng hoặc tên tài khoản.\\
+		Các ký hiệu đặc biệt là: %!@# \$ \% ^\&*\( \)<>? và dấu cách
+\chapter{Tiến trình thực hiện phần mềm}
+\chapter{Các vấn đề nảy sinh trong tiến trình phát triển phần mềm}
+\end{document}
