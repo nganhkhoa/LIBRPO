@@ -6,7 +6,7 @@ const int MAX_ATTEMPT = 3;
 
 const int BOOK_PER_PAGE = 3;
 
-const int MAX_BORROW = 3;
+const int MAX_BORROW = 4;
 
 Role LibraryRole[MAX_ROLE]{
   {1, "DOC GIA", "Chi co quyen doc"},
