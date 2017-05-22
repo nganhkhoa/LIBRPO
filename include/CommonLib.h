@@ -145,6 +145,7 @@ typedef struct _BorrowBookSubmit {
 } BorrowBookSubmit;
 
 extern const int MAX_BORROW;
+extern  const int MAX_WEEK_BORROW;
 
 extern std::string SUBMITDIRECTORY;
 extern std::string FILEBorrowBook;
