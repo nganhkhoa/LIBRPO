@@ -3,7 +3,7 @@
 
 #include "CommonLib.h"
 
-void LoginHistory(LoggedInUser&);
-void LogoutHistory(LoggedInUser&);
+void LoginHistory();
+void LogoutHistory();
 
 #endif
