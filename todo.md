@@ -1,2 +1,2 @@
-* [ ] Make UserData, BookData and CurrentUser global
-* [ ] Update borrow record
+* [ ] Make UserData, BookData and ~~CurrentUser global~~
+* [X] ~~*Update borrow record*~~
