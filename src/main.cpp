@@ -71,7 +71,7 @@ Manager
     //Keep track with function to work
     bool ReadData(vector<User>&, vector<AccountRoleMap>&)
     int Welcome(vector<User>&, vector<AccountRoleMap>&);
-    int WelcomeUser(vector<User>&, vector<AccountRoleMap>&, LoggedInUser&);
+    int WelcomeUser(vector<User>&, vector<AccountRoleMap>&);
 */
 
 
@@ -129,9 +129,9 @@ int main() {
 	if (debug) system("pause");
 	// ────────────────────────────────────────────────────────────────────────────────
 
-
-	LoggedInUser CurrentUser;
-	CurrentUser.Active = false;
+	// check log file to see who shutdown without logging out
+	// if ... else
+	// CurrentUser.Active = false;
 
 	// Create an active user
 	// if is active, then there is someone logging in
@@ -154,10 +154,9 @@ int main() {
 			// welcome is an int function return choice
 			switch (Welcome()) {
 				case LoginUser:
-					cin.ignore();                     // for inputing string
-					CurrentUser = Login(UserData);    // login system
-					if (CurrentUser.Active)
-						LoginHistory(CurrentUser);    // login history
+					cin.ignore();    // for inputing string
+					CurrentUser.Active = LoggedIn(UserData);    // login system
+					if (CurrentUser.Active) LoginHistory();     // login history
 					break;
 				case SignUpUser:
 					// SignUp();
@@ -166,7 +165,7 @@ int main() {
 					// without loging in, the user can still browse
 					// we use CurrentUser.Active to know if loggin or not
 					// if no, we would not let them borrow, buy?
-					Browse(CurrentUser, BookData);
+					Browse(BookData);
 					system("pause");
 					break;
 				case Manual:
@@ -195,27 +194,24 @@ int main() {
 				Manual,
 				Exit
 			};
-			switch (WelcomeUser(CurrentUser)) {
+			switch (WelcomeUser()) {
 				case LogoutUser: {    // as said change active to false
 					cout << "Ban muon dang xuat? (y/n) ";
 					cin.ignore();
 					string Answer;
 					getline(cin, Answer);
 					if (Answer == "y") {
-						LogoutHistory(CurrentUser);    // logout history
-						CurrentUser.Active = false;    // change active to false
+						LogoutHistory();    // logout history
 					}
 					break;
 				}
-				case SettingUser: Setting(UserData, CurrentUser); break;
-				case UtilitiesUser:
-					Utilities(CurrentUser, BookData);    // void utilities
-					break;
+				case SettingUser: Setting(UserData); break;
+				case UtilitiesUser: Utilities(BookData); break;
 				case BrowseOption:
 					// without loging in, the user can still browse
 					// we use CurrentUser.Active to know if logged in or not
 					// if no, we would not let them borrow, buy?
-					Browse(CurrentUser, BookData);
+					Browse(BookData);
 					system("pause");
 					break;
 				case Manual:
@@ -230,7 +226,7 @@ int main() {
 						break;
 					else {
 						// logout what ever user is logging on
-						LogoutHistory(CurrentUser);
+						LogoutHistory();
 						return 0;    // terminate the program
 					}
 				}

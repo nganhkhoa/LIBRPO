@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void ShowAllBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
+void ShowAllBook(vector<Book>& BookData) {
 	system("cls");
 	for (int books = 0; books < BookData.size(); books++) {
 
@@ -55,14 +55,14 @@ void ShowAllBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 			cout << "Trang " << (books + 1) / BOOK_PER_PAGE << "/" << Pages
 			     << endl;
 
-			ChooseBook(CurrentUser, BookData, books);
+			ChooseBook(BookData, books);
 			system("pause");
 			system("cls");
 		}
 		if ((books + 1) == BookData.size() && BookData.size() % BOOK_PER_PAGE) {
 
 			// if you are on the last book
-			// and the last book is not modibel to BOOK_PER_PAGE
+			// and the last book is  %= BOOK_PER_PAGE != 0
 			// then you do math to know the page
 			// wait for user input
 
@@ -70,7 +70,7 @@ void ShowAllBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 			Pages += 1;
 			cout << "Trang " << Pages << "/" << Pages << endl;
 
-			ChooseBook(CurrentUser, BookData, books);
+			ChooseBook(BookData, books);
 			system("pause");
 			system("cls");
 		}

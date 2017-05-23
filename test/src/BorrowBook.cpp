@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool CreateRequestBorrowBook(LoggedInUser& CurrentUser, string& Book_name) {
+bool CreateRequestBorrowBook(string& Book_name) {
 	ofstream requestborrowbook(FILEBorrowBook, ios::out | ios::app);
 	if (!requestborrowbook) {
 		cout << "Cannot open file" << endl;
@@ -11,14 +11,17 @@ bool CreateRequestBorrowBook(LoggedInUser& CurrentUser, string& Book_name) {
 	}
 
 	string BookId = /*FindBookByName(str)*/ "978-0451524935";
-	requestborrowbook << "0"
-	                  << "\t" << CurrentUser.User_num << "\t"
-	                  << CurrentUser.Account_num << "\t" << BookId << endl;
+	requestborrowbook << "0" << "\t" 
+					  << CurrentUser.User_num << "\t"
+	                  << CurrentUser.Account_num << "\t" 
+					  << BookId << "\t" 
+					  << -1 << "\t" 
+					  << -1 << endl;
 	requestborrowbook.close();
 	return true;
 }
 
-void BorrowFromCart(LoggedInUser& CurrentUser, vector<Book>& Cart) {
+void BorrowFromCart(vector<Book>& Cart) {
 	for (int index = 0; index < Cart.size(); index++) {
 		if (index > MAX_BORROW /*- UserBorrow*/) {
 			cout << "Ban dang muon hon so quyen sach co the" << endl;
@@ -30,7 +33,7 @@ void BorrowFromCart(LoggedInUser& CurrentUser, vector<Book>& Cart) {
 			system("pause");
 			return;
 		}
-		if (!CreateRequestBorrowBook(CurrentUser, Cart[index].BookId)) {
+		if (!CreateRequestBorrowBook(Cart[index].BookId)) {
 			cout << "Khong the gui yeu cau sach" << endl;
 			cout << "Bam enter de tiep tuc" << endl;
 			system("pause");
@@ -40,38 +43,42 @@ void BorrowFromCart(LoggedInUser& CurrentUser, vector<Book>& Cart) {
 	return;
 }
 
-void BorrowBook(LoggedInUser& CurrentUser /*, vector<Book>& BorrowCart*/) {
-	system("cls");
-	cout << "Nhap ten sach ban muon muon" << endl;
-	cout << "Neu de trong se quay ve" << endl;
-	cout << "Neu ban muon muon tu gio sach, go \"giosach\"" << endl;
-	cout << "Ten sach: ";
-	string str;
-	getline(cin, str);
+void BorrowBook(/*vector<Book>& BorrowCart*/) {
+	while (true) {
+		system("cls");
+		cout << "Nhap ten sach ban muon muon" << endl;
+		cout << "Neu de trong se quay ve" << endl;
+		cout << "Neu ban muon muon tu gio sach, go \"giosach\"" << endl;
+		cout << "Ten sach: ";
+		string str;
+		getline(cin, str);
 
-	if (str.empty()) return;
-	if (str == "giosach") {
-		// BorrowFromCart(CurrentUser, BorrowCart);
-		return;
-	}
+		if (str.empty()) return;
+		if (str == "giosach") {
+			// BorrowFromCart(BorrowCart);
+			return;
+		}
 
-	if (!/*FindBookByName(str)*/ true) {
-		cout << "Ten sach khong tim thay" << endl;
-		cout << "Moi ban nhap lai" << endl;
-		BorrowBook(CurrentUser);
-		return;
-	}
+		string& BookName = str;
+		if (!/*FindBookByName(BookName)*/ true) {
+			cout << "Ten sach khong tim thay" << endl;
+			cout << "Moi ban nhap lai" << endl;
+			cout << "Bam enter de tiep tuc" << endl;
+			system("pause");
+			continue;
+		}
 
-	if (!CreateRequestBorrowBook(CurrentUser, str)) {
-		cout << "Yeu cau khong gui duoc" << endl;
-		cout << "Bam enter de tiep tuc" << endl;
+		if (!CreateRequestBorrowBook(BookName)) {
+			cout << "Yeu cau khong gui duoc" << endl;
+			cout << "Bam enter de tiep tuc" << endl;
+			system("pause");
+			return;
+		}
+
+		cout << "Yeu cau da duoc gui," << endl;
+		cout << "Cho xac nhan cua thu thu" << endl;
+		cout << "Bam enter de quay ve" << endl;
 		system("pause");
 		return;
 	}
-
-	cout << "Yeu cau da duoc gui," << endl;
-	cout << "Cho xac nhan cua thu thu" << endl;
-	cout << "Bam enter de quay ve" << endl;
-	system("pause");
-	return;
 }

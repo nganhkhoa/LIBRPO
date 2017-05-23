@@ -146,33 +146,27 @@ bool RightPassword(
 	return true;
 }
 
-LoggedInUser CreateLoggedInUser(vector<User>& UserData, UserAccount& recordNum) {
-	LoggedInUser NewUser;
-	NewUser.AccId =
+void CreateLoggedInUser(vector<User>& UserData, UserAccount& recordNum) {
+	CurrentUser.AccId =
 	  UserData[recordNum.User_num].AccountList[recordNum.Account_num].AccId;
-	NewUser.User_num    = recordNum.User_num;
-	NewUser.Account_num = recordNum.Account_num;
-	NewUser.Active      = true;
+	CurrentUser.User_num    = recordNum.User_num;
+	CurrentUser.Account_num = recordNum.Account_num;
 
 	for (int Role_num = 0; Role_num < UserData[recordNum.User_num]
 	                                    .AccountList[recordNum.Account_num]
 	                                    .RoleId.size();
 	     Role_num++) {    // to long for ya heh
-		NewUser.RoleId.push_back(UserData[recordNum.User_num]
+		CurrentUser.RoleId.push_back(UserData[recordNum.User_num]
 		                           .AccountList[recordNum.Account_num]
 		                           .RoleId[Role_num]);
 	}
-	return NewUser;
+	return;
 }
 
-LoggedInUser Login(vector<User>& UserData) {
+bool LoggedIn(vector<User>& UserData) {
 
 	//.....Still have no Idea how to make this smaller......
 
-	// return the user logged in
-	LoggedInUser NewActiveUser;
-	NewActiveUser.Active = false;
-	// defaut is false
 	int User_num = -1;
 	// to track the user being run
 
@@ -195,8 +189,7 @@ LoggedInUser Login(vector<User>& UserData) {
 			string str;
 			getline(cin, str);
 			if (str == "y") {
-				return NewActiveUser;    // false
-				//run cppcheck retrun error Reference to auto variable returned.
+				return false;
 			}
 			else
 				continue;    // login prompt
@@ -205,7 +198,7 @@ LoggedInUser Login(vector<User>& UserData) {
 
 	int Account_num =
 	  AccountLoginPrompt(UserData, User_num) - 1;    // chose account
-	if (Account_num == -1) return NewActiveUser;     // no account chosen
+	if (Account_num == -1) return false;     // no account chosen
 	//run cppcheck retrun error Reference to auto variable returned.
 	UserAccount recordNum = {User_num,
 	                         Account_num};    // save user place in vector
@@ -220,13 +213,13 @@ LoggedInUser Login(vector<User>& UserData) {
 	// the attemps must be > 1 if enter right or wrong
 	// if attemps == 0, the str enter is empty, user choose the login name again
 
-	if (Attemps == 0) NewActiveUser = Login(UserData);
+	if (Attemps == 0) return LoggedIn(UserData);
 	// return login if left blank
 	// attemps set to 0
 	else
-		NewActiveUser = CreateLoggedInUser(UserData, recordNum);
+		CreateLoggedInUser(UserData, recordNum);
 	// create the LoggedInUser data to store
 
-	return NewActiveUser;
+	return true;
 	//run cppcheck retrun error Reference to auto variable returned.
 }

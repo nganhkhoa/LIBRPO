@@ -16,7 +16,8 @@
 		"array": "cpp",
 		"initializer_list": "cpp",
 		"utility": "cpp",
-		"istream": "cpp"
+		"istream": "cpp",
+		"sstream": "cpp"
 	},
 	"editor.formatOnType": true,
 	"editor.formatOnSave": false,

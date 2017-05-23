@@ -1,6 +1,22 @@
 #include <CommonLib.h>
 
-bool debug = true;
+bool debug = true;    // debug mode switch
+
+
+//
+// ─── DATA
+// ───────────────────────────────────────────────────────────────────────
+//
+
+
+LoggedInUser CurrentUser = {"", -1, -1, false, {}};
+
+
+//
+// ─── CONSTE STUFF
+// ───────────────────────────────────────────────────────────────
+//
+
 
 const int MAX_CHARACTER = 1000;
 
@@ -27,8 +43,8 @@ std::string FILEContent   = BOOKDIRECTORY + "content.txt";
 std::string FILEHistoryPath = "history/";
 std::string FILELog         = FILEHistoryPath + "log.txt";
 
-std::string FILEDIRECTORY = "user/";                  // link to folder
-std::string FILEUser = FILEDIRECTORY + "user.txt";    // link to user file
+std::string FILEDIRECTORY = "user/";                       // link to folder
+std::string FILEUser      = FILEDIRECTORY + "user.txt";    // link to user file
 std::string FILEAccount =
   FILEDIRECTORY + "account.txt";    // link to account file
 std::string FILEAccountRoleMap =

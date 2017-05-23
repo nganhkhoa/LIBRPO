@@ -19,11 +19,13 @@ bool GetBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 		stringstream scin(str);
 		BorrowBookSubmit TempBorrowBookData;
 		scin >> TempBorrowBookData.Status >> TempBorrowBookData.User_num >>
-		  TempBorrowBookData.Account_num >> TempBorrowBookData.ISBN;
+		  TempBorrowBookData.Account_num >> TempBorrowBookData.ISBN >>
+		  TempBorrowBookData.Accountant_User_num >>
+		  TempBorrowBookData.Accountant_Account_num;
 
-		  //running cpp check gives error
-		  //Accountant_User_num and Accountant_Account_num
-		  //not initialied
+		// running cpp check gives error
+		// Accountant_User_num and Accountant_Account_num
+		// not initialied
 
 		BorrowBookData.push_back(TempBorrowBookData);
 	}
@@ -47,6 +49,8 @@ bool UpdateBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 		           << BorrowBookData[index].ISBN << "\t";
 
 		if (BorrowBookData[index].Status == 0) {
+			borrowfile << -1 << "\t" << -1 << endl;
+			// -1 means not check
 			cout << endl;
 			continue;
 		}
@@ -84,7 +88,6 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 }
 
 int ValidateBorrowBook(
-  LoggedInUser& CurrentUser,
   vector<Book>& BookData,
   BorrowBookSubmit BorrowBookData) {
 	system("cls");
@@ -122,7 +125,7 @@ int ValidateBorrowBook(
 	return Choice;
 }
 
-void BrowseBorrowBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
+void BrowseBorrowBook(vector<Book>& BookData) {
 	system("cls");
 
 	vector<BorrowBookSubmit> BorrowBookData;
@@ -133,11 +136,14 @@ void BrowseBorrowBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 		return;
 	}
 
+
+	static bool NewRequest;
 	for (int index = 0; index < BorrowBookData.size(); index++) {
 		if (BorrowBookData[index].Status != 0) continue;    // book validated
 
+		NewRequest = true;
 		BorrowBookData[index].Status =
-		  ValidateBorrowBook(CurrentUser, BookData, BorrowBookData[index]);
+		  ValidateBorrowBook(BookData, BorrowBookData[index]);
 
 		if (BorrowBookData[index].Status == 3) {
 			BorrowBookData[index].Status = 0;    // return state
@@ -164,7 +170,12 @@ void BrowseBorrowBook(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 		// update in date ///and time///
 		// we only care about days passed
 	}
-
+	if (!NewRequest) {
+		cout << "Khong co yeu cau muon moi" << endl;
+		cout << "Hay thu lai sau" << endl;
+		cout << "Bam enter de quay ve" << endl;
+		system("pause");
+	}
 	UpdateBorrowData(BorrowBookData);
 	return;
 }

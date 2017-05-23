@@ -42,8 +42,7 @@ bool PasswordVerification(string& Password, string& UserPassword) {
 
 void GetBookAuthentication(
   vector<User>& UserData,
-  vector<Book>& BookData,
-  LoggedInUser& CurrentUser) {
+  vector<Book>& BookData) {
 
 	BorrowBookSubmit BorrowData;
 	if (!LoadBorrowRecord(BorrowData)) return;
@@ -98,7 +97,7 @@ void GetBookAuthentication(
 		return;
 	}
 
-	if (!UpdateBorrowRecord(BorrowData, Borrow_num, CurrentUser)) {
+	if (!UpdateBorrowRecord(BorrowData, Borrow_num)) {
 		cout << "Cap nhat ban ghi khong thanh cong" << endl;
 		cout << "Hay thu lai sau" << endl;
 		system("pause");

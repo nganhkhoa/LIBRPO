@@ -10,8 +10,8 @@ void ShowAccountList(std::vector<User>&, int&);
 
 int AccountLoginPrompt(std::vector<User>&, int&);
 bool RightPassword(std::vector<User>&, UserAccount&, int&);
-LoggedInUser CreateLoggedInUser(std::vector<User>&, UserAccount&);
-LoggedInUser Login(std::vector<User>&);
+void CreateLoggedInUser(std::vector<User>&, UserAccount&);
+bool LoggedIn(std::vector<User>&);
 
 void LockAccount(std::string&);
 bool ReadLock();

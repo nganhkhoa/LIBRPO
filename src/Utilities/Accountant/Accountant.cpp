@@ -23,7 +23,7 @@ int AccountantChoice() {
 
 	cout << "Moi ban chon: ";
 	cin >> Choice;
-	while (Choice < 0 || Choice > 5) {
+	while (Choice < 0 || Choice > 7) {
 		cout << "Lua chon khong co, moi ban chon lai: ";
 		cin >> Choice;
 	}
@@ -31,7 +31,7 @@ int AccountantChoice() {
 	return Choice;
 }
 
-void Accountant(LoggedInUser& CurrentUser, vector<Book>& BookData) {
+void Accountant(vector<Book>& BookData) {
 
 	while (true) {
 		enum Choice
@@ -46,10 +46,10 @@ void Accountant(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 		};
 		switch (AccountantChoice()) {
 			case ChoiceBrowseBorrowSubmition:
-				BrowseBorrowBook(CurrentUser, BookData);
+				BrowseBorrowBook(BookData);
 				break;
 			case ChoiceGetBorrowBook:
-				// GetBookAuthentication(UserData, BookData, CurrentUser);
+				// GetBookAuthentication(UserData, BookData);
 				break;
 			case ChoiceBrowseBuySubmition:
 				// ChoiceBrowseBuySubmition();

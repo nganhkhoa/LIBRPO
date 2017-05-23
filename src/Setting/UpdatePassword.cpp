@@ -69,7 +69,6 @@ bool WriteAccountRoleMap(vector<User>& UserData) {
 
 bool UpdatePassword(
   vector<User>& UserData,
-  LoggedInUser& CurrentUser,
   string& NewPassword) {
 
 	// cypher here
