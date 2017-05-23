@@ -3,12 +3,12 @@
 
 #include "CommonLib.h"
 
-bool ReadBookData(std::vector<Book>&, bool);
-bool ReadAuthor(std::vector<Book>&, bool);
-bool ReadGenre(std::vector<Book>&, bool);
+bool ReadBookData(std::vector<Book>&);
+bool ReadAuthor(std::vector<Book>&);
+bool ReadGenre(std::vector<Book>&);
 
 
-bool ReadBook(std::vector<Book>&, bool);
+bool ReadBook(std::vector<Book>&);
 
 // Show Book
 

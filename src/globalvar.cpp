@@ -1,5 +1,7 @@
 #include <CommonLib.h>
 
+bool debug = true;
+
 const int MAX_CHARACTER = 1000;
 
 const int MAX_ATTEMPT = 3;

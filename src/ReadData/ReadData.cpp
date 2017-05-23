@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool ReadData(vector<User>& UserData, bool debug) {
+bool ReadData(vector<User>& UserData) {
 	system("cls");
 
 	if (!ReadUser(UserData)) {    // read user.txt

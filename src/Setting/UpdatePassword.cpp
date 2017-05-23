@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool WriteUser(vector<User>& UserData, bool debug) {
+bool WriteUser(vector<User>& UserData) {
 	ofstream userfile(FILEUser);
 
 	if (!userfile.is_open()) {
@@ -19,7 +19,7 @@ bool WriteUser(vector<User>& UserData, bool debug) {
 }
 
 
-bool WriteAccount(vector<User>& UserData, bool debug) {
+bool WriteAccount(vector<User>& UserData) {
 	ofstream accountfile(FILEAccount);
 
 	if (!accountfile.is_open()) {
@@ -42,7 +42,7 @@ bool WriteAccount(vector<User>& UserData, bool debug) {
 }
 
 
-bool WriteAccountRoleMap(vector<User>& UserData, bool debug) {
+bool WriteAccountRoleMap(vector<User>& UserData) {
 	ofstream accountrolemapfile(FILEAccountRoleMap);
 
 	if (!accountrolemapfile.is_open()) {
@@ -70,8 +70,7 @@ bool WriteAccountRoleMap(vector<User>& UserData, bool debug) {
 bool UpdatePassword(
   vector<User>& UserData,
   LoggedInUser& CurrentUser,
-  string& NewPassword,
-  bool debug) {
+  string& NewPassword) {
 
 	// cypher here
 
@@ -79,19 +78,19 @@ bool UpdatePassword(
 	  .AccountList[CurrentUser.Account_num]
 	  .Password = NewPassword;
 
-	if (!WriteUser(UserData, debug)) {
+	if (!WriteUser(UserData)) {
 		cout << "Failed to write in user file" << endl;
 		if (debug) system("pause");
 		return false;
 	}
 
-	if (!WriteAccount(UserData, debug)) {
+	if (!WriteAccount(UserData)) {
 		cout << "Failed to write in account file" << endl;
 		if (debug) system("pause");
 		return false;
 	}
 
-	if (!WriteAccountRoleMap(UserData, debug)) {
+	if (!WriteAccountRoleMap(UserData)) {
 		cout << "Failed to write in account role map file" << endl;
 		if (debug) system("pause");
 		return false;

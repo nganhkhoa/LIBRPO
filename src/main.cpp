@@ -95,14 +95,13 @@ int main() {
 	system("cls");
 	vector<User> UserData;
 	vector<Book> BookData;
-	bool debug = true;
 
 	//
 	// ─── READ DATA FROM FILE
 	// ────────────────────────────────────────────────────────
 	//
 
-	if (!ReadData(UserData, debug)) {
+	if (!ReadData(UserData)) {
 		// for now we put it here
 		// but after, we put in login
 		// only when the user login
@@ -120,7 +119,7 @@ int main() {
 	// ────────────────────────────────────────────────────────
 	//
 
-	if (!ReadBook(BookData, debug)) {
+	if (!ReadBook(BookData)) {
 		// we always read books
 		// maybe?
 		cout << "Error in reading book data" << endl;
@@ -208,7 +207,7 @@ int main() {
 					}
 					break;
 				}
-				case SettingUser: Setting(UserData, CurrentUser, debug); break;
+				case SettingUser: Setting(UserData, CurrentUser); break;
 				case UtilitiesUser:
 					Utilities(CurrentUser, BookData);    // void utilities
 					break;

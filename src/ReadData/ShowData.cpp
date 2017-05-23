@@ -19,7 +19,7 @@ void ShowRoleData(vector<User>& UserData, UserAccount recordNum) {
 	}
 }
 
-void ShowAccountData(vector<User>& UserData, int& User_num, bool debug) {
+void ShowAccountData(vector<User>& UserData, int& User_num) {
 	// show availabel account
 	for (int Account_num = 0;
 	     Account_num < UserData[User_num].AccountList.size();
@@ -52,7 +52,7 @@ void ShowData(vector<User>& UserData) {
 	for (int User_num = 0; User_num < UserData.size(); User_num++) {
 		ShowUserData(UserData, User_num);
 		cout << "The user account list\n";
-		ShowAccountData(UserData, User_num, true);
+		ShowAccountData(UserData, User_num);
 		cout << endl << endl;
 	}
 }

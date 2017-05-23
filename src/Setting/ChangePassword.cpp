@@ -17,10 +17,7 @@ bool ComparePassword(
 }
 
 
-bool ChangePassword(
-  vector<User>& UserData,
-  LoggedInUser& CurrentUser,
-  bool debug) {
+bool ChangePassword(vector<User>& UserData, LoggedInUser& CurrentUser) {
 	system("cls");
 	cout << "Sau day he thong se yeu cau ban nhap mat ma cu" << endl;
 	cout << "Neu ban khong muon thay doi thi hay de trong" << endl;
@@ -32,9 +29,7 @@ bool ChangePassword(
 		cout << "Ban muon thoat? (y/n) ";
 		string Answer;
 		getline(cin, Answer);
-		if (Answer != "y") {
-			return ChangePassword(UserData, CurrentUser, debug);
-		}
+		if (Answer != "y") { return ChangePassword(UserData, CurrentUser); }
 		else
 			return false;
 	}
@@ -54,9 +49,7 @@ bool ChangePassword(
 
 		string Answer;
 		getline(cin, Answer);
-		if (Answer == "y") {
-			return ChangePassword(UserData, CurrentUser, debug);
-		}
+		if (Answer == "y") { return ChangePassword(UserData, CurrentUser); }
 		else
 			return false;
 	}
@@ -64,7 +57,7 @@ bool ChangePassword(
 	cout << "Ban hay nhap mat khau moi: ";
 	getline(cin, str);
 
-	if (!UpdatePassword(UserData, CurrentUser, str, debug)) {
+	if (!UpdatePassword(UserData, CurrentUser, str)) {
 		cout << "Cap nhat khong thanh cong" << endl;
 		cout << "Bi loi mong quy khach thong cam" << endl;
 		cout << "Bam enter de quay lai lua chon" << endl;

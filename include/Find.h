@@ -6,7 +6,7 @@
 int FindUserByName(std::vector<User>&, std::string&);
 int FindUser(std::vector<User>&, std::string&);
 UserAccount FindAccount(std::vector<User>&, std::string&);
-int FindBook(std::vector<Book>&, std::string&, bool);
+int FindBook(std::vector<Book>&, std::string&);
 int FindUserBorrow(std::string&, std::string&, BorrowBookSubmit&); //not done
 
 #endif
