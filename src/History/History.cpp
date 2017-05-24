@@ -28,7 +28,7 @@ void LogoutHistory() {
 	time_t now        = time(0);
 	char* currenttime = ctime(&now);
 
-	logfile << 1 << " "
+	logfile << 0 << " "
 	        << "User_num: " << setw(5) << CurrentUser.User_num << setw(16)
 	        << " Account_num: " << setw(5) << CurrentUser.Account_num
 	        << setw(10) << " Login: " << setw(30) << right << currenttime;
