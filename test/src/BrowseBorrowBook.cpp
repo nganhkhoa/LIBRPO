@@ -88,7 +88,6 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 }
 
 int ValidateBorrowBook(
-  vector<Book>& BookData,
   BorrowBookSubmit BorrowBookData) {
 	system("cls");
 
@@ -98,7 +97,7 @@ int ValidateBorrowBook(
 	// FindBookByISBN(BookData, BorrowBookData.ISBN);
 	// need to create this function
 	cout << "Quyen sach can duoc muon:" << endl;
-	ShowBookData(BookData, Book_num);
+	ShowBookData(Book_num);
 
 	// user to lend to info
 	cout << "Nguoi muon muon sach nay la:" << endl;
@@ -125,7 +124,7 @@ int ValidateBorrowBook(
 	return Choice;
 }
 
-void BrowseBorrowBook(vector<Book>& BookData) {
+void BrowseBorrowBook() {
 	system("cls");
 
 	vector<BorrowBookSubmit> BorrowBookData;
@@ -143,7 +142,7 @@ void BrowseBorrowBook(vector<Book>& BookData) {
 
 		NewRequest = true;
 		BorrowBookData[index].Status =
-		  ValidateBorrowBook(BookData, BorrowBookData[index]);
+		  ValidateBorrowBook(BorrowBookData[index]);
 
 		if (BorrowBookData[index].Status == 3) {
 			BorrowBookData[index].Status = 0;    // return state

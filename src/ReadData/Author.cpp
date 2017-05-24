@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool ReadAuthor(vector<Book>& BookData) {
+bool ReadAuthor() {
 	// read the file
 	// read author's name
 	// read books in rows
@@ -34,7 +34,7 @@ bool ReadAuthor(vector<Book>& BookData) {
 		while (!scin.eof()) {
 			scin >> TempString;
 			int Book_num;
-			Book_num = FindBook(BookData, TempString);
+			Book_num = FindBook(TempString);
 			BookData[Book_num].Authors.push_back(Author);
 			TempString = "";
 		}

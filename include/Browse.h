@@ -5,13 +5,13 @@
 
 bool ChooseBack(int&);
 void ShowBookContent(std::string&);
-void ChooseBookInformation(std::vector<Book>&, int&);
-void ChooseBook(std::vector<Book>&, int&);
+void ChooseBookInformation(int&);
+void ChooseBook(int&);
 
 
-void ShowAllBook(std::vector<Book>&);
+void ShowAllBook();
 int BrowseOption();
-void Browse(std::vector<Book>&);
+void Browse();
 
 
 #endif

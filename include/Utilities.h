@@ -4,27 +4,27 @@
 #include "CommonLib.h"
 
 int ChooseUtilities();
-void Utilities(std::vector<Book>&);
+void Utilities();
 
 // Reader
 int ReaderChoice();
 void Reader();
 
 bool CreateRequestBoorowBook(std::string&);
-void BorrowFromCart(std::vector<Book>&);
+void BorrowFromCart();
 // this one
 void BorrowBook();
 
 // Accountant
 int AccountantChoice();
-void Accountant(std::vector<Book>&);
+void Accountant();
 
 bool GetBorrowData(std::vector<BorrowBookSubmit>&);
 bool UpdateBorrowData(std::vector<BorrowBookSubmit>&);
 bool CreateBorrowRecord(BorrowBookSubmit);
-int ValidateBorrowBook(std::vector<Book>&, BorrowBookSubmit);
+int ValidateBorrowBook(BorrowBookSubmit);
 // this one
-void BrowseBorrowBook(std::vector<Book>&);
+void BrowseBorrowBook();
 
 
 // Admin

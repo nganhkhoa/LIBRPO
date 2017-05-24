@@ -16,7 +16,7 @@ int FindUserByName(string& str) {
 }
 
 
-int FindBook(vector<Book>& BookData, string& BookId) {
+int FindBook(string& BookId) {
 	// find book by ISBN
 	if (debug) cout << "Finding for book with ID: " << BookId << endl;
 	for (int index = 0; index < BookData.size(); index++) {

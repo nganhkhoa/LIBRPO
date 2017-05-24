@@ -94,7 +94,7 @@ using namespace std;
 int main() {
 	system("cls");
 	
-	vector<Book> BookData;
+	
 
 	//
 	// ─── READ DATA FROM FILE
@@ -119,7 +119,7 @@ int main() {
 	// ────────────────────────────────────────────────────────
 	//
 
-	if (!ReadBook(BookData)) {
+	if (!ReadBook()) {
 		// we always read books
 		// maybe?
 		cout << "Error in reading book data" << endl;
@@ -165,7 +165,7 @@ int main() {
 					// without loging in, the user can still browse
 					// we use CurrentUser.Active to know if loggin or not
 					// if no, we would not let them borrow, buy?
-					Browse(BookData);
+					Browse();
 					system("pause");
 					break;
 				case Manual:
@@ -206,12 +206,12 @@ int main() {
 					break;
 				}
 				case SettingUser: Setting(); break;
-				case UtilitiesUser: Utilities(BookData); break;
+				case UtilitiesUser: Utilities(); break;
 				case BrowseOption:
 					// without loging in, the user can still browse
 					// we use CurrentUser.Active to know if logged in or not
 					// if no, we would not let them borrow, buy?
-					Browse(BookData);
+					Browse();
 					system("pause");
 					break;
 				case Manual:

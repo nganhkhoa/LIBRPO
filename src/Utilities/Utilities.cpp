@@ -25,7 +25,7 @@ int ChooseUtilities() {
 	return role;
 }
 
-void Utilities(vector<Book>& BookData) {
+void Utilities() {
 	while (true) {
 		system("cls");
 
@@ -56,7 +56,7 @@ void Utilities(vector<Book>& BookData) {
 			case ThuThuRole:
 				cout << "Ban dang lua chon chuc nang thu thu" << endl;
 				system("pause");
-				Accountant(BookData);
+				Accountant();
 				break;
 			case QLNDRole:
 				cout << "Ban dang lua chon chuc nang quan ly nguoi dung"

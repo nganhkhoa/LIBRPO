@@ -89,7 +89,7 @@ void ShowBookContent(string& Id) {
 }
 
 
-void ChooseBookInformation(vector<Book>& BookData, int& BookToShow) {
+void ChooseBookInformation(int& BookToShow) {
 	system("cls");
 
 	BookToShow--;
@@ -127,7 +127,7 @@ void ChooseBookInformation(vector<Book>& BookData, int& BookToShow) {
 	return;
 }
 
-void ChooseBook(vector<Book>& BookData, int& books) {
+void ChooseBook(int& books) {
 
 	/// too bad we can't do switch here
 
@@ -163,7 +163,7 @@ void ChooseBook(vector<Book>& BookData, int& books) {
 			// check in range
 			// BookToShow
 
-			ChooseBookInformation(BookData, BookToShow);
+			ChooseBookInformation(BookToShow);
 
 
 			// refresh page

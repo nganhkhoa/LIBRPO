@@ -3,19 +3,19 @@
 
 #include "CommonLib.h"
 
-bool ReadBookData(std::vector<Book>&);
-bool ReadAuthor(std::vector<Book>&);
-bool ReadGenre(std::vector<Book>&);
+bool ReadBookData();
+bool ReadAuthor();
+bool ReadGenre();
 
 
-bool ReadBook(std::vector<Book>&);
+bool ReadBook();
 
 // Show Book
 
-void ShowBook(std::vector<Book>&);
-void ShowBookData(std::vector<Book>&, int&);
-void ShowBookAuthor(std::vector<Book>&, int&);
-void ShowBookGenre(std::vector<Book>&, int&);
+void ShowBook();
+void ShowBookData(int&);
+void ShowBookAuthor(int&);
+void ShowBookGenre(int&);
 
 
 #endif

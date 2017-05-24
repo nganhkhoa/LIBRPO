@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool ReadBookData(vector<Book>& BookData) {
+bool ReadBookData() {
 	ifstream bookfile(FILEBook);
 	if (!bookfile.is_open()) return false;
 

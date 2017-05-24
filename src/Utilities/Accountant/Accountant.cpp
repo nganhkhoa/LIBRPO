@@ -31,7 +31,7 @@ int AccountantChoice() {
 	return Choice;
 }
 
-void Accountant(vector<Book>& BookData) {
+void Accountant() {
 
 	while (true) {
 		enum Choice
@@ -46,7 +46,7 @@ void Accountant(vector<Book>& BookData) {
 		};
 		switch (AccountantChoice()) {
 			case ChoiceBrowseBorrowSubmition:
-				BrowseBorrowBook(BookData);
+				BrowseBorrowBook();
 				break;
 			case ChoiceGetBorrowBook:
 				// GetBookAuthentication(UserData, BookData);

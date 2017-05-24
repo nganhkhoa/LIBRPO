@@ -2,31 +2,31 @@
 
 using namespace std;
 
-bool ReadBook(vector<Book>& BookData) {
+bool ReadBook() {
 	system("cls");
 
-	if (!ReadBookData(BookData)) {
+	if (!ReadBookData()) {
 		// read book ISBN, name, publisher, date, quantity
 		cout << "Error in loading book data" << endl;
 		system("pause");
 		return false;
 	}
 
-	if (!ReadAuthor(BookData)) {
+	if (!ReadAuthor()) {
 		// read file author
 		cout << "Error in loading author" << endl;
 		system("pause");
 		return false;
 	}
 
-	if (!ReadGenre(BookData)) {
+	if (!ReadGenre()) {
 		// read file genre
 		cout << "Error in loading genre" << endl;
 		system("pause");
 		return false;
 	}
 
-	if (debug) ShowBook(BookData);
+	if (debug) ShowBook();
 	// only show if debug mode is on
 
 	return true;

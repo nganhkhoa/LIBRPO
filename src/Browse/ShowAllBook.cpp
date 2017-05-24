@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void ShowAllBook(vector<Book>& BookData) {
+void ShowAllBook() {
 	system("cls");
 	for (int books = 0; books < BookData.size(); books++) {
 
@@ -55,7 +55,7 @@ void ShowAllBook(vector<Book>& BookData) {
 			cout << "Trang " << (books + 1) / BOOK_PER_PAGE << "/" << Pages
 			     << endl;
 
-			ChooseBook(BookData, books);
+			ChooseBook(books);
 			system("pause");
 			system("cls");
 		}
@@ -70,7 +70,7 @@ void ShowAllBook(vector<Book>& BookData) {
 			Pages += 1;
 			cout << "Trang " << Pages << "/" << Pages << endl;
 
-			ChooseBook(BookData, books);
+			ChooseBook(books);
 			system("pause");
 			system("cls");
 		}
