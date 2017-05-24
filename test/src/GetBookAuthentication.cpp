@@ -14,7 +14,7 @@ bool LoadBorrowRecord(BorrowBookSubmit BorrowData) {
 	getline(borrowrecord, str);    // skip
 	while (getline(borrowrecord, str)) {
 		if (str.empty()) continue;
-		BorrowBookSubmit TempBorrowData;
+		BorrowBookSubmit TempBorrowData = {};
 		stringstream scin(str);
 		scin >> TempBorrowData.Status;
 		if (TempBorrowData.Status == 0) continue;
@@ -40,11 +40,9 @@ bool PasswordVerification(string& Password, string& UserPassword) {
 	return true;
 }
 
-void GetBookAuthentication(
-  vector<User>& UserData,
-  vector<Book>& BookData) {
+void GetBookAuthentication() {
 
-	BorrowBookSubmit BorrowData;
+	BorrowBookSubmit BorrowData = {};
 	if (!LoadBorrowRecord(BorrowData)) return;
 
 	cout << "Ban hay nhap ten nguoi dung: ";
