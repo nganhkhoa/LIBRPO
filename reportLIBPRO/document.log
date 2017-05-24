@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.23)  18 MAY 2017 23:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.23)  24 MAY 2017 23:43
 entering extended mode
 **./document.tex
 (document.tex
@@ -1868,7 +1868,7 @@ LaTeX Info: Redefining \nameref on input line 46.
 \@outlinefile=\write4
 \openout4 = `document.out'.
 
- <LogoBK.jpg, id=42, 654.445pt x 663.47874pt>
+ <LogoBK.jpg, id=50, 654.445pt x 663.47874pt>
 File: LogoBK.jpg Graphic file (type jpg)
 
 <use LogoBK.jpg>
@@ -1927,28 +1927,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--174
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--180
+Underfull \hbox (badness 10000) in paragraph at lines 175--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
 
 [5]
+Underfull \hbox (badness 10000) in paragraph at lines 201--203
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--212
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--215
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--260
+
+ []
+
+[7] [8]
 Ch\uhorn \ohorn ng 3.
-[6
+[9
 
 ]
 Ch\uhorn \ohorn ng 4.
 
 AED: lastpage setting LastPage
-[7
+[10
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 262.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 262.
  (document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 262.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 262.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: BA53D3C8AC661124C507D521D3660D79;2175.
+(rerunfilecheck)             Checksum: DE5D6A233FB40BC310F8ED0C1F3517CA;2490.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1959,13 +2029,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33510 strings out of 493334
- 616985 string characters out of 3136672
- 676106 words of memory out of 3000000
- 36426 multiletter control sequences out of 15000+200000
+ 33534 strings out of 493334
+ 617231 string characters out of 3136672
+ 676110 words of memory out of 3000000
+ 36428 multiletter control sequences out of 15000+200000
  22289 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,7n,76p,10430b,10321s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 67i,7n,76p,10430b,10408s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\vntex
 \vnr\dpi720\vnbxti10.pk> <C:\Users\Admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
 ur\vntex\vnr\dpi600\vnti12.pk> <C:\Users\Admin\AppData\Local\MiKTeX\2.9\fonts\p
@@ -1979,10 +2049,11 @@ dmin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\vntex\vnr\dpi1037\vncsc10.pk> <C:
 \Users\Admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\vntex\vnr\dpi1244\vncsc10
 .pk> <C:\Users\Admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\vntex\vnr\dpi864\
 vncsc10.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb>
-Output written on document.pdf (8 pages, 295876 bytes).
+r12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb>
+Output written on document.pdf (11 pages, 319694 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
