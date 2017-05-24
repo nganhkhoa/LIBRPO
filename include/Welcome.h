@@ -4,6 +4,6 @@
 #include "CommonLib.h"
 
 int Welcome();
-int WelcomeUser(LoggedInUser&);
+int WelcomeUser();
 
 #endif

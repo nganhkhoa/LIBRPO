@@ -14,7 +14,7 @@ bool LoadBorrowRecord(BorrowBookSubmit BorrowData) {
 	getline(borrowrecord, str);    // skip
 	while (getline(borrowrecord, str)) {
 		if (str.empty()) continue;
-		BorrowBookSubmit TempBorrowData;
+		BorrowBookSubmit TempBorrowData = {};
 		stringstream scin(str);
 		scin >> TempBorrowData.Status;
 		if (TempBorrowData.Status == 0) continue;
@@ -26,13 +26,25 @@ bool LoadBorrowRecord(BorrowBookSubmit BorrowData) {
 	}
 }
 
+bool PasswordVerification(string& Password, string& UserPassword) {
+	if (Password != UserPassword) {
+		for (int attemps = 1; attemps < 3; attemps++) {
+			cout << "Ban da nhap sai mat khau, ban con: " << 3 - attemps
+			     << " lan thu" << endl;
+			cout << "Moi ban nhap lai: ";
+			getline(cin, Password);
+			if (Password == UserPassword) break;
+		}
+		return false;
+	}
+	return true;
+}
 
-void GetBookAuthentication(vector<User>& UserData, vector<Book>& BookData, LoggedInUser& CurrentUser) {
+void GetBookAuthentication() {
 
-	BorrowBookSubmit BorrowData;
+	BorrowBookSubmit BorrowData = {};
 	if (!LoadBorrowRecord(BorrowData)) return;
 
-	string str;
 	cout << "Ban hay nhap ten nguoi dung: ";
 	string Username;
 	getline(cin, Username);
@@ -59,49 +71,37 @@ void GetBookAuthentication(vector<User>& UserData, vector<Book>& BookData, Logge
 	                        .AccountList[Borrow_num.Account_num]
 	                        .Password;
 	// cypher????
-	if (Password != UserPassword) {
-		for (int attemps = 1; attemps < 3; attemps++) {
-			cout << "Ban da nhap sai mat khau, ban con: " << 3 - attemps
-			     << " lan thu" << endl;
-			cout << "Moi ban nhap lai: ";
-			getline(cin, Password);
-			if (Password == UserPassword) break;
-		}
+	if (!PasswordVerification(Password, UserPassword)) {
 		cout << "Nguoi dung da nhap sai mat khau qua so lan quy dinh" << endl;
-		cout << "Nguoi dung khong the xac nhan muon quyen sach nay" << endl;
+		cout << "Nguoi dung khong duoc muon sach" << endl;
 		cout << "Bam enter de tiep tuc" << endl;
 		system("pause");
 		return;
 	}
-
 	cout << "Mat khau nhap vao dung" << endl;
+
 	cout << "Tiep tuc, moi thu thu nhap mat khau: " << endl;
 	getline(cin, Password);
 	string AccountantPassword = UserData[CurrentUser.User_num]
 	                              .AccountList[CurrentUser.Account_num]
 	                              .Password;
-	if (Password != AccountantPassword) {
-		for (int attemps = 1; attemps < 3; attemps++) {
-			cout << "Ban da nhap sai mat khau, ban con: " << 3 - attemps
-			     << " lan thu" << endl;
-			cout << "Moi ban nhap lai: ";
-			getline(cin, Password);
-			if (Password == UserPassword) break;
-		}
+
+
+	if (!PasswordVerification(Password, AccountantPassword)) {
 		cout << "Thu thu da nhap sai mat khau qua so lan quy dinh" << endl;
-		cout << "Khong the xac nhap thu thu" << endl;
-		cout << "Khong the muon sach khi xac nhan thu thu sai" << endl;
+		cout << "Khong the muon sach neu xac nhan thu thu sai" << endl;
 		cout << "Bam enter de tiep tuc" << endl;
 		system("pause");
 		return;
 	}
 
-	if (!UpdateBorrowRecord(BorrowData, Borrow_num, CurrentUser)) {
+	if (!UpdateBorrowRecord(BorrowData, Borrow_num)) {
 		cout << "Cap nhat ban ghi khong thanh cong" << endl;
 		cout << "Hay thu lai sau" << endl;
 		system("pause");
 		return;
 	}
+
 	cout << "Da thanh cong cap nhat ban ghi" << endl;
 	cout << "Thu thu hay dua sach cho nguoi dung" << endl;
 	system("pause");

@@ -38,7 +38,7 @@ int BrowseOption() {
 	return Choice;
 }
 
-void Browse(LoggedInUser& CurrentUser, vector<Book>& BookData) {
+void Browse() {
 
 	enum BrowseMode
 	{
@@ -61,7 +61,7 @@ void Browse(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 			case Recommended: break;
 			case All:
 				cin.ignore();
-				ShowAllBook(CurrentUser, BookData);
+				ShowAllBook();
 				// show all the book
 				break;
 			case HotBook: break;

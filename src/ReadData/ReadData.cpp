@@ -2,25 +2,25 @@
 
 using namespace std;
 
-bool ReadData(vector<User>& UserData, bool debug) {
+bool ReadData() {
 	system("cls");
 
-	if (!ReadUser(UserData)) {    // read user.txt
+	if (!ReadUser()) {    // read user.txt
 		cout << "Error in loading user data";
 		return false;
 	}
 
-	if (!ReadAccount(UserData)) {    // read account.txt
+	if (!ReadAccount()) {    // read account.txt
 		cout << "Error in loading account data";
 		return false;
 	}
 
-	if (!ReadRole(UserData)) {    // read accountrolemap.txt
+	if (!ReadRole()) {    // read accountrolemap.txt
 		cout << "Error in loading role data";
 		return false;
 	}
 
-	if (debug) ShowData(UserData);
+	if (debug) ShowData();
 	// show if debug mode is on
 
 	return true;

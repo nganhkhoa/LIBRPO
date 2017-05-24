@@ -3,10 +3,10 @@
 
 #include "CommonLib.h"
 
-int FindUserByName(std::vector<User>&, std::string&);
-int FindUser(std::vector<User>&, std::string&);
-UserAccount FindAccount(std::vector<User>&, std::string&);
-int FindBook(std::vector<Book>&, std::string&, bool);
+int FindUserByName(std::string&);
+int FindUser(std::string&);
+UserAccount FindAccount(std::string&);
+int FindBook(std::string&);
 int FindUserBorrow(std::string&, std::string&, BorrowBookSubmit&); //not done
 
 #endif

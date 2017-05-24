@@ -2,7 +2,7 @@
 #include <Find.h>
 using namespace std;
 
-bool ReadUser(vector<User>& UserData) {    // read user file
+bool ReadUser() {    // read user file
 	ifstream userfile(FILEUser);
 	if (!userfile.is_open()) return false;
 
@@ -19,7 +19,7 @@ bool ReadUser(vector<User>& UserData) {    // read user file
 	return true;
 }
 
-bool ReadAccount(vector<User>& UserData) {
+bool ReadAccount() {
 	// the file account has uid,
 	// use finduser to find and put in vector
 	ifstream accountfile(FILEAccount);
@@ -31,7 +31,7 @@ bool ReadAccount(vector<User>& UserData) {
 		stringstream scin(str);
 		Account Temp;
 		scin >> Temp.uid;
-		int user_no = FindUser(UserData, Temp.uid);
+		int user_no = FindUser(Temp.uid);
 		// if there is no user found?
 		// I think the file should always have enough user
 

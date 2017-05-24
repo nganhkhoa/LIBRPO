@@ -25,7 +25,7 @@ int ReaderChoice() {
 }
 
 
-void Reader(LoggedInUser& CurrentUser) {
+void Reader() {
 	while (true) {
 		enum Choice
 		{
@@ -37,7 +37,7 @@ void Reader(LoggedInUser& CurrentUser) {
 		switch (ReaderChoice()) {
 			case ChoiceBorrow:
 				cin.ignore();
-				BorrowBook(CurrentUser);
+				BorrowBook();
 				break;
 			case ChoiceReturn:
 				cin.ignore();

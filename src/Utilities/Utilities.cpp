@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int ChooseUtilities(LoggedInUser& CurrentUser) {
+int ChooseUtilities() {
 
 	// return choice
 	// of role
@@ -25,11 +25,11 @@ int ChooseUtilities(LoggedInUser& CurrentUser) {
 	return role;
 }
 
-void Utilities(LoggedInUser& CurrentUser, vector<Book>& BookData) {
+void Utilities() {
 	while (true) {
 		system("cls");
 
-		int role = ChooseUtilities(CurrentUser);
+		int role = ChooseUtilities();
 
 		if (role == 0) {
 			cout << "Ban muon quay ve man hinh chinh? (y/n) ";
@@ -51,12 +51,12 @@ void Utilities(LoggedInUser& CurrentUser, vector<Book>& BookData) {
 			case DocGiaRole:
 				cout << "Ban dang lua chon chuc nang doc gia" << endl;
 				system("pause");
-				Reader(CurrentUser);
+				Reader();
 				break;
 			case ThuThuRole:
 				cout << "Ban dang lua chon chuc nang thu thu" << endl;
 				system("pause");
-				Accountant(CurrentUser, BookData);
+				Accountant();
 				break;
 			case QLNDRole:
 				cout << "Ban dang lua chon chuc nang quan ly nguoi dung"

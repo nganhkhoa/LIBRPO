@@ -2,7 +2,7 @@
 #include <Find.h>
 using namespace std;
 
-bool ReadGenre(vector<Book>& BookData, bool debug) {
+bool ReadGenre() {
 	// read the same rule as in author
 	ifstream genrefile(FILEGenre);
 	if (!genrefile.is_open()) return false;
@@ -33,7 +33,7 @@ bool ReadGenre(vector<Book>& BookData, bool debug) {
 		while (!scin.eof()) {
 			scin >> TempString;
 			int Book_num;
-			Book_num = FindBook(BookData, TempString, debug);
+			Book_num = FindBook(TempString);
 			BookData[Book_num].Genres.push_back(Genre);
 			TempString = "";
 		}

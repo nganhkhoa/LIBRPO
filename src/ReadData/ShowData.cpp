@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void ShowRoleData(vector<User>& UserData, UserAccount recordNum) {
+void ShowRoleData(UserAccount recordNum) {
 	// show role just for in vector struct
 	for (int Role_num = 0; Role_num < UserData[recordNum.User_num]
 	                                    .AccountList[recordNum.Account_num]
@@ -19,7 +19,7 @@ void ShowRoleData(vector<User>& UserData, UserAccount recordNum) {
 	}
 }
 
-void ShowAccountData(vector<User>& UserData, int& User_num, bool debug) {
+void ShowAccountData(int& User_num) {
 	// show availabel account
 	for (int Account_num = 0;
 	     Account_num < UserData[User_num].AccountList.size();
@@ -34,25 +34,25 @@ void ShowAccountData(vector<User>& UserData, int& User_num, bool debug) {
 			     << UserData[User_num].AccountList[Account_num].Active << "\t";
 		}
 		UserAccount recordNum = {User_num, Account_num};
-		ShowRoleData(UserData, recordNum);
+		ShowRoleData(recordNum);
 		cout << endl;
 	}
 }
 
 
-void ShowUserData(vector<User>& UserData, int& User_num) {
+void ShowUserData(int& User_num) {
 	// show user name
 	cout << UserData[User_num].uid << "\t" << UserData[User_num].Username
 	     << "\n";
 }
 
 
-void ShowData(vector<User>& UserData) {
+void ShowData() {
 	// read above first please
 	for (int User_num = 0; User_num < UserData.size(); User_num++) {
-		ShowUserData(UserData, User_num);
+		ShowUserData(User_num);
 		cout << "The user account list\n";
-		ShowAccountData(UserData, User_num, true);
+		ShowAccountData(User_num);
 		cout << endl << endl;
 	}
 }

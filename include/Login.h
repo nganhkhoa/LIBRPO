@@ -3,15 +3,15 @@
 
 #include "CommonLib.h"
 
-bool UserLoginPrompt(std::vector<User>&, int&);
+bool UserLoginPrompt(int&);
 
-void ShowRoleList(std::vector<User>&, UserAccount&);
-void ShowAccountList(std::vector<User>&, int&);
+void ShowRoleList(UserAccount&);
+void ShowAccountList(int&);
 
-int AccountLoginPrompt(std::vector<User>&, int&);
-bool RightPassword(std::vector<User>&, UserAccount&, int&);
-LoggedInUser CreateLoggedInUser(std::vector<User>&, UserAccount&);
-LoggedInUser Login(std::vector<User>&);
+int AccountLoginPrompt(int&);
+bool RightPassword(UserAccount&, int&);
+void CreateLoggedInUser(UserAccount&);
+bool LoggedIn();
 
 void LockAccount(std::string&);
 bool ReadLock();

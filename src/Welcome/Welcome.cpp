@@ -26,11 +26,11 @@ int Welcome() {
 	}
 	return Choice;
 }
-int WelcomeUser(LoggedInUser& NewUser) {
+int WelcomeUser() {
 	// nothing worth commenting
 	// NewUser because we say hello to user
 	system("cls");
-	cout << "WELCOME TO LIBPRO " << NewUser.AccId << endl;
+	cout << "WELCOME TO LIBPRO " << CurrentUser.AccId << endl;
 	cout << left << setw(5) << "1\t"
 	     << "Dang xuat" << endl;
 	cout << left << setw(5) << "2\t"

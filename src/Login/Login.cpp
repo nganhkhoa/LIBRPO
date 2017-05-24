@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-bool UserLoginPrompt(vector<User>& UserData, int& User_num) {
+bool UserLoginPrompt(int& User_num) {
 	system("cls");
 	cout << "Nhap ten nguoi dung de tiep tuc hoac de trong de thoat" << endl;
 	// khi có giao diện thì cancel sẽ được thay bằng nút bấm, nút bấm nhảy về
@@ -16,7 +16,7 @@ bool UserLoginPrompt(vector<User>& UserData, int& User_num) {
 
 	if (str.empty()) return false;
 
-	User_num = FindUserByName(UserData, str);
+	User_num = FindUserByName(str);
 	return true;
 }
 
@@ -51,7 +51,7 @@ void ShowAccountList(vector<User>& UserData, int& User_num) {
 	}
 }
 
-int AccountLoginPrompt(vector<User>& UserData, int& User_num) {
+int AccountLoginPrompt(int& User_num) {
 	system("cls");
 	cout << "Chon tai khoan ban muon dang nhap (so): " << endl;
 	cout << "De dung lai, xin nhap 0." << endl;
@@ -82,7 +82,7 @@ int AccountLoginPrompt(vector<User>& UserData, int& User_num) {
 			cout << "Xin moi ban chon tai khoan khac" << endl;
 			cout << "Bam Enter de thu lai" << endl;
 			system("pause");
-			Choice = AccountLoginPrompt(UserData, User_num);
+			Choice = AccountLoginPrompt(User_num);
 			// run it again
 			// de quy
 		}
@@ -92,7 +92,6 @@ int AccountLoginPrompt(vector<User>& UserData, int& User_num) {
 }
 
 bool RightPassword(
-  vector<User>& UserData,
   UserAccount& recordNum,
   int& Attemps) {
 	system("cls");
@@ -146,38 +145,32 @@ bool RightPassword(
 	return true;
 }
 
-LoggedInUser CreateLoggedInUser(vector<User>& UserData, UserAccount& recordNum) {
-	LoggedInUser NewUser;
-	NewUser.AccId =
+void CreateLoggedInUser(UserAccount& recordNum) {
+	CurrentUser.AccId =
 	  UserData[recordNum.User_num].AccountList[recordNum.Account_num].AccId;
-	NewUser.User_num    = recordNum.User_num;
-	NewUser.Account_num = recordNum.Account_num;
-	NewUser.Active      = true;
+	CurrentUser.User_num    = recordNum.User_num;
+	CurrentUser.Account_num = recordNum.Account_num;
 
 	for (int Role_num = 0; Role_num < UserData[recordNum.User_num]
 	                                    .AccountList[recordNum.Account_num]
 	                                    .RoleId.size();
 	     Role_num++) {    // to long for ya heh
-		NewUser.RoleId.push_back(UserData[recordNum.User_num]
+		CurrentUser.RoleId.push_back(UserData[recordNum.User_num]
 		                           .AccountList[recordNum.Account_num]
 		                           .RoleId[Role_num]);
 	}
-	return NewUser;
+	return;
 }
 
-LoggedInUser Login(vector<User>& UserData) {
+bool LoggedIn() {
 
 	//.....Still have no Idea how to make this smaller......
 
-	// return the user logged in
-	LoggedInUser NewActiveUser;
-	NewActiveUser.Active = false;
-	// defaut is false
 	int User_num = -1;
 	// to track the user being run
 
 	while (true) {
-		if (UserLoginPrompt(UserData, User_num)) {
+		if (UserLoginPrompt(User_num)) {
 			// run login prompt
 			// with arg User_num
 			if (User_num == UserData.size()) {
@@ -195,8 +188,7 @@ LoggedInUser Login(vector<User>& UserData) {
 			string str;
 			getline(cin, str);
 			if (str == "y") {
-				return NewActiveUser;    // false
-				//run cppcheck retrun error Reference to auto variable returned.
+				return false;
 			}
 			else
 				continue;    // login prompt
@@ -204,15 +196,15 @@ LoggedInUser Login(vector<User>& UserData) {
 	}
 
 	int Account_num =
-	  AccountLoginPrompt(UserData, User_num) - 1;    // chose account
-	if (Account_num == -1) return NewActiveUser;     // no account chosen
+	  AccountLoginPrompt(User_num) - 1;    // chose account
+	if (Account_num == -1) return false;     // no account chosen
 	//run cppcheck retrun error Reference to auto variable returned.
 	UserAccount recordNum = {User_num,
 	                         Account_num};    // save user place in vector
 
 	// input password
 	int Attemps = 0;
-	while (!RightPassword(UserData, recordNum, Attemps))
+	while (!RightPassword(recordNum, Attemps))
 		;
 	// check right password or not
 	// remember leave blank returns to login
@@ -220,13 +212,13 @@ LoggedInUser Login(vector<User>& UserData) {
 	// the attemps must be > 1 if enter right or wrong
 	// if attemps == 0, the str enter is empty, user choose the login name again
 
-	if (Attemps == 0) NewActiveUser = Login(UserData);
+	if (Attemps == 0) return LoggedIn();
 	// return login if left blank
 	// attemps set to 0
 	else
-		NewActiveUser = CreateLoggedInUser(UserData, recordNum);
+		CreateLoggedInUser(recordNum);
 	// create the LoggedInUser data to store
 
-	return NewActiveUser;
+	return true;
 	//run cppcheck retrun error Reference to auto variable returned.
 }

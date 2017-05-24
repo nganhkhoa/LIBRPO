@@ -145,10 +145,26 @@ typedef struct _BorrowBookSubmit {
 } BorrowBookSubmit;
 
 extern const int MAX_BORROW;
+extern const int MAX_WEEK_BORROW;
 
 extern std::string SUBMITDIRECTORY;
 extern std::string FILEBorrowBook;
 extern std::string FILEBorrowRecord;
+
+// ────────────────────────────────────────────────────────────────────────────────
+
+
+
+//
+// ─── GLOBAL DATA
+// ────────────────────────────────────────────────────────────────
+//
+
+extern bool debug;
+extern LoggedInUser CurrentUser;
+extern std::vector<User> UserData;
+extern std::vector<Book> BookData;
+
 
 // ────────────────────────────────────────────────────────────────────────────────
 

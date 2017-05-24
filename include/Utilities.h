@@ -3,28 +3,28 @@
 
 #include "CommonLib.h"
 
-int ChooseUtilities(LoggedInUser&);
-void Utilities(LoggedInUser&, std::vector<Book>&);
+int ChooseUtilities();
+void Utilities();
 
 // Reader
 int ReaderChoice();
-void Reader(LoggedInUser&);
+void Reader();
 
-bool CreateRequestBoorowBook(LoggedInUser&, std::string&);
-void BorrowFromCart(LoggedInUser&, std::vector<Book>&);
+bool CreateRequestBoorowBook(std::string&);
+void BorrowFromCart();
 // this one
-void BorrowBook(LoggedInUser&);
+void BorrowBook();
 
 // Accountant
 int AccountantChoice();
-void Accountant(LoggedInUser&, std::vector<Book>&);
+void Accountant();
 
 bool GetBorrowData(std::vector<BorrowBookSubmit>&);
 bool UpdateBorrowData(std::vector<BorrowBookSubmit>&);
 bool CreateBorrowRecord(BorrowBookSubmit);
-int ValidateBorrowBook(LoggedInUser&, std::vector<Book>&, BorrowBookSubmit);
+int ValidateBorrowBook(BorrowBookSubmit);
 // this one
-void BrowseBorrowBook(LoggedInUser&, std::vector<Book>&);
+void BrowseBorrowBook();
 
 
 // Admin
