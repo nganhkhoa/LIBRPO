@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool ComparePassword(vector<User>& UserData, string& VerifyPassword) {
+bool ComparePassword(string& VerifyPassword) {
 	// cypher here
 
 	string OldPassword = UserData[CurrentUser.User_num]
@@ -14,7 +14,7 @@ bool ComparePassword(vector<User>& UserData, string& VerifyPassword) {
 }
 
 
-bool ChangePassword(vector<User>& UserData) {
+bool ChangePassword() {
 	while (true) {
 		system("cls");
 		cout << "Sau day he thong se yeu cau ban nhap mat ma cu" << endl;
@@ -32,7 +32,7 @@ bool ChangePassword(vector<User>& UserData) {
 				return false;
 		}
 
-		if (!ComparePassword(UserData, str)) {
+		if (!ComparePassword(str)) {
 			cout << "Ban da nhap mat khau sai" << endl;
 			cout << "Neu ban khong nho mat khau, hay lien he ban quan tri"
 			     << endl;
@@ -80,7 +80,7 @@ bool ChangePassword(vector<User>& UserData) {
 			break;
 		}
 
-		if (!UpdatePassword(UserData, NewPassword)) {
+		if (!UpdatePassword(NewPassword)) {
 			cout << "Cap nhat khong thanh cong" << endl;
 			cout << "Bi loi mong quy khach thong cam" << endl;
 			cout << "Bam enter de quay lai lua chon" << endl;

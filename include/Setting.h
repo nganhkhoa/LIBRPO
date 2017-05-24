@@ -1,13 +1,13 @@
 #include "CommonLib.h"
 #include "History.h"
 
-bool WriteAccountRoleMap(std::vector<User>&);
-bool WriteAccount(std::vector<User>&);
-bool WriteUser(std::vector<User>&);
+bool WriteAccountRoleMap();
+bool WriteAccount();
+bool WriteUser();
 
-bool UpdatePassword(std::vector<User>&, std::string&);
-bool ComparePassword(std::vector<User>&, std::string&);
-bool ChangePassword(std::vector<User>&);
+bool UpdatePassword(std::string&);
+bool ComparePassword(std::string&);
+bool ChangePassword();
 
 int SettingMenu();
-void Setting(std::vector<User>&);
+void Setting();

@@ -93,7 +93,7 @@ using namespace std;
 
 int main() {
 	system("cls");
-	vector<User> UserData;
+	
 	vector<Book> BookData;
 
 	//
@@ -101,7 +101,7 @@ int main() {
 	// ────────────────────────────────────────────────────────
 	//
 
-	if (!ReadData(UserData)) {
+	if (!ReadData()) {
 		// for now we put it here
 		// but after, we put in login
 		// only when the user login
@@ -155,7 +155,7 @@ int main() {
 			switch (Welcome()) {
 				case LoginUser:
 					cin.ignore();    // for inputing string
-					CurrentUser.Active = LoggedIn(UserData);    // login system
+					CurrentUser.Active = LoggedIn();    // login system
 					if (CurrentUser.Active) LoginHistory();     // login history
 					break;
 				case SignUpUser:
@@ -205,7 +205,7 @@ int main() {
 					}
 					break;
 				}
-				case SettingUser: Setting(UserData); break;
+				case SettingUser: Setting(); break;
 				case UtilitiesUser: Utilities(BookData); break;
 				case BrowseOption:
 					// without loging in, the user can still browse

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int FindUserByName(vector<User>& UserData, string& str) {
+int FindUserByName(string& str) {
 	// find the f@#%@^@#^ user by his name
 	// because user input in the username
 	// we have to find it no matter what
@@ -28,7 +28,7 @@ int FindBook(vector<Book>& BookData, string& BookId) {
 	return BookData.size();
 }
 
-UserAccount FindAccount(vector<User>& UserData, string& AccId) {
+UserAccount FindAccount(string& AccId) {
 	// we have the account name only
 	// find the account place in vector
 	UserAccount Num;
@@ -46,9 +46,7 @@ UserAccount FindAccount(vector<User>& UserData, string& AccId) {
 	return Num;
 }
 
-int FindUser(
-  vector<User>& UserData,
-  string& uid) {    // we have the uid only, find by uid
+int FindUser(string& uid) {    // we have the uid only, find by uid
 	for (int i = 0; i < UserData.size(); i++) {
 		if (UserData[i].uid == uid) return i;
 	}

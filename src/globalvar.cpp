@@ -8,7 +8,7 @@ bool debug = true;    // debug mode switch
 // ───────────────────────────────────────────────────────────────────────
 //
 
-
+std::vector<User> UserData = {};
 LoggedInUser CurrentUser = {"", -1, -1, false, {}};
 
 

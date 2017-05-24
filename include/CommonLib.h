@@ -162,6 +162,7 @@ extern std::string FILEBorrowRecord;
 
 extern bool debug;
 extern LoggedInUser CurrentUser;
+extern std::vector<User> UserData;
 
 
 // ────────────────────────────────────────────────────────────────────────────────

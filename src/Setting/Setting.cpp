@@ -19,7 +19,7 @@ int SettingMenu() {
 	return Choice;
 }
 
-void Setting(vector<User>& UserData) {
+void Setting() {
 	enum Choice
 	{
 		PwdChange = 1,
@@ -29,7 +29,7 @@ void Setting(vector<User>& UserData) {
 		switch (SettingMenu()) {
 			case PwdChange:
 				cin.ignore();
-				if (!ChangePassword(UserData)) { break; }
+				if (!ChangePassword()) { break; }
 				CurrentUser.Active = false;
 				// passing by reference maybe????
 				// to logout the user here

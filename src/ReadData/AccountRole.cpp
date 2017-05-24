@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-bool ReadRole(vector<User>& UserData) {
+bool ReadRole() {
 	// read file
 	// find account
 	// read the number on file
@@ -20,7 +20,7 @@ bool ReadRole(vector<User>& UserData) {
 		string Temp;
 		scin >> Temp;
 
-		UserAccount recordNum = FindAccount(UserData, Temp);
+		UserAccount recordNum = FindAccount(Temp);
 
 		int number;
 		scin >> number;
