@@ -170,7 +170,7 @@ extern std::string FILEBorrowRecord;
 extern bool debug;
 extern LoggedInUser CurrentUser;
 extern nlohmann::json UserDataJSON;
-extern std::vector<User> UserData;
+//extern std::vector<User> UserData;
 extern std::vector<Book> BookData;
 
 
@@ -183,7 +183,7 @@ extern std::vector<Book> BookData;
 //
 
 void Help();
-std::string TrimString(std::string);
+std::string TrimString(std::string&);
 
 // ────────────────────────────────────────────────────────────────────────────────
 

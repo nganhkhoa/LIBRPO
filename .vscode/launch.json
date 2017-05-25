@@ -1,6 +1,7 @@
 {
 	"version": "0.2.0",
 	"configurations": [
+
 		{
 			"name": "C++ Launch",
 			"type": "cppdbg",
@@ -26,7 +27,7 @@
 			},
 			"windows": {
 				"MIMode": "gdb",
-				"miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe",
+				"miDebuggerPath": "C:\\Program Files (x86)\\mingw-w64\\i686-6.3.0-posix-dwarf-rt_v5-rev2\\mingw32\\bin\\gdb.exe",
 				"setupCommands": [
 					{
 						"description": "Enable pretty-printing for gdb",
@@ -57,6 +58,7 @@
 			},
 			"windows": {
 				"MIMode": "gdb",
+				"miDebuggerPath": "C:\\Program Files (x86)\\mingw-w64\\i686-6.3.0-posix-dwarf-rt_v5-rev2\\mingw32\\bin\\gdb.exe",
 				"setupCommands": [
 					{
 						"description": "Enable pretty-printing for gdb",

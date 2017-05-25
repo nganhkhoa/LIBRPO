@@ -6,7 +6,7 @@ void Help() {
 	cout << right << setw(10) << "" << left << setw(100) << "" << endl;
 }
 
-string TrimString(string str) {
+string TrimString(string& str) {
 	char* StringModified = new char[str.length()];
 	int beginLetter      = 0;
 	// remove white space at begining
