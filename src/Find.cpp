@@ -9,10 +9,13 @@ int FindUserByName(string& str) {
 
 	// this is different from FindUser which is by uid
 	// I'm so lazy to change the name
-	for (int i = 0; i < UserData.size(); i++) {
-		if (UserData[i].Username == str) return i;
+	int num_Users = UserDataJSON.at("UserList").size();
+	for (int i = 0; i < num_Users; i++) {
+		string Username = UserDataJSON.at("UserList")[i].at("Username");
+		if (debug) cout << Username << endl;
+		if (Username == str) return i;
 	}
-	return UserData.size();
+	return num_Users;
 }
 
 

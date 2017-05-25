@@ -13,6 +13,13 @@
 
 #include <ctime>
 
+// json parser for C++
+// all credit to  nlohmann
+#include "nlohmann/json.hpp"
+// github repository
+// https://github.com/nlohmann/json
+
+
 //
 // ─── USER DATA
 // ──────────────────────────────────────────────────────────────────
@@ -53,6 +60,7 @@ extern std::string FILEUser;
 extern std::string FILEAccount;
 extern std::string FILEAccountRoleMap;
 extern std::string FILELock;
+extern std::string FILEUserJSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -154,7 +162,6 @@ extern std::string FILEBorrowRecord;
 // ────────────────────────────────────────────────────────────────────────────────
 
 
-
 //
 // ─── GLOBAL DATA
 // ────────────────────────────────────────────────────────────────
@@ -162,6 +169,7 @@ extern std::string FILEBorrowRecord;
 
 extern bool debug;
 extern LoggedInUser CurrentUser;
+extern nlohmann::json UserDataJSON;
 extern std::vector<User> UserData;
 extern std::vector<Book> BookData;
 

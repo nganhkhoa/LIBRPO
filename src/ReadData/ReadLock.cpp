@@ -2,14 +2,6 @@
 
 using namespace std;
 
-void LockAccount(string& Account) {
-	ofstream lockfile(FILELock, ios::out | ios::app);
-	if (!lockfile.is_open()) { return; }
-	lockfile << Account << endl;
-	cout << "The account " << Account << " have been locked" << endl;
-	lockfile.close();
-}
-
 bool ReadLock() {
 	/*
 	ifstream lockfile(FILELock);

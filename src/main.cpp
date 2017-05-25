@@ -79,7 +79,7 @@ Manager
 #include <Find.h>
 
 #include <ReadBook.h>
-#include <ReadData.h>
+#include <ReadDataJSON.h>
 
 #include <Welcome.h>
 #include <Login.h>
@@ -101,7 +101,7 @@ int main() {
 	// ────────────────────────────────────────────────────────
 	//
 
-	if (!ReadData()) {
+	if (!ReadUserDataJSON()) {
 		// for now we put it here
 		// but after, we put in login
 		// only when the user login
@@ -110,7 +110,11 @@ int main() {
 		system("pause");
 		return -1;
 	}
-	if (debug) system("pause");
+	if (debug) {
+		cout << UserDataJSON.dump(4) << endl;
+		system("pause");
+	}
+
 	// ────────────────────────────────────────────────────────────────────────────────
 
 

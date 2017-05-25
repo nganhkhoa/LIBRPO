@@ -8,9 +8,10 @@ bool debug = true;    // debug mode switch
 // ───────────────────────────────────────────────────────────────────────
 //
 
-std::vector<User> UserData = {};
-std::vector<Book> BookData = {};
-LoggedInUser CurrentUser = {"", -1, -1, false, {}};
+nlohmann::json UserDataJSON = NULL;
+std::vector<User> UserData  = {};
+std::vector<Book> BookData  = {};
+LoggedInUser CurrentUser    = {"", -1, -1, false, {}};
 
 
 //
@@ -50,7 +51,8 @@ std::string FILEAccount =
   FILEDIRECTORY + "account.txt";    // link to account file
 std::string FILEAccountRoleMap =
   FILEDIRECTORY + "accountrolemap.txt";    // link to account role map file
-std::string FILELock = FILEDIRECTORY + "lock.txt";    // link to lock file
+std::string FILELock      = FILEDIRECTORY + "lock.txt";    // link to lock file
+std::string FILEUserJSON = FILEDIRECTORY + "userdata.json";
 
 std::string SUBMITDIRECTORY  = "submit/";
 std::string FILEBorrowBook   = SUBMITDIRECTORY + "borrow.txt";

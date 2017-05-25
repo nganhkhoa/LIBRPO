@@ -136,7 +136,7 @@ void BrowseBorrowBook() {
 	}
 
 
-	static bool NewRequest;
+	bool NewRequest = false;
 	for (int index = 0; index < BorrowBookData.size(); index++) {
 		if (BorrowBookData[index].Status != 0) continue;    // book validated
 

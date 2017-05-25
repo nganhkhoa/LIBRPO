@@ -1,8 +1,8 @@
 #include <Login.h>
 #include <Find.h>
+#include <ReadDataJSON.h>
 
 using namespace std;
-
 
 
 bool UserLoginPrompt(int& User_num) {
@@ -20,33 +20,40 @@ bool UserLoginPrompt(int& User_num) {
 	return true;
 }
 
-void ShowRoleList(vector<User>& UserData, UserAccount& recordNum) {
+void ShowRoleList(UserAccount& recordNum) {
 	// show role just for in vector struct
-	for (int Role_num = 0; Role_num < UserData[recordNum.User_num]
-	                                    .AccountList[recordNum.Account_num]
-	                                    .RoleId.size();
-	     Role_num++) {
+	int num_Roles = UserDataJSON.at("UserList")[recordNum.User_num]
+	                  .at("AccountList")[recordNum.Account_num]
+	                  .at("AccountRoleMap")
+	                  .size();
+	for (int Role_num = 0; Role_num < num_Roles; Role_num++) {
 
-		int role = UserData[recordNum.User_num]
-		             .AccountList[recordNum.Account_num]
-		             .RoleId[Role_num] -
-		           1;
+		int role = UserDataJSON.at("UserList")[recordNum.User_num]
+		             .at("AccountList")[recordNum.Account_num]
+		             .at("AccountRoleMap")[Role_num];
+		role -= 1;
 		// number save in file from 1 to 3,
 		// computer count from 0 to 2
 		cout << LibraryRole[role].RoleName << ";\t";
 	}
 }
 
-void ShowAccountList(vector<User>& UserData, int& User_num) {
+void ShowAccountList(int& User_num) {
 	// show availabel account
-	for (int Account_num = 0;
-	     Account_num < UserData[User_num].AccountList.size();
-	     Account_num++) {
+	int num_Accounts =    // get number of account a user has
+	  UserDataJSON.at("UserList")[User_num].at("AccountList").size();
+	  
+	for (int Account_num = 0; Account_num < num_Accounts; Account_num++) {
+
+		string AccountID =    // clear "" in string
+		  UserDataJSON.at("UserList")[User_num].at("AccountList")[Account_num].at(
+		    "AccountName");
+
 		cout << left << setw(5) << Account_num + 1 << "\t";
-		cout << UserData[User_num].AccountList[Account_num].AccId << "\t";
+		cout << AccountID << "\t";
 
 		UserAccount recordNum = {User_num, Account_num};
-		ShowRoleList(UserData, recordNum);
+		ShowRoleList(recordNum);
 		cout << endl;
 	}
 }
@@ -57,7 +64,6 @@ int AccountLoginPrompt(int& User_num) {
 	cout << "De dung lai, xin nhap 0." << endl;
 
 	ShowAccountList(
-	  UserData,
 	  User_num);    // show the account with no pass and active state
 
 	cout << "Lua chon cua ban? ";
@@ -68,38 +74,45 @@ int AccountLoginPrompt(int& User_num) {
 
 	if (Choice == 0) return Choice;    // set to getline and empty? maybe later
 
-	while (Choice > UserData[User_num].AccountList.size() || Choice < 0) {
+	int num_Accounts =    // get number of account a user has
+	  UserDataJSON.at("UserList")[User_num].at("AccountList").size();
+
+
+	while (Choice > num_Accounts || Choice < 0) {
 		cout << "Tai khoan so " << Choice << " khong co, moi nhap lai: ";
 		cin >> Choice;
 	}
 
-	string StringToCompare = UserData[User_num].AccountList[Choice - 1].AccId;
-	if (ReadLock()) {    /// actually, readlock always return true
-		// I have not specify the open file in another place
-		// so checklock is still so big
-		if (CheckLock(StringToCompare)) {
-			cout << "Tai khoan nay hien dang bi khoa" << endl;
-			cout << "Xin moi ban chon tai khoan khac" << endl;
-			cout << "Bam Enter de thu lai" << endl;
-			system("pause");
-			Choice = AccountLoginPrompt(User_num);
-			// run it again
-			// de quy
-		}
+	// check if user is lock
+
+	bool Locked =
+	  UserDataJSON.at("UserList")[User_num].at("AccountList")[Choice - 1].at(
+	    "Lock");
+
+	if (Locked) {
+		cout << "Tai khoan nay hien dang bi khoa" << endl;
+		cout << "Xin moi ban chon tai khoan khac" << endl;
+		cout << "Bam Enter de thu lai" << endl;
+		system("pause");
+		Choice = AccountLoginPrompt(User_num);
 	}
 
 	return Choice;
 }
 
-bool RightPassword(
-  UserAccount& recordNum,
-  int& Attemps) {
+void LockAccount(UserAccount& recordNum) {
+	UserDataJSON.at("UserList")[recordNum.User_num]
+	  .at("AccountList")[recordNum.Account_num]
+	  .at("Lock") = true;
+	  
+	UpdateUserDataJSON();
+	return;
+}
+
+bool RightPassword(UserAccount& recordNum, int& Attemps) {
 	system("cls");
 
-	string AccountID =
-	  UserData[recordNum.User_num].AccountList[recordNum.Account_num].AccId;
-
-	cout << "Ban chon dang nhap vao: " << endl;
+	cout << "Ban chon dang nhap " << endl;
 	cout << "Nhap password de thuc hien dang nhap" << endl;
 	cout << "Bo trong se quay nguoc lai man hinh chon ten dang nhap" << endl;
 
@@ -111,7 +124,7 @@ bool RightPassword(
 		     << " lan, tai khoan se bi khoa" << endl;
 	}
 	else if (Attemps == MAX_ATTEMPT) {    /// lock this user
-		LockAccount(AccountID);
+		LockAccount(recordNum);
 		cout << "Tai khoan nay da bi khoa do nhap sai mat khau nhieu lan"
 		     << endl;
 		cout
@@ -124,11 +137,15 @@ bool RightPassword(
 
 	// if they are privilege to enter password
 
-	cout << AccountID << "\t";
-	string str;
-	getline(cin, str);
+	string AccountID = UserDataJSON.at("UserList")[recordNum.User_num]
+	                     .at("AccountList")[recordNum.Account_num]
+	                     .at("AccountName");
 
-	if (str.empty()) {    // leave empty to go back to choose username
+	cout << AccountID << ":\t";
+	string pwd_entered;
+	getline(cin, pwd_entered);
+
+	if (pwd_entered.empty()) {    // leave empty to go back to choose username
 		Attemps = 0;
 		return true;
 	}
@@ -139,25 +156,34 @@ bool RightPassword(
 
 	// check the f*@#$*& password
 	// password not hashed yet
-	string ThePassword =
-	  UserData[recordNum.User_num].AccountList[recordNum.Account_num].Password;
-	if (ThePassword != str) return false;
+	string ThePassword = UserDataJSON.at("UserList")[recordNum.User_num]
+	                       .at("AccountList")[recordNum.Account_num]
+	                       .at("Password");
+	if (ThePassword != pwd_entered) return false;
 	return true;
 }
 
 void CreateLoggedInUser(UserAccount& recordNum) {
-	CurrentUser.AccId =
-	  UserData[recordNum.User_num].AccountList[recordNum.Account_num].AccId;
+
 	CurrentUser.User_num    = recordNum.User_num;
 	CurrentUser.Account_num = recordNum.Account_num;
+	CurrentUser.AccId       = UserDataJSON.at("UserList")[recordNum.User_num]
+	                      .at("AccountList")[recordNum.Account_num]
+	                      .at("AccountName");
 
-	for (int Role_num = 0; Role_num < UserData[recordNum.User_num]
-	                                    .AccountList[recordNum.Account_num]
-	                                    .RoleId.size();
-	     Role_num++) {    // to long for ya heh
-		CurrentUser.RoleId.push_back(UserData[recordNum.User_num]
-		                           .AccountList[recordNum.Account_num]
-		                           .RoleId[Role_num]);
+
+	int num_Roles = UserDataJSON.at("UserList")[recordNum.User_num]
+	                  .at("AccountList")[recordNum.Account_num]
+	                  .at("AccountRoleMap")
+	                  .size();
+
+	for (int Role_num = 0; Role_num < num_Roles; Role_num++) {
+
+		int role = UserDataJSON.at("UserList")[recordNum.User_num]
+		             .at("AccountList")[recordNum.Account_num]
+		             .at("AccountRoleMap")[Role_num];
+
+		CurrentUser.RoleId.push_back(role);
 	}
 	return;
 }
@@ -173,7 +199,7 @@ bool LoggedIn() {
 		if (UserLoginPrompt(User_num)) {
 			// run login prompt
 			// with arg User_num
-			if (User_num == UserData.size()) {
+			if (User_num == UserDataJSON.at("UserList").size()) {
 				// user not found
 				cout << "Ten nguoi dung khong hien huu" << endl;
 				cout << "Bam enter de thu lai" << endl;
@@ -187,18 +213,15 @@ bool LoggedIn() {
 			cout << "\nBan khong muon dang nhap nua? (y/n) ";
 			string str;
 			getline(cin, str);
-			if (str == "y") {
-				return false;
-			}
+			if (str == "y") { return false; }
 			else
 				continue;    // login prompt
 		}
 	}
 
-	int Account_num =
-	  AccountLoginPrompt(User_num) - 1;    // chose account
-	if (Account_num == -1) return false;     // no account chosen
-	//run cppcheck retrun error Reference to auto variable returned.
+	int Account_num = AccountLoginPrompt(User_num) - 1;    // chose account
+	if (Account_num == -1) return false;                   // no account chosen
+	// run cppcheck retrun error Reference to auto variable returned.
 	UserAccount recordNum = {User_num,
 	                         Account_num};    // save user place in vector
 
@@ -220,5 +243,5 @@ bool LoggedIn() {
 	// create the LoggedInUser data to store
 
 	return true;
-	//run cppcheck retrun error Reference to auto variable returned.
+	// run cppcheck retrun error Reference to auto variable returned.
 }
