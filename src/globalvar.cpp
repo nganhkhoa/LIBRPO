@@ -30,6 +30,8 @@ const int MAX_BORROW = 4;
 
 const int MAX_WEEK_BORROW = 2;
 
+const int SEARCH_MAX = 10;
+
 Role LibraryRole[MAX_ROLE]{
   {1, "DOC GIA", "Chi co quyen doc"},
   {2, "THU THU", "Khong biet thu thu lam gi"},
