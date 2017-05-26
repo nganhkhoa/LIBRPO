@@ -88,6 +88,7 @@ extern std::string FILEBook;
 extern std::string FILEAuthor;
 extern std::string FILEGenre;
 extern std::string FILEContent;
+extern std::string FILEBookJSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -161,6 +162,12 @@ extern std::string FILEBorrowRecord;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
+//
+// ─── SEARCH BOOK
+// ────────────────────────────────────────────────────────────────
+//
+
+extern const int SEARCH_MAX;
 
 //
 // ─── GLOBAL DATA
@@ -170,7 +177,8 @@ extern std::string FILEBorrowRecord;
 extern bool debug;
 extern LoggedInUser CurrentUser;
 extern nlohmann::json UserDataJSON;
-//extern std::vector<User> UserData;
+// extern std::vector<User> UserData;
+extern nlohmann::json BookDataJSON;
 extern std::vector<Book> BookData;
 
 

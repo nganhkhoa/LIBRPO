@@ -137,6 +137,7 @@ void ChooseBook(int& books) {
 	string str;
 	bool WrongInput = true;
 	while (WrongInput) {
+		int num_Books = BookDataJSON.at("BookLibrary").size();
 		getline(cin, str);
 		if (str.empty()) return;
 
@@ -204,7 +205,7 @@ void ChooseBook(int& books) {
 				continue;
 			}
 
-			int lastpage = BookData.size() / BOOK_PER_PAGE;
+			int lastpage = num_Books / BOOK_PER_PAGE;
 			if (PageNum > lastpage) {
 				cout << "Ban nhap trang khong hien huu" << endl;
 				continue;
@@ -225,7 +226,7 @@ void ChooseBook(int& books) {
 
 		else if (TempString == "--lastpage") {
 			// jumps to last page
-			books = BookData.size();
+			books = num_Books;
 			if (books % BOOK_PER_PAGE) {
 				while (books % BOOK_PER_PAGE) {
 					books--;
@@ -259,7 +260,7 @@ void ChooseBook(int& books) {
 			// exit, well
 			// you're in for
 			// make the condition false
-			books = BookData.size();
+			books = num_Books;
 			return;
 		}
 

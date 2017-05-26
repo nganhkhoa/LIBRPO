@@ -10,7 +10,7 @@ bool CreateRequestBorrowBook(string& Book_name) {
 		return false;
 	}
 
-	string BookId = /*FindBookByName(str)*/ "978-0451524935";
+	string BookId = /*FindBookByName(Book_name)*/ "978-0451524935";
 	requestborrowbook << "0" << "\t" 
 					  << CurrentUser.User_num << "\t"
 	                  << CurrentUser.Account_num << "\t" 

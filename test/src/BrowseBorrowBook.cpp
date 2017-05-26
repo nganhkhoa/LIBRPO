@@ -1,4 +1,4 @@
-#include <ReadBook.h>
+#include <Show.h>
 #include <Utilities.h>
 
 using namespace std;
@@ -97,7 +97,7 @@ int ValidateBorrowBook(
 	// FindBookByISBN(BookData, BorrowBookData.ISBN);
 	// need to create this function
 	cout << "Quyen sach can duoc muon:" << endl;
-	ShowBookData(Book_num);
+	ShowBookDataJSON(Book_num);
 
 	// user to lend to info
 	cout << "Nguoi muon muon sach nay la:" << endl;
