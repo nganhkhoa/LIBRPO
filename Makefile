@@ -86,6 +86,7 @@ VPATH = src\
 		src/History\
 		src/Login\
 		src/ReadBook\
+		src/ReadBookJSON\
 		src/ReadData\
 		src/ReadDataJSON\
 		src/Setting\

@@ -10,6 +10,7 @@ bool debug = true;    // debug mode switch
 
 nlohmann::json UserDataJSON = NULL;
 //std::vector<User> UserData  = {};
+nlohmann::json BookDataJSON = NULL;
 std::vector<Book> BookData  = {};
 LoggedInUser CurrentUser    = {"", -1, -1, false, {}};
 
@@ -43,6 +44,7 @@ std::string FILEBook      = BOOKDIRECTORY + "book.txt";
 std::string FILEAuthor    = BOOKDIRECTORY + "author.txt";
 std::string FILEGenre     = BOOKDIRECTORY + "genre.txt";
 std::string FILEContent   = BOOKDIRECTORY + "content.txt";
+std::string FILEBookJSON = BOOKDIRECTORY + "book.json";
 
 std::string FILEHistoryPath = "history/";
 std::string FILELog         = FILEHistoryPath + "log.txt";

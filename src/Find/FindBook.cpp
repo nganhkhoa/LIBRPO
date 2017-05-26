@@ -52,7 +52,7 @@ bool CompareWord(
 	return false;
 }
 
-bool ReadBookFromJson(
+bool LoadBookResult(
   const std::string* search,
   const int& searchSize,
   std::vector<std::string> result) {

@@ -75,7 +75,7 @@ void Browse() {
 				std::vector<std::string> result;
 				int searchSize;
 				ReadWord(search, searchSize);
-    			ReadBookFromJson(search, searchSize, result);
+    			LoadBookResult(search, searchSize, result);
 				if (debug) system("pause");
 				break;
 			}

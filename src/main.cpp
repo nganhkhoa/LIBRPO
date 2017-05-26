@@ -1,5 +1,5 @@
 /*
-*	Last update: 21/5/2017, 16:47:00
+*	Last update: 26/5/2017, 12:38:00
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
@@ -78,7 +78,7 @@ Manager
 #include <CommonLib.h>
 #include <Find.h>
 
-#include <ReadBook.h>
+#include <ReadBookJSON.h>
 #include <ReadDataJSON.h>
 
 #include <Welcome.h>
@@ -113,6 +113,7 @@ int main() {
 	if (debug) {
 		cout << UserDataJSON.dump(4) << endl;
 		system("pause");
+		system("cls");
 	}
 
 	// ────────────────────────────────────────────────────────────────────────────────
@@ -123,14 +124,20 @@ int main() {
 	// ────────────────────────────────────────────────────────
 	//
 
-	if (!ReadBook()) {
-		// we always read books
-		// maybe?
+	if (!ReadBookDataJSON()) {
+		// for now we put it here
+		// but after, we put in login
+		// only when the user login
+		// we run the file, to release memory
 		cout << "Error in reading book data" << endl;
 		system("pause");
-		return -2;
+		return -1;
 	}
-	if (debug) system("pause");
+	if (debug) {
+		cout << BookDataJSON.dump(4) << endl;
+		system("pause");
+		system("cls");
+	}
 	// ────────────────────────────────────────────────────────────────────────────────
 
 	// check log file to see who shutdown without logging out
