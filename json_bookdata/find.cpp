@@ -12,15 +12,7 @@ using json=nlohmann::json;
 
 int main(int argc, char** argv)
 {
-    //initialising
-    std::string search[SEARCH_MAX];
-    std::vector<std::string> result;
-
-    int searchSize;
-    //find book
-    ReadWord(search, searchSize);
-
-    ReadBookFromJson(search, searchSize, result);
+    std::vector<std::string> FindBookResult=SearchBook();
 
     system("pause");
     return 0;

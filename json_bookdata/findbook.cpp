@@ -9,36 +9,6 @@
 
 using json=nlohmann::json;
 
-void ReadWord(std::string* search, int& searchSize)
-{
-    std::string core;
-    int step=0;
-    searchSize=0;
-
-    bool starting=true;
-    bool singleSpace=false;
-    std::cout<<"Find book: ";
-    getline(std::cin, core);
-
-    while(core[step]!='\0')
-    {
-        if(core[step]==' '&&starting==true) step++;
-        else if (core[step]==' '&&singleSpace==true) step++;
-        else if (core[step]==' '&&singleSpace==false)
-        {
-            searchSize++; singleSpace=true;
-            step++;
-        }
-        else
-        {
-            search[searchSize]+=std::tolower(core[step]);
-            starting=false; singleSpace=false;
-            step++;
-        }
-    }
-    searchSize++;
-}
-
 bool CompareWord(std::string& attribute, const std::string* search, const int& searchSize)
 {
     int step=0;
@@ -53,7 +23,7 @@ bool CompareWord(std::string& attribute, const std::string* search, const int& s
     return false;
 }
 
-bool ReadBookFromJson(const std::string* search, const int& searchSize, std::vector<std::string> result)
+bool ReadBookFromJson(const std::string* search, const int& searchSize, std::vector<std::string>& result)
 {
     //open book file
     std::ifstream bookfile("book.json");
@@ -114,8 +84,19 @@ bool ReadBookFromJson(const std::string* search, const int& searchSize, std::vec
         //record
         if (found==true) result.push_back(SearchBook.at("BookLibrary")[BookNum].at("ISBN"));
     }
-    //show result
 
+    bookfile.close();
+    return true;
+}
+
+void ShowBookFound(const std::vector<std::string>& result)
+{
+    std::ifstream bookfile("book.json");
+
+    json SearchBook;
+    bookfile>>SearchBook;
+
+    if(result.size()==0) std::cout<<"Book not found"<<std::endl;
     for(int step=0; step< result.size(); step++)
     {
         for(int checking=0; checking<SearchBook.at("BookLibrary").size(); checking++)
@@ -127,7 +108,41 @@ bool ReadBookFromJson(const std::string* search, const int& searchSize, std::vec
             }
         }
     }
-
     bookfile.close();
-    return true;
+}
+
+std::vector<std::string> SearchBook()
+{
+    std::string core; core.clear();
+    std::string search[SEARCH_MAX];
+    int step=0, searchSize=0;
+
+    bool starting=true;
+    bool singleSpace=false;
+    std::cout<<"Find book: ";
+    std::cin.clear();
+    getline(std::cin, core);
+
+    while(core[step]!='\0')
+    {
+        if(core[step]==' '&&starting==true) step++;
+        else if (core[step]==' '&&singleSpace==true) step++;
+        else if (core[step]==' '&&singleSpace==false)
+        {
+            searchSize++; singleSpace=true;
+            step++;
+        }
+        else
+        {
+            search[searchSize]+=std::tolower(core[step]);
+            starting=false; singleSpace=false;
+            step++;
+        }
+    }
+    searchSize++;
+
+    std::vector<std::string> result;
+    ReadBookFromJson(search, searchSize, result);
+    ShowBookFound(result);
+    return result;
 }
