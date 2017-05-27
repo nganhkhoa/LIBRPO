@@ -117,8 +117,8 @@ void ShowBookFound(const std::vector<std::string>& result) {
 
 void SearchAnalize(SearchPhrase& SearchThis, std::string& core) {
 
-	std::string search[MAX_WORD] = SearchThis.search;
-	int searchSize               = SearchThis.searchSize;
+	std::string (&search)[MAX_WORD] = SearchThis.search;
+	int& searchSize               = SearchThis.searchSize;
 
 
 	bool starting    = true;

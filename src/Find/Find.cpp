@@ -18,7 +18,7 @@ int FindUserByName(string& str) {
 	return num_Users;
 }
 
-
+/*
 int FindBook(string& BookId) {
 	// find book by ISBN
 	if (debug) cout << "Finding for book with ID: " << BookId << endl;
@@ -30,3 +30,4 @@ int FindBook(string& BookId) {
 	}
 	return BookData.size();
 }
+*/

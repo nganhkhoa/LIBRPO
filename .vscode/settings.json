@@ -49,5 +49,6 @@
 	"cppcheck.includePaths": [
 		"${workspaceRoot}\\include",
 		"D:\\Dropbox\\programming\\C++\\project\\LIBPRO\\include"
-	]
+	],
+	"astyle.cpp.enable": false
 }

@@ -9,9 +9,9 @@ bool debug = true;    // debug mode switch
 //
 
 nlohmann::json UserDataJSON = NULL;
-//std::vector<User> UserData  = {};
+// std::vector<User> UserData  = {};
 nlohmann::json BookDataJSON = NULL;
-std::vector<Book> BookData  = {};
+// std::vector<Book> BookData  = {};
 LoggedInUser CurrentUser    = {"", -1, -1, false, {}};
 
 
