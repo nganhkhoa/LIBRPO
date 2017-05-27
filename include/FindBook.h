@@ -3,8 +3,18 @@
 
 #include "CommonLib.h"
 
-void ReadWord(std::string* search, int& searchSize);
-bool CompareWord(std::string& attribute, const std::string* search, const int& searchSize);
-bool LoadBookResult(const std::string* search, const int& searchSize, std::vector<std::string> result);
+const int MAX_WORD = 10;
+
+typedef struct _SearchPhrase {
+	std::string search[MAX_WORD] = {};
+	int searchSize = 0;
+} SearchPhrase;
+
+
+bool CompareWord(std::string&, const std::string*, const int&);
+std::vector<std::string> ReadBookFromJson(const SearchPhrase&);
+void ShowBookFound(const std::vector<std::string>&);
+void SearchAnalize(SearchPhrase&, std::string&);
+bool SearchBookPrompt(SearchPhrase&, std::string&);
 
 #endif //FINDBOOK_H

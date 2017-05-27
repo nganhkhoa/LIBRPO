@@ -24,7 +24,7 @@ void ShowAllBook() {
 			}
 			if (author != 0) {
 				if (author == num_Authors - 1)
-					cout << " and ";
+					cout << " va ";
 				else
 					cout << ", ";
 			}

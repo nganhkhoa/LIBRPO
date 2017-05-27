@@ -71,12 +71,7 @@ void Browse() {
 			case Author: break;
 			case Find: {
 				cin.ignore();
-				std::string search[SEARCH_MAX];
-				std::vector<std::string> result;
-				int searchSize;
-				ReadWord(search, searchSize);
-    			LoadBookResult(search, searchSize, result);
-				if (debug) system("pause");
+				FindBook();
 				break;
 			}
 			case MyCollection: break;

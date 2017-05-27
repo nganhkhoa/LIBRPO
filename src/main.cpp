@@ -152,7 +152,7 @@ int main() {
 	// maybe cart?????
 
 	while (true) {                       // also run welcome until exit
-		while (!CurrentUser.Active) {    // if not active, show general welcom
+		while (!CurrentUser.Active) {    // if not active, show general welcome
 			enum WelcomeChoice
 			{
 				LoginUser = 1,

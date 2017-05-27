@@ -7,6 +7,7 @@ bool ChooseBack(int&);
 void ShowBookContent(std::string&);
 void ChooseBookInformation(int&);
 void ChooseBook(int&);
+void FindBook();
 
 
 void ShowAllBook();
