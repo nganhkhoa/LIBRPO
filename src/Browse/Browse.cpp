@@ -1,5 +1,5 @@
 #include <Browse.h>
-
+#include <FindBook.h>
 using namespace std;
 
 int BrowseOption() {
@@ -69,7 +69,11 @@ void Browse() {
 			case HotYear: break;
 			case Genre: break;
 			case Author: break;
-			case Find: break;
+			case Find: {
+				cin.ignore();
+				FindBook();
+				break;
+			}
 			case MyCollection: break;
 			case Exit: {
 				cout << "Ban muon quay lai man hinh chinh? (y/n) ";

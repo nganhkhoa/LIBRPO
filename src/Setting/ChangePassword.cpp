@@ -1,29 +1,31 @@
 #include <Setting.h>
+#include <ReadDataJSON.h>
 
 using namespace std;
 
 bool ComparePassword(string& VerifyPassword) {
 	// cypher here
 
-	string OldPassword = UserData[CurrentUser.User_num]
-	                       .AccountList[CurrentUser.Account_num]
-	                       .Password;
+	string OldPassword = UserDataJSON.at("UserList")[CurrentUser.User_num]
+	                       .at("AccountList")[CurrentUser.Account_num]
+	                       .at("Password");
 
 	if (OldPassword == VerifyPassword) return true;
 	return false;
 }
 
 
-bool ChangePassword() {
+bool ChangePassword() { // ham thi dai ma toan la chu
 	while (true) {
 		system("cls");
 		cout << "Sau day he thong se yeu cau ban nhap mat ma cu" << endl;
 		cout << "Neu ban khong muon thay doi thi hay de trong" << endl;
 		cout << "Nhap password cu cua ban: ";
-		string str;
-		getline(cin, str);
+		string pwd_entered;
+		string NewPassword;
+		getline(cin, pwd_entered);
 
-		if (str.empty()) {
+		if (pwd_entered.empty()) {
 			cout << "Ban muon thoat? (y/n) ";
 			string Answer;
 			getline(cin, Answer);
@@ -32,7 +34,7 @@ bool ChangePassword() {
 				return false;
 		}
 
-		if (!ComparePassword(str)) {
+		if (!ComparePassword(pwd_entered)) {
 			cout << "Ban da nhap mat khau sai" << endl;
 			cout << "Neu ban khong nho mat khau, hay lien he ban quan tri"
 			     << endl;
@@ -54,21 +56,21 @@ bool ChangePassword() {
 				return false;
 		}
 
-		string NewPassword;
 		while (true) {
-			
+
 			cout << "Ban hay nhap mat khau moi: ";
 			getline(cin, NewPassword);
 
 			cout << "Moi ban nhap lai mat khau moi: ";
-			getline(cin, str);
+			getline(cin, pwd_entered);
 
-			if (NewPassword != str) {
+			if (NewPassword != pwd_entered) {
 				cout << "Mat khau moi khong trung" << endl;
 				cout << "Ban muon thu lai? (y/n): ";
-				getline(cin, str);
+				string Answer;
+				getline(cin, Answer);
 
-				if (str == "y")
+				if (Answer == "y")
 					continue;
 
 				else
@@ -80,7 +82,11 @@ bool ChangePassword() {
 			break;
 		}
 
-		if (!UpdatePassword(NewPassword)) {
+		UserDataJSON.at("UserList")[CurrentUser.User_num]
+		  .at("AccountList")[CurrentUser.Account_num]
+		  .at("Password") = NewPassword;
+
+		if (!UpdateUserDataJSON()) {
 			cout << "Cap nhat khong thanh cong" << endl;
 			cout << "Bi loi mong quy khach thong cam" << endl;
 			cout << "Bam enter de quay lai lua chon" << endl;

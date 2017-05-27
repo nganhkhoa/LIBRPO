@@ -82,10 +82,13 @@ INC = -I include
 
 VPATH = src\
 		src/Browse\
+		src/Find\
 		src/History\
 		src/Login\
 		src/ReadBook\
+		src/ReadBookJSON\
 		src/ReadData\
+		src/ReadDataJSON\
 		src/Setting\
 		src/Utilities\
 			src/Utilities/Reader\

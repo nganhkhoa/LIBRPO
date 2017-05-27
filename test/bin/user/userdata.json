@@ -1,0 +1,140 @@
+{
+    "UserList": [
+        {
+            "AccountList": [
+                {
+                    "AccountName": "anhkhoa.1",
+                    "AccountRoleMap": [
+                        1
+                    ],
+                    "Lock": false,
+                    "Password": "thaosieudethuong"
+                },
+                {
+                    "AccountName": "anhkhoa.2",
+                    "AccountRoleMap": [
+                        2,
+                        3
+                    ],
+                    "Lock": false,
+                    "Password": "khoayeuthao"
+                }
+            ],
+            "UserID": "001",
+            "Username": "khoa"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "trinhthithuthao",
+                    "AccountRoleMap": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "Lock": false,
+                    "Password": "thaoyeukhoa"
+                }
+            ],
+            "UserID": "002",
+            "Username": "ThaoTrinh"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "iohkgn@gmail.com",
+                    "AccountRoleMap": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "Lock": false,
+                    "Password": "khoiquanque"
+                }
+            ],
+            "UserID": "003",
+            "Username": "MinhKhoi"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "quocnam",
+                    "AccountRoleMap": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "Lock": false,
+                    "Password": "trataocaydu"
+                }
+            ],
+            "UserID": "004",
+            "Username": "QuocNam"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "minh.nhat.1",
+                    "AccountRoleMap": [
+                        1
+                    ],
+                    "Lock": false,
+                    "Password": "1234"
+                }
+            ],
+            "UserID": "005",
+            "Username": "NHAT"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "minh.nguyet.a",
+                    "AccountRoleMap": [
+                        2,
+                        3
+                    ],
+                    "Lock": false,
+                    "Password": "1234"
+                },
+                {
+                    "AccountName": "minh.nguyet.b",
+                    "AccountRoleMap": [
+                        4
+                    ],
+                    "Lock": false,
+                    "Password": "1234"
+                }
+            ],
+            "UserID": "006",
+            "Username": "NGUYET"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "lam.y.than",
+                    "AccountRoleMap": [
+                        3
+                    ],
+                    "Lock": false,
+                    "Password": "1234"
+                }
+            ],
+            "UserID": "007",
+            "Username": "THAN"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "minh.giao",
+                    "AccountRoleMap": [
+                        1
+                    ],
+                    "Lock": false,
+                    "Password": "1234"
+                }
+            ],
+            "UserID": "008",
+            "Username": "GIAO"
+        }
+    ]
+}

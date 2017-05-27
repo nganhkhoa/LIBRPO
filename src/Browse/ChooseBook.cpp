@@ -61,59 +61,33 @@ bool ChooseBack(int& books) {
 	}
 }
 
-void ShowBookContent(string& Id) {
-
-	// open file content and search for ISBN
-	// and get the information
-
-	ifstream contentfile(FILEContent);
-	if (!contentfile.is_open()) { return; }
-
-	string str;
-	while (getline(contentfile, str)) {
-		stringstream scin(str);
-		string TempString;
-		scin >> TempString;
-		if (TempString == Id) break;
-	}
-
-	cout << "\t";
-	for (int i = 17; i < str.length(); i++) {
-		if (str[i] == '\\') {
-			i++;
-			cout << endl;
-			continue;
-		}
-		cout << str[i];
-	}
-}
-
-
 void ChooseBookInformation(int& BookToShow) {
 	system("cls");
 
 	BookToShow--;
 
-	cout << "Ten sach:" << BookData[BookToShow].BookLabel << endl;
+	cout << "Ten sach:" << BookDataJSON.at("BookLibrary")[BookToShow].at("Title") << endl;
 
 	cout << "Tac gia:" << endl;
-	for (int author = 0; author < BookData[BookToShow].Authors.size();
+	int num_Author = BookDataJSON.at("BookLibrary")[BookToShow].at("Author").size();
+	for (int author = 0; author < num_Author;
 	     author++) {
 		if (author == 3) {
 			cout << ", va nhieu tac gia khac";
 			break;
 		}
 		if (author != 0) {
-			if (author == BookData[BookToShow].Authors.size() - 1)
+			if (author == num_Author - 1)
 				cout << " and ";
 			else
 				cout << ", ";
 		}
-		cout << BookData[BookToShow].Authors[author];
+		string Author = BookDataJSON.at("BookLibrary")[BookToShow].at("Author")[author];
+		cout << Author;
 	}
 	cout << "." << endl;
 
-	cout << "So luong sach: " << BookData[BookToShow].Quantity << endl;
+	cout << "So luong sach: " << BookDataJSON.at("BookLibrary")[BookToShow].at("BookNumber") << endl;
 
 	cout << "Muon sach: " << true << endl;
 
@@ -121,7 +95,9 @@ void ChooseBookInformation(int& BookToShow) {
 	if (/*mua sach duoc*/ true) cout << "Gia sach: $" << 10.00 << endl;
 
 	cout << "Noi dung sach: " << endl;
-	ShowBookContent(BookData[BookToShow].BookId);
+	
+	string Content = BookDataJSON.at("BookLibrary")[BookToShow].at("Content");
+	cout << Content;
 
 	cout << endl << endl;
 	return;
@@ -137,6 +113,7 @@ void ChooseBook(int& books) {
 	string str;
 	bool WrongInput = true;
 	while (WrongInput) {
+		int num_Books = BookDataJSON.at("BookLibrary").size();
 		getline(cin, str);
 		if (str.empty()) return;
 
@@ -204,7 +181,7 @@ void ChooseBook(int& books) {
 				continue;
 			}
 
-			int lastpage = BookData.size() / BOOK_PER_PAGE;
+			int lastpage = num_Books / BOOK_PER_PAGE;
 			if (PageNum > lastpage) {
 				cout << "Ban nhap trang khong hien huu" << endl;
 				continue;
@@ -225,7 +202,7 @@ void ChooseBook(int& books) {
 
 		else if (TempString == "--lastpage") {
 			// jumps to last page
-			books = BookData.size();
+			books = num_Books;
 			if (books % BOOK_PER_PAGE) {
 				while (books % BOOK_PER_PAGE) {
 					books--;
@@ -259,7 +236,7 @@ void ChooseBook(int& books) {
 			// exit, well
 			// you're in for
 			// make the condition false
-			books = BookData.size();
+			books = num_Books;
 			return;
 		}
 

@@ -13,7 +13,7 @@ bool RightPassword(UserAccount&, int&);
 void CreateLoggedInUser(UserAccount&);
 bool LoggedIn();
 
-void LockAccount(std::string&);
+void LockAccount(UserAccount&);
 bool ReadLock();
 bool CheckLock(std::string&);
 

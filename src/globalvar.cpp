@@ -8,9 +8,11 @@ bool debug = true;    // debug mode switch
 // ───────────────────────────────────────────────────────────────────────
 //
 
-std::vector<User> UserData = {};
-std::vector<Book> BookData = {};
-LoggedInUser CurrentUser = {"", -1, -1, false, {}};
+nlohmann::json UserDataJSON = NULL;
+// std::vector<User> UserData  = {};
+nlohmann::json BookDataJSON = NULL;
+// std::vector<Book> BookData  = {};
+LoggedInUser CurrentUser    = {"", -1, -1, false, {}};
 
 
 //
@@ -29,6 +31,8 @@ const int MAX_BORROW = 4;
 
 const int MAX_WEEK_BORROW = 2;
 
+const int SEARCH_MAX = 10;
+
 Role LibraryRole[MAX_ROLE]{
   {1, "DOC GIA", "Chi co quyen doc"},
   {2, "THU THU", "Khong biet thu thu lam gi"},
@@ -40,6 +44,7 @@ std::string FILEBook      = BOOKDIRECTORY + "book.txt";
 std::string FILEAuthor    = BOOKDIRECTORY + "author.txt";
 std::string FILEGenre     = BOOKDIRECTORY + "genre.txt";
 std::string FILEContent   = BOOKDIRECTORY + "content.txt";
+std::string FILEBookJSON = BOOKDIRECTORY + "book.json";
 
 std::string FILEHistoryPath = "history/";
 std::string FILELog         = FILEHistoryPath + "log.txt";
@@ -50,7 +55,8 @@ std::string FILEAccount =
   FILEDIRECTORY + "account.txt";    // link to account file
 std::string FILEAccountRoleMap =
   FILEDIRECTORY + "accountrolemap.txt";    // link to account role map file
-std::string FILELock = FILEDIRECTORY + "lock.txt";    // link to lock file
+std::string FILELock      = FILEDIRECTORY + "lock.txt";    // link to lock file
+std::string FILEUserJSON = FILEDIRECTORY + "userdata.json";
 
 std::string SUBMITDIRECTORY  = "submit/";
 std::string FILEBorrowBook   = SUBMITDIRECTORY + "borrow.txt";

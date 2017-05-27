@@ -4,34 +4,38 @@ using namespace std;
 
 void ShowAllBook() {
 	system("cls");
-	for (int books = 0; books < BookData.size(); books++) {
+	int num_Books = BookDataJSON.at("BookLibrary").size();
+	for (int books = 0; books < num_Books; books++) {
 
 		// the book label
-		cout << books + 1 << ": " << BookData[books].BookLabel << endl;
+		string BookTitle = BookDataJSON.at("BookLibrary")[books].at("Title");
+		cout << books + 1 << ": " << BookTitle << endl;
 
 		// the book authors
 		// if more than 3 etc
 		// if less than 3 show all
+		int num_Authors = BookDataJSON.at("BookLibrary")[books].at("Author").size();
 		cout << "Tac gia: ";
-		for (int author = 0; author < BookData[books].Authors.size();
+		for (int author = 0; author < num_Authors;
 		     author++) {
 			if (author == 3) {
 				cout << ", va nhieu tac gia khac";
 				break;
 			}
 			if (author != 0) {
-				if (author == BookData[books].Authors.size() - 1)
-					cout << " and ";
+				if (author == num_Authors - 1)
+					cout << " va ";
 				else
 					cout << ", ";
 			}
-			cout << BookData[books].Authors[author];
+			string Author = BookDataJSON.at("BookLibrary")[books].at("Author")[author];
+			cout << Author;
 		}
 		cout << "." << endl;
 
 		// book quantity
 		cout << "Hien co: "
-		     << BookData[books].Quantity - BookData[books].Borrowed
+		     << BookDataJSON.at("BookLibrary")[books].at("BookNumber") //- BookDataJSON.at("BookLibrary")[books].at("Borrowed")
 		     << " quyen trong kho";
 
 		cout << endl;
@@ -49,8 +53,8 @@ void ShowAllBook() {
 			// show the page which I have the formula below
 			// wait user input
 
-			int Pages = BookData.size() / BOOK_PER_PAGE;
-			if (BookData.size() % BOOK_PER_PAGE) Pages += 1;
+			int Pages = num_Books / BOOK_PER_PAGE;
+			if (num_Books % BOOK_PER_PAGE) Pages += 1;
 
 			cout << "Trang " << (books + 1) / BOOK_PER_PAGE << "/" << Pages
 			     << endl;
@@ -59,14 +63,14 @@ void ShowAllBook() {
 			system("pause");
 			system("cls");
 		}
-		if ((books + 1) == BookData.size() && BookData.size() % BOOK_PER_PAGE) {
+		if ((books + 1) == num_Books && num_Books % BOOK_PER_PAGE) {
 
 			// if you are on the last book
 			// and the last book is  %= BOOK_PER_PAGE != 0
 			// then you do math to know the page
 			// wait for user input
 
-			int Pages = BookData.size() / BOOK_PER_PAGE;
+			int Pages = num_Books / BOOK_PER_PAGE;
 			Pages += 1;
 			cout << "Trang " << Pages << "/" << Pages << endl;
 
