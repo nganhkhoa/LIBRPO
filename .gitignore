@@ -14,3 +14,10 @@
 # formula CMAKE
 # everyone is different
 **/CMakeLists.txt
+Makefile
+
+# formating code
+.clang-format
+
+# exception
+!cppcheck.log
