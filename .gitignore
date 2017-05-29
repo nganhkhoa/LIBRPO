@@ -1,9 +1,16 @@
+# list of folders not to be included in
 **/.vscode
 /spike
 **/build
+
+# list of files not to be included in
+*.o
 *.exe
-**/*.aux
-**/*.log
-**/*.out
-**/*.synctex.gz
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# formula CMAKE
+# everyone is different
 **/CMakeLists.txt
