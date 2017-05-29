@@ -3,9 +3,9 @@
 using json = nlohmann::json;
 
 bool CompareWord(
-  std::string& attribute,
-  const std::string* search,
-  const int& searchSize) {
+	std::string& attribute,
+	const std::string* search,
+	const int& searchSize) {
 	int step = 0;
 	std::string attributeLowercase;
 	attributeLowercase.clear();
@@ -16,7 +16,7 @@ bool CompareWord(
 
 	for (int check = 0; check < searchSize; check++) {
 		const char* foundWord =
-		  std::strstr(attributeLowercase.c_str(), search[check].c_str());
+			std::strstr(attributeLowercase.c_str(), search[check].c_str());
 		if (foundWord != NULL) return true;
 	}
 	return false;
@@ -31,62 +31,62 @@ std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 
 	// assignment for checking
 	for (int BookNum = 0; BookNum < SearchBook.at("BookLibrary").size();
-	     BookNum++) {
+		 BookNum++) {
 		bool found = false;
 		// title
 		if (found == false) {
 			std::string BookTitle =
-			  SearchBook.at("BookLibrary")[BookNum].at("Title");
+				SearchBook.at("BookLibrary")[BookNum].at("Title");
 			found =
-			  CompareWord(BookTitle, SearchThis.search, SearchThis.searchSize);
+				CompareWord(BookTitle, SearchThis.search, SearchThis.searchSize);
 		}
 		// author
 		if (found == false) {
 			for (int AuthorNum = 0;
-			     AuthorNum <
-			     SearchBook.at("BookLibrary")[BookNum].at("Author").size();
-			     AuthorNum++) {
+				 AuthorNum <
+				 SearchBook.at("BookLibrary")[BookNum].at("Author").size();
+				 AuthorNum++) {
 				std::string BookAuthor =
-				  SearchBook.at("BookLibrary")[BookNum].at("Author")[AuthorNum];
+					SearchBook.at("BookLibrary")[BookNum].at("Author")[AuthorNum];
 				found = CompareWord(
-				  BookAuthor, SearchThis.search, SearchThis.searchSize);
+					BookAuthor, SearchThis.search, SearchThis.searchSize);
 				if (found == true) break;
 			}
 		}
 		// publisher
 		if (found == false) {
 			std::string BookPublisher =
-			  SearchBook.at("BookLibrary")[BookNum].at("Publisher");
+				SearchBook.at("BookLibrary")[BookNum].at("Publisher");
 			found = CompareWord(
-			  BookPublisher, SearchThis.search, SearchThis.searchSize);
+				BookPublisher, SearchThis.search, SearchThis.searchSize);
 		}
 		// category
 		if (found == false) {
 			for (int CategoryNum = 0;
-			     CategoryNum <
-			     SearchBook.at("BookLibrary")[BookNum].at("Category").size();
-			     CategoryNum++) {
+				 CategoryNum <
+				 SearchBook.at("BookLibrary")[BookNum].at("Category").size();
+				 CategoryNum++) {
 				std::string BookCategory =
-				  SearchBook.at("BookLibrary")[BookNum].at(
-				    "Category")[CategoryNum];
+					SearchBook.at("BookLibrary")[BookNum].at(
+					"Category")[CategoryNum];
 				found = CompareWord(
-				  BookCategory, SearchThis.search, SearchThis.searchSize);
+					BookCategory, SearchThis.search, SearchThis.searchSize);
 				if (found == true) break;
 			}
 		}
 		// year
 		if (found == false) {
 			std::string BookYear =
-			  SearchBook.at("BookLibrary")[BookNum].at("Year");
+				SearchBook.at("BookLibrary")[BookNum].at("Year");
 			found =
-			  CompareWord(BookYear, SearchThis.search, SearchThis.searchSize);
+				CompareWord(BookYear, SearchThis.search, SearchThis.searchSize);
 		}
 		// content
 		if (found == false) {
 			std::string BookContent =
-			  SearchBook.at("BookLibrary")[BookNum].at("Content");
+				SearchBook.at("BookLibrary")[BookNum].at("Content");
 			found = CompareWord(
-			  BookContent, SearchThis.search, SearchThis.searchSize);
+				BookContent, SearchThis.search, SearchThis.searchSize);
 		}
 		// record
 		if (found == true)
@@ -103,12 +103,12 @@ void ShowBookFound(const std::vector<std::string>& result) {
 	if (result.size() == 0) std::cout << "Book not found" << std::endl;
 	for (int step = 0; step < result.size(); step++) {
 		for (int checking = 0; checking < SearchBook.at("BookLibrary").size();
-		     checking++) {
+			 checking++) {
 			if (
-			  SearchBook.at("BookLibrary")[checking].at("ISBN") ==
-			  result[step]) {
+				SearchBook.at("BookLibrary")[checking].at("ISBN") ==
+				result[step]) {
 				std::string showBook =
-				  SearchBook.at("BookLibrary")[checking].at("Title");
+					SearchBook.at("BookLibrary")[checking].at("Title");
 				std::cout << step + 1 << "." << showBook << std::endl;
 			}
 		}
