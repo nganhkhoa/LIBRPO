@@ -1,12 +1,11 @@
 {
 	"version": "0.2.0",
 	"configurations": [
-
 		{
 			"name": "C++ Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/test/bin/LIBPRO_test.exe",
+			"program": "${workspaceRoot}/test/bin/LIBPRO_TEST.exe",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}/test/bin",

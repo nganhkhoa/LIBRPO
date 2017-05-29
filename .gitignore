@@ -1,20 +1,9 @@
-# build folder and binary files
-# anywhere are excluded
-**/bin/*.exe
-**/build
-
-# cmakelist exclude 
-**/CMakeLists.txt
-
-# user setting of VSC too
 **/.vscode
+/spike
+**/build
+*.exe
 
-# personal research folder
-# push once and that's all
-spike/**
-
-# auxilary files
-reportLIBPRO/*.aux
-reportLIBPRO/*.log
-reportLIBPRO/*.out
-reportLIBPRO/*.synctex.gz
+*.aux
+*.log
+*.out
+*synctex.gz
