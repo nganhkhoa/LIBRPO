@@ -11,10 +11,10 @@
 
 # personal research folder
 # push once and that's all
-spike
+spike/**
 
 # auxilary files
-reportLIBPRO/.aux
-reportLIBPRO/.log
-reportLIBPRO/.out
-reportLIBPRO/.synctex.gz
+reportLIBPRO/*.aux
+reportLIBPRO/*.log
+reportLIBPRO/*.out
+reportLIBPRO/*.synctex.gz
