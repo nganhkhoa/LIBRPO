@@ -14,7 +14,7 @@
 # formula CMAKE
 # everyone is different
 **/CMakeLists.txt
-Makefile
+/Makefile
 
 # formating code
 .clang-format
