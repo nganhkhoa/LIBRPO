@@ -5,5 +5,5 @@
 *.aux
 *.log
 *.out
-*synctex.gz
+*.synctex.gz
 **/CMakeLists.txt
