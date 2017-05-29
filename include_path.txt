@@ -1,9 +1,0 @@
-g++ -v build/Accountant.o build/Author.o build/Book.o build/Browse.o build/ChangePassword.o build/ChooseBook.o build/CommonLib.o build/Find.o build/Genre.o build/History.o build/Login.o build/ReadBook.o build/ReadDataJSON.o build/Reader.o build/Setting.o build/ShowAllBook.o build/ShowBook.o build/Utilities.o build/Welcome.o build/globalvar.o build/main.o test/buildtest/BorrowBook.o test/buildtest/BrowseBorrowBook.o -o test/bin/LIBPRO_test
-
-
-C:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/bin/../lib/gcc/i686-w64-mingw32/6.3.0/include/c++
- C:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/bin/../lib/gcc/i686-w64-mingw32/6.3.0/include/c++/i686-w64-mingw32
- C:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/bin/../lib/gcc/i686-w64-mingw32/6.3.0/include/c++/backward
- C:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/bin/../lib/gcc/i686-w64-mingw32/6.3.0/include
- C:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/bin/../lib/gcc/i686-w64-mingw32/6.3.0/include-fixed
- C:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/bin/../lib/gcc/i686-w64-mingw32/6.3.0/../../../../i686-w64-mingw32/include
