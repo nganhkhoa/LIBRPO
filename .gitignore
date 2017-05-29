@@ -1,9 +1,9 @@
-**/.vscode
+**/.vscode/
 /spike
 **/build
 *.exe
-
 *.aux
 *.log
 *.out
 *synctex.gz
+**/CMakeLists.txt
