@@ -16,8 +16,5 @@
 **/CMakeLists.txt
 /Makefile
 
-# formating code
-.clang-format
-
 # exception
 !cppcheck.log
