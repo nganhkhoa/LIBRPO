@@ -1,8 +1,0 @@
-001	khoa
-002	NHAT
-003	NGUYET
-004	THAN
-005	GIAO
-006	ThaoTrinh
-007	MinhKhoi
-008	QuocNam
