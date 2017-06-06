@@ -1,0 +1,30 @@
+{
+    "UserList": [
+		{
+			"AccountList":
+			[
+				{
+					"AccountName": "anhkhoa.1",
+					"AccountRoleMap": [1],
+					"Lock": false,
+				}
+			],
+			"Password": "1234",
+			"UserID": "001",
+			"Username": "khoa",
+			"UserFirstName": "Nguyen Anh",
+			"UserLastName": "khoa",
+			"DateOfBirth": "22/11/1998",
+			"Gender": "Male",
+			"Nationality": "VN",
+			"Ethnic": "Kinh",
+			"IDNumber": "0000000000",
+			"IDValidDate": "1/1/2000",
+			"UserAddress": "HCMC",
+			"PhoneNumber": "090909090",
+			"Job": "Student",
+			"Institute": "BKU",
+			"InstituteAddress": ""
+		}
+	]
+}
