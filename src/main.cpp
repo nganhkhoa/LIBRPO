@@ -85,6 +85,7 @@ Manager
 #include <Utilities.h>
 #include <Browse.h>
 #include <Setting.h>
+#include <SignUp.h>
 
 #include <History.h>
 
@@ -169,7 +170,8 @@ int main() {
 					if (CurrentUser.Active) LoginHistory();     // login history
 					break;
 				case SignUpUser:
-					// SignUp();
+					cin.ignore();
+					SignUp();
 					break;
 				case BrowseOption:
 					// without loging in, the user can still browse

@@ -13,6 +13,8 @@
 
 #include <ctime>
 
+#include <NewUser.h>
+
 // json parser for C++
 // all credit to  nlohmann
 #include "nlohmann/json.hpp"
@@ -61,6 +63,7 @@ extern std::string FILEAccount;
 extern std::string FILEAccountRoleMap;
 extern std::string FILELock;
 extern std::string FILEUserJSON;
+extern std::string FILEUser_focus_JSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
 

@@ -57,6 +57,7 @@ std::string FILEAccountRoleMap =
   FILEDIRECTORY + "accountrolemap.txt";    // link to account role map file
 std::string FILELock      = FILEDIRECTORY + "lock.txt";    // link to lock file
 std::string FILEUserJSON = FILEDIRECTORY + "userdata.json";
+std::string FILEUser_focus_JSON = FILEDIRECTORY + "userdata_user-focus.json";
 
 std::string SUBMITDIRECTORY  = "submit/";
 std::string FILEBorrowBook   = SUBMITDIRECTORY + "borrow.txt";
