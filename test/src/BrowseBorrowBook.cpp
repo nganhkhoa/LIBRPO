@@ -152,7 +152,6 @@ void BrowseBorrowBook() {
 		// if not exit,
 		// log the accountant who has made the validation
 		BorrowBookData[index].Accountant_User_num    = CurrentUser.User_num;
-		BorrowBookData[index].Accountant_Account_num = CurrentUser.Account_num;
 
 		if (BorrowBookData[index].Status == 2)
 			continue;    // reject so nothing happens

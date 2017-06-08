@@ -5,5 +5,5 @@
 
 int Welcome();
 int WelcomeUser();
-
+int WelcomeAccount();
 #endif

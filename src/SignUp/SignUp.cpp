@@ -108,7 +108,7 @@ bool SignUpUser(NewUser& NewCreation) {
 void SignUp() {
 	system("cls");
 	
-	cout << "Ban muon tao tai khoan moi?(y/n) " << endl;
+	cout << "Ban muon tao tai khoan moi?(y/n) ";
 	string Answer = ""; 
 	getline(cin, Answer);
 
