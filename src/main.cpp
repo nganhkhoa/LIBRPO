@@ -1,9 +1,9 @@
 /*
-*	Last update: 26/5/2017, 12:38:00
+*	Last update: 09/06/2017, 21:39:00
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 0.0.2
+*	Version: 0.0.3
 */
 
 /*
@@ -27,8 +27,8 @@
     New book notification
 
         Find book
-    Find with one word
-    Find with multiple word
+    ~~Find with one word~~
+    ~~Find with multiple word~~
     Find with string metric
     Find using Levenshtein distance
     Choose book to put to cart
