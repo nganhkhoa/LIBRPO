@@ -1,20 +1,46 @@
 ﻿cmake_minimum_required(VERSION 3.8.1)
 
-# thiet lap o day
-set(PROJECT_NAME "LIBPRO")
-set(TEST true)
+option(SPIKE "enable spike build by -DSPIKE=ON" OFF)
 
-set(SOURCE_FOLDER "src")
-set(INCLUDE_FOLDER "include")
-set(OUTPUT_FOLDER "bin")
+# if spike on and test on, test is skip
+option(TEST "enable test by -DTEST=ON" OFF)
 
-# vs only settings
-set(OTHER_FILES_FOLDER "bin")
 set(OTHER_FILES_EXTENSION "json")
-set(DEBUG_FOLDER "bin") # vs only
+
+
+if (SPIKE)
+	
+	set(PROJECT_NAME "SPIKE")
+
+	set(SOURCE_FOLDER "spike/src")
+	set(INCLUDE_FOLDER "spike/include")
+	set(OUTPUT_FOLDER "spike/bin")
+
+	# vs only settings
+	set(OTHER_FILES_FOLDER "spike/bin")
+	set(DEBUG_FOLDER "spike/bin") # vs only
+
+	set(TEST OFF)
+
+else(SPIKE)
+
+	# thiet lap o day
+	set(PROJECT_NAME "LIBPRO")
+
+	set(SOURCE_FOLDER "src")
+	set(INCLUDE_FOLDER "include")
+	set(OUTPUT_FOLDER "bin")
+
+	# vs only settings
+	set(OTHER_FILES_FOLDER "bin")
+
+	set(DEBUG_FOLDER "bin") # vs only
+
+endif()
+
 
 # output file exe location
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../${OUTPUT_FOLDER})
 
 # the project name
 project (${PROJECT_NAME} CXX)
@@ -22,11 +48,11 @@ project (${PROJECT_NAME} CXX)
 
 
 # the included folder for <foo.h>
-include_directories(include)
+include_directories(${INCLUDE_FOLDER})
 
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-  # using Clang
+# using Clang
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 
 	file(GLOB_RECURSE SOURCES "${SOURCE_FOLDER}/*.cpp")
@@ -50,7 +76,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS ${WARNING}\ ${IDENTIFIER}\ ${CPPVERSION})
 
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
-  # using Intel C++
+# using Intel C++
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 
 	file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${SOURCE_FOLDER}/*.cpp")
@@ -93,4 +119,3 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 	# thư mục khi chạy Debug
 	set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/${DEBUG_FOLDER}")
 endif()
-

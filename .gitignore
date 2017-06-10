@@ -1,7 +1,7 @@
 # list of folders not to be included in
 **/.vscode
 /spike
-**/build
+/build
 
 # list of files not to be included in
 *.o
