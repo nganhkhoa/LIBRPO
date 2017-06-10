@@ -176,7 +176,7 @@ void CompareWords(
 			}
 
 			while (ContentPos++ < CONTENT_MAX - 1 && FirstWordFound == 0) {
-                // dieu kien gi chuoi qua vay???
+				// dieu kien gi chuoi qua vay???
 				// need better codework
 				if (
 				  search[step] ==

@@ -10,9 +10,8 @@ void LoginHistory() {
 	char* currenttime = ctime(&now);
 
 	logfile << 1 << " "
-	        << "UserID: " << setw(15) << CurrentUser.UserID 
-		<< setw(10)
-		<< " Login: " << setw(30) << right << currenttime;
+	        << "UserID: " << setw(15) << CurrentUser.UserID << setw(10)
+	        << " Login: " << setw(30) << right << currenttime;
 
 	logfile.close();
 }
@@ -29,12 +28,11 @@ void LogoutHistory() {
 	char* currenttime = ctime(&now);
 
 	logfile << 0 << " "
-	        << "UserID: " << setw(15) << CurrentUser.UserID
-		<< setw(10)
-		<< " Logout: " << setw(30) << right << currenttime;
+	        << "UserID: " << setw(15) << CurrentUser.UserID << setw(10)
+	        << " Logout: " << setw(30) << right << currenttime;
 
 	LoggedInUser CurrentUserReInit;
-	CurrentUser = CurrentUser;
+	CurrentUser = CurrentUserReInit;
 	logfile.close();
 }
 
@@ -42,5 +40,5 @@ void LogoutHistory() {
 void LogoutAccount() {
 	CurrentUser.AccountName = "";
 	CurrentUser.Account_num = -1;
-	CurrentUser.RoleId = {};
+	CurrentUser.RoleId      = {};
 }

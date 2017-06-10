@@ -11,11 +11,9 @@ bool CreateRequestBorrowBook(string& Book_name) {
 	}
 
 	string BookId = /*FindBookByName(Book_name)*/ "978-0451524935";
-	requestborrowbook << "0" << "\t" 
-					  << CurrentUser.Username << "\t"
-					  << BookId << "\t" 
-					  << -1 << "\t" 
-					  << -1 << endl;
+	requestborrowbook << "0"
+	                  << "\t" << CurrentUser.Username << "\t" << BookId << "\t"
+	                  << -1 << "\t" << -1 << endl;
 	requestborrowbook.close();
 	return true;
 }

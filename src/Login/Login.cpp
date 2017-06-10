@@ -6,13 +6,14 @@ int ValidateUserLogin(string& username, string& pwd) {
 	// return place of user
 	/// if not found
 	/// return last place
-	
-	unsigned int num_user = UserDataJSON.at("UserList").size();
+
+	unsigned int num_user     = UserDataJSON.at("UserList").size();
 	unsigned int num_user_max = num_user;
 
 	for (unsigned int index = 0; index < num_user_max; index++) {
-		string username_verify = UserDataJSON.at("UserList")[index].at("Username");
-		if (username_verify == username) { 
+		string username_verify =
+		  UserDataJSON.at("UserList")[index].at("Username");
+		if (username_verify == username) {
 			num_user = index;
 			break;
 		}
@@ -20,20 +21,21 @@ int ValidateUserLogin(string& username, string& pwd) {
 
 	if (num_user == num_user_max) return num_user_max;
 
-	string password_verify = UserDataJSON.at("UserList")[num_user].at("Password");
+	string password_verify =
+	  UserDataJSON.at("UserList")[num_user].at("Password");
 	if (pwd == password_verify) return num_user;
 	return num_user_max;
 }
 
 
 void CreateLoginUser(unsigned int& user_num) {
-	string UserID = UserDataJSON.at("UserList")[user_num].at("UserID");
+	string UserID   = UserDataJSON.at("UserList")[user_num].at("UserID");
 	string Username = UserDataJSON.at("UserList")[user_num].at("Username");
 
 	CurrentUser.User_num = user_num;
-	CurrentUser.UserID = UserID;
+	CurrentUser.UserID   = UserID;
 	CurrentUser.Username = Username;
-	CurrentUser.Active = true;
+	CurrentUser.Active   = true;
 	return;
 }
 
@@ -49,7 +51,7 @@ bool UserLoginPrompt(bool& Continue) {
 	if (username.empty()) return false;
 
 	cout << "Mat khau:"
-		<< "\t";
+	     << "\t";
 	string pwd;
 	getline(cin, pwd);
 	if (pwd.empty()) return false;
@@ -75,10 +77,12 @@ bool Login() {
 	bool Continue = true;
 	while (true) {
 		if (!UserLoginPrompt(Continue)) {
-			if (!Continue) return false;
-			else continue;
-		} else
-		return true;
+			if (!Continue)
+				return false;
+			else
+				continue;
+		}
+		else
+			return true;
 	}
-
 }

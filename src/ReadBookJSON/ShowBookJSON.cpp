@@ -3,13 +3,13 @@
 using namespace std;
 
 void ShowBookDataJSON(int& Book_num) {
-	string ISBN = BookDataJSON.at("BookLibrary")[Book_num].at("ISBN");
+	string ISBN  = BookDataJSON.at("BookLibrary")[Book_num].at("ISBN");
 	string Title = BookDataJSON.at("BookLibrary")[Book_num].at("Title");
-	//string Author = ;
-	int Year = BookDataJSON.at("BookLibrary")[Book_num].at("Year");
+	// string Author = ;
+	int Year         = BookDataJSON.at("BookLibrary")[Book_num].at("Year");
 	string Publisher = BookDataJSON.at("BookLibrary")[Book_num].at("Publisher");
-	string Content = BookDataJSON.at("BookLibrary")[Book_num].at("Content");
-	//string Genre = ;
+	string Content   = BookDataJSON.at("BookLibrary")[Book_num].at("Content");
+	// string Genre = ;
 	int BookNumber = BookDataJSON.at("BookLibrary")[Book_num].at("BookNumber");
 
 
