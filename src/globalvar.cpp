@@ -21,17 +21,17 @@ LoggedInUser CurrentUser;
 //
 
 
-const int MAX_CHARACTER = 1000;
+const unsigned int MAX_CHARACTER = 1000;
 
-const int MAX_ATTEMPT = 3;
+const unsigned int MAX_ATTEMPT = 3;
 
-const int BOOK_PER_PAGE = 3;
+const unsigned int BOOK_PER_PAGE = 3;
 
-const int MAX_BORROW = 4;
+const unsigned int MAX_BORROW = 4;
 
-const int MAX_WEEK_BORROW = 2;
+const unsigned int MAX_WEEK_BORROW = 2;
 
-const int SEARCH_MAX = 10;
+const unsigned int SEARCH_MAX = 10;
 
 Role LibraryRole[MAX_ROLE]{
   {1, "DOC GIA", "Chi co quyen doc"},

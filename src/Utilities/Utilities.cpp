@@ -9,7 +9,7 @@ int ChooseUtilities() {
 	// available for user
 
 	cout << "Ban hay chon chuc nang muon su dung " << endl;
-	for (int role = 0; role < CurrentUser.RoleId.size(); role++) {
+	for (unsigned int role = 0; role < CurrentUser.RoleId.size(); role++) {
 		int roleid = CurrentUser.RoleId[role] - 1;
 		cout << role + 1 << "\t" << LibraryRole[roleid].RoleName << endl;
 	}
@@ -18,7 +18,7 @@ int ChooseUtilities() {
 	cout << "Ban chon thuc hien chuc nang nao? ";
 	cin >> role;
 
-	while (role < 0 || role > CurrentUser.RoleId.size()) {
+	while (role < 0 || role > (int)CurrentUser.RoleId.size()) {
 		cout << "Chuc nang khong co, moi chon lai: ";
 		cin >> role;
 	}

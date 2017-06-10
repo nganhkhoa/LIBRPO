@@ -42,7 +42,7 @@ bool UpdateBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 		return false;
 	}
 
-	for (int index = 0; index < BorrowBookData.size(); index++) {
+	for (unsigned int index = 0; index < BorrowBookData.size(); index++) {
 		borrowfile << BorrowBookData[index].Status << "\t"
 		           << BorrowBookData[index].User_num << "\t"
 		           << BorrowBookData[index].Account_num << "\t"
@@ -136,7 +136,7 @@ void BrowseBorrowBook() {
 
 
 	bool NewRequest = false;
-	for (int index = 0; index < BorrowBookData.size(); index++) {
+	for (unsigned int index = 0; index < BorrowBookData.size(); index++) {
 		if (BorrowBookData[index].Status != 0) continue;    // book validated
 
 		NewRequest = true;

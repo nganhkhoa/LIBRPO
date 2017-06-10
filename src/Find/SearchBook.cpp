@@ -30,11 +30,11 @@ std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 	std::vector<std::string> result = {};
 
 	// assignment for checking
-	for (int BookNum = 0; BookNum < SearchBook.at("BookLibrary").size();
-	     BookNum++) {
+	unsigned int num_book = SearchBook.at("BookLibrary").size();
+	for (unsigned int BookNum = 0; BookNum < num_book; BookNum++) {
 		bool found = false;
 		// title
-		if (found == false) {
+		{ // always runs this
 			std::string BookTitle =
 			  SearchBook.at("BookLibrary")[BookNum].at("Title");
 			found =
@@ -42,9 +42,9 @@ std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 		}
 		// author
 		if (found == false) {
-			for (int AuthorNum = 0;
-			     AuthorNum <
-			     SearchBook.at("BookLibrary")[BookNum].at("Author").size();
+			unsigned int num_author =
+			  SearchBook.at("BookLibrary")[BookNum].at("Author").size();
+			for (unsigned int AuthorNum = 0; AuthorNum < num_author;
 			     AuthorNum++) {
 				std::string BookAuthor =
 				  SearchBook.at("BookLibrary")[BookNum].at("Author")[AuthorNum];
@@ -62,9 +62,9 @@ std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 		}
 		// category
 		if (found == false) {
-			for (int CategoryNum = 0;
-			     CategoryNum <
-			     SearchBook.at("BookLibrary")[BookNum].at("Category").size();
+			unsigned int num_category =
+			  SearchBook.at("BookLibrary")[BookNum].at("Category").size();
+			for (unsigned int CategoryNum = 0; CategoryNum < num_category;
 			     CategoryNum++) {
 				std::string BookCategory =
 				  SearchBook.at("BookLibrary")[BookNum].at(
@@ -101,8 +101,8 @@ void ShowBookFound(const std::vector<std::string>& result) {
 	json& SearchBook = BookDataJSON;
 
 	if (result.size() == 0) std::cout << "Book not found" << std::endl;
-	for (int step = 0; step < result.size(); step++) {
-		for (int checking = 0; checking < SearchBook.at("BookLibrary").size();
+	for (unsigned int step = 0; step < result.size(); step++) {
+		for (unsigned int checking = 0; checking < SearchBook.at("BookLibrary").size();
 		     checking++) {
 			if (
 			  SearchBook.at("BookLibrary")[checking].at("ISBN") ==

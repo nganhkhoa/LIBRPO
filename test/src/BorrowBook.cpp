@@ -19,7 +19,7 @@ bool CreateRequestBorrowBook(string& Book_name) {
 }
 
 void BorrowFromCart(vector<Book>& Cart) {
-	for (int index = 0; index < Cart.size(); index++) {
+	for (unsigned int index = 0; index < Cart.size(); index++) {
 		if (index > MAX_BORROW /*- UserBorrow*/) {
 			cout << "Ban dang muon hon so quyen sach co the" << endl;
 			cout << "Ban khong muon them duoc nua" << endl;
