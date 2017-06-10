@@ -11,10 +11,7 @@
 *.out
 *.synctex.gz
 
-# formula CMAKE
-# everyone is different
-**/CMakeLists.txt
-/Makefile
+
 
 # exception
 !cppcheck.log
