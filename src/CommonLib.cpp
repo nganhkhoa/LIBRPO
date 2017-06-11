@@ -13,7 +13,7 @@ string TrimString(string& str) {
 	while (str[beginLetter] == ' ')
 		beginLetter++;
 	int letter = 0;
-	for (int index = beginLetter; index < str.length(); index++) {
+	for (unsigned int index = beginLetter; index < str.length(); index++) {
 		if (str[index] == ' ') {
 			StringModified[letter++] = ' ';
 			while (str[index + 1] == ' ') {

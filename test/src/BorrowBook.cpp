@@ -11,18 +11,15 @@ bool CreateRequestBorrowBook(string& Book_name) {
 	}
 
 	string BookId = /*FindBookByName(Book_name)*/ "978-0451524935";
-	requestborrowbook << "0" << "\t" 
-					  << CurrentUser.User_num << "\t"
-	                  << CurrentUser.Account_num << "\t" 
-					  << BookId << "\t" 
-					  << -1 << "\t" 
-					  << -1 << endl;
+	requestborrowbook << "0"
+	                  << "\t" << CurrentUser.Username << "\t" << BookId << "\t"
+	                  << -1 << "\t" << -1 << endl;
 	requestborrowbook.close();
 	return true;
 }
 
 void BorrowFromCart(vector<Book>& Cart) {
-	for (int index = 0; index < Cart.size(); index++) {
+	for (unsigned int index = 0; index < Cart.size(); index++) {
 		if (index > MAX_BORROW /*- UserBorrow*/) {
 			cout << "Ban dang muon hon so quyen sach co the" << endl;
 			cout << "Ban khong muon them duoc nua" << endl;

@@ -42,7 +42,7 @@ bool ChooseBack(int& books) {
 
 	// this is pure math
 
-	if (books + 1 == BOOK_PER_PAGE) {
+	if (books + 1 == (int)BOOK_PER_PAGE) {
 		cout << "Ban dang o trang cao nhat" << endl;
 		cout << "Moi nhap lai: ";
 		return true;

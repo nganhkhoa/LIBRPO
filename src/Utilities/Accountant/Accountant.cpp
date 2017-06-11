@@ -45,9 +45,7 @@ void Accountant() {
 			Exit
 		};
 		switch (AccountantChoice()) {
-			case ChoiceBrowseBorrowSubmition:
-				BrowseBorrowBook();
-				break;
+			case ChoiceBrowseBorrowSubmition: BrowseBorrowBook(); break;
 			case ChoiceGetBorrowBook:
 				// GetBookAuthentication(UserData, BookData);
 				break;

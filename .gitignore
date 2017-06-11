@@ -1,7 +1,7 @@
 # list of folders not to be included in
 **/.vscode
 /spike
-**/build
+/build
 
 # list of files not to be included in
 *.o
@@ -11,10 +11,7 @@
 *.out
 *.synctex.gz
 
-# formula CMAKE
-# everyone is different
-**/CMakeLists.txt
-/Makefile
+
 
 # exception
 !cppcheck.log

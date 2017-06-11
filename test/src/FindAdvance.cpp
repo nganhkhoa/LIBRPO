@@ -158,7 +158,7 @@ void CompareWords(
 	int FirstWordFound = 0;
 	int numberOfFound  = 1;
 
-	for (int BookPlace = 0; BookPlace < LIBPROBook.BookPosition.size();
+	for (unsigned int BookPlace = 0; BookPlace < LIBPROBook.BookPosition.size();
 	     BookPlace++) {
 		for (int step = 0; step < SEARCH_MAX; step++) {
 			while (Position++ < TITLE_MAX - 1 && FirstWordFound == 0) {
@@ -176,7 +176,7 @@ void CompareWords(
 			}
 
 			while (ContentPos++ < CONTENT_MAX - 1 && FirstWordFound == 0) {
-                // dieu kien gi chuoi qua vay???
+				// dieu kien gi chuoi qua vay???
 				// need better codework
 				if (
 				  search[step] ==
@@ -198,9 +198,9 @@ void CompareWords(
 	bool hasShown  = false;
 
 	if (result.size() == 0) std::cout << "Book not found" << std::endl;
-	for (int showBookFound = 0; showBookFound < result.size();
+	for (unsigned int showBookFound = 0; showBookFound < result.size();
 	     showBookFound++) {
-		for (int isbn = 0; isbn < LIBPROBook.BookPosition.size(); isbn++) {
+		for (unsigned int isbn = 0; isbn < LIBPROBook.BookPosition.size(); isbn++) {
 			if (
 			  LIBPROBook.ResourceContent[isbn].ISBN == result[showBookFound]) {
 				std::cout << numberOfFound << ". ";

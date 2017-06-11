@@ -1,36 +1,9 @@
-1 User_num:     0   Account_num:     0   Login:      Wed May 24 11:55:10 2017
-1 User_num:     0   Account_num:     0   Login:      Wed May 24 11:55:29 2017
-1 User_num:     0   Account_num:     0   Login:      Wed May 24 12:17:28 2017
-0 User_num:     0   Account_num:     0   Login:      Wed May 24 12:17:30 2017
-1 User_num:     0   Account_num:     0   Login:      Thu May 25 14:41:11 2017
-0 User_num:     0   Account_num:     0   Login:      Thu May 25 14:41:13 2017
-1 User_num:     0   Account_num:     0   Login:      Thu May 25 14:44:02 2017
-0 User_num:     0   Account_num:     0   Login:      Thu May 25 14:44:04 2017
-1 User_num:     0   Account_num:     0   Login:      Thu May 25 14:58:08 2017
-0 User_num:     0   Account_num:     0   Login:      Thu May 25 14:58:10 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:25:47 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 15:27:12 2017
-1 User_num:     0   Account_num:     0   Login:      Thu May 25 15:32:08 2017
-0 User_num:     0   Account_num:     0   Login:      Thu May 25 15:32:21 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:32:26 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 15:32:40 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:33:19 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 15:33:30 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:35:30 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 15:35:46 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:37:29 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 15:37:38 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:38:46 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:42:02 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 15:44:33 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 15:44:45 2017
-1 User_num:     0   Account_num:     1   Login:      Thu May 25 23:17:51 2017
-0 User_num:     0   Account_num:     1   Login:      Thu May 25 23:18:04 2017
-1 User_num:     0   Account_num:     0   Login:      Fri May 26 00:15:20 2017
-0 User_num:     0   Account_num:     0   Login:      Fri May 26 00:16:14 2017
-1 User_num:     2   Account_num:     0   Login:      Fri May 26 10:06:16 2017
-0 User_num:     2   Account_num:     0   Login:      Fri May 26 10:10:03 2017
-1 User_num:     3   Account_num:     0   Login:      Fri May 26 11:53:15 2017
-0 User_num:     3   Account_num:     0   Login:      Fri May 26 11:53:50 2017
-1 User_num:     0   Account_num:     0   Login:      Mon May 29 23:26:20 2017
-0 User_num:     0   Account_num:     0   Login:      Mon May 29 23:27:54 2017
+1 UserID:             001   Login:      Thu Jun 08 22:43:26 2017
+0 UserID:             001  Logout:      Thu Jun 08 22:43:40 2017
+1 UserID:             001   Login:      Thu Jun 08 22:44:22 2017
+1 UserID:             001   Login:      Thu Jun 08 22:45:03 2017
+1 UserID:             001   Login:      Thu Jun 08 22:46:19 2017
+1 UserID:             001   Login:      Thu Jun 08 22:47:15 2017
+0 UserID:             001  Logout:      Thu Jun 08 22:47:26 2017
+1 UserID:             001   Login:      Thu Jun 08 22:48:44 2017
+0 UserID:             001  Logout:      Thu Jun 08 22:49:00 2017

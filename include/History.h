@@ -5,5 +5,6 @@
 
 void LoginHistory();
 void LogoutHistory();
+void LogoutAccount();
 
 #endif

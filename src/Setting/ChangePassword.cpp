@@ -7,7 +7,6 @@ bool ComparePassword(string& VerifyPassword) {
 	// cypher here
 
 	string OldPassword = UserDataJSON.at("UserList")[CurrentUser.User_num]
-	                       .at("AccountList")[CurrentUser.Account_num]
 	                       .at("Password");
 
 	if (OldPassword == VerifyPassword) return true;
@@ -83,7 +82,6 @@ bool ChangePassword() { // ham thi dai ma toan la chu
 		}
 
 		UserDataJSON.at("UserList")[CurrentUser.User_num]
-		  .at("AccountList")[CurrentUser.Account_num]
 		  .at("Password") = NewPassword;
 
 		if (!UpdateUserDataJSON()) {

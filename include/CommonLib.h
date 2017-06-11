@@ -13,6 +13,8 @@
 
 #include <ctime>
 
+#include <NewUser.h>
+
 // json parser for C++
 // all credit to  nlohmann
 #include "nlohmann/json.hpp"
@@ -25,7 +27,7 @@
 // ──────────────────────────────────────────────────────────────────
 //
 
-const int MAX_ROLE = 10;
+const unsigned int MAX_ROLE = 10;
 
 typedef struct _Account {
 	std::string uid;         // link to User
@@ -61,6 +63,7 @@ extern std::string FILEAccount;
 extern std::string FILEAccountRoleMap;
 extern std::string FILELock;
 extern std::string FILEUserJSON;
+extern std::string FILEUser_focus_JSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -70,7 +73,7 @@ extern std::string FILEUserJSON;
 // ──────────────────────────────────────────────────────────────────
 //
 
-extern const int MAX_CHARACTER;
+extern const unsigned int MAX_CHARACTER;
 
 typedef struct _Book {
 	std::string BookId;
@@ -98,14 +101,19 @@ extern std::string FILEBookJSON;
 // ─────────────────────────────────────────────────────────────────
 //
 
-extern const int MAX_ATTEMPT;
+extern const unsigned int MAX_ATTEMPT;
 
 typedef struct _LoggedInUser {
-	std::string AccId;
-	int User_num;
-	int Account_num;
-	bool Active;
-	std::vector<int> RoleId;
+	std::string UserID = "";
+
+	int User_num = -1;
+	int Account_num = -1;
+
+	std::string AccountName = "";
+	std::string Username = "";
+
+	bool Active = false;
+	std::vector<int> RoleId = {};
 } LoggedInUser;
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -127,7 +135,7 @@ extern std::string FILELog;
 // ───────────────────────────────────────────────────────────────────
 //
 
-extern const int BOOK_PER_PAGE;
+extern const unsigned int BOOK_PER_PAGE;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -153,8 +161,8 @@ typedef struct _BorrowBookSubmit {
 	// to know who have done what
 } BorrowBookSubmit;
 
-extern const int MAX_BORROW;
-extern const int MAX_WEEK_BORROW;
+extern const unsigned int MAX_BORROW;
+extern const unsigned int MAX_WEEK_BORROW;
 
 extern std::string SUBMITDIRECTORY;
 extern std::string FILEBorrowBook;
@@ -167,7 +175,7 @@ extern std::string FILEBorrowRecord;
 // ────────────────────────────────────────────────────────────────
 //
 
-extern const int SEARCH_MAX;
+extern const unsigned int SEARCH_MAX;
 
 //
 // ─── GLOBAL DATA

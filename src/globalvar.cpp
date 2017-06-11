@@ -12,7 +12,7 @@ nlohmann::json UserDataJSON = NULL;
 // std::vector<User> UserData  = {};
 nlohmann::json BookDataJSON = NULL;
 // std::vector<Book> BookData  = {};
-LoggedInUser CurrentUser    = {"", -1, -1, false, {}};
+LoggedInUser CurrentUser;
 
 
 //
@@ -21,17 +21,17 @@ LoggedInUser CurrentUser    = {"", -1, -1, false, {}};
 //
 
 
-const int MAX_CHARACTER = 1000;
+const unsigned int MAX_CHARACTER = 1000;
 
-const int MAX_ATTEMPT = 3;
+const unsigned int MAX_ATTEMPT = 3;
 
-const int BOOK_PER_PAGE = 3;
+const unsigned int BOOK_PER_PAGE = 3;
 
-const int MAX_BORROW = 4;
+const unsigned int MAX_BORROW = 4;
 
-const int MAX_WEEK_BORROW = 2;
+const unsigned int MAX_WEEK_BORROW = 2;
 
-const int SEARCH_MAX = 10;
+const unsigned int SEARCH_MAX = 10;
 
 Role LibraryRole[MAX_ROLE]{
   {1, "DOC GIA", "Chi co quyen doc"},
@@ -57,6 +57,7 @@ std::string FILEAccountRoleMap =
   FILEDIRECTORY + "accountrolemap.txt";    // link to account role map file
 std::string FILELock      = FILEDIRECTORY + "lock.txt";    // link to lock file
 std::string FILEUserJSON = FILEDIRECTORY + "userdata.json";
+std::string FILEUser_focus_JSON = FILEDIRECTORY + "userdata_user-focus.json";
 
 std::string SUBMITDIRECTORY  = "submit/";
 std::string FILEBorrowBook   = SUBMITDIRECTORY + "borrow.txt";

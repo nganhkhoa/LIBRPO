@@ -3,7 +3,7 @@
 using namespace std;
 
 bool ReadUserDataJSON() {
-	ifstream userfile(FILEUserJSON, ios::in);
+	ifstream userfile(FILEUser_focus_JSON, ios::in);
 
 	if (!userfile.is_open()) {
 		cout << "File userdata.json open failed" << endl;
@@ -16,7 +16,7 @@ bool ReadUserDataJSON() {
 }
 
 bool UpdateUserDataJSON() {
-	ofstream userfile(FILEUserJSON, ios::out);
+	ofstream userfile(FILEUser_focus_JSON, ios::out);
 
 	if (!userfile.is_open()) {
 		cout << "File userdata.json open failed" << endl;

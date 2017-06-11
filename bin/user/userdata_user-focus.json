@@ -1,0 +1,59 @@
+{
+    "Deleted": [],
+    "SignUp": [
+        {
+            "AccountList": [
+                {
+                    "AccountName": "",
+                    "CreateDate": "8/6/2017",
+                    "Lock": true
+                }
+            ],
+            "DateOfBirth": "",
+            "Ethnic": "",
+            "Gender": "",
+            "IDNumber": "987984725982",
+            "IDValidDate": "",
+            "Institute": "",
+            "InstituteAddress": "",
+            "Nationality": "",
+            "Occupation": "",
+            "Password": "",
+            "PhoneNumber": "",
+            "UserAddress": "",
+            "UserFirstName": "Thu Thao",
+            "UserID": "004",
+            "UserLastName": "Trinh Thi",
+            "Username": "thuthao"
+        }
+    ],
+    "UserList": [
+        {
+            "AccountList": [
+                {
+                    "AccountName": "anhkhoa.1",
+                    "AccountRoleMap": [
+                        1
+                    ],
+                    "Lock": false
+                }
+            ],
+            "DateOfBirth": "22/11/1998",
+            "Ethnic": "Kinh",
+            "Gender": "Male",
+            "IDNumber": "0000000000",
+            "IDValidDate": "1/1/2000",
+            "Institute": "BKU",
+            "InstituteAddress": "",
+            "Job": "Student",
+            "Nationality": "VN",
+            "Password": "1234",
+            "PhoneNumber": "090909090",
+            "UserAddress": "HCMC",
+            "UserFirstName": "Nguyen Anh",
+            "UserID": "001",
+            "UserLastName": "khoa",
+            "Username": "khoa"
+        }
+    ]
+}

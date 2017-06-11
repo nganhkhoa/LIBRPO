@@ -20,14 +20,14 @@ int FindUserByName(string& str) {
 
 /*
 int FindBook(string& BookId) {
-	// find book by ISBN
-	if (debug) cout << "Finding for book with ID: " << BookId << endl;
-	for (int index = 0; index < BookData.size(); index++) {
-		if (BookData[index].BookId == BookId) {
-			if (debug) cout << "Book " << BookId << " found" << endl;
-			return index;
-		}
-	}
-	return BookData.size();
+    // find book by ISBN
+    if (debug) cout << "Finding for book with ID: " << BookId << endl;
+    for (int index = 0; index < BookData.size(); index++) {
+        if (BookData[index].BookId == BookId) {
+            if (debug) cout << "Book " << BookId << " found" << endl;
+            return index;
+        }
+    }
+    return BookData.size();
 }
 */

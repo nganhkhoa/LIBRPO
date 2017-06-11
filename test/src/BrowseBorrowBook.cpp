@@ -42,7 +42,7 @@ bool UpdateBorrowData(vector<BorrowBookSubmit>& BorrowBookData) {
 		return false;
 	}
 
-	for (int index = 0; index < BorrowBookData.size(); index++) {
+	for (unsigned int index = 0; index < BorrowBookData.size(); index++) {
 		borrowfile << BorrowBookData[index].Status << "\t"
 		           << BorrowBookData[index].User_num << "\t"
 		           << BorrowBookData[index].Account_num << "\t"
@@ -87,8 +87,7 @@ bool CreateBorrowRecord(BorrowBookSubmit BorrowBookData) {
 	return true;
 }
 
-int ValidateBorrowBook(
-  BorrowBookSubmit BorrowBookData) {
+int ValidateBorrowBook(BorrowBookSubmit BorrowBookData) {
 	system("cls");
 
 	// show book info
@@ -137,7 +136,7 @@ void BrowseBorrowBook() {
 
 
 	bool NewRequest = false;
-	for (int index = 0; index < BorrowBookData.size(); index++) {
+	for (unsigned int index = 0; index < BorrowBookData.size(); index++) {
 		if (BorrowBookData[index].Status != 0) continue;    // book validated
 
 		NewRequest = true;
@@ -151,8 +150,7 @@ void BrowseBorrowBook() {
 
 		// if not exit,
 		// log the accountant who has made the validation
-		BorrowBookData[index].Accountant_User_num    = CurrentUser.User_num;
-		BorrowBookData[index].Accountant_Account_num = CurrentUser.Account_num;
+		BorrowBookData[index].Accountant_User_num = CurrentUser.User_num;
 
 		if (BorrowBookData[index].Status == 2)
 			continue;    // reject so nothing happens

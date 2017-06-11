@@ -1,9 +1,9 @@
 /*
-*	Last update: 26/5/2017, 12:38:00
+*	Last update: 09/06/2017, 21:39:00
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 0.0.2
+*	Version: 0.0.3
 */
 
 /*
@@ -27,8 +27,8 @@
     New book notification
 
         Find book
-    Find with one word
-    Find with multiple word
+    ~~Find with one word~~
+    ~~Find with multiple word~~
     Find with string metric
     Find using Levenshtein distance
     Choose book to put to cart
@@ -82,9 +82,11 @@ Manager
 
 #include <Welcome.h>
 #include <Login.h>
+#include <AccountChoose.h>
 #include <Utilities.h>
 #include <Browse.h>
 #include <Setting.h>
+#include <SignUp.h>
 
 #include <History.h>
 
@@ -165,11 +167,12 @@ int main() {
 			switch (Welcome()) {
 				case LoginUser:
 					cin.ignore();    // for inputing string
-					CurrentUser.Active = LoggedIn();    // login system
+					CurrentUser.Active = Login();    // login system
 					if (CurrentUser.Active) LoginHistory();     // login history
 					break;
 				case SignUpUser:
-					// SignUp();
+					cin.ignore();
+					SignUp();
 					break;
 				case BrowseOption:
 					// without loging in, the user can still browse
@@ -194,12 +197,13 @@ int main() {
 				default: break;
 			}
 		}
-		while (CurrentUser.Active) {
+		while (CurrentUser.Active && CurrentUser.Account_num == -1) {
 			enum WelcomeUserChoice
 			{
 				LogoutUser = 1,
 				SettingUser,
-				UtilitiesUser,
+				ChooseAccount,
+				CreateAccount,
 				BrowseOption,
 				Manual,
 				Exit
@@ -212,6 +216,59 @@ int main() {
 					getline(cin, Answer);
 					if (Answer == "y") {
 						LogoutHistory();    // logout history
+					}
+					break;
+				}
+				case SettingUser: Setting(); break;
+				case ChooseAccount: AccountChoose(); break;
+				case CreateAccount: 
+					//CreateAccount(); 
+					break;
+				case BrowseOption:
+					// without loging in, the user can still browse
+					// we use CurrentUser.Active to know if logged in or not
+					// if no, we would not let them borrow, buy?
+					Browse();
+					system("pause");
+					break;
+				case Manual:
+					// Help();
+					break;
+				case Exit: {
+					cout << "Ban muon thoat? (y/n) ";
+					cin.ignore();
+					string Answer;
+					getline(cin, Answer);
+					if (Answer != "y")
+						break;
+					else {
+						// logout what ever user is logging on
+						LogoutHistory();
+						return 0;    // terminate the program
+					}
+				}
+				default: break;
+			}
+		}
+		while (CurrentUser.Active && CurrentUser.Account_num != -1) {
+			enum WelcomeAccountChoice
+			{
+				LogoutAccountChoice = 1,
+				SettingUser,
+				UtilitiesUser,
+				BrowseOption,
+				Manual,
+				Exit
+			};
+			switch (WelcomeAccount()) {
+				case LogoutAccountChoice: {    // as said change active to false
+					cout << "Chi dang xuat ban khoi tai khoan" << endl;
+					cout << "Ban muon dang xuat? (y/n) ";
+					cin.ignore();
+					string Answer;
+					getline(cin, Answer);
+					if (Answer == "y") {
+						LogoutAccount();    // logout history
 					}
 					break;
 				}
@@ -235,7 +292,7 @@ int main() {
 					if (Answer != "y")
 						break;
 					else {
-						// logout what ever user is logging on
+						// logout
 						LogoutHistory();
 						return 0;    // terminate the program
 					}
