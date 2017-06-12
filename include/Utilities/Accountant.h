@@ -20,9 +20,10 @@ void BrowseBorrowBook();
 
 
 // give book to user
-void RecieivedBook(unsigned int&);
-unsigned int GetPendingPlace(unsigned int&);
-unsigned int ChooseSubmitID(std::vector<unsigned int>&);
+void ReceivedBook(unsigned int&);
+unsigned int GetPendingPlace(int&);
+int ChooseSubmitID(std::vector<unsigned int>&);
+void RemoveDontCare(std::vector<unsigned int>&);
 std::vector<unsigned int> FindUserSubmit(std::string&);
 std::string FindUserGiveBook();
 // this one

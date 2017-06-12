@@ -6,7 +6,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-void RecieivedBook(unsigned int& pending_place) {
+void ReceivedBook(unsigned int& pending_place) {
 	json borrowLog = readBorrowLog();
 	if (borrowLog == NULL)
 		;
@@ -27,6 +27,7 @@ void RecieivedBook(unsigned int& pending_place) {
 		if (index == pending_place) { 
 			moved = true;
 			json data_move = borrowLog.at("Accepted").at("Pending")[index];
+			data_move["Received Date"]                           = "Today";
 			new_data.at("Accepted").at("Received")[num_received] = data_move;
 			continue;
 		}
@@ -43,7 +44,7 @@ void RecieivedBook(unsigned int& pending_place) {
 	return updateBorrowLog(new_data);
 }
 
-unsigned int GetPendingPlace(unsigned int& submitid) {
+unsigned int GetPendingPlace(int& submitid) {
 	json borrowLog = readBorrowLog();
 	if (borrowLog == NULL)
 		;
@@ -51,7 +52,7 @@ unsigned int GetPendingPlace(unsigned int& submitid) {
 	unsigned int num_pending = borrowLog.at("Accepted").at("Pending").size();
 
 	for (unsigned int index = 0; index < num_pending; index++) {
-		unsigned int SubmitID =
+		int SubmitID =
 		  borrowLog.at("Accepted").at("Pending")[index].at("Submit ID");
 
 		if (submitid == SubmitID) { return index; }
@@ -59,7 +60,7 @@ unsigned int GetPendingPlace(unsigned int& submitid) {
 	return num_pending; // this never happens
 }
 
-unsigned int ChooseSubmitID(vector<unsigned int>& submitid_list) {
+int ChooseSubmitID(vector<unsigned int>& submitid_list) {
 	vector<string> result = {};
 
 	json Submit = readSubmitBorrow();
@@ -78,11 +79,37 @@ unsigned int ChooseSubmitID(vector<unsigned int>& submitid_list) {
 	}
 
 	json resultJSON = ISBNtoJSON(result);
-
-	unsigned int pending_place = submitid_list[ShowBookResult(resultJSON) - 1];
-	return pending_place;
+	system("cls");
+	int submitid = submitid_list[ShowBookResult(resultJSON) - 1];
+	int num_book_resultJSON = resultJSON.at("BookLibrary").size() + 1;
+	if (submitid == num_book_resultJSON) {
+		return -1;
+	} else {
+		return submitid;
+	}
 }
 
+void RemoveDontCare(vector<unsigned int>& submitid_list) {
+	json borrowLog = readBorrowLog();
+	if (borrowLog == NULL)
+		;
+
+	vector<unsigned int> new_submit_list = {};
+	unsigned int num_pending = borrowLog.at("Accepted").at("Pending").size();
+	unsigned int list_size    = submitid_list.size();
+
+	for (unsigned int index = 0; index < num_pending; index++) {
+		unsigned int submitID = borrowLog.at("Accepted").at("Pending")[index].at("Submit ID");
+
+		for (unsigned int list = 0; list < list_size; list++) {
+			if (submitID == submitid_list[list]) {
+				new_submit_list.push_back(submitid_list[list]);
+			}
+		}
+	}
+
+	submitid_list = new_submit_list;
+}
 
 vector<unsigned int> FindUserSubmit(string& userID) {
 	vector<unsigned int> submitid_list = {};
@@ -132,13 +159,16 @@ void GiveBook() {
 
 	vector<unsigned int> submitid_list = FindUserSubmit(userID);
 
-	//RemoveReject(submitid_list);
+	RemoveDontCare(submitid_list);
 
 	// only show from pending
 	// if rejected, send notyfication to user
 	// so they should khow that they are not allowed to borrow
-	unsigned int submitid      = ChooseSubmitID(submitid_list);
+	int submitid      = ChooseSubmitID(submitid_list);
+	if (submitid == -1) return;
+
 	unsigned int pending_place = GetPendingPlace(submitid);
 
-	RecieivedBook(pending_place);
+
+	ReceivedBook(pending_place);
 }

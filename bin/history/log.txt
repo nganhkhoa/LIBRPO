@@ -54,3 +54,14 @@
 1 UserID:             001   Login:      Mon Jun 12 23:33:21 2017
 1 UserID:             001   Login:      Mon Jun 12 23:35:56 2017
 0 UserID:             001  Logout:      Mon Jun 12 23:36:52 2017
+1 UserID:             001   Login:      Mon Jun 12 23:56:27 2017
+1 UserID:             001   Login:      Tue Jun 13 00:02:38 2017
+0 UserID:             001  Logout:      Tue Jun 13 00:04:06 2017
+1 UserID:             001   Login:      Tue Jun 13 00:06:22 2017
+0 UserID:             001  Logout:      Tue Jun 13 00:06:56 2017
+1 UserID:             001   Login:      Tue Jun 13 00:07:03 2017
+1 UserID:             001   Login:      Tue Jun 13 00:09:30 2017
+1 UserID:             001   Login:      Tue Jun 13 00:13:47 2017
+0 UserID:             001  Logout:      Tue Jun 13 00:14:07 2017
+1 UserID:             001   Login:      Tue Jun 13 00:15:43 2017
+0 UserID:             001  Logout:      Tue Jun 13 00:16:05 2017
