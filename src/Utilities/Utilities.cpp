@@ -13,12 +13,12 @@ int ChooseUtilities() {
 		int roleid = CurrentUser.RoleId[role] - 1;
 		cout << role + 1 << "\t" << LibraryRole[roleid].RoleName << endl;
 	}
-	cout << "De thoat ban chon 0" << endl;
-	int role;
+	cout << CurrentUser.RoleId.size() + 1 << "\t Thoat" << endl;
+	int role = 0;
 	cout << "Ban chon thuc hien chuc nang nao? ";
 	cin >> role;
 
-	while (role < 0 || role > (int)CurrentUser.RoleId.size()) {
+	while (role < 1 || role > (int)CurrentUser.RoleId.size() + 1) {
 		cout << "Chuc nang khong co, moi chon lai: ";
 		cin >> role;
 	}
@@ -31,7 +31,7 @@ void Utilities() {
 
 		int role = ChooseUtilities();
 
-		if (role == 0) {
+		if (role == (int)CurrentUser.RoleId.size() + 1) {
 			cout << "Ban muon quay ve man hinh chinh? (y/n) ";
 			string str;
 			cin.ignore();
@@ -47,6 +47,7 @@ void Utilities() {
 			QLNDRole,
 			QLTCRole
 		};
+
 		switch (CurrentUser.RoleId[role - 1]) {    // switch by user own role id
 			case DocGiaRole:
 				cout << "Ban dang lua chon chuc nang doc gia" << endl;

@@ -1,20 +1,11 @@
 #include <Utilities.h>
+#include <Browse.h>
+#include <FindBook.h>
 
 using namespace std;
+using json = nlohmann::json;
 
-bool CreateRequestBorrowBook(string& Book_name) {
-	ofstream requestborrowbook(FILEBorrowBook, ios::out | ios::app);
-	if (!requestborrowbook) {
-		cout << "Cannot open file" << endl;
-		system("pause");
-		return false;
-	}
-
-	string BookId = /*FindBookByName(Book_name)*/ "978-0451524935";
-	requestborrowbook << "0"
-	                  << "\t" << CurrentUser.Username << "\t" << BookId << "\t"
-	                  << -1 << "\t" << -1 << endl;
-	requestborrowbook.close();
+bool CreateRequestBorrowBook(string& ISBN) {
 	return true;
 }
 
@@ -47,17 +38,21 @@ void BorrowBook(/*vector<Book>& BorrowCart*/) {
 		cout << "Neu de trong se quay ve" << endl;
 		cout << "Neu ban muon muon tu gio sach, go \"giosach\"" << endl;
 		cout << "Ten sach: ";
-		string str;
-		getline(cin, str);
+		string keywords;
+		getline(cin, keywords);
 
-		if (str.empty()) return;
-		if (str == "giosach") {
+		if (keywords.empty()) return;
+		if (keywords == "giosach") {
 			// BorrowFromCart(BorrowCart);
 			return;
 		}
 
-		string& BookName = str;
-		if (!/*FindBookByName(BookName)*/ true) {
+		json resultJSON  = NULL;
+
+		int BookIndex = -1;
+		BookIndex = FindBookBorrow(keywords, resultJSON);
+
+		if (BookIndex == -1) {
 			cout << "Ten sach khong tim thay" << endl;
 			cout << "Moi ban nhap lai" << endl;
 			cout << "Bam enter de tiep tuc" << endl;
@@ -65,7 +60,11 @@ void BorrowBook(/*vector<Book>& BorrowCart*/) {
 			continue;
 		}
 
-		if (!CreateRequestBorrowBook(BookName)) {
+		if (BookIndex == (int)resultJSON.at("BookLibrary").size()) { return; }
+
+		string ISBN = resultJSON.at("BookLibrary")[BookIndex].at("ISBN");
+
+		if (!CreateRequestBorrowBook(ISBN)) {
 			cout << "Yeu cau khong gui duoc" << endl;
 			cout << "Bam enter de tiep tuc" << endl;
 			system("pause");

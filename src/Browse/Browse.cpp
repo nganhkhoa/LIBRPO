@@ -61,7 +61,7 @@ void Browse() {
 			case Recommended: break;
 			case All:
 				cin.ignore();
-				ShowAllBook();
+				ShowAllBook(BookDataJSON);
 				// show all the book
 				break;
 			case HotBook: break;

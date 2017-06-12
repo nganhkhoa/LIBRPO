@@ -1,0 +1,50 @@
+{
+	"Submition": [
+		{
+			"ISBN": "",
+			"User": "userid",
+			"Request Date": "date"
+		}
+	],
+	"Accepted": {
+		"Pending":[
+			{
+				"ISBN": "",
+				"User": "userid",
+				"Request Date": "date",
+				"Browsed Date": "date",
+				"Permission Granted by": "userid_librarian"
+			}
+		],
+		"Received":[
+			{
+				"ISBN": "",
+				"User": "userid",
+				"Request Date": "date",
+				"Browsed Date": "date",
+				"Permission Granted by": "userid_librarian",
+				"Received Date": "date"
+			}
+		],
+		"Returned":[
+			{
+				"ISBN": "",
+				"User": "userid",
+				"Request Date": "date",
+				"Browsed Date": "date",
+				"Permission Granted by": "userid_librarian",
+				"Received Date": "date",
+				"Returned Date": "date"
+			}
+		]
+	},
+	"Rejected": [
+		{
+			"ISBN": "",
+			"User": "userid",
+			"Request Date": "date",
+			"Browsed Date": "date",
+			"Permission Granted by": "userid_librarian"
+		}
+	]
+}

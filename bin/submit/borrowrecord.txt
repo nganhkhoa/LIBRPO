@@ -1,1 +1,0 @@
-{Record = 0, Received, Returned}	User_num	Account_num		ISBN	Day		Month	Year

@@ -5,12 +5,15 @@
 
 bool ChooseBack(int&);
 void ShowBookContent(std::string&);
-void ChooseBookInformation(int&);
-void ChooseBook(int&);
-void FindBook();
+void ChooseBookInformation(nlohmann::json&, int&);
+void ChooseBook(nlohmann::json&, int&);
 
 
-void ShowAllBook();
+
+
+
+void ShowAllBook(nlohmann::json&);
+int ShowBookResult(nlohmann::json&);
 int BrowseOption();
 void Browse();
 

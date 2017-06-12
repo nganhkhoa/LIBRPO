@@ -10,6 +10,10 @@ typedef struct _SearchPhrase {
 	int searchSize = 0;
 } SearchPhrase;
 
+void FindBook();
+int FindBookBorrow(std::string&, nlohmann::json&);
+
+nlohmann::json ISBNtoJSON(std::vector<std::string>&);
 
 bool CompareWord(std::string&, const std::string*, const int&);
 std::vector<std::string> ReadBookFromJson(const SearchPhrase&);

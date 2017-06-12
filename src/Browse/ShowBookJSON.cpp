@@ -1,20 +1,21 @@
 #include <Browse.h>
 
 using namespace std;
+using json = nlohmann::json;
 
-void ShowAllBook() {
+void ShowAllBook(json& bookdata) {
 	system("cls");
-	int num_Books = BookDataJSON.at("BookLibrary").size();
+	int num_Books = bookdata.at("BookLibrary").size();
 	for (int books = 0; books < num_Books; books++) {
 
 		// the book label
-		string BookTitle = BookDataJSON.at("BookLibrary")[books].at("Title");
+		string BookTitle = bookdata.at("BookLibrary")[books].at("Title");
 		cout << books + 1 << ": " << BookTitle << endl;
 
 		// the book authors
 		// if more than 3 etc
 		// if less than 3 show all
-		int num_Authors = BookDataJSON.at("BookLibrary")[books].at("Author").size();
+		int num_Authors = bookdata.at("BookLibrary")[books].at("Author").size();
 		cout << "Tac gia: ";
 		for (int author = 0; author < num_Authors;
 		     author++) {
@@ -28,14 +29,14 @@ void ShowAllBook() {
 				else
 					cout << ", ";
 			}
-			string Author = BookDataJSON.at("BookLibrary")[books].at("Author")[author];
+			string Author = bookdata.at("BookLibrary")[books].at("Author")[author];
 			cout << Author;
 		}
 		cout << "." << endl;
 
 		// book quantity
 		cout << "Hien co: "
-		     << BookDataJSON.at("BookLibrary")[books].at("BookNumber") //- BookDataJSON.at("BookLibrary")[books].at("Borrowed")
+		     << bookdata.at("BookLibrary")[books].at("BookNumber") //- bookdata.at("BookLibrary")[books].at("Borrowed")
 		     << " quyen trong kho";
 
 		cout << endl;
@@ -59,7 +60,7 @@ void ShowAllBook() {
 			cout << "Trang " << (books + 1) / BOOK_PER_PAGE << "/" << Pages
 			     << endl;
 
-			ChooseBook(books);
+			ChooseBook(bookdata, books);
 			system("pause");
 			system("cls");
 		}
@@ -74,9 +75,32 @@ void ShowAllBook() {
 			Pages += 1;
 			cout << "Trang " << Pages << "/" << Pages << endl;
 
-			ChooseBook(books);
+			ChooseBook(bookdata, books);
 			system("pause");
 			system("cls");
 		}
 	}
+}
+
+
+int ShowBookResult(json& bookdata) {
+	int num_Books = bookdata.at("BookLibrary").size();
+	for (int books = 0; books < num_Books; books++) {
+
+		// the book label
+		string BookTitle = bookdata.at("BookLibrary")[books].at("Title");
+		cout << books + 1 << ": " << BookTitle << endl;
+	}
+	cout << num_Books + 1 << ": Thoat" << endl;
+
+	cout << "Moi ban chon: ";
+	int Choice = 0;
+	cin >> Choice;
+
+	while (Choice < 1 || Choice > num_Books + 1) {
+		cout << "Lua chon khong co" << endl;
+		cout << "Moi ban nhap lai: ";
+		cin >> Choice;
+	}
+	return Choice;
 }

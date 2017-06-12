@@ -33,7 +33,7 @@
                 {
                     "AccountName": "anhkhoa.1",
                     "AccountRoleMap": [
-                        1
+                        1, 2, 3
                     ],
                     "Lock": false
                 }
