@@ -1,6 +1,6 @@
-#include <Utilities.h>
-#include <Browse.h>
-#include <FindBook.h>
+#include <Utilities/Utilities.h>
+#include <Browse/Browse.h>
+#include <Find/FindBook.h>
 
 using namespace std;
 using json = nlohmann::json;

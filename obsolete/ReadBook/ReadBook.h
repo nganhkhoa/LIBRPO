@@ -1,7 +1,7 @@
 #ifndef LIBPRO_READBOOK_H
 #define LIBPRO_READBOOK_H
 
-#include "CommonLib.h"
+#include <CommonLib.h>
 
 bool ReadBookData();
 bool ReadAuthor();

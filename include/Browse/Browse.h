@@ -1,7 +1,7 @@
 #ifndef LIBPRO_BROWSE_H
 #define LIBPRO_BROWSE_H
 
-#include "CommonLib.h"
+#include <CommonLib.h>
 
 bool ChooseBack(int&);
 void ShowBookContent(std::string&);

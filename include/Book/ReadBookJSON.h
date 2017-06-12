@@ -1,8 +1,9 @@
 #ifndef LIBPRO_READBOOKJSON_H
 #define LIBPRO_READBOOKJSON_H
 
-#include "CommonLib.h"
+#include <CommonLib.h>
 
 bool ReadBookDataJSON();
+void ShowBookDataJSON(int&);
 
 #endif

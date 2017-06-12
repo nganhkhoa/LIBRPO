@@ -1,5 +1,5 @@
-#include <Browse.h>
-#include <FindBook.h>
+#include <Browse/Browse.h>
+#include <Find/FindBook.h>
 using namespace std;
 
 int BrowseOption() {

@@ -1,5 +1,5 @@
-#include <FindBook.h>
-#include <Browse.h>
+#include <Find/FindBook.h>
+#include <Browse/Browse.h>
 #include <nlohmann/json.hpp>
 
 using namespace std;

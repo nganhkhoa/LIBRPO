@@ -77,18 +77,18 @@ Manager
 
 #include <CommonLib.h>
 
-#include <ReadBookJSON.h>
-#include <ReadDataJSON.h>
+#include <Book/ReadBookJSON.h>
+#include <Data/ReadDataJSON.h>
 
-#include <Welcome.h>
-#include <Login.h>
-#include <AccountChoose.h>
-#include <Utilities.h>
-#include <Browse.h>
-#include <Setting.h>
-#include <SignUp.h>
+#include <Welcome/Welcome.h>
+#include <Login/Login.h>
+#include <AccountChoose/AccountChoose.h>
+#include <Utilities/Utilities.h>
+#include <Browse/Browse.h>
+#include <Setting/Setting.h>
+#include <SignUp/SignUp.h>
 
-#include <History.h>
+#include <History/History.h>
 
 using namespace std;
 

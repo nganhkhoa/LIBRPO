@@ -1,7 +1,7 @@
 #ifndef LIBPRO_READDATA_H
 #define LIBPRO_READDATA_H
 
-#include "CommonLib.h"
+#include <CommonLib.h>
 
 bool ReadUser();
 bool ReadAccount();

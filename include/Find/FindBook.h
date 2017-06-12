@@ -1,7 +1,7 @@
 #ifndef FINDBOOK_H
 #define FINDBOOK_H
 
-#include "CommonLib.h"
+#include <CommonLib.h>
 
 const int MAX_WORD = 10;
 
