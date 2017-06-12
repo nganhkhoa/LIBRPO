@@ -45,14 +45,14 @@
             "IDValidDate": "1/1/2000",
             "Institute": "BKU",
             "InstituteAddress": "",
-            "Job": "Student",
+            "Occupation": "Student",
             "Nationality": "VN",
             "Password": "1234",
             "PhoneNumber": "090909090",
             "UserAddress": "HCMC",
-            "UserFirstName": "Nguyen Anh",
+            "UserFirstName": "Khoa",
             "UserID": "001",
-            "UserLastName": "khoa",
+            "UserLastName": "Nguyen Anh",
             "Username": "khoa"
         }
     ]

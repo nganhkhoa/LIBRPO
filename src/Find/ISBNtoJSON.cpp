@@ -5,14 +5,6 @@
 using namespace std;
 using json = nlohmann::json;
 
-unsigned int FindBookIndex(string& ISBN) {
-	unsigned int book_num = BookDataJSON.at("BookLibrary").size();
-	for (unsigned int index = 0; index < book_num; index++) {
-		string ISBN_DATA = BookDataJSON.at("BookLibrary")[index].at("ISBN");
-		if (ISBN_DATA == ISBN) return index;
-	}
-}
-
 json ISBNtoJSON(vector<string>& result) {
 	json bookdata = json::object();
 	bookdata["BookLibrary"] = json::array();

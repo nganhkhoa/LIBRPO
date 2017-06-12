@@ -1,6 +1,7 @@
 #include <Utilities/Utilities.h>
 
 using namespace std;
+using json = nlohmann::json;
 
 int ChooseUtilities() {
 
@@ -72,4 +73,41 @@ void Utilities() {
 				break;
 		}
 	}
+}
+
+json readSubmitBorrow(){
+	json Submit;
+
+	ifstream submitionfile(FILESubmition, ios::in);
+	if (!submitionfile.is_open()) return NULL;
+
+	submitionfile >> Submit;
+	submitionfile.close();
+	return Submit;
+}
+
+bool undateSubmitBorrow(json& Submit) {
+	ofstream submitionfile(FILESubmition, ios::out);
+	if (!submitionfile.is_open()) return false;
+	submitionfile << Submit.dump(4);
+	submitionfile.close();
+	return true;
+}
+
+
+json readBorrowLog(){
+	json BorrowLog;
+
+	ifstream borrowlogfile(FILEborrowLog, ios::in);
+	if (!borrowlogfile.is_open()) return NULL;
+
+	borrowlogfile >> BorrowLog;
+	borrowlogfile.close();
+	return BorrowLog;
+}
+
+void updateBorrowLog(json& borrowLog) {
+	ofstream borrowlogfile(FILEborrowLog, ios::out);
+	borrowlogfile << borrowLog.dump(4);
+	return;
 }

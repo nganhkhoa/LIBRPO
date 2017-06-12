@@ -3,9 +3,9 @@
 
 #include <CommonLib.h>
 
-int FindUserByName(std::string&);
-int FindUserBorrow(std::string&, std::string&, BorrowBookSubmit&); //not done
+unsigned int FindUserByName(std::string&);
 
+unsigned int FindUserID(std::string&);
 unsigned int FindBookIndex(std::string&);
 
 #endif
