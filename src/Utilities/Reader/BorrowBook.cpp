@@ -5,7 +5,43 @@
 using namespace std;
 using json = nlohmann::json;
 
+json readSubmitBorrow(){
+	json Submit;
+
+	ifstream submitionfile(FILESubmition, ios::in);
+	if (!submitionfile.is_open()) return false;
+
+	submitionfile >> Submit;
+	submitionfile.close();
+	return Submit;
+}
+
 bool CreateRequestBorrowBook(string& ISBN) {
+	json Submit = NULL;
+	Submit = readSubmitBorrow();
+	
+	json newsubmit = json::object();
+
+	unsigned int submitid = 0;
+	if (Submit.at("Submition").size()  == 0) {
+		// check the
+	} else {
+		submitid = Submit.at("Submition")[Submit.at("Submition").size() - 1].at(
+		  "Submit ID");
+		submitid += 1;
+	}
+	newsubmit["ISBN"]         = ISBN;
+	newsubmit["User"]         = CurrentUser.UserID;
+	newsubmit["Request Date"] = "Today";
+	newsubmit["Submit ID"]    = submitid;
+	newsubmit["Check"]        = false;
+
+	Submit.at("Submition")[Submit.at("Submition").size()] = newsubmit;
+
+	ofstream submitionfile(FILESubmition, ios::out);
+	if (!submitionfile.is_open()) return false;
+	submitionfile << Submit.dump(4);
+	submitionfile.close();
 	return true;
 }
 

@@ -58,11 +58,6 @@ typedef struct _Role {
 extern Role LibraryRole[MAX_ROLE];
 
 extern std::string FILEDIRECTORY;
-extern std::string FILEUser;
-extern std::string FILEAccount;
-extern std::string FILEAccountRoleMap;
-extern std::string FILELock;
-extern std::string FILEUserJSON;
 extern std::string FILEUser_focus_JSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -87,10 +82,6 @@ typedef struct _Book {
 } Book;
 
 extern std::string BOOKDIRECTORY;
-extern std::string FILEBook;
-extern std::string FILEAuthor;
-extern std::string FILEGenre;
-extern std::string FILEContent;
 extern std::string FILEBookJSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -167,6 +158,9 @@ extern const unsigned int MAX_WEEK_BORROW;
 extern std::string SUBMITDIRECTORY;
 extern std::string FILEBorrowBook;
 extern std::string FILEBorrowRecord;
+
+extern std::string FILESubmition;
+extern std::string FILEborrowLog;
 
 // ────────────────────────────────────────────────────────────────────────────────
 

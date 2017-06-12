@@ -17,3 +17,15 @@
 1 UserID:             001   Login:      Mon Jun 12 07:12:38 2017
 1 UserID:             001   Login:      Mon Jun 12 12:48:31 2017
 0 UserID:             001  Logout:      Mon Jun 12 12:50:45 2017
+1 UserID:             001   Login:      Mon Jun 12 13:40:49 2017
+1 UserID:             001   Login:      Mon Jun 12 13:42:56 2017
+1 UserID:             001   Login:      Mon Jun 12 13:44:53 2017
+1 UserID:             001   Login:      Mon Jun 12 13:47:26 2017
+1 UserID:             001   Login:      Mon Jun 12 13:48:43 2017
+1 UserID:             001   Login:      Mon Jun 12 13:50:25 2017
+1 UserID:             001   Login:      Mon Jun 12 13:50:49 2017
+1 UserID:             001   Login:      Mon Jun 12 13:52:54 2017
+1 UserID:             001   Login:      Mon Jun 12 13:53:55 2017
+1 UserID:             001   Login:      Mon Jun 12 13:58:29 2017
+1 UserID:             001   Login:      Mon Jun 12 13:59:38 2017
+0 UserID:             001  Logout:      Mon Jun 12 13:59:51 2017

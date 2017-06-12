@@ -40,25 +40,18 @@ Role LibraryRole[MAX_ROLE]{
   {4, "QUAN LY TAI CHINH", "Quan ly tien"}};
 
 std::string BOOKDIRECTORY = "book/";
-std::string FILEBook      = BOOKDIRECTORY + "book.txt";
-std::string FILEAuthor    = BOOKDIRECTORY + "author.txt";
-std::string FILEGenre     = BOOKDIRECTORY + "genre.txt";
-std::string FILEContent   = BOOKDIRECTORY + "content.txt";
-std::string FILEBookJSON = BOOKDIRECTORY + "book.json";
+std::string FILEBookJSON  = BOOKDIRECTORY + "book.json";
 
 std::string FILEHistoryPath = "history/";
 std::string FILELog         = FILEHistoryPath + "log.txt";
 
-std::string FILEDIRECTORY = "user/";                       // link to folder
-std::string FILEUser      = FILEDIRECTORY + "user.txt";    // link to user file
-std::string FILEAccount =
-  FILEDIRECTORY + "account.txt";    // link to account file
-std::string FILEAccountRoleMap =
-  FILEDIRECTORY + "accountrolemap.txt";    // link to account role map file
-std::string FILELock      = FILEDIRECTORY + "lock.txt";    // link to lock file
-std::string FILEUserJSON = FILEDIRECTORY + "userdata.json";
+std::string FILEDIRECTORY       = "user/";
+std::string FILEUserJSON        = FILEDIRECTORY + "userdata.json";
 std::string FILEUser_focus_JSON = FILEDIRECTORY + "userdata_user-focus.json";
 
 std::string SUBMITDIRECTORY  = "submit/";
 std::string FILEBorrowBook   = SUBMITDIRECTORY + "borrow.txt";
 std::string FILEBorrowRecord = SUBMITDIRECTORY + "borrowrecord.txt";
+
+std::string FILESubmition = SUBMITDIRECTORY + "submition.json";
+std::string FILEborrowLog = SUBMITDIRECTORY + "borrowLog.json";

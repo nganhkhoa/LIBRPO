@@ -10,6 +10,7 @@ void Utilities();
 int ReaderChoice();
 void Reader();
 
+nlohmann::json readSubmitBorrow();
 bool CreateRequestBoorowBook(std::string&);
 void BorrowFromCart();
 // this one
