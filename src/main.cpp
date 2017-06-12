@@ -3,7 +3,7 @@
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 0.0.3
+*	Version: 0.0.4
 */
 
 /*
@@ -69,9 +69,7 @@ Manager
 /*
         FUNCTION
     //Keep track with function to work
-    bool ReadData(vector<User>&, vector<AccountRoleMap>&)
-    int Welcome(vector<User>&, vector<AccountRoleMap>&);
-    int WelcomeUser(vector<User>&, vector<AccountRoleMap>&);
+    
 */
 
 
