@@ -49,7 +49,8 @@ void Accountant() {
 				BrowseBorrowBook(); 
 				break;
 			case ChoiceGetBorrowBook:
-				// GetBookAuthentication(UserData, BookData);
+				cin.ignore();
+				GiveBook(); 
 				break;
 			case ChoiceBrowseBuySubmition:
 				// ChoiceBrowseBuySubmition();

@@ -12,5 +12,6 @@ nlohmann::json readSubmitBorrow();
 bool undateSubmitBorrow(nlohmann::json&);
 
 nlohmann::json readBorrowLog();
+void updateBorrowLog(unsigned int&, bool);
 void updateBorrowLog(nlohmann::json&);
 #endif

@@ -2,11 +2,6 @@
     "Accepted": {
         "Pending": [
             {
-                "Browsed Date": "date",
-                "Permission Granted by": "userid_librarian",
-                "Submit ID": "submit id"
-            },
-            {
                 "Browsed Date": "Today",
                 "Permission Granted by": "001",
                 "Submit ID": 1
@@ -14,33 +9,14 @@
         ],
         "Received": [
             {
-                "Browsed Date": "date",
-                "Permission Granted by": "userid_librarian",
-                "Received Date": "date",
-                "Submit ID": "submit id"
+                "Browsed Date": "Today",
+                "Permission Granted by": "001",
+                "Submit ID": 2
             }
         ],
-        "Returned": [
-            {
-                "Browsed Date": "date",
-                "Permission Granted by": "userid_librarian",
-                "Received Date": "date",
-                "Returned Date": "date",
-                "Submit ID": "submit id"
-            }
-        ]
+        "Returned": []
     },
     "Rejected": [
-        {
-            "Browsed Date": "date",
-            "Permission Granted by": "userid_librarian",
-            "Submit ID": "submit id"
-        },
-        {
-            "Browsed Date": "Today",
-            "Permission Granted by": "001",
-            "Submit ID": 2
-        },
         {
             "Browsed Date": "Today",
             "Permission Granted by": "001",

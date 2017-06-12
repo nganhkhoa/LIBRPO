@@ -10,15 +10,17 @@ void updateBorrowLog(unsigned int& submitid, bool accepted) {
 	if (borrowLog == NULL)
 		;
 
-	json borrowrecord = json::object();
-	borrowrecord["Submit ID"] = submitid;
-	borrowrecord["Browsed Date"] = "Today";
+	json borrowrecord                     = json::object();
+	borrowrecord["Submit ID"]             = submitid;
+	borrowrecord["Browsed Date"]          = "Today";
 	borrowrecord["Permission Granted by"] = CurrentUser.UserID;
 
 	if (accepted) {
-		unsigned int accepted_num = borrowLog.at("Accepted").at("Pending").size();
+		unsigned int accepted_num =
+		  borrowLog.at("Accepted").at("Pending").size();
 		borrowLog.at("Accepted").at("Pending")[accepted_num] = borrowrecord;
-	} else {
+	}
+	else {
 		unsigned int rejected_num = borrowLog.at("Rejected").size();
 		borrowLog.at("Rejected")[rejected_num] = borrowrecord;
 	}
@@ -28,28 +30,30 @@ void updateBorrowLog(unsigned int& submitid, bool accepted) {
 
 
 void RejectSubmit(json& Submit, unsigned int& submit_index) {
-	unsigned int rejected = Submit.at("Submition")[submit_index].at("Submit ID");
+	unsigned int rejected =
+	  Submit.at("Submition")[submit_index].at("Submit ID");
 	updateBorrowLog(rejected, false);
 }
 void AcceptSubmit(json& Submit, unsigned int& submit_index) {
-	unsigned int accepted = Submit.at("Submition")[submit_index].at("Submit ID");
+	unsigned int accepted =
+	  Submit.at("Submition")[submit_index].at("Submit ID");
 	updateBorrowLog(accepted, true);
 }
 bool CheckedSubmition(json& Submit, unsigned int& submit_index_delete) {
-	json new_data          = json::object();
-	new_data["Submition"]  = json::array();
-	new_data["Checked"]    = Submit.at("Checked");
+	json new_data         = json::object();
+	new_data["Submition"] = json::array();
+	new_data["Checked"]   = Submit.at("Checked");
 
-	json delete_data       = Submit.at("Submition")[submit_index_delete];
-	bool deleted           = false;
+	json delete_data = Submit.at("Submition")[submit_index_delete];
+	bool deleted     = false;
 
 	unsigned int num_submit = Submit.at("Submition").size();
 	for (unsigned int submit_index = 0; submit_index < num_submit;
 	     submit_index++) {
 
-		if (submit_index == submit_index_delete) { 
-			deleted = true;
-			unsigned int checked_num = new_data.at("Checked").size();
+		if (submit_index == submit_index_delete) {
+			deleted                             = true;
+			unsigned int checked_num            = new_data.at("Checked").size();
 			new_data.at("Checked")[checked_num] = delete_data;
 			continue;
 		}
@@ -57,7 +61,8 @@ bool CheckedSubmition(json& Submit, unsigned int& submit_index_delete) {
 		if (!deleted) {
 			new_data.at("Submition")[submit_index] =
 			  Submit.at("Submition")[submit_index];
-		} else {
+		}
+		else {
 			new_data.at("Submition")[submit_index - 1] =
 			  Submit.at("Submition")[submit_index];
 		}
@@ -65,7 +70,6 @@ bool CheckedSubmition(json& Submit, unsigned int& submit_index_delete) {
 
 	return undateSubmitBorrow(new_data);
 }
-
 
 
 unsigned int ActionSubmit() {
@@ -77,7 +81,7 @@ unsigned int ActionSubmit() {
 	int Choice = 0;
 	cin >> Choice;
 
-	while(Choice < 0 || Choice > 3) {
+	while (Choice < 0 || Choice > 3) {
 		cout << "Lua chon khong ton tai" << endl;
 		cout << "Moi ban chon lai: ";
 		cin >> Choice;
@@ -105,7 +109,8 @@ void ShowSubmitInfo(unsigned int& book_place, unsigned int& user_place) {
 	string lastname =
 	  UserDataJSON.at("UserList")[user_place].at("UserLastName");
 	string username = UserDataJSON.at("UserList")[user_place].at("Username");
-	string occupation = UserDataJSON.at("UserList")[user_place].at("Occupation");
+	string occupation =
+	  UserDataJSON.at("UserList")[user_place].at("Occupation");
 
 	cout << "___________________________________" << endl;
 	cout << "Nguoi muon muon sach nay: " << endl;
@@ -133,10 +138,14 @@ void ValidateSubmition() {
 		unsigned int action = ActionSubmit();
 		if (action == 3) return;
 
-		if (action == 1) AcceptSubmit(Submit, submit_index);
-		else RejectSubmit(Submit, submit_index);
+		if (action == 1)
+			AcceptSubmit(Submit, submit_index);
+		else {
+			RejectSubmit(Submit, submit_index);
+			// NotifyUser(Submit, submit_index);
+		}
 
-		if(!CheckedSubmition(Submit, submit_index)) {
+		if (!CheckedSubmition(Submit, submit_index)) {
 			cout << "Khong cap nhat thanh cong" << endl;
 			cout << "Bam enter de quay ve" << endl;
 			system("pause");
