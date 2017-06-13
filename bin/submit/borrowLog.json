@@ -13,15 +13,16 @@
                 "Submit ID": 4
             }
         ],
-        "Received": [
+        "Received": [],
+        "Returned": [
             {
                 "Browsed Date": "Today",
                 "Permission Granted by": "001",
                 "Received Date": "Today",
+                "Returned Date": "Today",
                 "Submit ID": 2
             }
-        ],
-        "Returned": []
+        ]
     },
     "Rejected": [
         {

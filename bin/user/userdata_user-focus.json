@@ -40,12 +40,7 @@
                     "Lock": false
                 }
             ],
-            "Borrow": [
-                {
-                    "ISBN": "978-0451524935",
-                    "Submit ID": 2
-                }
-            ],
+            "Borrow": [],
             "DateOfBirth": "22/11/1998",
             "Ethnic": "Kinh",
             "Gender": "Male",
