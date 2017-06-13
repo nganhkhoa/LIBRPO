@@ -33,9 +33,17 @@
                 {
                     "AccountName": "anhkhoa.1",
                     "AccountRoleMap": [
-                        1, 2, 3
+                        1,
+                        2,
+                        3
                     ],
                     "Lock": false
+                }
+            ],
+            "Borrow": [
+                {
+                    "ISBN": "978-0451524935",
+                    "Submit ID": 2
                 }
             ],
             "DateOfBirth": "22/11/1998",
@@ -45,8 +53,8 @@
             "IDValidDate": "1/1/2000",
             "Institute": "BKU",
             "InstituteAddress": "",
-            "Occupation": "Student",
             "Nationality": "VN",
+            "Occupation": "Student",
             "Password": "1234",
             "PhoneNumber": "090909090",
             "UserAddress": "HCMC",

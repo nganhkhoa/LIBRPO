@@ -4,6 +4,7 @@
 #include <CommonLib.h>
 
 bool ReadBookDataJSON();
+bool UpdateBookDataJSON();
 void ShowBookDataJSON(int&);
 
 #endif

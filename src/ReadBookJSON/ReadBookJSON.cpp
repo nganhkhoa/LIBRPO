@@ -14,3 +14,16 @@ bool ReadBookDataJSON() {
 	bookfile >> BookDataJSON;
 	return true;
 }
+
+bool UpdateBookDataJSON() {
+	ofstream bookfile(FILEBookJSON, ios::out);
+
+	if (!bookfile.is_open()) {
+		cout << "File bookdata.json open failed" << endl;
+		if (debug) system("pause");
+		return false;
+	}
+
+	bookfile << BookDataJSON.dump(4);
+	return true;
+}

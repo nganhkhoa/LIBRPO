@@ -20,6 +20,9 @@ void BrowseBorrowBook();
 
 
 // give book to user
+void AddBorrowBook(int&);
+void CreateUserBorrow(std::string&, int&);
+
 void ReceivedBook(unsigned int&);
 unsigned int GetPendingPlace(int&);
 int ChooseSubmitID(std::vector<unsigned int>&);

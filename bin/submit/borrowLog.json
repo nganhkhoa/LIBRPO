@@ -5,6 +5,12 @@
                 "Browsed Date": "Today",
                 "Permission Granted by": "001",
                 "Submit ID": 1
+            },
+            {
+                "Browsed Date": "Today",
+                "Permission Granted by": "001",
+                "Received Date": "Today",
+                "Submit ID": 4
             }
         ],
         "Received": [
