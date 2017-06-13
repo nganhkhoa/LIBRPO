@@ -49,9 +49,7 @@ std::string FILEDIRECTORY       = "user/";
 std::string FILEUserJSON        = FILEDIRECTORY + "userdata.json";
 std::string FILEUser_focus_JSON = FILEDIRECTORY + "userdata_user-focus.json";
 
-std::string SUBMITDIRECTORY  = "submit/";
-std::string FILEBorrowBook   = SUBMITDIRECTORY + "borrow.txt";
-std::string FILEBorrowRecord = SUBMITDIRECTORY + "borrowrecord.txt";
+std::string SUBMITDIRECTORY  = "borrow/";
 
 std::string FILESubmition = SUBMITDIRECTORY + "submition.json";
 std::string FILEborrowLog = SUBMITDIRECTORY + "borrowLog.json";

@@ -156,8 +156,6 @@ extern const unsigned int MAX_BORROW;
 extern const unsigned int MAX_WEEK_BORROW;
 
 extern std::string SUBMITDIRECTORY;
-extern std::string FILEBorrowBook;
-extern std::string FILEBorrowRecord;
 
 extern std::string FILESubmition;
 extern std::string FILEborrowLog;
