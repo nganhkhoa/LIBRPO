@@ -7,9 +7,11 @@ int ReaderChoice();
 void Reader();
 
 ////////////////////////////////////////////////////////
+bool NoCart();
+nlohmann::json JSONFromCart();
+bool CurrentlyBorrow(std::string&);
 void addnewSubmit(nlohmann::json&, std::string&);
 bool CreateRequestBoorowBook(std::string&);
-void BorrowFromCart();
 // this one
 void BorrowBook();
 

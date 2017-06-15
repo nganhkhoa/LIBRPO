@@ -144,11 +144,11 @@ typedef struct _BorrowBookSubmit {
 	int User_num;
 	int Account_num;
 	// passing these to lock user
-	// lock by accountant
+	// lock by Librarian
 	// also to get record
 	std::string ISBN;
-	int Accountant_User_num;
-	int Accountant_Account_num;
+	int Librarian_User_num;
+	int Librarian_Account_num;
 	// to know who have done what
 } BorrowBookSubmit;
 

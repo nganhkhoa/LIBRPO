@@ -1,32 +1,6 @@
 {
     "Deleted": [],
-    "SignUp": [
-        {
-            "AccountList": [
-                {
-                    "AccountName": "",
-                    "CreateDate": "8/6/2017",
-                    "Lock": true
-                }
-            ],
-            "DateOfBirth": "",
-            "Ethnic": "",
-            "Gender": "",
-            "IDNumber": "987984725982",
-            "IDValidDate": "",
-            "Institute": "",
-            "InstituteAddress": "",
-            "Nationality": "",
-            "Occupation": "",
-            "Password": "",
-            "PhoneNumber": "",
-            "UserAddress": "",
-            "UserFirstName": "Thu Thao",
-            "UserID": "004",
-            "UserLastName": "Trinh Thi",
-            "Username": "thuthao"
-        }
-    ],
+    "SignUp": [],
     "UserList": [
         {
             "AccountList": [
@@ -41,6 +15,7 @@
                 }
             ],
             "Borrow": [],
+            "Cart": [],
             "DateOfBirth": "22/11/1998",
             "Ethnic": "Kinh",
             "Gender": "Male",

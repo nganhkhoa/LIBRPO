@@ -1,10 +1,10 @@
-#ifndef ACCOUNTANT_H
-#define ACCOUNTANT_H
+#ifndef Librarian_H
+#define Librarian_H
 
 #include <Utilities/Utilities.h>
-// Accountant
-int AccountantChoice();
-void Accountant();
+// Librarian
+int LibrarianChoice();
+void Librarian();
 
 
 void RejectSubmit(nlohmann::json&, unsigned int&);

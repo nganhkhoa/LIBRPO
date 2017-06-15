@@ -58,7 +58,7 @@ void Utilities() {
 			case ThuThuRole:
 				cout << "Ban dang lua chon chuc nang thu thu" << endl;
 				system("pause");
-				Accountant();
+				Librarian();
 				break;
 			case QLNDRole:
 				cout << "Ban dang lua chon chuc nang quan ly nguoi dung"

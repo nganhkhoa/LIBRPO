@@ -24,10 +24,11 @@ bool CompareWord(
 
 std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 
+	std::vector<std::string> result = {};
+	if (SearchThis.searchSize == 0) return result;
 
 	// read file
 	json& SearchBook                = BookDataJSON;
-	std::vector<std::string> result = {};
 
 	// assignment for checking
 	unsigned int num_book = SearchBook.at("BookLibrary").size();

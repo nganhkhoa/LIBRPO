@@ -1,34 +1,8 @@
 {
     "Accepted": {
-        "Pending": [
-            {
-                "Browsed Date": "Today",
-                "Permission Granted by": "001",
-                "Submit ID": 1
-            },
-            {
-                "Browsed Date": "Today",
-                "Permission Granted by": "001",
-                "Received Date": "Today",
-                "Submit ID": 4
-            }
-        ],
+        "Pending": [],
         "Received": [],
-        "Returned": [
-            {
-                "Browsed Date": "Today",
-                "Permission Granted by": "001",
-                "Received Date": "Today",
-                "Returned Date": "Today",
-                "Submit ID": 2
-            }
-        ]
+        "Returned": []
     },
-    "Rejected": [
-        {
-            "Browsed Date": "Today",
-            "Permission Granted by": "001",
-            "Submit ID": 3
-        }
-    ]
+    "Rejected": []
 }

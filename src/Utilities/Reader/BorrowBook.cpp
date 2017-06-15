@@ -10,7 +10,7 @@ void addnewSubmit(json& Submit, string& ISBN) {
 
 	unsigned int submitid = 0;
 
-	unsigned int check_num = Submit.at("Checked").size();
+	unsigned int check_num     = Submit.at("Checked").size();
 	unsigned int submition_num = Submit.at("Submition").size();
 
 	check_num > submition_num ? submitid = 1 + check_num
@@ -33,60 +33,95 @@ bool CreateRequestBorrowBook(string& ISBN) {
 	return undateSubmitBorrow(Submit);
 }
 
-void BorrowFromCart(vector<Book>& Cart) {
-	for (unsigned int index = 0; index < Cart.size(); index++) {
-		if (index > MAX_BORROW /*- UserBorrow*/) {
-			cout << "Ban dang muon hon so quyen sach co the" << endl;
-			cout << "Ban khong muon them duoc nua" << endl;
-			cout << "Cac cuon sach da duoc gui yeu cau: " << endl << endl;
-			for (int books = 0; books < 3; books++) {
-				cout << Cart[books].BookLabel << endl;
-			}
-			system("pause");
-			return;
-		}
-		if (!CreateRequestBorrowBook(Cart[index].BookId)) {
-			cout << "Khong the gui yeu cau sach" << endl;
-			cout << "Bam enter de tiep tuc" << endl;
-			system("pause");
-			return;
-		}
+bool CurrentlyBorrow(string& ISBN) {
+	json this_user          = UserDataJSON.at("UserList")[CurrentUser.User_num];
+	unsigned int borrow_key = this_user.count("Borrow");
+
+	if (borrow_key == 0) return false;
+
+	unsigned int borrow_num = this_user.at("Borrow").size();
+
+	for (unsigned int index = 0; index < borrow_num; index++) {
+		string ISBN_data = this_user.at("Borrow")[index].at("ISBN");
+		if (ISBN == ISBN_data) return true;
 	}
-	return;
+	return false;
 }
 
-void BorrowBook(/*vector<Book>& BorrowCart*/) {
+bool NoCart() {
+	json this_user        = UserDataJSON.at("UserList")[CurrentUser.User_num];
+	unsigned int cart_key = this_user.count("Cart");
+
+	if (cart_key != 0)
+		return false;
+	else
+		return true;
+}
+
+json JSONFromCart() {
+
+	if (NoCart()) {
+		cout << "Ban khong co gio hang" << endl;
+		system("pause");
+		return NULL;
+	}
+
+	json this_user = UserDataJSON.at("UserList")[CurrentUser.User_num];
+
+	unsigned int cartsize = this_user.at("Cart").size();
+
+	vector<string> ISBN_list = {};
+
+	for (unsigned int index = 0; index < cartsize; index++) {
+		string ISBN = this_user.at("Cart")[index];
+		ISBN_list.push_back(ISBN);
+	}
+	return ISBNtoJSON(ISBN_list);
+}
+
+void BorrowBook() {
 	while (true) {
 		system("cls");
 		cout << "Nhap ten sach ban muon muon" << endl;
 		cout << "Neu de trong se quay ve" << endl;
-		cout << "Neu ban muon muon tu gio sach, go \"giosach\"" << endl;
+		cout << "Neu ban muon muon tu gio sach, go \"--giosach\"" << endl;
 		cout << "Ten sach: ";
 		string keywords;
 		getline(cin, keywords);
 
+		json resultJSON = NULL;
+		int BookIndex   = -1;
+
 		if (keywords.empty()) return;
-		if (keywords == "giosach") {
-			// BorrowFromCart(BorrowCart);
-			return;
+		if (keywords == "--giosach") {
+			resultJSON = JSONFromCart();
+			if (resultJSON == NULL) return;
+			BookIndex = ShowBookResult(resultJSON) - 1;
+		}
+		else {
+			BookIndex = FindBookBorrow(keywords, resultJSON);
+			if (BookIndex == -1) {
+				cout << "Ten sach khong tim thay" << endl;
+				cout << "Moi ban nhap lai" << endl;
+				cout << "Bam enter de tiep tuc" << endl;
+				system("pause");
+				continue;
+			}
 		}
 
-		json resultJSON  = NULL;
+		// found but choose to exit rather than book
+		if (BookIndex == (int) resultJSON.at("BookLibrary").size()) { return; }
 
-		int BookIndex = -1;
-		BookIndex = FindBookBorrow(keywords, resultJSON);
+		string ISBN = resultJSON.at("BookLibrary")[BookIndex].at("ISBN");
 
-		if (BookIndex == -1) {
-			cout << "Ten sach khong tim thay" << endl;
-			cout << "Moi ban nhap lai" << endl;
-			cout << "Bam enter de tiep tuc" << endl;
+		//*
+		if (CurrentlyBorrow(ISBN)) {
+			cout << "Ban dang muon quyen sach nay" << endl;
+			cout << "Chung toi khong cho ban gui phieu muon" << endl;
 			system("pause");
 			continue;
 		}
-
-		if (BookIndex == (int)resultJSON.at("BookLibrary").size()) { return; }
-
-		string ISBN = resultJSON.at("BookLibrary")[BookIndex].at("ISBN");
+		//*/
 
 		if (!CreateRequestBorrowBook(ISBN)) {
 			cout << "Yeu cau khong gui duoc" << endl;

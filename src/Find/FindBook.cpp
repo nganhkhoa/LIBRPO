@@ -14,10 +14,12 @@ void FindBook() {
 		cout << "Ban khong muon tim kiem nua? (y/n) ";
 		string Answer = "";
 		getline(cin, Answer);
-		if (Answer == "y") return;
-		else continue;
+		if (Answer == "y")
+			return;
+		else
+			continue;
 	}
-	
+
 	SearchAnalize(SearchThis, core);
 	vector<string> result = ReadBookFromJson(SearchThis);
 
@@ -39,13 +41,12 @@ void FindBook() {
 int FindBookBorrow(string& core, json& resultJSON) {
 
 	SearchPhrase SearchThis;
-	
-	SearchAnalize(SearchThis, core);
+	if (core != "--giosach") { SearchAnalize(SearchThis, core); }
 	vector<string> result = ReadBookFromJson(SearchThis);
 
 	if (result.size() == 0) {
 		cout << "Khong tim thay bat cu ket qua nao" << endl;
-		cout << "voi tu khoa" << endl;
+		cout << "voi tu khoa:" << endl;
 		cout << "\t" << core << endl;
 		return -1;
 	}

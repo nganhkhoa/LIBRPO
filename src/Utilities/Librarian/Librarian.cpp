@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int AccountantChoice() {
+int LibrarianChoice() {
 	system("cls");
 	int Choice;
 	cout << "1\t"
@@ -31,7 +31,7 @@ int AccountantChoice() {
 	return Choice;
 }
 
-void Accountant() {
+void Librarian() {
 
 	while (true) {
 		enum Choice
@@ -44,7 +44,7 @@ void Accountant() {
 			ChoiceModifyBook,
 			Exit
 		};
-		switch (AccountantChoice()) {
+		switch (LibrarianChoice()) {
 			case ChoiceBrowseBorrowSubmition: 
 				BrowseBorrowBook(); 
 				break;

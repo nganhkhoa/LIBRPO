@@ -1,36 +1,4 @@
 {
-    "Checked": [
-        {
-            "ISBN": "978-0385739863",
-            "Request Date": "Today",
-            "Submit ID": 1,
-            "User": "001"
-        },
-        {
-            "ISBN": "978-0451524935",
-            "Request Date": "Today",
-            "Submit ID": 2,
-            "User": "001"
-        },
-        {
-            "ISBN": "978-0553380163",
-            "Request Date": "Today",
-            "Submit ID": 3,
-            "User": "001"
-        },
-        {
-            "ISBN": "978-0553213454",
-            "Request Date": "Today",
-            "Submit ID": 4,
-            "User": "001"
-        }
-    ],
-    "Submition": [
-        {
-            "ISBN": "978-0385739863",
-            "Request Date": "Today",
-            "Submit ID": 5,
-            "User": "001"
-        }
-    ]
+    "Checked": [],
+    "Submition": []
 }
