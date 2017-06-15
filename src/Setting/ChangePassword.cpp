@@ -1,5 +1,5 @@
-#include <Setting.h>
-#include <ReadDataJSON.h>
+#include <Setting/Setting.h>
+#include <Data/ReadDataJSON.h>
 
 using namespace std;
 

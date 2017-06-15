@@ -3,7 +3,7 @@
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 0.0.3
+*	Version: 0.0.4
 */
 
 /*
@@ -69,26 +69,24 @@ Manager
 /*
         FUNCTION
     //Keep track with function to work
-    bool ReadData(vector<User>&, vector<AccountRoleMap>&)
-    int Welcome(vector<User>&, vector<AccountRoleMap>&);
-    int WelcomeUser(vector<User>&, vector<AccountRoleMap>&);
+    
 */
 
 
 #include <CommonLib.h>
 
-#include <ReadBookJSON.h>
-#include <ReadDataJSON.h>
+#include <Book/ReadBookJSON.h>
+#include <Data/ReadDataJSON.h>
 
-#include <Welcome.h>
-#include <Login.h>
-#include <AccountChoose.h>
-#include <Utilities.h>
-#include <Browse.h>
-#include <Setting.h>
-#include <SignUp.h>
+#include <Welcome/Welcome.h>
+#include <Login/Login.h>
+#include <AccountChoose/AccountChoose.h>
+#include <Utilities/Utilities.h>
+#include <Browse/Browse.h>
+#include <Setting/Setting.h>
+#include <SignUp/SignUp.h>
 
-#include <History.h>
+#include <History/History.h>
 
 using namespace std;
 

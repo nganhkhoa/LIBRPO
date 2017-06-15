@@ -1,5 +1,5 @@
-#include <Browse.h>
-#include <FindBook.h>
+#include <Browse/Browse.h>
+#include <Find/FindBook.h>
 using namespace std;
 
 int BrowseOption() {
@@ -61,7 +61,7 @@ void Browse() {
 			case Recommended: break;
 			case All:
 				cin.ignore();
-				ShowAllBook();
+				ShowAllBook(BookDataJSON);
 				// show all the book
 				break;
 			case HotBook: break;

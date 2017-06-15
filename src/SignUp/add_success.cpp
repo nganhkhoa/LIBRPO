@@ -1,5 +1,5 @@
-#include <modify.h>
-#include <ReadDataJSON.h>
+#include <Data/modify.h>
+#include <Data/ReadDataJSON.h>
 
 using namespace std;
 using json = nlohmann::json;
@@ -37,8 +37,8 @@ bool add_success(NewUser& NewCreation) {
 	new_user["Password"]    = "";    // GeneratePwd();
 
 
-	new_user["UserID"]   = "004";    // GenerateID(); // need to generate ID
-	new_user["Username"] = NewCreation.Username;
+	new_user["UserID"] = "004";    // GenerateID(); // need to generate ID
+	new_user["Username"]         = NewCreation.Username;
 	new_user["UserFirstName"]    = NewCreation.UserFirstName;
 	new_user["UserLastName"]     = NewCreation.UserLastName;
 	new_user["DateOfBirth"]      = NewCreation.DateOfBirth;

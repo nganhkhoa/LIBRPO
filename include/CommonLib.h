@@ -13,11 +13,11 @@
 
 #include <ctime>
 
-#include <NewUser.h>
+#include <struct/NewUser.h>
 
 // json parser for C++
 // all credit to  nlohmann
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 // github repository
 // https://github.com/nlohmann/json
 
@@ -58,11 +58,6 @@ typedef struct _Role {
 extern Role LibraryRole[MAX_ROLE];
 
 extern std::string FILEDIRECTORY;
-extern std::string FILEUser;
-extern std::string FILEAccount;
-extern std::string FILEAccountRoleMap;
-extern std::string FILELock;
-extern std::string FILEUserJSON;
 extern std::string FILEUser_focus_JSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -87,10 +82,6 @@ typedef struct _Book {
 } Book;
 
 extern std::string BOOKDIRECTORY;
-extern std::string FILEBook;
-extern std::string FILEAuthor;
-extern std::string FILEGenre;
-extern std::string FILEContent;
 extern std::string FILEBookJSON;
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -153,11 +144,11 @@ typedef struct _BorrowBookSubmit {
 	int User_num;
 	int Account_num;
 	// passing these to lock user
-	// lock by accountant
+	// lock by Librarian
 	// also to get record
 	std::string ISBN;
-	int Accountant_User_num;
-	int Accountant_Account_num;
+	int Librarian_User_num;
+	int Librarian_Account_num;
 	// to know who have done what
 } BorrowBookSubmit;
 
@@ -165,8 +156,9 @@ extern const unsigned int MAX_BORROW;
 extern const unsigned int MAX_WEEK_BORROW;
 
 extern std::string SUBMITDIRECTORY;
-extern std::string FILEBorrowBook;
-extern std::string FILEBorrowRecord;
+
+extern std::string FILESubmition;
+extern std::string FILEborrowLog;
 
 // ────────────────────────────────────────────────────────────────────────────────
 

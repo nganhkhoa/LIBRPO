@@ -1,6 +1,7 @@
-#include <Browse.h>
+#include <Browse/Browse.h>
 
 using namespace std;
+using json = nlohmann::json;
 
 void ChooseHelp() {
 
@@ -61,15 +62,15 @@ bool ChooseBack(int& books) {
 	}
 }
 
-void ChooseBookInformation(int& BookToShow) {
+void ChooseBookInformation(json& bookdata, int& BookToShow) {
 	system("cls");
 
 	BookToShow--;
 
-	cout << "Ten sach:" << BookDataJSON.at("BookLibrary")[BookToShow].at("Title") << endl;
+	cout << "Ten sach:" << bookdata.at("BookLibrary")[BookToShow].at("Title") << endl;
 
 	cout << "Tac gia:" << endl;
-	int num_Author = BookDataJSON.at("BookLibrary")[BookToShow].at("Author").size();
+	int num_Author = bookdata.at("BookLibrary")[BookToShow].at("Author").size();
 	for (int author = 0; author < num_Author;
 	     author++) {
 		if (author == 3) {
@@ -82,12 +83,12 @@ void ChooseBookInformation(int& BookToShow) {
 			else
 				cout << ", ";
 		}
-		string Author = BookDataJSON.at("BookLibrary")[BookToShow].at("Author")[author];
+		string Author = bookdata.at("BookLibrary")[BookToShow].at("Author")[author];
 		cout << Author;
 	}
 	cout << "." << endl;
 
-	cout << "So luong sach: " << BookDataJSON.at("BookLibrary")[BookToShow].at("BookNumber") << endl;
+	cout << "So luong sach: " << bookdata.at("BookLibrary")[BookToShow].at("BookNumber") << endl;
 
 	cout << "Muon sach: " << true << endl;
 
@@ -96,14 +97,14 @@ void ChooseBookInformation(int& BookToShow) {
 
 	cout << "Noi dung sach: " << endl;
 	
-	string Content = BookDataJSON.at("BookLibrary")[BookToShow].at("Content");
+	string Content = bookdata.at("BookLibrary")[BookToShow].at("Content");
 	cout << Content;
 
 	cout << endl << endl;
 	return;
 }
 
-void ChooseBook(int& books) {
+void ChooseBook(json& bookdata, int& books) {
 
 	/// too bad we can't do switch here
 
@@ -113,7 +114,7 @@ void ChooseBook(int& books) {
 	string str;
 	bool WrongInput = true;
 	while (WrongInput) {
-		int num_Books = BookDataJSON.at("BookLibrary").size();
+		int num_Books = bookdata.at("BookLibrary").size();
 		getline(cin, str);
 		if (str.empty()) return;
 
@@ -140,7 +141,7 @@ void ChooseBook(int& books) {
 			// check in range
 			// BookToShow
 
-			ChooseBookInformation(BookToShow);
+			ChooseBookInformation(bookdata, BookToShow);
 
 
 			// refresh page

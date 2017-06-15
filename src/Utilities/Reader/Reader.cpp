@@ -1,4 +1,4 @@
-#include <Utilities.h>
+#include <Utilities/Utilities.h>
 
 using namespace std;
 
@@ -40,8 +40,7 @@ void Reader() {
 				BorrowBook();
 				break;
 			case ChoiceReturn:
-				cin.ignore();
-				// ReturnBook(CurrentUser);
+				ReturnBook();
 				break;
 			case ChoiceBuy:
 				cin.ignore();
