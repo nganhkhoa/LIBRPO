@@ -1,4 +1,5 @@
 #include <SignUp/SignUp.h>
+#include <Data/ReadDataJSON.h>
 
 
 using namespace std;
@@ -7,10 +8,11 @@ using json = nlohmann::json;
 bool UserExist(string& NewCreation_username) {
 
 	json& userdata = UserDataJSON;
+	json signup    = readSignUp();
 
 
 	unsigned int num_user        = userdata.at("UserList").size();
-	unsigned int num_user_signup = userdata.at("SignUp").size();
+	unsigned int num_user_signup = signup.at("SignUp").size();
 
 	for (unsigned int index = 0; index < num_user; index++) {
 		string username = userdata.at("UserList")[index].at("Username");
@@ -18,7 +20,7 @@ bool UserExist(string& NewCreation_username) {
 	}
 
 	for (unsigned int index = 0; index < num_user_signup; index++) {
-		string username = userdata.at("SignUp")[index].at("Username");
+		string username = signup.at("SignUp")[index].at("Username");
 		if (NewCreation_username == username) return true;
 	}
 
@@ -71,6 +73,12 @@ bool SignUpUser(NewUser& NewCreation) {
 		cin >> Choice;
 	}
 
+	switch(Choice) {
+		case 1: NewCreation.Gender = "Male"; break;
+		case 2: NewCreation.Gender = "Female"; break;
+		case 3: NewCreation.Gender = ""; break;
+	}
+
 	cin.ignore();
 	cout << "Ten dang nhap cua ban: ";
 	getline(cin, NewCreation.Username);
@@ -78,7 +86,7 @@ bool SignUpUser(NewUser& NewCreation) {
 	while (UserExist(NewCreation.Username)) {
 		cout << "Ten dang nhap ton tai" << endl;
 		cout << "Xin moi ban chon lai ten dang nhap khac" << endl;
-		cout << "De khong tiep tuc, ban hay de trong" << endl;
+		cout << "De thoat, ban hay de trong" << endl;
 		cout << "Ten dang nhap moi: ";
 		getline(cin, NewCreation.Username);
 

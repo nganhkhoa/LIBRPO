@@ -11,7 +11,8 @@
 *.out
 *.synctex.gz
 
-
+.dropbox
+desktop.ini
 
 # exception
 !cppcheck.log

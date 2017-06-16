@@ -47,7 +47,10 @@ bool UserLoginPrompt(bool& Continue) {
 	     << "\t";
 	string username;
 	getline(cin, username);
-	if (username.empty()) return false;
+	if (username.empty()) {
+		Continue = false;
+		return false;
+	}
 
 	cout << "Mat khau:"
 	     << "\t";

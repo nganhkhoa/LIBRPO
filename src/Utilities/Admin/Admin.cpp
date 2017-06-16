@@ -38,7 +38,7 @@ void Admin() {
 			Exit
 		};
 		switch (AdminChoice()) {
-			case ChoiceAdd: break;
+			case ChoiceAdd: AddUser(); break;
 			case ChoiceDelete: break;
 			case ChoiceReset: break;
 			case ChoiceNew: break;

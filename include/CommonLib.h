@@ -29,26 +29,6 @@
 
 const unsigned int MAX_ROLE = 10;
 
-typedef struct _Account {
-	std::string uid;         // link to User
-	std::string AccId;       // account name
-	std::string Password;    // password
-	bool Active;             // active ?
-	bool Lock;
-	std::vector<int> RoleId;
-} Account;
-
-typedef struct _User {
-	std::string uid;
-	std::string Username;
-	std::vector<Account> AccountList;
-} User;
-
-typedef struct _UserAccount {
-	int User_num;
-	int Account_num;
-} UserAccount;
-
 typedef struct _Role {
 	int RoleId;
 	std::string RoleName;
@@ -59,6 +39,9 @@ extern Role LibraryRole[MAX_ROLE];
 
 extern std::string FILEDIRECTORY;
 extern std::string FILEUser_focus_JSON;
+extern std::string FILESignUp_JSON;
+extern std::string FILERejected_JSON;
+
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -69,17 +52,6 @@ extern std::string FILEUser_focus_JSON;
 //
 
 extern const unsigned int MAX_CHARACTER;
-
-typedef struct _Book {
-	std::string BookId;
-	std::string BookLabel;
-	std::string Publisher;
-	std::string Year;
-	std::vector<std::string> Authors;
-	std::vector<std::string> Genres;
-	int Quantity = 1;
-	int Borrowed = 0;
-} Book;
 
 extern std::string BOOKDIRECTORY;
 extern std::string FILEBookJSON;
@@ -97,13 +69,13 @@ extern const unsigned int MAX_ATTEMPT;
 typedef struct _LoggedInUser {
 	std::string UserID = "";
 
-	int User_num = -1;
+	int User_num    = -1;
 	int Account_num = -1;
 
 	std::string AccountName = "";
-	std::string Username = "";
+	std::string Username    = "";
 
-	bool Active = false;
+	bool Active             = false;
 	std::vector<int> RoleId = {};
 } LoggedInUser;
 
@@ -136,22 +108,6 @@ extern const unsigned int BOOK_PER_PAGE;
 // ──────────────────────────────────────────────────────────────────
 //
 
-typedef struct _BorrowBookSubmit {
-	int Status;
-	// 0 no browse
-	// 1 accept
-	// 2 reject
-	int User_num;
-	int Account_num;
-	// passing these to lock user
-	// lock by Librarian
-	// also to get record
-	std::string ISBN;
-	int Librarian_User_num;
-	int Librarian_Account_num;
-	// to know who have done what
-} BorrowBookSubmit;
-
 extern const unsigned int MAX_BORROW;
 extern const unsigned int MAX_WEEK_BORROW;
 
@@ -179,7 +135,6 @@ extern LoggedInUser CurrentUser;
 extern nlohmann::json UserDataJSON;
 // extern std::vector<User> UserData;
 extern nlohmann::json BookDataJSON;
-extern std::vector<Book> BookData;
 
 
 // ────────────────────────────────────────────────────────────────────────────────

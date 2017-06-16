@@ -46,10 +46,11 @@ std::string FILEHistoryPath = "history/";
 std::string FILELog         = FILEHistoryPath + "log.txt";
 
 std::string FILEDIRECTORY       = "user/";
-std::string FILEUserJSON        = FILEDIRECTORY + "userdata.json";
 std::string FILEUser_focus_JSON = FILEDIRECTORY + "userdata_user-focus.json";
+std::string FILESignUp_JSON     = FILEDIRECTORY + "user_signup.json";
+std::string FILERejected_JSON   = FILEDIRECTORY + "user_rejected.json";
 
-std::string SUBMITDIRECTORY  = "borrow/";
+std::string SUBMITDIRECTORY = "borrow/";
 
 std::string FILESubmition = SUBMITDIRECTORY + "submition.json";
 std::string FILEborrowLog = SUBMITDIRECTORY + "borrowLog.json";

@@ -7,7 +7,7 @@ using json = nlohmann::json;
 bool add_success(NewUser& NewCreation) {
 	system("cls");
 
-	json& userdata = UserDataJSON;
+	json Signup = readSignUp();
 
 	json new_user    = json::object();
 	json new_account = json::object();
@@ -37,8 +37,8 @@ bool add_success(NewUser& NewCreation) {
 	new_user["Password"]    = "";    // GeneratePwd();
 
 
-	new_user["UserID"] = "004";    // GenerateID(); // need to generate ID
-	new_user["Username"]         = NewCreation.Username;
+	new_user["UserID"]   = "004";    // GenerateID(); // need to generate ID
+	new_user["Username"] = NewCreation.Username;
 	new_user["UserFirstName"]    = NewCreation.UserFirstName;
 	new_user["UserLastName"]     = NewCreation.UserLastName;
 	new_user["DateOfBirth"]      = NewCreation.DateOfBirth;
@@ -54,9 +54,9 @@ bool add_success(NewUser& NewCreation) {
 	new_user["InstituteAddress"] = NewCreation.InstituteAddress;
 
 
-	userdata.at("SignUp")[userdata.at("SignUp").size()] = new_user;
+	Signup.at("SignUp")[Signup.at("SignUp").size()] = new_user;
 
-	if (!UpdateUserDataJSON()) {
+	if (!updateSignUp(Signup)) {
 		cout << "Rat tiec, da xay ra loi" << endl;
 		cout << "Moi ban thu lai sau" << endl;
 		system("pause");
