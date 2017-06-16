@@ -44,7 +44,7 @@ void Utilities() {
 		enum Roles
 		{
 			DocGiaRole = 1,
-			ThuThuRole,
+			ThuThuRole = 8,
 			QLNDRole,
 			QLTCRole
 		};

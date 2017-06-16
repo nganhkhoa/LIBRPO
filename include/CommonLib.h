@@ -33,6 +33,7 @@ typedef struct _Role {
 	int RoleId;
 	std::string RoleName;
 	std::string RoleDesc;
+	unsigned int Price;
 } Role;
 
 extern Role LibraryRole[MAX_ROLE];
@@ -147,6 +148,7 @@ extern nlohmann::json BookDataJSON;
 
 void Help();
 std::string TrimString(std::string&);
+std::string HidePassword();
 
 // ────────────────────────────────────────────────────────────────────────────────
 

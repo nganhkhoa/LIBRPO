@@ -46,6 +46,11 @@ int WelcomeUser() {
 	cout << left << setw(5) << "7\t"
 	     << "Thoat" << endl;
 
+	if (UserDataJSON.at("UserList")[CurrentUser.User_num].at("First")) {
+		cout << endl << endl;
+		cout << "Chao mung ban lan dau den voi LIBPRO" << endl;
+		cout << "Chung toi khuyen ban chon so 2 de doi mat khau" << endl;
+	}
 	int Choice = 0;
 	cout << "Lua chon chuc nang: ";
 	cin >> Choice;

@@ -43,8 +43,10 @@ json UpdateSignUpData(vector<unsigned int>& signup_record) {
 	unsigned int record_count = 0;
 	for (unsigned int index = 0; index < num_signup; index++) {
 		if (index == new_record_list[record_count]) {
-			new_signup.at("SignUp")[record_count++] =
-			  signup.at("SignUp")[index];
+
+			json new_user = signup.at("SignUp")[index];
+			new_signup.at("SignUp")[record_count++] = new_user;
+
 			if (record_count == new_record_list.size())
 				break;
 			else
@@ -109,6 +111,7 @@ verify VerifyNewUser() {
 	unsigned int num_rejected          = Rejected.at("Rejected").size();
 
 	for (unsigned int index = 0; index < num_signup; index++) {
+		system("cls");
 
 		json new_signup = SignUp_list.at("SignUp")[index];
 		ShowSignUpData(new_signup);
@@ -123,7 +126,9 @@ verify VerifyNewUser() {
 		}
 
 		if (choice == 1) {
-			UserDataJSON.at("UserList")[num_user++] = new_signup;
+			new_signup["First"]                        = true;
+			new_signup.at("AccountList")[0].at("Lock") = false;
+			UserDataJSON.at("UserList")[num_user++]    = new_signup;
 			signup_record.push_back(index);
 			data.add++;
 		}
@@ -149,5 +154,6 @@ void AddUser() {
 	verify data = VerifyNewUser();
 	cout << "Ban da them vao " << data.add << " nguoi dung" << endl;
 	cout << "Ban da loai bo " << data.reject << " don dang ky" << endl;
+	system("pause");
 	return;
 }

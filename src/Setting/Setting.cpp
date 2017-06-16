@@ -31,10 +31,7 @@ void Setting() {
 				cin.ignore();
 				if (!ChangePassword()) { break; }
 				CurrentUser.Active = false;
-				// passing by reference maybe????
-				// to logout the user here
 				LogoutHistory();
-				//???????????
 				return;
 			case Exit: {
 				cout << "Ban muon thoat? (y/n) ";

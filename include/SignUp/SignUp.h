@@ -11,10 +11,16 @@
 #include <CommonLib.h>
 #include <Data/modify.h>
 
+bool AccountTypeExist(NewUser&, unsigned int);
+void DefaultAccount(NewUser&);
+unsigned int ChooseAccountType();
+void AccountType();
+void AccountCreation();
+void AccountCreation(NewUser&);
 
-void SignUp(); // this is a prompt
 bool SignUpUser(NewUser&);
 bool ValidateNew(NewUser&);
+void SignUp(); // this is a prompt
 
 
 #endif

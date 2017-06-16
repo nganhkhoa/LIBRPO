@@ -73,7 +73,7 @@ bool SignUpUser(NewUser& NewCreation) {
 		cin >> Choice;
 	}
 
-	switch(Choice) {
+	switch (Choice) {
 		case 1: NewCreation.Gender = "Male"; break;
 		case 2: NewCreation.Gender = "Female"; break;
 		case 3: NewCreation.Gender = ""; break;
@@ -115,7 +115,10 @@ bool SignUpUser(NewUser& NewCreation) {
 		cin >> Choice;
 	}
 
-	if (Choice == 1) ExpandSignUp(NewCreation);
+	if (Choice == 1)
+		ExpandSignUp(NewCreation);
+	else
+		AccountCreation(NewCreation);
 	return true;
 }
 
@@ -138,6 +141,8 @@ void SignUp() {
 		system("pause");
 		return;
 	}
+
+	// ShowInfoAndBilling(NewCreation);
 
 	// system("pause");
 	return;

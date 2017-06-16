@@ -1,4 +1,5 @@
 #include <CommonLib.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -34,4 +35,21 @@ string TrimString(string& str) {
 	}
 	string NewString(StringModified);
 	return NewString;
+}
+
+
+string HidePassword() {
+	string pwd;
+	
+	HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+	DWORD mode    = 0;
+	GetConsoleMode(hStdin, &mode);
+	SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
+
+	getline(cin, pwd);
+
+	SetConsoleMode(hStdin, mode);
+
+	cout << endl;
+	return pwd;
 }

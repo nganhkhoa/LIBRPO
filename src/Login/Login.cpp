@@ -23,7 +23,12 @@ int ValidateUserLogin(string& username, string& pwd) {
 
 	string password_verify =
 	  UserDataJSON.at("UserList")[num_user].at("Password");
-	if (pwd == password_verify) return num_user;
+
+	if (!UserDataJSON.at("UserList")[num_user].at("First")) {
+		//pwd = Cypher(pwd);
+	}
+	
+	if (pwd == password_verify) {return num_user;}
 	return num_user_max;
 }
 
@@ -54,18 +59,7 @@ bool UserLoginPrompt(bool& Continue) {
 
 	cout << "Mat khau:"
 	     << "\t";
-	string pwd;
-
-	HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
-	DWORD mode    = 0;
-	GetConsoleMode(hStdin, &mode);
-	SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
-
-	getline(cin, pwd);
-
-	SetConsoleMode(hStdin, mode);
-
-	cout << endl;
+	string pwd = HidePassword();
 
 	if (pwd.empty()) return false;
 
