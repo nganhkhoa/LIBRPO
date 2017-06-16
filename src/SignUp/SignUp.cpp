@@ -117,11 +117,29 @@ bool SignUpUser(NewUser& NewCreation) {
 
 	if (Choice == 1)
 		ExpandSignUp(NewCreation);
-	else
-		AccountCreation(NewCreation);
+	
+	NewCreation.Password = RandomPassword();
+	NewCreation.UserID   = GenerateUserID();
+	AccountCreation(NewCreation);
 	return true;
 }
 
+void ShowInfoAndBilling(NewUser& NewCreation) {
+	system("cls");
+	cout << "Thong tin tai khoan moi duoc tao" << endl;
+
+	cout << "Ho va ten nguoi dung:\n\t ";
+	cout << NewCreation.UserFirstName << " " << NewCreation.UserLastName << endl;
+	cout << "CMND: " << NewCreation.IDNumber << endl;
+	cout << "Ten dang nhap: " << NewCreation.Username << endl;
+	cout << "Mat khau dang nhap: " << NewCreation.Password << endl << endl;
+	cout << "Ban hay ghi lai thong tin de khi duoc thong bao" << endl;
+	cout << "(qua email) ban co the bat dau su dung he thong" << endl;
+	cout << "LIBPRO cua chung toi" << endl;
+	cout << "Chuc ban mot ngay tot lanh" << endl;
+	system("pause");
+	return;
+}
 
 void SignUp() {
 	system("cls");
@@ -133,7 +151,34 @@ void SignUp() {
 	if (Answer != "y") return;
 
 	NewUser NewCreation;
-	if (!SignUpUser(NewCreation)) return;
+
+	while (true) {
+
+		if (!SignUpUser(NewCreation)) return;
+		
+		ShowInfoAndBilling(NewCreation);
+		cout << "Ban chac chan voi yeu cau nay?" << endl;
+		cout << "1.\tChac chan, hay gui yeu cau" << endl;
+		cout << "2.\tToi thay co thong tin sai, huy" << endl;
+		cout << "3.\tThoat" << endl;
+		cout << "Lua chon cua ban: ";
+		unsigned int Choice = 0;
+		cin >> Choice; 
+		while (Choice < 1 || Choice > 3) {
+			cout << "Lua chon khong hop le" << endl;
+			cout << "Moi ban nhap lai: " << endl;
+			cin >> Choice;
+		}
+
+		if (Choice == 3) return;
+		
+		if (Choice == 2) {
+			cin.ignore();
+			continue;
+		}
+
+		else break;
+	}
 
 	if (!add_success(NewCreation)) {
 		cout << "Rat tiec, loi da xay ra" << endl;
@@ -142,7 +187,6 @@ void SignUp() {
 		return;
 	}
 
-	// ShowInfoAndBilling(NewCreation);
 
 	// system("pause");
 	return;

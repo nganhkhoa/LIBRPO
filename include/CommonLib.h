@@ -14,6 +14,8 @@
 #include <ctime>
 
 #include <struct/NewUser.h>
+#include <struct/LoggedInUser.h>
+#include <struct/Role.h>
 
 // json parser for C++
 // all credit to  nlohmann
@@ -28,13 +30,6 @@
 //
 
 const unsigned int MAX_ROLE = 10;
-
-typedef struct _Role {
-	int RoleId;
-	std::string RoleName;
-	std::string RoleDesc;
-	unsigned int Price;
-} Role;
 
 extern Role LibraryRole[MAX_ROLE];
 
@@ -67,20 +62,17 @@ extern std::string FILEBookJSON;
 
 extern const unsigned int MAX_ATTEMPT;
 
-typedef struct _LoggedInUser {
-	std::string UserID = "";
+// ────────────────────────────────────────────────────────────────────────────────
 
-	int User_num    = -1;
-	int Account_num = -1;
 
-	std::string AccountName = "";
-	std::string Username    = "";
+//
+// ─── SIGN UP ────────────────────────────────────────────────────────────────────
+//
 
-	bool Active             = false;
-	std::vector<int> RoleId = {};
-} LoggedInUser;
+extern const unsigned int PWD_LENGHT;
 
 // ────────────────────────────────────────────────────────────────────────────────
+
 
 
 //

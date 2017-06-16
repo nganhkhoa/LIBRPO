@@ -34,10 +34,10 @@ bool add_success(NewUser& NewCreation) {
 
 
 	new_user["AccountList"] = {new_account};
-	new_user["Password"]    = "";    // GeneratePwd();
+	new_user["Password"]    = NewCreation.Password;    // GeneratePwd();
 
 
-	new_user["UserID"]   = "004";    // GenerateID(); // need to generate ID
+	new_user["UserID"]   = NewCreation.UserID;    // GenerateID(); // need to generate ID
 	new_user["Username"] = NewCreation.Username;
 	new_user["UserFirstName"]    = NewCreation.UserFirstName;
 	new_user["UserLastName"]     = NewCreation.UserLastName;

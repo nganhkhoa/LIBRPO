@@ -11,6 +11,8 @@ typedef struct _NewAccount {
 
 typedef struct _NewUser {
 	std::string Username = "";
+	std::string Password = "";
+	std::string UserID = "";
 
 	std::string UserLastName = "";
 	std::string UserFirstName = "";

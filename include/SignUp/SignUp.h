@@ -18,8 +18,12 @@ void AccountType();
 void AccountCreation();
 void AccountCreation(NewUser&);
 
+std::string RandomPassword();
+std::string GenerateUserID();
+
 bool SignUpUser(NewUser&);
 bool ValidateNew(NewUser&);
+void ShowInfoAndBilling(NewUser&);
 void SignUp(); // this is a prompt
 
 

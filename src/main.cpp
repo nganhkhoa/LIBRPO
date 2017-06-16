@@ -91,6 +91,7 @@ Manager
 using namespace std;
 
 int main() {
+	srand(time(NULL));
 	system("cls");
 	
 	

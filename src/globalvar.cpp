@@ -33,6 +33,8 @@ const unsigned int MAX_WEEK_BORROW = 2;
 
 const unsigned int SEARCH_MAX = 10;
 
+const unsigned int PWD_LENGHT = 10;
+
 Role LibraryRole[MAX_ROLE] = {
   {1, "DOC GIA", "Chi co quyen doc", 0},
   {2, "NHA SUU TAM", "Co the mua duoc sach", 10},
