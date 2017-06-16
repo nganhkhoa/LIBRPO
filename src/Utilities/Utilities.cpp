@@ -64,7 +64,7 @@ void Utilities() {
 				cout << "Ban dang lua chon chuc nang quan ly nguoi dung"
 				     << endl;
 				system("pause");
-				// Admin();
+				Admin();
 				break;
 			case QLTCRole:
 				cout << "Ban dang lua chon chuc nang quan ly tai chinh" << endl;

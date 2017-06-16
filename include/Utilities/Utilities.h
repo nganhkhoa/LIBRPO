@@ -4,6 +4,7 @@
 #include <CommonLib.h>
 #include "Reader.h"
 #include "Librarian.h"
+#include "Admin.h"
 
 int ChooseUtilities();
 void Utilities();

@@ -199,7 +199,17 @@ string FindUserGiveBook() {
 	cout << "Nhap ten nguoi dung: ";
 	getline(cin, username);
 	cout << "Nhap mat khau: ";
+
+	HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+	DWORD mode    = 0;
+	GetConsoleMode(hStdin, &mode);
+	SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
+
 	getline(cin, pwd);
+
+	SetConsoleMode(hStdin, mode);
+
+	cout << endl;
 
 	unsigned int num_user_max = UserDataJSON.at("UserList").size();
 	int user_place            = ValidateUserLogin(username, pwd);

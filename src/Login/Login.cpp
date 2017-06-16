@@ -47,13 +47,23 @@ bool UserLoginPrompt(bool& Continue) {
 	     << "\t";
 	string username;
 	getline(cin, username);
-
 	if (username.empty()) return false;
 
 	cout << "Mat khau:"
 	     << "\t";
 	string pwd;
+
+	HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+	DWORD mode    = 0;
+	GetConsoleMode(hStdin, &mode);
+	SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
+
 	getline(cin, pwd);
+
+	SetConsoleMode(hStdin, mode);
+
+	cout << endl;
+
 	if (pwd.empty()) return false;
 
 	unsigned int user_num = ValidateUserLogin(username, pwd);
