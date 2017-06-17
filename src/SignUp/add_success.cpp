@@ -5,7 +5,7 @@ using namespace std;
 using json = nlohmann::json;
 
 bool add_success(NewUser& NewCreation) {
-	system("cls");
+	clearscreen();
 
 	json Signup = readSignUp();
 
@@ -59,11 +59,11 @@ bool add_success(NewUser& NewCreation) {
 	if (!updateSignUp(Signup)) {
 		cout << "Rat tiec, da xay ra loi" << endl;
 		cout << "Moi ban thu lai sau" << endl;
-		system("pause");
+		pausescreen();
 		return false;
 	}
 
 	// ShowNewUserInfo();
-	// system("pause");
+	// pausescreen();
 	return true;
 }

@@ -6,8 +6,6 @@
 #include <cmath>
 #include <string>
 
-#include <nlohmann\json.hpp>
-
 #include <CommonLib.h>
 #include <Data/modify.h>
 

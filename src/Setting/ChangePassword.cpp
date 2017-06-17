@@ -16,7 +16,7 @@ bool ComparePassword(string& VerifyPassword) {
 
 bool ChangePassword() {    // ham thi dai ma toan la chu
 	while (true) {
-		system("cls");
+		clearscreen();
 		cout << "Sau day he thong se yeu cau ban nhap mat ma cu" << endl;
 		cout << "Neu ban khong muon thay doi thi hay de trong" << endl;
 		cout << "Nhap password cu cua ban: ";
@@ -76,7 +76,7 @@ bool ChangePassword() {    // ham thi dai ma toan la chu
 			}
 
 			cout << "De tiep tuc bam enter" << endl;
-			system("pause");
+			pausescreen();
 			break;
 		}
 
@@ -94,12 +94,12 @@ bool ChangePassword() {    // ham thi dai ma toan la chu
 			cout << "Cap nhat khong thanh cong" << endl;
 			cout << "Bi loi mong quy khach thong cam" << endl;
 			cout << "Bam enter de quay lai lua chon" << endl;
-			system("pause");
+			pausescreen();
 			return false;
 		}
 		cout << "Cap nhat thanh cong" << endl;
 		cout << "Bam enter de quay ve" << endl;
-		system("pause");
+		pausescreen();
 		return true;
 	}
 }

@@ -28,7 +28,7 @@ int ChooseUtilities() {
 
 void Utilities() {
 	while (true) {
-		system("cls");
+		clearscreen();
 
 		int role = ChooseUtilities();
 
@@ -52,23 +52,23 @@ void Utilities() {
 		switch (CurrentUser.RoleId[role - 1]) {    // switch by user own role id
 			case DocGiaRole:
 				cout << "Ban dang lua chon chuc nang doc gia" << endl;
-				system("pause");
+				pausescreen();
 				Reader();
 				break;
 			case ThuThuRole:
 				cout << "Ban dang lua chon chuc nang thu thu" << endl;
-				system("pause");
+				pausescreen();
 				Librarian();
 				break;
 			case QLNDRole:
 				cout << "Ban dang lua chon chuc nang quan ly nguoi dung"
 				     << endl;
-				system("pause");
+				pausescreen();
 				Admin();
 				break;
 			case QLTCRole:
 				cout << "Ban dang lua chon chuc nang quan ly tai chinh" << endl;
-				system("pause");
+				pausescreen();
 				// Money();
 				break;
 		}

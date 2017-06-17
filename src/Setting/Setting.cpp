@@ -3,7 +3,7 @@
 using namespace std;
 
 int SettingMenu() {
-	system("cls");
+	clearscreen();
 	cout << left << setw(5) << "1\t"
 	     << "Thay doi mat khau" << endl;
 	cout << left << setw(5) << "2\t"

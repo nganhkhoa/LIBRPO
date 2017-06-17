@@ -32,7 +32,7 @@ unsigned int ChooseAccountType() {
 }
 
 void AccountType() {
-	system("cls");
+	clearscreen();
 	for (unsigned int index = 0; index < 7; index++) {
 		cout << LibraryRole[index].RoleId << ".\t"
 		     << LibraryRole[index].RoleName << "\n\t"
@@ -58,7 +58,7 @@ void AccountCreation() {
  * For new user signup
  */
 void AccountCreation(NewUser& NewCreation) {
-	system("cls");
+	clearscreen();
 	cout << "Sau day ban se duoc chon cac quyen loi cua he thong" << endl;
 	cout << "Ban co the khong chon va chung toi se tao mac dinh" << endl;
 	cout << "ban la mot doc gia" << endl;

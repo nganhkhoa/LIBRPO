@@ -141,6 +141,8 @@ extern nlohmann::json BookDataJSON;
 void Help();
 std::string TrimString(std::string&);
 std::string HidePassword();
+void clearscreen();
+void pausescreen();
 
 // ────────────────────────────────────────────────────────────────────────────────
 

@@ -92,7 +92,7 @@ using namespace std;
 
 int main() {
 	srand(time(NULL));
-	system("cls");
+	clearscreen();
 	
 	
 
@@ -107,13 +107,13 @@ int main() {
 		// only when the user login
 		// we run the file, to release memory
 		cout << "Error in reading user data" << endl;
-		system("pause");
+		pausescreen();
 		return -1;
 	}
 	if (debug) {
 		cout << UserDataJSON.dump(4) << endl;
-		system("pause");
-		system("cls");
+		pausescreen();
+		clearscreen();
 	}
 
 	// ────────────────────────────────────────────────────────────────────────────────
@@ -130,13 +130,13 @@ int main() {
 		// only when the user login
 		// we run the file, to release memory
 		cout << "Error in reading book data" << endl;
-		system("pause");
+		pausescreen();
 		return -1;
 	}
 	if (debug) {
 		cout << BookDataJSON.dump(4) << endl;
-		system("pause");
-		system("cls");
+		pausescreen();
+		clearscreen();
 	}
 	// ────────────────────────────────────────────────────────────────────────────────
 
@@ -178,7 +178,7 @@ int main() {
 					// we use CurrentUser.Active to know if loggin or not
 					// if no, we would not let them borrow, buy?
 					Browse();
-					system("pause");
+					pausescreen();
 					break;
 				case Manual:
 					// Help();
@@ -228,7 +228,7 @@ int main() {
 					// we use CurrentUser.Active to know if logged in or not
 					// if no, we would not let them borrow, buy?
 					Browse();
-					system("pause");
+					pausescreen();
 					break;
 				case Manual:
 					// Help();
@@ -278,7 +278,7 @@ int main() {
 					// we use CurrentUser.Active to know if logged in or not
 					// if no, we would not let them borrow, buy?
 					Browse();
-					system("pause");
+					pausescreen();
 					break;
 				case Manual:
 					// Help();

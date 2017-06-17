@@ -126,7 +126,7 @@ void ValidateSubmition() {
 	for (unsigned int submit_index = 0; submit_index < num_submit;
 	     submit_index++) {
 
-		system("cls");
+		clearscreen();
 
 		string ISBN   = Submit.at("Submition")[submit_index].at("ISBN");
 		string UserID = Submit.at("Submition")[submit_index].at("User");
@@ -148,7 +148,7 @@ void ValidateSubmition() {
 		if (!CheckedSubmition(Submit, submit_index)) {
 			cout << "Khong cap nhat thanh cong" << endl;
 			cout << "Bam enter de quay ve" << endl;
-			system("pause");
+			pausescreen();
 			return;
 		}
 		Submit     = readSubmitBorrow();
@@ -158,26 +158,26 @@ void ValidateSubmition() {
 
 	cout << "Khong con du lieu muon sach moi" << endl;
 	cout << "Bam enter de quay ve" << endl;
-	system("pause");
+	pausescreen();
 	return;
 }
 
 
 void BrowseBorrowBook() {
-	system("cls");
+	clearscreen();
 
 	json Submit = readSubmitBorrow();
 
 	if (Submit == NULL) {
 		cerr << "Khong load duoc du lieu muon sach" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 
 	if (Submit.at("Submition").size() == 0) {
 		cout << "Khong co yeu cau muon sach moi" << endl;
 		cout << "Ban enter de quay ve" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 

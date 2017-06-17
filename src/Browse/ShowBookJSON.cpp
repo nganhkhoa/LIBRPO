@@ -4,7 +4,7 @@ using namespace std;
 using json = nlohmann::json;
 
 void ShowAllBook(json& bookdata) {
-	system("cls");
+	clearscreen();
 	int num_Books = bookdata.at("BookLibrary").size();
 	for (int books = 0; books < num_Books; books++) {
 
@@ -61,8 +61,8 @@ void ShowAllBook(json& bookdata) {
 			     << endl;
 
 			ChooseBook(bookdata, books);
-			system("pause");
-			system("cls");
+			pausescreen();
+			clearscreen();
 		}
 		if ((books + 1) == num_Books && num_Books % BOOK_PER_PAGE) {
 
@@ -76,8 +76,8 @@ void ShowAllBook(json& bookdata) {
 			cout << "Trang " << Pages << "/" << Pages << endl;
 
 			ChooseBook(bookdata, books);
-			system("pause");
-			system("cls");
+			pausescreen();
+			clearscreen();
 		}
 	}
 }

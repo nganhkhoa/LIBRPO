@@ -63,7 +63,7 @@ bool ChooseBack(int& books) {
 }
 
 void ChooseBookInformation(json& bookdata, int& BookToShow) {
-	system("cls");
+	clearscreen();
 
 	BookToShow--;
 

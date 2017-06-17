@@ -70,7 +70,7 @@ unsigned int ShowAccountList() {
 
 void AccountChoose() {
 
-	system("cls");
+	clearscreen();
 	unsigned int num_account = UserDataJSON.at("UserList")[CurrentUser.User_num]
 	                             .at("AccountList")
 	                             .size();
@@ -79,7 +79,7 @@ void AccountChoose() {
 		cout << "Ban hien chua co tai khoan" << endl;
 		cout << "Xin vui long tao tai khoan truoc khi chon" << endl;
 		system("color 7");
-		system("pause");
+		pausescreen();
 		return;
 	}
 
@@ -93,7 +93,7 @@ void AccountChoose() {
 	if (Lock) {
 		cout << "Tai khoan nay dang bi khoa" << endl;
 		cout << "Ban hay lien he ban quan tri de biet them thong tin" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 

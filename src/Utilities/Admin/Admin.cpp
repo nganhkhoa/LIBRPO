@@ -3,7 +3,7 @@
 using namespace std;
 
 int AdminChoice() {
-	system("cls");
+	clearscreen();
 	int Choice;
 	cout << "1\t"
 	     << "Xac nhan them nguoi dung" << endl;

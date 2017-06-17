@@ -45,7 +45,7 @@ void CreateLoginUser(unsigned int& user_num) {
 }
 
 bool UserLoginPrompt(bool& Continue) {
-	system("cls");
+	clearscreen();
 	cout << "Nhap ten nguoi dung de tiep tuc hoac de trong de thoat" << endl;
 	// khi có giao diện thì cancel sẽ được thay bằng nút bấm, nút bấm nhảy về
 	cout << "Ten nguoi dung:"

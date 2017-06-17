@@ -102,7 +102,7 @@ verify VerifyNewUser() {
 
 	if (num_signup == 0) {
 		cout << "Khong co du lieu dang ky moi" << endl;
-		system("pause");
+		pausescreen();
 		return data;
 	}
 
@@ -111,7 +111,7 @@ verify VerifyNewUser() {
 	unsigned int num_rejected          = Rejected.at("Rejected").size();
 
 	for (unsigned int index = 0; index < num_signup; index++) {
-		system("cls");
+		clearscreen();
 
 		json new_signup = SignUp_list.at("SignUp")[index];
 		ShowSignUpData(new_signup);
@@ -141,7 +141,7 @@ verify VerifyNewUser() {
 
 	cout << "Khong con du lieu dang ky moi" << endl;
 	cout << "Bam enter de quay ve" << endl;
-	system("pause");
+	pausescreen();
 
 	SignUp_list = UpdateSignUpData(signup_record);
 	updateSignUp(SignUp_list);
@@ -154,6 +154,6 @@ void AddUser() {
 	verify data = VerifyNewUser();
 	cout << "Ban da them vao " << data.add << " nguoi dung" << endl;
 	cout << "Ban da loai bo " << data.reject << " don dang ky" << endl;
-	system("pause");
+	pausescreen();
 	return;
 }

@@ -5,7 +5,7 @@ using namespace std;
 int BrowseOption() {
 	// return choice
 	// like the welcome
-	system("cls");
+	clearscreen();
 	cout << "Chon cach duyet sach" << endl;
 	cout << left << setw(5) << "1\t"
 	     << "Khuyen khich" << endl;

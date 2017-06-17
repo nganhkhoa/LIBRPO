@@ -4,7 +4,7 @@ using namespace std;
 
 int Welcome() {
 	// nothing worth commenting
-	system("cls");
+	clearscreen();
 	cout << "WELCOME TO LIBPRO" << endl;
 	cout << left << setw(5) << "1\t"
 	     << "Dang nhap" << endl;
@@ -29,7 +29,7 @@ int Welcome() {
 int WelcomeUser() {
 	// nothing worth commenting
 	// NewUser because we say hello to user
-	system("cls");
+	clearscreen();
 	cout << "WELCOME TO LIBPRO " << CurrentUser.Username << endl;
 	cout << left << setw(5) << "1\t"
 	     << "Dang xuat" << endl;
@@ -63,7 +63,7 @@ int WelcomeUser() {
 int WelcomeAccount() {
 	// nothing worth commenting
 	// NewUser because we say hello to user
-	system("cls");
+	clearscreen();
 	cout << "WELCOME TO LIBPRO " << CurrentUser.Username << endl;
 	cout << "Ban dang dang nhap duoi tai khoan" << endl;
 	cout << "\t\t" << CurrentUser.AccountName << endl;

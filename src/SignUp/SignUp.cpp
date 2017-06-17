@@ -125,7 +125,7 @@ bool SignUpUser(NewUser& NewCreation) {
 }
 
 void ShowInfoAndBilling(NewUser& NewCreation) {
-	system("cls");
+	clearscreen();
 	cout << "Thong tin tai khoan moi duoc tao" << endl;
 
 	cout << "Ho va ten nguoi dung:\n\t ";
@@ -137,12 +137,12 @@ void ShowInfoAndBilling(NewUser& NewCreation) {
 	cout << "(qua email) ban co the bat dau su dung he thong" << endl;
 	cout << "LIBPRO cua chung toi" << endl;
 	cout << "Chuc ban mot ngay tot lanh" << endl;
-	system("pause");
+	pausescreen();
 	return;
 }
 
 void SignUp() {
-	system("cls");
+	clearscreen();
 
 	cout << "Ban muon tao tai khoan moi?(y/n) ";
 	string Answer = "";
@@ -183,11 +183,11 @@ void SignUp() {
 	if (!add_success(NewCreation)) {
 		cout << "Rat tiec, loi da xay ra" << endl;
 		cout << "Ban vui long thu lai sau" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 
 
-	// system("pause");
+	// pausescreen();
 	return;
 }
