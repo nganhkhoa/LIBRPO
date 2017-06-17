@@ -1,6 +1,4 @@
 {
-    "Deleted": [],
-    "SignUp": [],
     "UserList": [
         {
             "AccountList": [
@@ -8,8 +6,8 @@
                     "AccountName": "anhkhoa.1",
                     "AccountRoleMap": [
                         1,
-                        2,
-                        3
+                        8,
+                        9
                     ],
                     "Lock": false
                 }
@@ -18,6 +16,7 @@
             "Cart": [],
             "DateOfBirth": "22/11/1998",
             "Ethnic": "Kinh",
+            "First": false,
             "Gender": "Male",
             "IDNumber": "0000000000",
             "IDValidDate": "1/1/2000",
@@ -32,6 +31,35 @@
             "UserID": "001",
             "UserLastName": "Nguyen Anh",
             "Username": "khoa"
+        },
+        {
+            "AccountList": [
+                {
+                    "AccountName": "thuthao",
+                    "AccountRoleMap": [
+                        7
+                    ],
+                    "CreateDate": "16/6/2017",
+                    "Lock": false
+                }
+            ],
+            "DateOfBirth": "",
+            "Ethnic": "",
+            "First": false,
+            "Gender": "Female",
+            "IDNumber": "0000102914104",
+            "IDValidDate": "",
+            "Institute": "",
+            "InstituteAddress": "",
+            "Nationality": "",
+            "Occupation": "",
+            "Password": "1234",
+            "PhoneNumber": "",
+            "UserAddress": "",
+            "UserFirstName": "Thu Thao",
+            "UserID": "002",
+            "UserLastName": "Trinh Thi",
+            "Username": "thuthao"
         }
     ]
 }

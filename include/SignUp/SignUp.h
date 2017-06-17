@@ -6,15 +6,23 @@
 #include <cmath>
 #include <string>
 
-#include <nlohmann\json.hpp>
-
 #include <CommonLib.h>
 #include <Data/modify.h>
 
+bool AccountTypeExist(NewUser&, unsigned int);
+void DefaultAccount(NewUser&);
+unsigned int ChooseAccountType();
+void AccountType();
+void AccountCreation();
+void AccountCreation(NewUser&);
 
-void SignUp(); // this is a prompt
+std::string RandomPassword();
+std::string GenerateUserID();
+
 bool SignUpUser(NewUser&);
 bool ValidateNew(NewUser&);
+void ShowInfoAndBilling(NewUser&);
+void SignUp(); // this is a prompt
 
 
 #endif

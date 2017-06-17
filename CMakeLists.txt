@@ -63,7 +63,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 		set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE}\  ${TEST_SOURCES})
 		add_executable(${PROJECT_NAME}_TEST ${ALL_FILES})
 	else(TEST)
-		set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE})
+		set(ALL_FILES ${SOURCES} ${HEADERS})
 		add_executable(${PROJECT_NAME} ${ALL_FILES})
 	endif(TEST)
 	

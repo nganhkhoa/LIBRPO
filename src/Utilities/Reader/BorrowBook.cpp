@@ -62,7 +62,7 @@ json JSONFromCart() {
 
 	if (NoCart()) {
 		cout << "Ban khong co gio hang" << endl;
-		system("pause");
+		pausescreen();
 		return NULL;
 	}
 
@@ -81,7 +81,7 @@ json JSONFromCart() {
 
 void BorrowBook() {
 	while (true) {
-		system("cls");
+		clearscreen();
 		cout << "Nhap ten sach ban muon muon" << endl;
 		cout << "Neu de trong se quay ve" << endl;
 		cout << "Neu ban muon muon tu gio sach, go \"--giosach\"" << endl;
@@ -104,7 +104,7 @@ void BorrowBook() {
 				cout << "Ten sach khong tim thay" << endl;
 				cout << "Moi ban nhap lai" << endl;
 				cout << "Bam enter de tiep tuc" << endl;
-				system("pause");
+				pausescreen();
 				continue;
 			}
 		}
@@ -118,7 +118,7 @@ void BorrowBook() {
 		if (CurrentlyBorrow(ISBN)) {
 			cout << "Ban dang muon quyen sach nay" << endl;
 			cout << "Chung toi khong cho ban gui phieu muon" << endl;
-			system("pause");
+			pausescreen();
 			continue;
 		}
 		//*/
@@ -126,14 +126,14 @@ void BorrowBook() {
 		if (!CreateRequestBorrowBook(ISBN)) {
 			cout << "Yeu cau khong gui duoc" << endl;
 			cout << "Bam enter de tiep tuc" << endl;
-			system("pause");
+			pausescreen();
 			return;
 		}
 
 		cout << "Yeu cau da duoc gui," << endl;
 		cout << "Cho xac nhan cua thu thu" << endl;
 		cout << "Bam enter de quay ve" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 }

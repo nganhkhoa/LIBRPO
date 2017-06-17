@@ -1,4 +1,5 @@
 #include <SignUp/SignUp.h>
+#include <Data/ReadDataJSON.h>
 
 
 using namespace std;
@@ -7,10 +8,11 @@ using json = nlohmann::json;
 bool UserExist(string& NewCreation_username) {
 
 	json& userdata = UserDataJSON;
+	json signup    = readSignUp();
 
 
 	unsigned int num_user        = userdata.at("UserList").size();
-	unsigned int num_user_signup = userdata.at("SignUp").size();
+	unsigned int num_user_signup = signup.at("SignUp").size();
 
 	for (unsigned int index = 0; index < num_user; index++) {
 		string username = userdata.at("UserList")[index].at("Username");
@@ -18,7 +20,7 @@ bool UserExist(string& NewCreation_username) {
 	}
 
 	for (unsigned int index = 0; index < num_user_signup; index++) {
-		string username = userdata.at("SignUp")[index].at("Username");
+		string username = signup.at("SignUp")[index].at("Username");
 		if (NewCreation_username == username) return true;
 	}
 
@@ -71,6 +73,12 @@ bool SignUpUser(NewUser& NewCreation) {
 		cin >> Choice;
 	}
 
+	switch (Choice) {
+		case 1: NewCreation.Gender = "Male"; break;
+		case 2: NewCreation.Gender = "Female"; break;
+		case 3: NewCreation.Gender = ""; break;
+	}
+
 	cin.ignore();
 	cout << "Ten dang nhap cua ban: ";
 	getline(cin, NewCreation.Username);
@@ -78,7 +86,7 @@ bool SignUpUser(NewUser& NewCreation) {
 	while (UserExist(NewCreation.Username)) {
 		cout << "Ten dang nhap ton tai" << endl;
 		cout << "Xin moi ban chon lai ten dang nhap khac" << endl;
-		cout << "De khong tiep tuc, ban hay de trong" << endl;
+		cout << "De thoat, ban hay de trong" << endl;
 		cout << "Ten dang nhap moi: ";
 		getline(cin, NewCreation.Username);
 
@@ -107,13 +115,34 @@ bool SignUpUser(NewUser& NewCreation) {
 		cin >> Choice;
 	}
 
-	if (Choice == 1) ExpandSignUp(NewCreation);
+	if (Choice == 1)
+		ExpandSignUp(NewCreation);
+	
+	NewCreation.Password = RandomPassword();
+	NewCreation.UserID   = GenerateUserID();
+	AccountCreation(NewCreation);
 	return true;
 }
 
+void ShowInfoAndBilling(NewUser& NewCreation) {
+	clearscreen();
+	cout << "Thong tin tai khoan moi duoc tao" << endl;
+
+	cout << "Ho va ten nguoi dung:\n\t ";
+	cout << NewCreation.UserFirstName << " " << NewCreation.UserLastName << endl;
+	cout << "CMND: " << NewCreation.IDNumber << endl;
+	cout << "Ten dang nhap: " << NewCreation.Username << endl;
+	cout << "Mat khau dang nhap: " << NewCreation.Password << endl << endl;
+	cout << "Ban hay ghi lai thong tin de khi duoc thong bao" << endl;
+	cout << "(qua email) ban co the bat dau su dung he thong" << endl;
+	cout << "LIBPRO cua chung toi" << endl;
+	cout << "Chuc ban mot ngay tot lanh" << endl;
+	pausescreen();
+	return;
+}
 
 void SignUp() {
-	system("cls");
+	clearscreen();
 
 	cout << "Ban muon tao tai khoan moi?(y/n) ";
 	string Answer = "";
@@ -122,15 +151,43 @@ void SignUp() {
 	if (Answer != "y") return;
 
 	NewUser NewCreation;
-	if (!SignUpUser(NewCreation)) return;
+
+	while (true) {
+
+		if (!SignUpUser(NewCreation)) return;
+		
+		ShowInfoAndBilling(NewCreation);
+		cout << "Ban chac chan voi yeu cau nay?" << endl;
+		cout << "1.\tChac chan, hay gui yeu cau" << endl;
+		cout << "2.\tToi thay co thong tin sai, huy" << endl;
+		cout << "3.\tThoat" << endl;
+		cout << "Lua chon cua ban: ";
+		unsigned int Choice = 0;
+		cin >> Choice; 
+		while (Choice < 1 || Choice > 3) {
+			cout << "Lua chon khong hop le" << endl;
+			cout << "Moi ban nhap lai: " << endl;
+			cin >> Choice;
+		}
+
+		if (Choice == 3) return;
+		
+		if (Choice == 2) {
+			cin.ignore();
+			continue;
+		}
+
+		else break;
+	}
 
 	if (!add_success(NewCreation)) {
 		cout << "Rat tiec, loi da xay ra" << endl;
 		cout << "Ban vui long thu lai sau" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 
-	// system("pause");
+
+	// pausescreen();
 	return;
 }

@@ -23,7 +23,12 @@ int ValidateUserLogin(string& username, string& pwd) {
 
 	string password_verify =
 	  UserDataJSON.at("UserList")[num_user].at("Password");
-	if (pwd == password_verify) return num_user;
+
+	if (!UserDataJSON.at("UserList")[num_user].at("First")) {
+		//pwd = Cypher(pwd);
+	}
+	
+	if (pwd == password_verify) {return num_user;}
 	return num_user_max;
 }
 
@@ -40,20 +45,22 @@ void CreateLoginUser(unsigned int& user_num) {
 }
 
 bool UserLoginPrompt(bool& Continue) {
-	system("cls");
+	clearscreen();
 	cout << "Nhap ten nguoi dung de tiep tuc hoac de trong de thoat" << endl;
 	// khi có giao diện thì cancel sẽ được thay bằng nút bấm, nút bấm nhảy về
 	cout << "Ten nguoi dung:"
 	     << "\t";
 	string username;
 	getline(cin, username);
-
-	if (username.empty()) return false;
+	if (username.empty()) {
+		Continue = false;
+		return false;
+	}
 
 	cout << "Mat khau:"
 	     << "\t";
-	string pwd;
-	getline(cin, pwd);
+	string pwd = HidePassword();
+
 	if (pwd.empty()) return false;
 
 	unsigned int user_num = ValidateUserLogin(username, pwd);

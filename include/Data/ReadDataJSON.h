@@ -5,5 +5,9 @@
 
 bool ReadUserDataJSON();
 bool UpdateUserDataJSON();
+nlohmann::json readSignUp();
+bool updateSignUp(nlohmann::json&);
+nlohmann::json readRejected();
+bool updateRejected(nlohmann::json&);
 
 #endif

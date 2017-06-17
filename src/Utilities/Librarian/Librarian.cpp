@@ -3,7 +3,7 @@
 using namespace std;
 
 int LibrarianChoice() {
-	system("cls");
+	clearscreen();
 	int Choice;
 	cout << "1\t"
 	     << "Duyet sach muon" << endl;

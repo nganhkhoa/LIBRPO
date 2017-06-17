@@ -2,6 +2,8 @@
 **/.vscode
 /spike
 /build
+/linux
+/bin/LIBPRO
 
 # list of files not to be included in
 *.o
@@ -11,7 +13,8 @@
 *.out
 *.synctex.gz
 
-
+.dropbox
+desktop.ini
 
 # exception
 !cppcheck.log

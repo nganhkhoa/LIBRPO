@@ -7,7 +7,7 @@ bool ReadBookDataJSON() {
 
 	if (!bookfile.is_open()) {
 		cout << "File bookdata.json open failed" << endl;
-		if (debug) system("pause");
+		if (debug) pausescreen();
 		return false;
 	}
 
@@ -20,7 +20,7 @@ bool UpdateBookDataJSON() {
 
 	if (!bookfile.is_open()) {
 		cout << "File bookdata.json open failed" << endl;
-		if (debug) system("pause");
+		if (debug) pausescreen();
 		return false;
 	}
 

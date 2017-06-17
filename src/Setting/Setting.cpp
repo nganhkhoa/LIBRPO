@@ -3,7 +3,7 @@
 using namespace std;
 
 int SettingMenu() {
-	system("cls");
+	clearscreen();
 	cout << left << setw(5) << "1\t"
 	     << "Thay doi mat khau" << endl;
 	cout << left << setw(5) << "2\t"
@@ -31,10 +31,7 @@ void Setting() {
 				cin.ignore();
 				if (!ChangePassword()) { break; }
 				CurrentUser.Active = false;
-				// passing by reference maybe????
-				// to logout the user here
 				LogoutHistory();
-				//???????????
 				return;
 			case Exit: {
 				cout << "Ban muon thoat? (y/n) ";

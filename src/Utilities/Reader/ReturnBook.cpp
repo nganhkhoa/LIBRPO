@@ -30,7 +30,7 @@ void BookDataReturn(int& submitid) {
 	if (!UpdateBookDataJSON()) {
 		cout << "Khong the cap nhat du lieu sach" << endl;
 		cout << "Hay thu lai sau" << endl;
-		system("pause");
+		pausescreen();
 	}
 }
 
@@ -58,7 +58,7 @@ void UserDataReturn(string& userid, int& submitid) {
 	if (!UpdateUserDataJSON()) {
 		cout << "Khong the cap nhat du lieu nguoi dung" << endl;
 		cout << "Hay thu lai sau" << endl;
-		system("pause");
+		pausescreen();
 	}
 }
 
@@ -137,7 +137,7 @@ int ChooseReturnBook(string& userid) {
 
 	if (borrow_key == 0) {
 		cout << "Ban khong co sach de tra" << endl;
-		system("pause");
+		pausescreen();
 		return -1;
 	}
 
@@ -155,7 +155,7 @@ int ChooseReturnBook(string& userid) {
 }
 
 void ReturnBook() {
-	system("cls");
+	clearscreen();
 	int submitid = ChooseReturnBook(CurrentUser.UserID);
 	if (submitid == -1) return;
 
@@ -166,6 +166,6 @@ void ReturnBook() {
 	UserDataReturn(CurrentUser.UserID, submitid);
 
 	cout << "Ban da tra sach thanh cong" << endl;
-	system("pause");
+	pausescreen();
 	return;
 }

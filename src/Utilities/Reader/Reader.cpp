@@ -3,7 +3,7 @@
 using namespace std;
 
 int ReaderChoice() {
-	system("cls");
+	clearscreen();
 	int Choice;
 	cout << "1\t"
 	     << "Muon sach" << endl;

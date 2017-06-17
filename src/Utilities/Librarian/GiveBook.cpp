@@ -83,7 +83,7 @@ void AddBorrowBook(int& submitid) {
 
 			if (!UpdateBookDataJSON()) {
 				cout << "Cap nhat du lieu sach khong thanh cong" << endl;
-				system("pause");
+				pausescreen();
 			}
 			return;
 		}
@@ -117,7 +117,7 @@ void CreateUserBorrow(string& userID, int& submitid) {
 			UserDataJSON.at("UserList")[userid] = this_user;
 			if (!UpdateUserDataJSON()) {
 				cout << "Cap nhat nguoi dung khong thanh cong" << endl;
-				system("pause");
+				pausescreen();
 			}
 			return;
 		}
@@ -143,7 +143,7 @@ int ChooseSubmitID(vector<unsigned int>& submitid_list) {
 	}
 
 	json resultJSON = ISBNtoJSON(result);
-	system("cls");
+	clearscreen();
 	int submitid            = submitid_list[ShowBookResult(resultJSON) - 1];
 	int num_book_resultJSON = resultJSON.at("BookLibrary").size() + 1;
 	if (submitid == num_book_resultJSON) { return -1; }
@@ -199,7 +199,7 @@ string FindUserGiveBook() {
 	cout << "Nhap ten nguoi dung: ";
 	getline(cin, username);
 	cout << "Nhap mat khau: ";
-	getline(cin, pwd);
+	pwd = HidePassword();
 
 	unsigned int num_user_max = UserDataJSON.at("UserList").size();
 	int user_place            = ValidateUserLogin(username, pwd);
@@ -208,7 +208,7 @@ string FindUserGiveBook() {
 	if (user_place == (int) num_user_max) {
 		cout << "Khong tim thay thong tin nguoi dung" << endl;
 		cout << "Moi ban thu lai" << endl;
-		system("pause");
+		pausescreen();
 	}
 	else {
 		userid = UserDataJSON.at("UserList")[user_place].at("UserID");
