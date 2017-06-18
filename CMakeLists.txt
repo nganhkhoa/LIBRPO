@@ -1,28 +1,8 @@
 ﻿cmake_minimum_required(VERSION 3.8.1)
 
-option(SPIKE "enable spike build by -DSPIKE=ON" OFF)
-
-# if spike on and test on, test is skip
-option(TEST "enable test by -DTEST=ON" OFF)
 
 set(OTHER_FILES_EXTENSION "json")
 
-
-if (SPIKE)
-	
-	set(PROJECT_NAME "SPIKE")
-
-	set(SOURCE_FOLDER "spike/src")
-	set(INCLUDE_FOLDER "spike/include")
-	set(OUTPUT_FOLDER "spike/bin")
-
-	# vs only settings
-	set(OTHER_FILES_FOLDER "spike/bin")
-	set(DEBUG_FOLDER "spike/bin") # vs only
-
-	set(TEST OFF)
-
-else(SPIKE)
 
 	# thiet lap o day
 	set(PROJECT_NAME "LIBPRO")
@@ -35,9 +15,6 @@ else(SPIKE)
 	set(OTHER_FILES_FOLDER "bin")
 
 	set(DEBUG_FOLDER "bin") # vs only
-
-endif()
-
 
 # output file exe location
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../${OUTPUT_FOLDER})
@@ -79,17 +56,14 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
 # using Intel C++
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 
+	# the included folder for <foo.h>
+	include_directories(${INCLUDE_FOLDER})
 	file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${SOURCE_FOLDER}/*.cpp")
 	file(GLOB_RECURSE HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${INCLUDE_FOLDER}/*.h" "${INCLUDE_FOLDER}/*.hpp")
 	file(GLOB_RECURSE RESOURCE RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${OTHER_FILES_FOLDER}/*.${OTHER_FILES_EXTENSION}")
-	if(TEST)
-		file(GLOB_RECURSE TEST_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "test/src/*.cpp")
-		set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE}\  ${TEST_SOURCES})
-		add_executable(${PROJECT_NAME}_TEST ${ALL_FILES})
-	else(TEST)
-		set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE})
-		add_executable(${PROJECT_NAME} ${ALL_FILES})
-	endif(TEST)
+	
+	set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE})
+	add_executable(${PROJECT_NAME} ${ALL_FILES})
 
 
 
@@ -109,7 +83,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 			set(GROUP "Source Files\\${GROUP}")
 		elseif("${FILE}" MATCHES ".*\\.h")
 			set(GROUP "Header Files\\${GROUP}")
-		elseif("${FILE}" MATCHES ".*\\.txt")
+		elseif("${FILE}" MATCHES ".*\\.${OTHER_FILES_EXTENSION}")
 			set(GROUP "Resource Files\\${GROUP}")
 		endif()
 
