@@ -3,7 +3,7 @@
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
  * @Last Modified By: undefined
- * @Last Modified Time: Jun 18, 2017 9:56 PM
+ * @Last Modified Time: Jun 18, 2017 11:04 PM
  * @Description: Các biến toàn cục trong chương trình
  */
 
@@ -66,6 +66,7 @@ std::string FILEDIRECTORY       = "user/";
 std::string FILEUser_focus_JSON = FILEDIRECTORY + "userdata_user-focus.json";
 std::string FILESignUp_JSON     = FILEDIRECTORY + "user_signup.json";
 std::string FILERejected_JSON   = FILEDIRECTORY + "user_rejected.json";
+std::string FILEDeleted_JSON    = FILEDIRECTORY + "user_deleted.json";
 
 std::string SUBMITDIRECTORY = "borrow/";
 std::string FILESubmition   = SUBMITDIRECTORY + "submition.json";

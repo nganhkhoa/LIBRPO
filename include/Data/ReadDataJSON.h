@@ -9,5 +9,6 @@ nlohmann::json readSignUp();
 bool updateSignUp(nlohmann::json&);
 nlohmann::json readRejected();
 bool updateRejected(nlohmann::json&);
-
+nlohmann::json readDeleted();
+bool updateDeleted(nlohmann::json&);
 #endif

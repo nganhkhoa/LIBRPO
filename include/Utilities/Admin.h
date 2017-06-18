@@ -22,4 +22,12 @@ verify VerifyNewUser();
 // this one
 void AddUser();
 
+/**
+ * Delete user
+ */
+nlohmann::json RemoveUser(unsigned int&);
+void DeleteUserplace(unsigned int&);
+// this one
+void DeleteUser();
+
 #endif

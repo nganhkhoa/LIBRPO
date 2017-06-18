@@ -37,6 +37,7 @@ extern std::string FILEDIRECTORY;
 extern std::string FILEUser_focus_JSON;
 extern std::string FILESignUp_JSON;
 extern std::string FILERejected_JSON;
+extern std::string FILEDeleted_JSON;
 
 
 // ────────────────────────────────────────────────────────────────────────────────

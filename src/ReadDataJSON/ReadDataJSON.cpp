@@ -2,8 +2,8 @@
  * @CreateTime: Jun 18, 2017 10:08 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 18, 2017 10:08 PM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 18, 2017 11:04 PM
  * @Description: Đọc và ghi các dữ liệu về profile
  */
 
@@ -89,5 +89,32 @@ bool updateRejected(json& Rejected) {
 	}
 
 	rejectfile << Rejected.dump(4);
+	return true;
+}
+
+json readDeleted() {
+	ifstream Deletefile(FILEDeleted_JSON, ios::in);
+	json Deleted = NULL;
+
+	if (!Deletefile.is_open()) {
+		cout << "File user_Deleted.json open failed" << endl;
+		if (debug) pausescreen();
+		return false;
+	}
+
+	Deletefile >> Deleted;
+	return Deleted;
+}
+
+bool updateDeleted(json& Deleted) {
+	ofstream Deletefile(FILEDeleted_JSON, ios::out);
+
+	if (!Deletefile.is_open()) {
+		cout << "File Deleted.json open failed" << endl;
+		if (debug) pausescreen();
+		return false;
+	}
+
+	Deletefile << Deleted.dump(4);
 	return true;
 }

@@ -48,7 +48,10 @@ void Admin() {
 		};
 		switch (AdminChoice()) {
 			case ChoiceAdd: AddUser(); break;
-			case ChoiceDelete: break;
+			case ChoiceDelete: 
+				cin.ignore();
+				DeleteUser();
+				break;
 			case ChoiceReset: break;
 			case ChoiceNew: break;
 			case Exit: return;
