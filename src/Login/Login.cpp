@@ -25,10 +25,10 @@ int ValidateUserLogin(string& username, string& pwd) {
 	  UserDataJSON.at("UserList")[num_user].at("Password");
 
 	if (!UserDataJSON.at("UserList")[num_user].at("First")) {
-		//pwd = Cypher(pwd);
+		// pwd = Cypher(pwd);
 	}
-	
-	if (pwd == password_verify) {return num_user;}
+
+	if (pwd == password_verify) { return num_user; }
 	return num_user_max;
 }
 

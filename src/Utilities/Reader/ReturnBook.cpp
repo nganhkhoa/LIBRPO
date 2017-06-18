@@ -10,7 +10,7 @@ using namespace std;
 using json = nlohmann::json;
 
 void BookDataReturn(int& submitid) {
-	json Submit = readSubmitBorrow();
+	json Submit            = readSubmitBorrow();
 	unsigned int num_check = Submit.at("Checked").size();
 
 	string ISBN = "";
@@ -66,21 +66,22 @@ void UserDataReturn(string& userid, int& submitid) {
 void ReturnBookSubmit(int& submitid) {
 	json borrowLog = readBorrowLog();
 
-	json new_data = json::object();
-	new_data["Rejected"] = borrowLog.at("Rejected");
-	new_data["Accepted"] = json::object();
+	json new_data                      = json::object();
+	new_data["Rejected"]               = borrowLog.at("Rejected");
+	new_data["Accepted"]               = json::object();
 	new_data.at("Accepted")["Pending"] = borrowLog.at("Accepted").at("Pending");
-	new_data.at("Accepted")["Returned"] = borrowLog.at("Accepted").at("Returned");
+	new_data.at("Accepted")["Returned"] =
+	  borrowLog.at("Accepted").at("Returned");
 	new_data.at("Accepted")["Received"] = json::array();
 
-	bool moved = false;
+	bool moved                = false;
 	unsigned int num_received = borrowLog.at("Accepted").at("Received").size();
 	unsigned int num_returned = borrowLog.at("Accepted").at("Returned").size();
 
 	for (unsigned int index = 0; index < num_received; index++) {
 		int submitid_data =
 		  borrowLog.at("Accepted").at("Received")[index].at("Submit ID");
-		if (submitid_data == submitid) { 
+		if (submitid_data == submitid) {
 			moved = true;
 			new_data.at("Accepted").at("Returned")[num_returned] =
 			  borrowLog.at("Accepted").at("Received")[index];
@@ -92,7 +93,8 @@ void ReturnBookSubmit(int& submitid) {
 		if (!moved) {
 			new_data.at("Accepted").at("Received")[index] =
 			  borrowLog.at("Accepted").at("Received")[index];
-		} else {
+		}
+		else {
 			new_data.at("Accepted").at("Received")[index - 1] =
 			  borrowLog.at("Accepted").at("Received")[index];
 		}
@@ -110,7 +112,8 @@ vector<unsigned int> GetSubmitID(unsigned int& num_user) {
 
 	for (unsigned int index = 0; index < num_borrow; index++) {
 		unsigned int submitid =
-		  UserDataJSON.at("UserList")[num_user].at("Borrow")[index].at("Submit ID");
+		  UserDataJSON.at("UserList")[num_user].at("Borrow")[index].at(
+		    "Submit ID");
 		result.push_back(submitid);
 	}
 	return result;
@@ -133,7 +136,8 @@ vector<string> GetSubmitISBN(unsigned int& num_user) {
 
 int ChooseReturnBook(string& userid) {
 	unsigned int num_user = FindUserID(userid);
-	unsigned int borrow_key = UserDataJSON.at("UserList")[num_user].count("Borrow");
+	unsigned int borrow_key =
+	  UserDataJSON.at("UserList")[num_user].count("Borrow");
 
 	if (borrow_key == 0) {
 		cout << "Ban khong co sach de tra" << endl;
@@ -141,7 +145,7 @@ int ChooseReturnBook(string& userid) {
 		return -1;
 	}
 
-	vector<string> submit_isbn = GetSubmitISBN(num_user);
+	vector<string> submit_isbn         = GetSubmitISBN(num_user);
 	vector<unsigned int> submitid_list = GetSubmitID(num_user);
 
 	json submit_isbn_json = ISBNtoJSON(submit_isbn);
@@ -160,7 +164,7 @@ void ReturnBook() {
 	if (submitid == -1) return;
 
 	ReturnBookSubmit(submitid);
-	//if (LateReturn(submitid)) { FineLateReturn(CurrentUser.UserID); }
+	// if (LateReturn(submitid)) { FineLateReturn(CurrentUser.UserID); }
 
 	BookDataReturn(submitid);
 	UserDataReturn(CurrentUser.UserID, submitid);

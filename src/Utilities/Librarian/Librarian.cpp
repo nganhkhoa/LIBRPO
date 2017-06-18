@@ -45,12 +45,10 @@ void Librarian() {
 			Exit
 		};
 		switch (LibrarianChoice()) {
-			case ChoiceBrowseBorrowSubmition: 
-				BrowseBorrowBook(); 
-				break;
+			case ChoiceBrowseBorrowSubmition: BrowseBorrowBook(); break;
 			case ChoiceGetBorrowBook:
 				cin.ignore();
-				GiveBook(); 
+				GiveBook();
 				break;
 			case ChoiceBrowseBuySubmition:
 				// ChoiceBrowseBuySubmition();

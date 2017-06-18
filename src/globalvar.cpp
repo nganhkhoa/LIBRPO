@@ -59,6 +59,5 @@ std::string FILESignUp_JSON     = FILEDIRECTORY + "user_signup.json";
 std::string FILERejected_JSON   = FILEDIRECTORY + "user_rejected.json";
 
 std::string SUBMITDIRECTORY = "borrow/";
-
-std::string FILESubmition = SUBMITDIRECTORY + "submition.json";
-std::string FILEborrowLog = SUBMITDIRECTORY + "borrowLog.json";
+std::string FILESubmition   = SUBMITDIRECTORY + "submition.json";
+std::string FILEborrowLog   = SUBMITDIRECTORY + "borrowLog.json";

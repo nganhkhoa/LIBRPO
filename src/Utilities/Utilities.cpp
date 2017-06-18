@@ -19,7 +19,7 @@ int ChooseUtilities() {
 	cout << "Ban chon thuc hien chuc nang nao? ";
 	cin >> role;
 
-	while (role < 1 || role > (int)CurrentUser.RoleId.size() + 1) {
+	while (role < 1 || role > (int) CurrentUser.RoleId.size() + 1) {
 		cout << "Chuc nang khong co, moi chon lai: ";
 		cin >> role;
 	}
@@ -32,7 +32,7 @@ void Utilities() {
 
 		int role = ChooseUtilities();
 
-		if (role == (int)CurrentUser.RoleId.size() + 1) {
+		if (role == (int) CurrentUser.RoleId.size() + 1) {
 			cout << "Ban muon quay ve man hinh chinh? (y/n) ";
 			string str;
 			cin.ignore();
@@ -75,7 +75,7 @@ void Utilities() {
 	}
 }
 
-json readSubmitBorrow(){
+json readSubmitBorrow() {
 	json Submit;
 
 	ifstream submitionfile(FILESubmition, ios::in);
@@ -95,7 +95,7 @@ bool undateSubmitBorrow(json& Submit) {
 }
 
 
-json readBorrowLog(){
+json readBorrowLog() {
 	json BorrowLog;
 
 	ifstream borrowlogfile(FILEborrowLog, ios::in);

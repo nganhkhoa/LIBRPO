@@ -7,7 +7,7 @@ const int MAX_WORD = 10;
 
 typedef struct _SearchPhrase {
 	std::string search[MAX_WORD] = {};
-	int searchSize = 0;
+	int searchSize               = 0;
 } SearchPhrase;
 
 void FindBook();
@@ -21,4 +21,4 @@ void ShowBookFound(const std::vector<std::string>&);
 void SearchAnalize(SearchPhrase&, std::string&);
 bool SearchBookPrompt(SearchPhrase&, std::string&);
 
-#endif //FINDBOOK_H
+#endif    // FINDBOOK_H

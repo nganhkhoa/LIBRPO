@@ -28,14 +28,14 @@ std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 	if (SearchThis.searchSize == 0) return result;
 
 	// read file
-	json& SearchBook                = BookDataJSON;
+	json& SearchBook = BookDataJSON;
 
 	// assignment for checking
 	unsigned int num_book = SearchBook.at("BookLibrary").size();
 	for (unsigned int BookNum = 0; BookNum < num_book; BookNum++) {
 		bool found = false;
 		// title
-		{ // always runs this
+		{    // always runs this
 			std::string BookTitle =
 			  SearchBook.at("BookLibrary")[BookNum].at("Title");
 			found =
@@ -103,7 +103,8 @@ void ShowBookFound(const std::vector<std::string>& result) {
 
 	if (result.size() == 0) std::cout << "Book not found" << std::endl;
 	for (unsigned int step = 0; step < result.size(); step++) {
-		for (unsigned int checking = 0; checking < SearchBook.at("BookLibrary").size();
+		for (unsigned int checking = 0;
+		     checking < SearchBook.at("BookLibrary").size();
 		     checking++) {
 			if (
 			  SearchBook.at("BookLibrary")[checking].at("ISBN") ==

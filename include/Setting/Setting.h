@@ -1,3 +1,6 @@
+#ifndef SETTING
+#define SETTING
+
 #include <CommonLib.h>
 #include <History/History.h>
 
@@ -11,3 +14,5 @@ bool ChangePassword();
 
 int SettingMenu();
 void Setting();
+
+#endif

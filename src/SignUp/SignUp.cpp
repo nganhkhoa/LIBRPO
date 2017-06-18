@@ -115,9 +115,8 @@ bool SignUpUser(NewUser& NewCreation) {
 		cin >> Choice;
 	}
 
-	if (Choice == 1)
-		ExpandSignUp(NewCreation);
-	
+	if (Choice == 1) ExpandSignUp(NewCreation);
+
 	NewCreation.Password = RandomPassword();
 	NewCreation.UserID   = GenerateUserID();
 	AccountCreation(NewCreation);
@@ -129,7 +128,8 @@ void ShowInfoAndBilling(NewUser& NewCreation) {
 	cout << "Thong tin tai khoan moi duoc tao" << endl;
 
 	cout << "Ho va ten nguoi dung:\n\t ";
-	cout << NewCreation.UserFirstName << " " << NewCreation.UserLastName << endl;
+	cout << NewCreation.UserFirstName << " " << NewCreation.UserLastName
+	     << endl;
 	cout << "CMND: " << NewCreation.IDNumber << endl;
 	cout << "Ten dang nhap: " << NewCreation.Username << endl;
 	cout << "Mat khau dang nhap: " << NewCreation.Password << endl << endl;
@@ -155,7 +155,7 @@ void SignUp() {
 	while (true) {
 
 		if (!SignUpUser(NewCreation)) return;
-		
+
 		ShowInfoAndBilling(NewCreation);
 		cout << "Ban chac chan voi yeu cau nay?" << endl;
 		cout << "1.\tChac chan, hay gui yeu cau" << endl;
@@ -163,7 +163,7 @@ void SignUp() {
 		cout << "3.\tThoat" << endl;
 		cout << "Lua chon cua ban: ";
 		unsigned int Choice = 0;
-		cin >> Choice; 
+		cin >> Choice;
 		while (Choice < 1 || Choice > 3) {
 			cout << "Lua chon khong hop le" << endl;
 			cout << "Moi ban nhap lai: " << endl;
@@ -171,13 +171,14 @@ void SignUp() {
 		}
 
 		if (Choice == 3) return;
-		
+
 		if (Choice == 2) {
 			cin.ignore();
 			continue;
 		}
 
-		else break;
+		else
+			break;
 	}
 
 	if (!add_success(NewCreation)) {

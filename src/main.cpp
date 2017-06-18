@@ -36,8 +36,8 @@
     ~~!!!Split page~~
 
         Borrow book
-    Number of books
-    Number of books borrowing
+    ~~Number of books~~
+    ~~Number of books borrowing~~ // one only
     Borrow book(s)
     Return book(s)
     Fine if return late
@@ -50,13 +50,13 @@
                 UserScope
 Reader
     ~~Find~~
-    Return
+    ~~Return~~
 
 Thu thu
     ???????????????????????
 
 Manager
-    Add user
+    ~~Add user~~
     Delete user
     Modify user
     Search user
@@ -69,7 +69,7 @@ Manager
 /*
         FUNCTION
     //Keep track with function to work
-    
+
 */
 
 
@@ -93,8 +93,7 @@ using namespace std;
 int main() {
 	srand(time(NULL));
 	clearscreen();
-	
-	
+
 
 	//
 	// ─── READ DATA FROM FILE
@@ -165,9 +164,9 @@ int main() {
 			// welcome is an int function return choice
 			switch (Welcome()) {
 				case LoginUser:
-					cin.ignore();    // for inputing string
+					cin.ignore();                    // for inputing string
 					CurrentUser.Active = Login();    // login system
-					if (CurrentUser.Active) LoginHistory();     // login history
+					if (CurrentUser.Active) LoginHistory();    // login history
 					break;
 				case SignUpUser:
 					cin.ignore();
@@ -220,13 +219,10 @@ int main() {
 				}
 				case SettingUser: Setting(); break;
 				case ChooseAccount: AccountChoose(); break;
-				case CreateAccount: 
-					//CreateAccount(); 
+				case CreateAccount:
+					// CreateAccount();
 					break;
 				case BrowseOption:
-					// without loging in, the user can still browse
-					// we use CurrentUser.Active to know if logged in or not
-					// if no, we would not let them borrow, buy?
 					Browse();
 					pausescreen();
 					break;
@@ -260,23 +256,18 @@ int main() {
 				Exit
 			};
 			switch (WelcomeAccount()) {
-				case LogoutAccountChoice: {    // as said change active to false
+				case LogoutAccountChoice: {
 					cout << "Chi dang xuat ban khoi tai khoan" << endl;
 					cout << "Ban muon dang xuat? (y/n) ";
 					cin.ignore();
 					string Answer;
 					getline(cin, Answer);
-					if (Answer == "y") {
-						LogoutAccount();    // logout history
-					}
+					if (Answer == "y") { LogoutAccount(); }
 					break;
 				}
 				case SettingUser: Setting(); break;
 				case UtilitiesUser: Utilities(); break;
 				case BrowseOption:
-					// without loging in, the user can still browse
-					// we use CurrentUser.Active to know if logged in or not
-					// if no, we would not let them borrow, buy?
 					Browse();
 					pausescreen();
 					break;
