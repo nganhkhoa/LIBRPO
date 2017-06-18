@@ -1,3 +1,15 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:01 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:01 PM
+ * @Description: Duyệt các yêu cầu mượn sách
+ * 
+ * Còn thiếu: Các thư gửi bị trùng, cần được từ chối tự động
+ * 
+ */
+
 #include <Utilities/Utilities.h>
 #include <Find/Find.h>
 

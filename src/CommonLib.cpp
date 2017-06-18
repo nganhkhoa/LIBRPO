@@ -1,3 +1,13 @@
+/*
+ * @CreateTime: Jun 18, 2017 9:56 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 9:56 PM
+ * @Description: Các hàm nhỏ dùng nhiều chỗ
+ */
+
+
 #include <CommonLib.h>
 
 #ifdef _WIN32

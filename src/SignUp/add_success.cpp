@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:05 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:05 PM
+ * @Description: Chính sửa thêm vào signup.json
+ */
+
 #include <Data/modify.h>
 #include <Data/ReadDataJSON.h>
 

@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:08 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:08 PM
+ * @Description: Đọc và ghi dữ liệu về sách
+ */
+
 #include <Book/ReadBookJSON.h>
 
 using namespace std;

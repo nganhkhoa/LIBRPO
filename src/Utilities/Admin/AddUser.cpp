@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:03 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:03 PM
+ * @Description: Xác nhận thêm người dùng mới
+ */
+
 #include <Utilities/Utilities.h>
 #include <Data/ReadDataJSON.h>
 

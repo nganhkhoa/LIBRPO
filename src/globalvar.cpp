@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 9:55 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 18, 2017 9:56 PM
+ * @Description: Các biến toàn cục trong chương trình
+ */
+
 #include <CommonLib.h>
 
 bool debug = true;    // debug mode switch

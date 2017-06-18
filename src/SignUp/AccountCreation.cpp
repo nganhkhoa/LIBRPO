@@ -1,3 +1,14 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:04 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:04 PM
+ * @Description: Tạo tài khoản mới
+ * 
+ * Thông tin cơ bản như tên tài khoản và các chức năng
+ */
+
 #include <SignUp/SignUp.h>
 
 using namespace std;

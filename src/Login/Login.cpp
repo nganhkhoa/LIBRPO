@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:09 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:09 PM
+ * @Description: Xác nhận người dùng và đăng nhập
+ */
+
 #include <Login/Login.h>
 
 using namespace std;

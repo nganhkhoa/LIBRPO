@@ -1,3 +1,18 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:16 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:16 PM
+ * @Description: Các lựa chọn lúc duyệt sách
+ * Còn thiếu khá nhiều 
+ * 
+ * --bosuutap n
+ * --giosach n
+ * --muon n
+ * --mua n
+ */
+
 #include <Browse/Browse.h>
 
 using namespace std;

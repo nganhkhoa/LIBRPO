@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:13 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:13 PM
+ * @Description: Màn hình lựa chọn duyệt sách theo các cách
+ */
+
 #include <Browse/Browse.h>
 #include <Find/FindBook.h>
 using namespace std;

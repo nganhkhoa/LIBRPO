@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:07 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:07 PM
+ * @Description: Xác nhận mật khẩu cũ và đổi mật khẩu mới
+ */
+
 #include <Setting/Setting.h>
 #include <Data/ReadDataJSON.h>
 

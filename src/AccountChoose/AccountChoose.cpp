@@ -1,3 +1,14 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:18 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:18 PM
+ * @Description: Chọn tài khoản lúc đăng nhập
+ * 
+ * Càn kiểm tra thêm các trường hợp không thể đăng nhập
+ */
+
 #include <AccountChoose/AccountChoose.h>
 
 using namespace std;
@@ -75,10 +86,8 @@ void AccountChoose() {
 	                             .at("AccountList")
 	                             .size();
 	if (num_account == 0) {
-		system("color 4");
 		cout << "Ban hien chua co tai khoan" << endl;
 		cout << "Xin vui long tao tai khoan truoc khi chon" << endl;
-		system("color 7");
 		pausescreen();
 		return;
 	}

@@ -1,3 +1,14 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:12 PM
+ * @Author: joseph
+ * @Contact: 
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 18, 2017 10:13 PM
+ * @Description: Thuật toán tìm kiếm theo một chuỗi dài
+ * 
+ * Chia nhỏ các từ và tìm kiếm trên từng dữ liệu
+ */
+
 #include <Find/FindBook.h>
 
 using json = nlohmann::json;

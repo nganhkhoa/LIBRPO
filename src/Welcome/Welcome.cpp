@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 9:57 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 9:57 PM
+ * @Description: Màn hình chính
+ */
+
 #include <Welcome/Welcome.h>
 
 using namespace std;

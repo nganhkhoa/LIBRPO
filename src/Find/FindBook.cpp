@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:11 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:11 PM
+ * @Description: Tìm sách theo chuỗi và in ra rồi chọn
+ */
+
 #include <Find/FindBook.h>
 #include <Browse/Browse.h>
 #include <nlohmann/json.hpp>

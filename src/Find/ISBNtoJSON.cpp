@@ -1,3 +1,13 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:11 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:11 PM
+ * @Description: Đưa từ vector<string> ISBN về json chứa thông tin sách
+ * Vì có hàm hiện thực in chia trang và chọn với thông số json
+ */
+
 #include <Find/Find.h>
 #include <Find/FindBook.h>
 #include <nlohmann/json.hpp>

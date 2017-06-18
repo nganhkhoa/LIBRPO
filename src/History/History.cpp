@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:09 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:09 PM
+ * @Description: Ghi xác nhận lịch sử hoặc thay đổi trạng thái
+ */
+
 #include <History/History.h>
 
 using namespace std;

@@ -1,3 +1,16 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:14 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:14 PM
+ * @Description: In thông tin sách với chia trang
+ * 
+ * Chia trang thế nào thì lấy giấy ra kiểm, đụng cái này phiền quá
+ * Có nên thực hiện chia hàm nhỏ ra nữa với một hàm để show một cuốn 
+ * và một hàm kiểm tra số trang rồi ghép vô hàm lớn, thấy hơi bự
+ */
+
 #include <Browse/Browse.h>
 
 using namespace std;

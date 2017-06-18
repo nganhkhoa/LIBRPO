@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 9:58 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 18, 2017 9:59 PM
+ * @Description: Màn hình độc giả
+ */
+
 #include <Utilities/Utilities.h>
 
 using namespace std;

@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:10 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:10 PM
+ * @Description: Tổng hợp các hàm tìm kiếm trên dữ liệu với key sẵn
+ */
+
 #include <Find/Find.h>
 
 using namespace std;

@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:02 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:02 PM
+ * @Description: Đưa sách cho người nhận, có xác nhận tài khoản
+ */
+
 #include <Utilities/Utilities.h>
 #include <Browse/Browse.h>
 #include <Find/FindBook.h>

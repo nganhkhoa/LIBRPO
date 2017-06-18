@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:03 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:03 PM
+ * @Description: Màn hình quản lý người dùng
+ */
+
 #include <Utilities/Utilities.h>
 
 using namespace std;

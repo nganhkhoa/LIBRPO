@@ -1,3 +1,12 @@
+/*
+ * @CreateTime: Jun 18, 2017 10:00 PM
+ * @Author: luibo
+ * @Contact: ng.akhoa@yahoo.com.vn
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 18, 2017 10:00 PM
+ * @Description: Độc giả gửi yêu cầu mượn sách
+ */
+
 #include <Utilities/Utilities.h>
 #include <Browse/Browse.h>
 #include <Find/FindBook.h>
