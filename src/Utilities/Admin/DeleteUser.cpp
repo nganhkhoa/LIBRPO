@@ -2,8 +2,8 @@
  * @CreateTime: Jun 18, 2017 10:29 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: undefined
- * @Last Modified Time: Jun 18, 2017 11:06 PM
+ * @Last Modified By: luibo
+ * @Last Modified Time: Jun 19, 2017 4:07 PM
  * @Description: Xoá người dùng
  */
 
@@ -60,7 +60,12 @@ void DeleteUser() {
 
 	unsigned int userplace = FindUserID(uid);
 
-	//ShowUserInfo(userplace);
+	if (userplace == UserDataJSON.at("UserList").size()) {
+		cout << "Nguoi dung mang ma so " << uid << " khong ton tai" << endl;
+		system("pause");
+		return;
+	}
+	// ShowUserInfo(userplace);
 
 	cout << "Ban muon xoa nguoi dung nay?(y/n) ";
 	string Answer = "";
