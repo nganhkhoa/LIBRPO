@@ -3,7 +3,7 @@
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
  * @Last Modified By: luibo
- * @Last Modified Time: Jun 18, 2017 10:09 PM
+ * @Last Modified Time: Jun 19, 2017 3:49 PM
  * @Description: Xác nhận người dùng và đăng nhập
  */
 
@@ -16,7 +16,10 @@ int ValidateUserLogin(string& username, string& pwd) {
 	/// if not found
 	/// return last place
 
-	unsigned int num_user     = UserDataJSON.at("UserList").size();
+	unsigned int num_user = UserDataJSON.at("UserList").size();
+
+	if (num_user == 0) return -1;
+
 	unsigned int num_user_max = num_user;
 
 	for (unsigned int index = 0; index < num_user_max; index++) {
@@ -42,7 +45,7 @@ int ValidateUserLogin(string& username, string& pwd) {
 }
 
 
-void CreateLoginUser(unsigned int& user_num) {
+void CreateLoginUser(int& user_num) {
 	string UserID   = UserDataJSON.at("UserList")[user_num].at("UserID");
 	string Username = UserDataJSON.at("UserList")[user_num].at("Username");
 
@@ -72,8 +75,16 @@ bool UserLoginPrompt(bool& Continue) {
 
 	if (pwd.empty()) return false;
 
-	unsigned int user_num = ValidateUserLogin(username, pwd);
-	if (user_num == UserDataJSON.at("UserList").size()) {
+	int user_num = ValidateUserLogin(username, pwd);
+
+	if (user_num == -1) {
+		cout << "Khong the dang nhap" << endl;
+		cout << "Du lieu nguoi dung khong ton tai" << endl;
+		system("pause");
+		return false;
+	}
+
+	if (user_num == (int) UserDataJSON.at("UserList").size()) {
 		cout << "Nguoi dung khong ton tai hoac" << endl;
 		cout << "ban da nhap sai mat khau" << endl;
 		cout << "Ban muon tiep tuc thu lai?(y/n) ";

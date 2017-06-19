@@ -4,7 +4,7 @@
 #include <CommonLib.h>
 
 int ValidateUserLogin(std::string&, std::string&);
-void CreateLoginUser(unsigned int&);
+void CreateLoginUser(int&);
 bool UserLoginPrompt(bool&);
 bool Login();
 #endif
