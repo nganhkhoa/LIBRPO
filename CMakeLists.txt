@@ -10,7 +10,8 @@ set(OTHER_FILES_EXTENSION "json")
 	set(SOURCE_FOLDER "src")
 	set(INCLUDE_FOLDER "include")
 	set(OUTPUT_FOLDER "bin")
-
+	set(LIBS_FOLDER "libs")
+	
 	# vs only settings
 	set(OTHER_FILES_FOLDER "bin")
 
@@ -35,13 +36,23 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 	file(GLOB_RECURSE SOURCES "${SOURCE_FOLDER}/*.cpp")
 	file(GLOB_RECURSE HEADERS "${INCLUDE_FOLDER}/*.h" "${INCLUDE_FOLDER}/*.hpp")
 	file(GLOB_RECURSE RESOURCE "${OTHER_FILES_FOLDER}/*.${OTHER_FILES_EXTENSION}")
+
 	if(TEST)
+		add_definitions(-DUNITTEST)
+
 		file(GLOB_RECURSE TEST_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "test/src/*.cpp")
 		set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE}\  ${TEST_SOURCES})
 		add_executable(${PROJECT_NAME}_TEST ${ALL_FILES})
+
+		LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/libs)
+		file(GLOB_RECURSE LIBRARIES "${LIBS_FOLDER}/*.a")
+		target_link_libraries(${PROJECT_NAME}_TEST ${LIBRARIES})
+
 	else(TEST)
+
 		set(ALL_FILES ${SOURCES} ${HEADERS})
 		add_executable(${PROJECT_NAME} ${ALL_FILES})
+		
 	endif(TEST)
 	
 

@@ -72,25 +72,17 @@ Manager
 
 */
 
+#include <gtest/gtest.h>
 
 #include <CommonLib.h>
 
 #include <Book/ReadBookJSON.h>
 #include <Data/ReadDataJSON.h>
-
-#include <Welcome/Welcome.h>
-#include <Login/Login.h>
-#include <AccountChoose/AccountChoose.h>
-#include <Utilities/Utilities.h>
-#include <Browse/Browse.h>
-#include <Setting/Setting.h>
-#include <SignUp/SignUp.h>
-
-#include <History/History.h>
+#include <Welcome/Screens.h>
 
 using namespace std;
 
-int main() {
+int main(int argc, char** argv) {
 	srand(time(NULL));
 	clearscreen();
 
@@ -137,158 +129,39 @@ int main() {
 		pausescreen();
 		clearscreen();
 	}
-	// ────────────────────────────────────────────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────────────────────
 
-	// check log file to see who shutdown without logging out
-	// if ... else
-	// CurrentUser.Active = false;
+// check log file to see who shutdown without logging out
+// if ... else
+// CurrentUser.Active = false;
 
-	// Create an active user
-	// if is active, then there is someone logging in
-	// if not active, then show the general welcome
-	// this user also has
-	// usernum and accountnum to know who is who
-	// maybe cart?????
+// Create an active user
+// if is active, then there is someone logging in
+// if not active, then show the general welcome
+// this user also has
+// usernum and accountnum to know who is who
+// maybe cart?????
+
+#ifndef UNITTEST
 
 	while (true) {                       // also run welcome until exit
 		while (!CurrentUser.Active) {    // if not active, show general welcome
-			enum WelcomeChoice
-			{
-				LoginUser = 1,
-				SignUpUser,
-				BrowseOption,
-				Manual,
-				Exit
-			};
-
-			// welcome is an int function return choice
-			switch (Welcome()) {
-				case LoginUser:
-					cin.ignore();                    // for inputing string
-					CurrentUser.Active = Login();    // login system
-					if (CurrentUser.Active) LoginHistory();    // login history
-					break;
-				case SignUpUser:
-					cin.ignore();
-					SignUp();
-					break;
-				case BrowseOption:
-					// without loging in, the user can still browse
-					// we use CurrentUser.Active to know if loggin or not
-					// if no, we would not let them borrow, buy?
-					Browse();
-					pausescreen();
-					break;
-				case Manual:
-					// Help();
-					break;
-				case Exit: {    // normal exit
-					cout << "Ban muon thoat? (y/n) ";
-					cin.ignore();
-					string Answer;
-					getline(cin, Answer);
-					if (Answer != "y")
-						break;
-					else
-						return 0;    // terminate the program
-				}
-				default: break;
-			}
+			NotYetLogInScreen();
 		}
 		while (CurrentUser.Active && CurrentUser.Account_num == -1) {
-			enum WelcomeUserChoice
-			{
-				LogoutUser = 1,
-				SettingUser,
-				ChooseAccount,
-				CreateAccount,
-				BrowseOption,
-				Manual,
-				Exit
-			};
-			switch (WelcomeUser()) {
-				case LogoutUser: {    // as said change active to false
-					cout << "Ban muon dang xuat? (y/n) ";
-					cin.ignore();
-					string Answer;
-					getline(cin, Answer);
-					if (Answer == "y") {
-						LogoutHistory();    // logout history
-					}
-					break;
-				}
-				case SettingUser: Setting(); break;
-				case ChooseAccount: AccountChoose(); break;
-				case CreateAccount:
-					// CreateAccount();
-					break;
-				case BrowseOption:
-					Browse();
-					pausescreen();
-					break;
-				case Manual:
-					// Help();
-					break;
-				case Exit: {
-					cout << "Ban muon thoat? (y/n) ";
-					cin.ignore();
-					string Answer;
-					getline(cin, Answer);
-					if (Answer != "y")
-						break;
-					else {
-						// logout what ever user is logging on
-						LogoutHistory();
-						return 0;    // terminate the program
-					}
-				}
-				default: break;
-			}
+			UserLogInScreen();
 		}
 		while (CurrentUser.Active && CurrentUser.Account_num != -1) {
-			enum WelcomeAccountChoice
-			{
-				LogoutAccountChoice = 1,
-				SettingUser,
-				UtilitiesUser,
-				BrowseOption,
-				Manual,
-				Exit
-			};
-			switch (WelcomeAccount()) {
-				case LogoutAccountChoice: {
-					cout << "Chi dang xuat ban khoi tai khoan" << endl;
-					cout << "Ban muon dang xuat? (y/n) ";
-					cin.ignore();
-					string Answer;
-					getline(cin, Answer);
-					if (Answer == "y") { LogoutAccount(); }
-					break;
-				}
-				case SettingUser: Setting(); break;
-				case UtilitiesUser: Utilities(); break;
-				case BrowseOption:
-					Browse();
-					pausescreen();
-					break;
-				case Manual:
-					// Help();
-					break;
-				case Exit: {
-					cout << "Ban muon thoat? (y/n) ";
-					cin.ignore();
-					string Answer;
-					getline(cin, Answer);
-					if (Answer != "y")
-						break;
-					else {
-						// logout
-						LogoutHistory();
-						return 0;    // terminate the program
-					}
-				}
-				default: break;
-			}
+			AccountLogInScreen();
 		}
 	}
+
+#else
+
+	::testing::InitGoogleTest(&argc, argv);
+	int result = RUN_ALL_TESTS();
+	system("pause");
+	return result;
+
+#endif
 }
