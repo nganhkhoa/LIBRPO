@@ -32,4 +32,15 @@ std::string FindUserGiveBook();
 // this one
 void GiveBook();
 
+
+//Add new book
+std::vector<std::string> ExtractStatement();
+nlohmann::json CreateNewBook(NewBook&);
+void AddNewBook(std::string&);
+void AddExistBook(std::string&);
+bool book_exits(std::string&);
+// this one
+void ChoiceAddBook();
+
+
 #endif

@@ -49,7 +49,7 @@ void Librarian() {
 			ChoiceGetBorrowBook,
 			ChoiceBrowseBuySubmition,
 			ChoiceGetBuyBook,
-			ChoiceAddBook,
+			eChoiceAddBook,
 			ChoiceModifyBook,
 			Exit
 		};
@@ -63,8 +63,9 @@ void Librarian() {
 				// ChoiceBrowseBuySubmition();
 				break;
 			case ChoiceGetBuyBook: break;
-			case ChoiceAddBook:
-				// ChoiceAddBook();
+			case eChoiceAddBook:
+				cin.ignore();
+				ChoiceAddBook();
 				break;
 			case ChoiceModifyBook:
 				// ChoiceModifyBook();

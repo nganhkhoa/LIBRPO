@@ -16,6 +16,7 @@
 #include <struct/NewUser.h>
 #include <struct/LoggedInUser.h>
 #include <struct/Role.h>
+#include <struct/NewBook.h>
 
 // json parser for C++
 // all credit to  nlohmann

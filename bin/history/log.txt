@@ -147,3 +147,4 @@
 0 UserID:             001  Logout:      Mon Jun 19 16:06:08 2017
 1 UserID:             001   Login:      Mon Jun 19 16:08:13 2017
 0 UserID:             001  Logout:      Mon Jun 19 16:08:25 2017
+1 UserID:             001   Login:      Tue Jun 20 00:46:27 2017
