@@ -95,7 +95,7 @@ json readSubmitBorrow() {
 	return Submit;
 }
 
-bool undateSubmitBorrow(json& Submit) {
+bool updateSubmitBorrow(json& Submit) {
 	ofstream submitionfile(FILESubmition, ios::out);
 	if (!submitionfile.is_open()) return false;
 	submitionfile << Submit.dump(4);

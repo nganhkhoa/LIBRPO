@@ -39,7 +39,7 @@ bool CreateRequestBorrowBook(string& ISBN) {
 
 	addnewSubmit(Submit, ISBN);
 
-	return undateSubmitBorrow(Submit);
+	return updateSubmitBorrow(Submit);
 }
 
 bool CurrentlyBorrow(string& ISBN) {

@@ -10,7 +10,7 @@ int ChooseUtilities();
 void Utilities();
 
 nlohmann::json readSubmitBorrow();
-bool undateSubmitBorrow(nlohmann::json&);
+bool updateSubmitBorrow(nlohmann::json&);
 
 nlohmann::json readBorrowLog();
 void updateBorrowLog(unsigned int&, bool);

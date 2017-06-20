@@ -80,7 +80,7 @@ bool CheckedSubmition(json& Submit, unsigned int& submit_index_delete) {
 		}
 	}
 
-	return undateSubmitBorrow(new_data);
+	return updateSubmitBorrow(new_data);
 }
 
 
