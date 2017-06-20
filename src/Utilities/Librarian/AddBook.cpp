@@ -25,6 +25,7 @@ json CreateNewBook(NewBook& book) {
 	new_book["Publisher"] = book.Publisher;
 	new_book["Year"]      = book.Year;
 	new_book["Content"]   = book.Content;
+	new_book["Borrowed"]  = 0;
 
 	new_book["Author"]   = json::array();
 	new_book["Category"] = json::array();
