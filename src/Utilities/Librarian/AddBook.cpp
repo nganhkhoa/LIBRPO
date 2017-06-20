@@ -7,10 +7,14 @@ using json = nlohmann::json;
 
 vector<string> ExtractStatement() {
 	vector<string> result = {};
-	string statement = "";
-	unsigned int index    = 0;
-	getline(cin, statement, '.');
-	
+	for (unsigned int index = 0;; index++) {
+		string statement = "";
+		cout << index + 1 << ".\t";
+		getline(cin, statement);
+		if (statement == "") break;
+
+		result.push_back(statement);
+	}
 	return result;
 }
 
@@ -47,14 +51,16 @@ void AddNewBook(string& ISBN) {
 	cout << "Nhap nam xuat ban: ";
 	getline(cin, book.Year);
 
-	cout << "Nhap ten cac tac gia, cach nhau dau \",\"";
+	cout << "Nhap ten cac tac gia, bo trong de thoat" << endl;
 	book.Author = ExtractStatement();
 
-	cout << "Nhap ten cac the loai, cach nhau dau \",\"";
+	cout << "Nhap ten cac the loai, bo trong de thoat" << endl;
 	book.Category = ExtractStatement();
 
-	cout << "Nhap noi dung, co the de trong va sua sau:" << endl;
-	getline(cin, book.Content);
+	cout << "Nhap noi dung, co the de trong va sua sau" << endl;
+	cout << "De dung lai, go vao \"|\"." << endl;
+	cout << "Noi dung:\n\t ";
+	getline(cin, book.Content, '|');
 
 	json new_book         = CreateNewBook(book);
 	unsigned int num_book = BookDataJSON.at("BookLibrary").size();
