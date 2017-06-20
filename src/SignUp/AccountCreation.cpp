@@ -5,7 +5,7 @@
  * @Last Modified By: luibo
  * @Last Modified Time: Jun 18, 2017 10:04 PM
  * @Description: Tạo tài khoản mới
- * 
+ *
  * Thông tin cơ bản như tên tài khoản và các chức năng
  */
 
@@ -13,6 +13,25 @@
 
 using namespace std;
 using json = nlohmann::json;
+
+
+void AccountRoleMapAdjustment(NewUser& NewCreation) {
+
+	vector<unsigned int>& thisVector = NewCreation.Account.AccountRoleMap;
+	bool reader                      = false;
+
+	for (unsigned int index = 0; index < thisVector.size(); index++) {
+		if (thisVector[index] == 1) {
+			reader = true;
+			break;
+		}
+	}
+
+	if (!reader) thisVector.push_back(1);
+
+	InsertionSort(thisVector);
+}
+
 
 bool AccountTypeExist(NewUser& NewCreation, unsigned int ChooseType) {
 	unsigned int roles = NewCreation.Account.AccountRoleMap.size();
@@ -90,16 +109,16 @@ void AccountCreation(NewUser& NewCreation) {
 		cout << "Ban muon dang ky mot chuc nang khac? ";
 		cin.ignore();
 		getline(cin, Answer);
-		if (Answer != "y") return;
+		if (Answer != "y") break;
 
 		AccountType();
 		ChooseType = ChooseAccountType();
 
-		if (ChooseType == 8) { return; }
+		if (ChooseType == 8) { break; }
 
 		if (ChooseType == 7) {
 			NewCreation.Account.AccountRoleMap = {};
-			NewCreation.Account.AccountRoleMap.push_back(ChooseType);
+			NewCreation.Account.AccountRoleMap = {1, 2, 3, 4, 5, 6};
 			return;
 		}
 
@@ -110,4 +129,7 @@ void AccountCreation(NewUser& NewCreation) {
 		}
 		NewCreation.Account.AccountRoleMap.push_back(ChooseType);
 	}
+
+	AccountRoleMapAdjustment(NewCreation);
+	return;
 }

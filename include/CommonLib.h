@@ -145,6 +145,8 @@ std::string TrimString(std::string&);
 std::string HidePassword();
 void clearscreen();
 void pausescreen();
+void Swap(unsigned int*, unsigned int*);
+void InsertionSort(std::vector<unsigned int>&);
 
 // ────────────────────────────────────────────────────────────────────────────────
 

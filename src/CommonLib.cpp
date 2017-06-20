@@ -59,8 +59,8 @@ string TrimString(string& str) {
 
 string HidePassword() {
 	string pwd;
-	
-	#ifdef _WIN32
+
+#ifdef _WIN32
 	HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
 	DWORD mode    = 0;
 	GetConsoleMode(hStdin, &mode);
@@ -69,19 +69,19 @@ string HidePassword() {
 	getline(cin, pwd);
 
 	SetConsoleMode(hStdin, mode);
-	#endif
+#endif
 
-	#ifdef __unix
+#ifdef __unix
 	termios oldt;
-    tcgetattr(STDIN_FILENO, &oldt);
-    termios newt = oldt;
-    newt.c_lflag &= ~ECHO;
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+	tcgetattr(STDIN_FILENO, &oldt);
+	termios newt = oldt;
+	newt.c_lflag &= ~ECHO;
+	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
 	getline(cin, pwd);
 
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-	#endif
+#endif
 
 	cout << endl;
 	return pwd;
@@ -89,22 +89,45 @@ string HidePassword() {
 
 
 void clearscreen() {
-	#ifdef _WIN32
+#ifdef _WIN32
 	system("cls");
-	#endif
+#endif
 
-	#ifdef __unix
+#ifdef __unix
 	system("tput clear");
-	#endif
+#endif
 }
 
 void pausescreen() {
-	#ifdef _WIN32
+#ifdef _WIN32
 	system("pause");
-	#endif
+#endif
 
-	#ifdef __unix
+#ifdef __unix
 	std::cout << "Press \'Return\' to end." << std::endl;
 	std::cin.get();
-	#endif
+#endif
+}
+
+
+// swap function for use
+void Swap(unsigned int* Num1, unsigned int* Num2) {
+	unsigned int Temp = *Num1;
+	*Num1             = *Num2;
+	*Num2             = Temp;
+}
+
+void InsertionSort(vector<unsigned int>& NumList) {
+	for (int i = 1; i < (int) NumList.size(); i++) {
+		if (NumList[i - 1] < NumList[i])
+			continue;
+		else {
+			int NumSort = i;
+			int j       = NumSort - 1;
+			while (NumList[j] > NumList[NumSort] && j > -1) {
+				Swap(&NumList[NumSort], &NumList[j]);
+				NumSort = j--;
+			}
+		}
+	}
 }

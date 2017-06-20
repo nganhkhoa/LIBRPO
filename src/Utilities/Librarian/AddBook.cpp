@@ -7,10 +7,10 @@ using json = nlohmann::json;
 
 vector<string> ExtractStatement() {
 	vector<string> result = {};
+	string statement = "";
 	unsigned int index    = 0;
-	while (getline(cin, result[index], ',')) {    // infinity loop
-		index++;
-	}
+	getline(cin, statement, '.');
+	
 	return result;
 }
 
