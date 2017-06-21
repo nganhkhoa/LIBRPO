@@ -3,7 +3,7 @@
 
 #include <CommonLib.h>
 
-
+void SuperAdminHiddenUsername();
 void SuperAdminHiddenPassword();
 
 void SuperAdmin();

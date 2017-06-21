@@ -29,10 +29,19 @@ void SuperAdminHideout() {
 }
 
 bool CheckAdminUsername(string& username) {
+	ifstream ADMIN_FILE(FILEAdmin, ios::in);
+	string data = "";
+	getline(ADMIN_FILE, data);
+	if (data == username) return true;
 	return false;
 }
 
 bool CheckAdminPassword(string& pwd) {
+	ifstream ADMIN_FILE(FILEAdmin, ios::in);
+	string data = "";
+	getline(ADMIN_FILE, data);
+	getline(ADMIN_FILE, data);
+	if (data == pwd) return true;
 	return false;
 }
 
