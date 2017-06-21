@@ -13,6 +13,8 @@
 
 #include <ctime>
 
+#include <cctype>
+
 #include <struct/NewUser.h>
 #include <struct/LoggedInUser.h>
 #include <struct/Role.h>
