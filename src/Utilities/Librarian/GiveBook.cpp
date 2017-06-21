@@ -41,7 +41,12 @@ void ReceivedBook(unsigned int& pending_place) {
 		if (index == pending_place) {
 			moved          = true;
 			json data_move = borrowLog.at("Accepted").at("Pending")[index];
-			data_move["Received Date"]                           = "Today";
+
+			string TODAY = "";
+			time_t now   = time(NULL);
+			TODAY        = to_string(now);
+
+			data_move["Received Date"]                           = TODAY;
 			new_data.at("Accepted").at("Received")[num_received] = data_move;
 			continue;
 		}

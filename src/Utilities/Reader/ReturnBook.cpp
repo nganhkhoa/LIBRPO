@@ -95,8 +95,12 @@ void ReturnBookSubmit(int& submitid) {
 			new_data.at("Accepted").at("Returned")[num_returned] =
 			  borrowLog.at("Accepted").at("Received")[index];
 
+			string TODAY = "";
+			time_t now   = time(NULL);
+			TODAY        = to_string(now);
+
 			new_data.at("Accepted")
-			  .at("Returned")[num_returned]["Returned Date"] = "Today";
+			  .at("Returned")[num_returned]["Returned Date"] = TODAY;
 			continue;
 		}
 		if (!moved) {

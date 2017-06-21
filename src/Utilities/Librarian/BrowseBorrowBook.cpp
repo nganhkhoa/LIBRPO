@@ -5,9 +5,9 @@
  * @Last Modified By: luibo
  * @Last Modified Time: Jun 18, 2017 10:01 PM
  * @Description: Duyệt các yêu cầu mượn sách
- * 
+ *
  * Còn thiếu: Các thư gửi bị trùng, cần được từ chối tự động
- * 
+ *
  */
 
 #include <Utilities/Utilities.h>
@@ -22,9 +22,14 @@ void updateBorrowLog(unsigned int& submitid, bool accepted) {
 	if (borrowLog == NULL)
 		;
 
-	json borrowrecord                     = json::object();
-	borrowrecord["Submit ID"]             = submitid;
-	borrowrecord["Browsed Date"]          = "Today";
+	json borrowrecord         = json::object();
+	borrowrecord["Submit ID"] = submitid;
+
+	string TODAY = "";
+	time_t now   = time(NULL);
+	TODAY        = to_string(now);
+
+	borrowrecord["Browsed Date"]          = TODAY;
 	borrowrecord["Permission Granted by"] = CurrentUser.UserID;
 
 	if (accepted) {

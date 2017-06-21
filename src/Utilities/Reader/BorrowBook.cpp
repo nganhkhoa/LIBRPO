@@ -28,7 +28,12 @@ void addnewSubmit(json& Submit, string& ISBN) {
 
 	newsubmit["ISBN"]         = ISBN;
 	newsubmit["User"]         = CurrentUser.UserID;
-	newsubmit["Request Date"] = "Today";
+
+	string TODAY        = "";
+	time_t now          = time(NULL);
+	TODAY               = to_string(now);
+
+	newsubmit["Request Date"] = TODAY;
 	newsubmit["Submit ID"]    = submitid;
 
 	Submit.at("Submition")[Submit.at("Submition").size()] = newsubmit;
