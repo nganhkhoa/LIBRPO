@@ -39,7 +39,7 @@ TEST(Login, EmptyData) {
 
 TEST(Login, AllUserRightPassword) {
 
-	int num_user = names.size();
+	int num_user = right_names.size();
 
 	for (int index = 0; index < num_user; index++) {
 		EXPECT_GT(
@@ -50,7 +50,7 @@ TEST(Login, AllUserRightPassword) {
 TEST(Login, AllUserWrongPassword) {
 	std::vector<std::string> pwds = {"aegasgdsgag", "aFASGASDGASGA"};
 
-	int num_user = names.size();
+	int num_user = right_names.size();
 
 	for (int index = 0; index < num_user; index++) {
 		EXPECT_EQ(num_user, ValidateUserLogin(right_names[index], pwds[index]));

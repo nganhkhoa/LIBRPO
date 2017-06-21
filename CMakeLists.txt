@@ -78,7 +78,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 
 
 
-	# useing filter in VS
+	# using filter in VS
 	set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 	# tạo folder cho project 
