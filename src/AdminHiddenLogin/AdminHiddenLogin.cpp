@@ -8,16 +8,16 @@ void SuperAdmin() {
 }
 
 void SuperAdminHideout() {
-	clearscreen();
-	cout << "1.\t"
-	     << "Normal Admin" << endl;
-	cout << "2.\t"
-	     << "Legendary Admin" << endl;
-	cout << "3.\t"
-	     << "Kill All (or exit maybe)" << endl;
-	unsigned int Choice = 0;
-
 	while (true) {
+		clearscreen();
+		cout << "1.\t"
+			<< "Normal Admin" << endl;
+		cout << "2.\t"
+			<< "Legendary Admin" << endl;
+		cout << "3.\t"
+			<< "Kill All (or exit maybe)" << endl;
+		unsigned int Choice = 0;
+	
 		cin >> Choice;
 		switch (Choice) {
 			case 1: Admin(); break;

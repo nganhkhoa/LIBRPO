@@ -24,21 +24,37 @@
 
 using namespace std;
 
-
+/*
 string RandomPassword() {
 
-	string randomString;
-	size_t size = PWD_LENGHT;
+    string randomString;
+    size_t size = PWD_LENGHT;
 
-	std::random_device rd;
-	std::mt19937 mt(rd());
-	std::uniform_int_distribution<int> dist('a', 'z');
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> dist('a', 'z');
 
-	std::generate_n(
-	  std::back_inserter(randomString), size, [&] { return dist(mt); });
+    std::generate_n(
+      std::back_inserter(randomString), size, [&] { return dist(mt); });
 
-	return randomString;
+    return randomString;
 }
+
+//*/
+
+string RandomPassword() {
+	static const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq"
+	                               "rstuvwxyz1234567890!.,;:_<>=+&*$#";
+	unsigned int strLen = sizeof(alphabet) - 1;
+	string str;
+	for (unsigned int i = 0; i < PWD_LENGHT; i++) {
+		char genRandom;
+		genRandom = alphabet[rand() % strLen];
+		str += genRandom;
+	}
+	return str;
+}
+
 string GenerateUserID() {
 	string randomString = "";
 	time_t now          = time(NULL);

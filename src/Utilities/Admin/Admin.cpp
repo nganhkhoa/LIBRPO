@@ -25,13 +25,11 @@ int AdminChoice() {
 	cout << "5\t"
 	     << "Them vao quan ly tai chinh moi" << endl;
 	cout << "6\t"
-	     << "Them vao quan ly moi" << endl;
-	cout << "7\t"
 	     << "Quay ve" << endl;
 
 	cout << "Moi ban chon: ";
 	cin >> Choice;
-	while (Choice < 0 || Choice > 7) {
+	while (Choice < 0 || Choice > 6) {
 		cout << "Lua chon khong co, moi ban chon lai: ";
 		cin >> Choice;
 	}
@@ -49,7 +47,6 @@ void Admin() {
 			ChoiceReset,
 			ChoiceNewLibrarian,
 			ChoiceNewAccountant,
-			ChoiceNewAdmin,
 			Exit
 		};
 		switch (AdminChoice()) {
@@ -66,10 +63,6 @@ void Admin() {
 			case ChoiceNewAccountant:
 				cin.ignore();
 				NewADMINgroup(9);
-				break;
-			case ChoiceNewAdmin:
-				cin.ignore();
-				NewADMINgroup(10);
 				break;
 			case Exit: return;
 		}
