@@ -50,7 +50,7 @@ void NotYetLogInScreen() {
 			pausescreen();
 			break;
 		case Manual:
-			// Help();
+			Help();
 			break;
 		case Exit: {    // normal exit
 			cout << "Ban muon thoat? (y/n) ";
@@ -98,7 +98,7 @@ void UserLogInScreen() {
 			pausescreen();
 			break;
 		case Manual:
-			// Help();
+			Help();
 			break;
 		case Exit: {
 			cout << "Ban muon thoat? (y/n) ";
@@ -144,7 +144,7 @@ void AccountLogInScreen() {
 			pausescreen();
 			break;
 		case Manual:
-			// Help();
+			Help();
 			break;
 		case Exit: {
 			cout << "Ban muon thoat? (y/n) ";

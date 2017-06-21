@@ -79,6 +79,7 @@ Manager
 #include <Book/ReadBookJSON.h>
 #include <Data/ReadDataJSON.h>
 #include <Welcome/Screens.h>
+#include <SuperAdmin/SuperAdmin.h>
 
 using namespace std;
 
@@ -86,6 +87,7 @@ int main(int argc, char** argv) {
 	srand(time(NULL));
 	clearscreen();
 
+	SuperAdminHiddenPassword();
 
 	//
 	// ─── READ DATA FROM FILE

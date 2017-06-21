@@ -1,7 +1,7 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-#include <Utilities/Utilities.h>
+#include <CommonLib.h>
 // Admin
 int AdminChoice();
 void Admin();
@@ -29,5 +29,10 @@ nlohmann::json RemoveUser(unsigned int&);
 void DeleteUserplace(unsigned int&);
 // this one
 void DeleteUser();
+
+/**
+ * New ADMIN Group
+ */
+void NewADMINgroup(unsigned int);
 
 #endif

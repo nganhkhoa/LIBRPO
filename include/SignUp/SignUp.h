@@ -21,6 +21,8 @@ std::string GenerateUserID();
 
 
 void AccountRoleMapAdjustment(NewUser&);
+void ExpandSignUp(NewUser&);
+bool NewCommonUser(NewUser&);
 bool SignUpUser(NewUser&);
 bool ValidateNew(NewUser&);
 void ShowInfoAndBilling(NewUser&);

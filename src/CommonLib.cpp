@@ -23,7 +23,9 @@
 using namespace std;
 
 void Help() {
+	clearscreen();
 	cout << right << setw(10) << "" << left << setw(100) << "" << endl;
+	pausescreen();
 }
 
 string TrimString(string& str) {

@@ -50,10 +50,8 @@ void ExpandSignUp(NewUser& NewCreation) {
 	return;
 }
 
-
-bool SignUpUser(NewUser& NewCreation) {
-
-	cout << "Sau day la mau dang nhap, ban hay dien vao" << endl;
+bool NewCommonUser(NewUser& NewCreation) {
+	cout << "Sau day la mau dang ki, ban hay dien vao" << endl;
 	cout << "Neu ban khong muon dang nhap nua, hay bo trong" << endl;
 
 
@@ -108,6 +106,14 @@ bool SignUpUser(NewUser& NewCreation) {
 		return false;
 	}
 
+	return true;
+}
+
+bool SignUpUser(NewUser& NewCreation) {
+
+	if (!NewCommonUser(NewCreation)) return false;
+
+
 	cout << "Phan dang nhap da ket thuc," << endl;
 	cout << "Tuy nhien ban co the tiep tuc dien thong tin khong bat buoc"
 	     << endl;
@@ -115,6 +121,7 @@ bool SignUpUser(NewUser& NewCreation) {
 	cout << "De dang ky nhanh, ban nhap 2" << endl;
 
 	cout << "Lua chon: ";
+	int Choice = 0;
 	cin >> Choice;
 
 	while (Choice < 1 || Choice > 2) {

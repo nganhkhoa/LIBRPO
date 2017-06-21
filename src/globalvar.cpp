@@ -53,8 +53,8 @@ Role LibraryRole[MAX_ROLE] = {
   {6, "EBOOK", "Co the truy cap vao kho ebook", 50},
   {7, "VIP", "Huong tat ca quyen loi tren", 200},
   {8, "THU THU", "Quan ly sach", 0},
-  {9, "QUAN LY NGUOI DUNG", "Them nguoi dung, xoa nguoi dung?", 0},
-  {10, "QUAN LY TAI CHINH", "Quan ly tien", 0}};
+  {9, "QUAN LY TAI CHINH", "Quan ly tien", 0},
+  {10, "QUAN LY NGUOI DUNG", "Them nguoi dung, xoa nguoi dung?", 0}};
 
 std::string BOOKDIRECTORY = "book/";
 std::string FILEBookJSON  = BOOKDIRECTORY + "book.json";
@@ -71,3 +71,6 @@ std::string FILEDeleted_JSON    = FILEDIRECTORY + "user_deleted.json";
 std::string SUBMITDIRECTORY = "borrow/";
 std::string FILESubmition   = SUBMITDIRECTORY + "submition.json";
 std::string FILEborrowLog   = SUBMITDIRECTORY + "borrowLog.json";
+
+std::string ADMINDIRECTORY = "admin/";
+std::string FILEAdmin      = ADMINDIRECTORY + "pwd.txt";

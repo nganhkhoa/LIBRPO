@@ -1,7 +1,7 @@
 #ifndef Librarian_H
 #define Librarian_H
 
-#include <Utilities/Utilities.h>
+#include <CommonLib.h>
 // Librarian
 int LibrarianChoice();
 void Librarian();
@@ -33,7 +33,7 @@ std::string FindUserGiveBook();
 void GiveBook();
 
 
-//Add new book
+// Add new book
 std::vector<std::string> ExtractStatement();
 nlohmann::json CreateNewBook(NewBook&);
 void AddNewBook(std::string&);
