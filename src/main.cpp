@@ -1,9 +1,9 @@
 /*
-*	Last update: 09/06/2017, 21:39:00
+*	Last update: 22/06/2017, 16:37:00
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 0.1.0
+*	Version: 1.0.0
 */
 
 /*
