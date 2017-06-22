@@ -177,7 +177,9 @@ void ReturnBook() {
 	if (submitid == -1) return;
 
 	ReturnBookSubmit(submitid);
-	// if (LateReturn(submitid)) { FineLateReturn(CurrentUser.UserID); }
+	
+	unsigned int dayslate = CalculateFine(submitid);
+	FineLateReturn(dayslate);
 
 	BookDataReturn(submitid);
 	UserDataReturn(CurrentUser.UserID, submitid);

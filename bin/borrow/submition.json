@@ -1,4 +1,11 @@
 {
-    "Checked": [],
+    "Checked": [
+        {
+            "ISBN": "978-0061146305",
+            "Request Date": "1498099007",
+            "Submit ID": 1,
+            "User": "001"
+        }
+    ],
     "Submition": []
 }

@@ -53,9 +53,15 @@ void Utilities() {
 		enum Roles
 		{
 			DocGiaRole = 1,
+			NhaSuuTamRole,
+			ReviewerRole,
+			CDRole,
+			MovieRole,
+			EbookRole,
+			// VipRole, // no, vip has all of the above
 			ThuThuRole = 8,
-			QLNDRole,
-			QLTCRole
+			QLTCRole,
+			QLNDRole
 		};
 
 		switch (CurrentUser.RoleId[role - 1]) {    // switch by user own role id

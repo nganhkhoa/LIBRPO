@@ -46,7 +46,7 @@ void ShowAccountRoleMap(unsigned int& account_num) {
 		int roleID = UserDataJSON.at("UserList")[CurrentUser.User_num]
 		               .at("AccountList")[account_num]
 		               .at("AccountRoleMap")[index];
-		cout << LibraryRole[roleID - 1].RoleName << "\t";
+		cout << LibraryRole[roleID - 1].RoleName << "\n\t\t";
 	}
 }
 
@@ -59,7 +59,7 @@ unsigned int ShowAccountList() {
 		string account_name = UserDataJSON.at("UserList")[CurrentUser.User_num]
 		                        .at("AccountList")[index]
 		                        .at("AccountName");
-		cout << index + 1 << ".\t" << account_name << "\n\t";
+		cout << index + 1 << ".\t" << account_name << "\n\t\t";
 		ShowAccountRoleMap(index);
 		cout << endl;
 		cout << "____________________________________";

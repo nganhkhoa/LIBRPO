@@ -40,6 +40,8 @@ const unsigned int MAX_BORROW = 4;
 
 const unsigned int MAX_WEEK_BORROW = 2;
 
+const double FINE_MONEY = 10000;
+
 const unsigned int SEARCH_MAX = 10;
 
 const unsigned int PWD_LENGHT = 10;

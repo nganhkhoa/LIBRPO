@@ -2,7 +2,15 @@
     "Accepted": {
         "Pending": [],
         "Received": [],
-        "Returned": []
+        "Returned": [
+            {
+                "Browsed Date": "1498099044",
+                "Permission Granted by": "001",
+                "Received Date": "1498099060",
+                "Returned Date": "1498099093",
+                "Submit ID": 1
+            }
+        ]
     },
     "Rejected": []
 }
