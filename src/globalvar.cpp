@@ -9,7 +9,8 @@
 
 #include <CommonLib.h>
 
-bool debug = true;    // debug mode switch
+bool debug = false;    // debug mode switch
+// this should be #define debug
 
 
 //
@@ -18,9 +19,7 @@ bool debug = true;    // debug mode switch
 //
 
 nlohmann::json UserDataJSON = NULL;
-// std::vector<User> UserData  = {};
 nlohmann::json BookDataJSON = NULL;
-// std::vector<Book> BookData  = {};
 LoggedInUser CurrentUser;
 
 

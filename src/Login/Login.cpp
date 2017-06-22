@@ -84,6 +84,7 @@ bool UserLoginPrompt(bool& Continue) {
 		cout << "Khong the dang nhap" << endl;
 		cout << "Du lieu nguoi dung khong ton tai" << endl;
 		system("pause");
+		Continue = false;
 		return false;
 	}
 

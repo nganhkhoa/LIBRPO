@@ -23,7 +23,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../${OUTPUT_FOLDER})
 # the project name
 project (${PROJECT_NAME} CXX)
 
-
+# The version number.
+set (LIBPRO_VERSION_MAJOR 1)
+set (LIBPRO_VERSION_MINOR 0)
+set (LIBRPO_VERSION_FIX 0)
+configure_file (
+  "${PROJECT_SOURCE_DIR}/${SOURCE_FOLDER}/version.h.in"
+  "${PROJECT_SOURCE_DIR}/${SOURCE_FOLDER}/version.h"
+  )
 
 # the included folder for <foo.h>
 include_directories(${INCLUDE_FOLDER})

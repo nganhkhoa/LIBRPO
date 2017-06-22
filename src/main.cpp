@@ -3,7 +3,7 @@
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 0.0.4
+*	Version: 0.1.0
 */
 
 /*
@@ -81,9 +81,92 @@ Manager
 #include <Welcome/Screens.h>
 #include <SuperAdmin/SuperAdmin.h>
 
+#include "version.h"
+
+
 using namespace std;
 
 int main(int argc, char** argv) {
+
+
+	if (argc == 2) {
+		if (strcmp(argv[1], "--version") == 0) {
+			cout << "LIBPRO VERSION: " << LIBPRO_VERSION_MAJOR << "."
+			     << LIBPRO_VERSION_MINOR << "." << LIBRPO_VERSION_FIX << endl;
+			cout << "Welcome to LIBPRO" << endl;
+			return 1;
+		}
+
+		if (strcmp(argv[1], "--help") == 0) {
+			Help();
+			return 0;
+		}
+
+		if (strcmp(argv[1], "--info") == 0) {
+#ifdef _WIN32    // change size to make it beautiful
+			HWND console = GetConsoleWindow();
+			RECT r;
+			GetWindowRect(console, &r);
+			MoveWindow(console, r.left, r.top, 750, 600, TRUE);
+#endif
+
+			clearscreen();
+
+			cout << setw(15) << " " << endl << endl;
+			cout << setw(15) << " "
+			     << "LIBPRO " << LIBPRO_VERSION_MAJOR << "."
+			     << LIBPRO_VERSION_MINOR << "." << LIBRPO_VERSION_FIX << endl;
+			cout << setw(15) << " "
+			     << "Lap trinh boi nhom SIMPLE" << endl;
+			cout << setw(15) << " "
+			     << "Ban quyen thuoc ve nhom SIMPLE" << endl;
+			cout << setw(15) << " "
+			     << "Bai tap lon so 2" << endl;
+			cout << setw(15) << " "
+			     << "Ky thuat lap trinh" << endl;
+
+			cout << setw(15) << " " << endl;
+			cout << setw(15) << " " << endl;
+			cout << setw(15) << " "
+			     << ">>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<" << endl;
+			cout << setw(15) << " "
+			     << "https://thaoxkhoa.visualstudio.com/LIBPRO" << endl;
+			cout << setw(15) << " "
+			     << ">>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<" << endl;
+			cout << setw(15) << " " << endl;
+
+			cout << setw(15) << " " << endl;
+			cout << setw(15) << " "
+			     << "Danh sach thanh vien: " << endl;
+			cout << setw(15) << " "
+			     << "Nguyen Anh Khoa  - 1611617" << endl;
+			cout << setw(15) << " "
+			     << "Nguyen Minh Khoi - 1611657" << endl;
+			cout << setw(15) << " "
+			     << "Pham Quoc Nam    - 1612128" << endl;
+			cout << setw(15) << " " << endl;
+
+			cout << setw(15) << " " << endl;
+			cout << setw(15) << " "
+			     << "Dai hoc Bach Khoa TPHCM" << endl;
+			cout << setw(15) << " "
+			     << "Khoa khoa hoc va ky thuat may tinh" << endl;
+			cout << setw(15) << " "
+			     << "Lop MT16, khoa 2016, BK16" << endl;
+			cout << setw(15) << " "
+			     << "____________________________________________" << endl;
+			cout << setw(15) << " "
+			     << "Written by LUIBO" << endl;
+			cout << setw(15) << " " << endl;
+			return 0;
+		}
+
+		return 0;
+	}
+
+	if (argc > 2) return 0;
+
+
 	srand(time(NULL));
 	clearscreen();
 
