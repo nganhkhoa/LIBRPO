@@ -6,15 +6,18 @@
 int LibrarianChoice();
 void Librarian();
 
-
+unsigned int FindCheckedPlace(unsigned int&);
 void RejectSubmit(nlohmann::json&, unsigned int&);
 void AcceptSubmit(nlohmann::json&, unsigned int&);
 
 // browse borrow book
+std::vector<unsigned int> GetSubmitIDPendingReceived();
+bool AutoReject(std::string&, std::string&);
+
+
 bool CheckedSubmition(nlohmann::json&, unsigned int&);
 void ShowSubmitInfo(unsigned int&, unsigned int&);
 void ValidateSubmition();
-void BrowseBorrowBook();
 // this one
 void BrowseBorrowBook();
 
