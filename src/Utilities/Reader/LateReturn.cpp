@@ -1,5 +1,5 @@
 #include <Utilities/Utilities.h>
-#include <SignUp/SignUp.h>
+#include <Setting/Setting.h>
 
 using namespace std;
 using json = nlohmann::json;
@@ -19,19 +19,25 @@ void FineLateReturn(unsigned int& dayslate) {
 	  UserDataJSON.at("UserList")[CurrentUser.User_num].at("Balance");
 	userbalance -= fine;
 
+	UserDataJSON.at("UserList")[CurrentUser.User_num].at("Balance") =
+	  userbalance;
+
+	cout << "Ban nop tre " << dayslate << " ngay" << endl;
+	cout << "Ban bi phat " << fine << " VND" << endl;
+
 	if (userbalance < 0) {
 		cout << "Tai khoan ban hien da khong con tien" << endl;
 		cout << "Ban hay nap tien vao tai khoan," << endl;
 		cout << "Chung toi se khoa quyen su dung cua ban lai" << endl;
+		cout << "Sau khi ban dang xuat, ban se khong the dang nhap vao duoc nua"
+		     << endl;
+		cout << "Xin chu y" << endl;
 		LockAllAccount();
 	}
-
-	UserDataJSON.at("UserList")[CurrentUser.User_num].at("Balance") =
-	  userbalance;
 	pausescreen();
 }
 
-bool CalculateFine(int& submitid) {
+unsigned int CalculateFine(int& submitid) {
 	json borrowLog = readBorrowLog();
 
 	unsigned int num_return = borrowLog.at("Accepted").at("Returned").size();
@@ -46,16 +52,16 @@ bool CalculateFine(int& submitid) {
 	}
 
 	json this_submition = borrowLog.at("Accepted").at("Returned")[submit_place];
-	string borrowdate   = this_submition.at("Returned Date");
-	string returndate   = this_submition.at("Received Date");
+	string returndate   = this_submition.at("Returned Date");
+	string borrowdate   = this_submition.at("Received Date");
 
 	int borrowdate_int = stoi(borrowdate);
 	int returndate_int = stoi(returndate);
 
 	double days_elapse = returndate_int - borrowdate_int;
-	days_elapse /= 3600;
+	days_elapse /= (60 * 60 * 24);
 
-	int dayslate = days_elapse - 7 * MAX_WEEK_BORROW;
+	unsigned int dayslate = days_elapse - 7 * MAX_WEEK_BORROW;
 
 	if (dayslate > 0) { return dayslate; }
 	else

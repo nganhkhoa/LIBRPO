@@ -21,15 +21,17 @@ int AdminChoice() {
 	cout << "3\t"
 	     << "Dat lai mat khau nguoi dung" << endl;
 	cout << "4\t"
-	     << "Them vao thu thu moi" << endl;
+	     << "Khoa/Mo khoa nguoi dung" << endl;
 	cout << "5\t"
-	     << "Them vao quan ly tai chinh moi" << endl;
+	     << "Them vao thu thu moi" << endl;
 	cout << "6\t"
+	     << "Them vao quan ly tai chinh moi" << endl;
+	cout << "7\t"
 	     << "Quay ve" << endl;
 
 	cout << "Moi ban chon: ";
 	cin >> Choice;
-	while (Choice < 0 || Choice > 6) {
+	while (Choice < 0 || Choice > 7) {
 		cout << "Lua chon khong co, moi ban chon lai: ";
 		cin >> Choice;
 	}
@@ -45,6 +47,7 @@ void Admin() {
 			ChoiceAdd = 1,
 			ChoiceDelete,
 			ChoiceReset,
+			ChoiceLock,
 			ChoiceNewLibrarian,
 			ChoiceNewAccountant,
 			Exit
@@ -55,7 +58,14 @@ void Admin() {
 				cin.ignore();
 				DeleteUser();
 				break;
-			case ChoiceReset: break;
+			case ChoiceReset:
+				cin.ignore();
+				PwdReset();
+				break;
+			case ChoiceLock:
+				cin.ignore();
+				UserLock(); 
+				break;
 			case ChoiceNewLibrarian: 
 				cin.ignore();
 				NewADMINgroup(8);

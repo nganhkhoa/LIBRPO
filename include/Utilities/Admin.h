@@ -30,6 +30,19 @@ void DeleteUserplace(unsigned int&);
 // this one
 void DeleteUser();
 
+
+// password reset
+void PwdReset();
+
+/**
+ * Lock or unlock user
+ */
+unsigned int LockPromptChoose(unsigned int&);
+void LockPrompt(unsigned int&);
+// this one
+void UserLock();
+
+
 /**
  * New ADMIN Group
  */

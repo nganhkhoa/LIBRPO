@@ -84,7 +84,7 @@ void Utilities() {
 			case QLTCRole:
 				cout << "Ban dang lua chon chuc nang quan ly tai chinh" << endl;
 				pausescreen();
-				// Money();
+				Money();
 				break;
 		}
 	}

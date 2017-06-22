@@ -1,29 +1,4 @@
 {
-    "Checked": [
-        {
-            "ISBN": "978-0061146305",
-            "Request Date": "1498099007",
-            "Submit ID": 1,
-            "User": "001"
-        },
-        {
-            "ISBN": "978-0385739863",
-            "Request Date": "1498101207",
-            "Submit ID": 2,
-            "User": "001"
-        },
-        {
-            "ISBN": "978-0385739863",
-            "Request Date": "1498101213",
-            "Submit ID": 2,
-            "User": "001"
-        },
-        {
-            "ISBN": "978-0385739863",
-            "Request Date": "1498101217",
-            "Submit ID": 3,
-            "User": "001"
-        }
-    ],
+    "Checked": [],
     "Submition": []
 }

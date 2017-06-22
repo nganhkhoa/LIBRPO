@@ -1,33 +1,8 @@
 {
     "Accepted": {
-        "Pending": [
-            {
-                "Browsed Date": "1498101254",
-                "Permission Granted by": "001",
-                "Submit ID": 2
-            }
-        ],
+        "Pending": [],
         "Received": [],
-        "Returned": [
-            {
-                "Browsed Date": "1498099044",
-                "Permission Granted by": "001",
-                "Received Date": "1498099060",
-                "Returned Date": "1498099093",
-                "Submit ID": 1
-            }
-        ]
+        "Returned": []
     },
-    "Rejected": [
-        {
-            "Browsed Date": "1498107717",
-            "Permission Granted by": "001",
-            "Submit ID": 2
-        },
-        {
-            "Browsed Date": "1498107729",
-            "Permission Granted by": "001",
-            "Submit ID": 3
-        }
-    ]
+    "Rejected": []
 }

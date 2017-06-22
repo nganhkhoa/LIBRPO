@@ -15,4 +15,9 @@ bool ChangePassword();
 int SettingMenu();
 void Setting();
 
+void UnLockAllAccount(unsigned int&);
+void LockAllAccount(unsigned int&);
+void LockAllAccount();
+
+
 #endif
