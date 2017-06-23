@@ -74,12 +74,78 @@
 	\end{titlepage}
 \newpage
 \chapter{Tổng quan về LIBPRO}
-LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn Kỹ Thuật Lập Trình, là một phần mềm chuyên biệt quản trị các hoạt động trong các thư viện thông thường. LIBPRO tuy chưa phải phần mềm hoàn hảo nhất về các tiện ích và giao diện người dùng, nhưng đã đáp ứng được các yêu cầu cơ bản cho những người sử dụng. LIBPRO là sản phẩm của SIMple Group, gồm các thành viên Nguyễn Anh Khoa, Phạm Quốc Nam và Nguyễn MInh Khôi cùng phát triển.
+LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn Kỹ Thuật Lập Trình, là một phần mềm chuyên biệt quản trị các hoạt động trong các thư viện thông thường. LIBPRO tuy chưa phải phần mềm hoàn hảo nhất về các tiện ích và giao diện người dùng, nhưng đã đáp ứng được các yêu cầu cơ bản cho những người sử dụng. LIBPRO là sản phẩm của SIMple Group, gồm các thành viên Nguyễn Anh Khoa, Phạm Quốc Nam và Nguyễn Minh Khôi cùng phát triển.
 \chapter{Phần mềm Quản lý Thư viện LIBPRO}
 	\section{Đôi nét cơ bản về LIBPRO}
-	LIBPRO là chương trình quản lý thư viện được xây dựng trên nền tảng ngôn ngữ C++ kết hợp với GUI Qt..., lưu dữ liệu
+	LIBPRO là chương trình quản lý thư viện được xây dựng trên nền tảng ngôn ngữ C++ kết hợp với GUI Qt..., lưu dữ liệu người dùng, sách và yêu cầu mượn ỏ dạng file .json. LIBPRO được phát triển nhằm mục đích nghiên cứu và rèn luyện, nhiều tính năng mở rộng vẫn chưa được hoàn thiện, chỉ mới ở mặt ý tưởng.
 	\section{Hướng dẫn cài đặt phần mềm}
 	\section{Hướng dẫn sử dụng phần mềm}
+		\subsection{Đăng nhập}
+			\subsection{Đăng ký}
+			Khi chưa có hồ sơ người dùng LIBPRO, chọn \textbf{Profile->Log In} và chọn vào ô chưa đăng ký để đăng ký.\\
+			Các thông tin yêu cầu bắt buộc khi đăng ký là họ và tên người đăng ký, tên người dùng trong LIBPRO và số CMND (hoặc số thẻ căn cước).\\
+			Sau khi đăng ký, người dùng sẽ được tạo một mật khẩu mới bất kỳ để đăng nhập vào LIBPRO, sau đó người dùng có thể chỉnh sửa lại mật khẩu.\\
+			\subsection{Đăng nhập}
+			Khi đã có hồ sơ người dùng LIBPRO, chọn \textbf{Profile->Log In} và nhập tên người dùng LIBPRO và mật khẩu để đăng nhập.\\
+			Nếu quên mật khẩu, hãy nhấn vào ô tạo mật khẩu mới, và lúc này, hồ sơ người dùng sẽ được khóa lại, chờ khi người dùng nhận được mật khẩu mới từ QUẢN LÝ NGƯỜI DÙNG.\\
+			\subsection{Đăng xuất}
+			Nếu đã hoàn thành công việc trên hồ sơ của mình, người dùng có thể đăng xuất bằng cách chọn trên thanh menu \textbf{Profile->Log Out}.\\
+			\subsection{Tùy chỉnh khác}
+			Tạo mới tài khoản : các chức năng trong thư viện được cấp phát thông qua tài khoản của người dùng, vì vậy cần thiết tạo tài khoản cho người dùng bằng cách: trên thanh menu, chọn \textbf{Profile->New Account}.\\
+			Để chuyển đổi giữa các tài khoản, chọn trên thanh menu \textbf{Profile->Choose Account}.\\
+			Để chỉnh sửa các thông tin người dùng, bao gồm cả tên tài khoản, và mật khẩu người dùng, chọn \textbf{Profile->Edit->...} tùy theo nhu cầu của người dùng.\\
+		\subsection{Xem thông báo}
+			Có hai mục để xem là xem theo lịch sử và xem theo các thông báo chưa xem bao giờ.\\
+		\subsection{Tùy chỉnh}
+			\subsubsection{Chủ đề của LIBPRO} (tính năng mở rộng chưa được cập nhật)\\
+			\subsubsection{Ngôn ngữ của LIBRPO} (tính năng mở rộng chưa được cập nhật)\\
+		\subsection{Duyệt sách}
+		Trên thanh menu, chọn \textbf{Library->View All Book} để xem toàn bộ sách trong thư viện.\\
+		Nếu muốn tìm sách, chọn \textbf{Library->View All Book} và nhập tên sách người dùng muốn tìm vào thanh Search và chọn \textbf{Find} để tìm sách.\\
+			\subsubsection{Sách yêu thích}
+			Nếu muốn thêm sách vào mục yêu thích, chọn \textbf{Library->View All Book} và chọn \textbf{Add to Favorites} tại quyển sách mà người dùng thích.\\
+			Để xem các sách yêu thích đã chọn, trên thanh menu, chọn \textbf{Library->Favorites}.\\
+			Nếu không thích quyển sách nào trong mục yêu thích, người dùng nhấp vào nút \textbf{Out Favorites} để xóa sách đó khỏi mục yêu thích.\\
+			\subsubsection{Mượn sách}
+			Tại màn hình duyệt sách hoặc màn hình mục yêu thích hoặc màn hình tìm sách, nhấp vào nút \textbf{Add to Cart} để thêm sách vào giỏ.\\
+			Nếu người dùng đã có tài khoản với chức năng READER, trên thanh menu, chọn \textbf{Role->READER->Cart} để gửi yêu cầu mượn sách đến thủ thư và chờ sự xác nhận của thủ thư.\\
+		\subsection{Chức năng}
+			Chọn trên thanh menu, \textbf{Role}, và lựa chọn các chức năng bên dưới. Lưu ý là chỉ những chức năng của tài khoản hiện thời mới khả dụng.\\
+			\subsubsection{READER - ĐỘC GIẢ}
+			\begin{enumerate}
+				\item xem giở hàng: vào \textbf{READER->Cart} để xem giỏ hàng của người dùng, để đăng ký mượn sách.
+				\item Photocopy: có thể photo các sách cho phép photo (tính năng mở rộng chưa được cập nhật)
+			\end{enumerate}
+			\subsubsection{REVIEWER - NHÀ PHÊ BÌNH}
+			Có thể thêm review vào sách, (tính năng mở rộng chưa được cập nhật)\\
+			\subsubsection{CD - XEM SÁCH NÓI}
+			Có thể duyệt vào các sách nói, (tính năng mở rộng chưa được cập nhật)\\
+			\subsubsection{MOVIE - XEM PHIM TƯ LIỆU}
+			Có thể duyệt các phim tư liệu, các video học thuật, (tính năng mở rộng chưa được cập nhật)\\
+			\subsubsection{EBOOK - NHÀ PHÊ BÌNH}
+			Có thể duyệt các sách điện tử, (tính năng mở rộng chưa được cập nhật)\\
+			\subsubsection{VIP}
+			Có thể duyệt tất cả các loại sách, tư liệu và phê bình, (tính năng mở rộng chưa được cập nhật)\\
+			\subsubsection{LIBRARIAN - THỦ THƯ}
+				\begin{enumerate}
+					\item Duyệt yêu cầu mượn sách: vào \textbf{Role->LIBRARIAN->Browse Borrow} để duyệt các yêu cầu mượn sách từ người dùng.
+					\item Quản lý sách: vào \textbf{Role->LIBRARIAN->Book Management} để thêm sách, xóa sách và thay đổi các thông tin của sách.
+				\end{enumerate}
+			\subsubsection{USER ADMINISTRATOR - QUẢN LÝ NGƯỜI DÙNG}
+				\begin{enumerate}
+					\item Quản lý hồ sơ người dùng: vào \textbf{Role->USER ADMINISTRATOR->Profile Management} để thêm, xóa người dùng và tạo mật khẩu mới cho người dùng quên mật khẩu.
+					\item Thêm vào danh sách đặc biệt : (tính năng mở rộng chưa được cập nhật).
+					\item Khóa hồ sơ người dùng: \textbf{Role->USER ADMINISTRATOR->Lock} để khóa các hồ sơ vi phạm.
+				\end{enumerate}
+			\subsubsection{ACCOUNTANT - QUẢN LÝ TÀI CHÍNH}
+			Quản lý chi tiêu của thư viện và của người dùng. (tính năng mở rộng chưa được cập nhật)
+		\subsection{Trợ giúp}
+			\begin{enumerate}
+				\item Đọc hướng dẫn sử dụng thư viện.
+				\item Đọc hướng dẫn sử dụng LIBPRO.
+				\item Về người phát triển phần mềm.
+				\item Liên hệ.
+			\end{enumerate}
 \chapter{Tiến trình thực hiện phần mềm}
 	\section{Phân tích hoạt động của thư viện}
 		\subsection{Vai trò người sử dụng}
@@ -91,54 +157,26 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 			\item QUẢN LÝ NGƯỜI DÙNG
 		\end{enumerate}
 			\subsubsection{KHÁCH}
-				KHÁCH được định nghĩa là người được truy cập vào phần mềm LIBPRO, tuy nhiên, KHÁCH chỉ thao tác trên phần mềm ở mức \textbf{quan sát} (xem kỹ hơn ở mục...)\\
-				Số lượng KHÁCH truy cập vào phần mềm là không giới hạn
+				KHÁCH được định nghĩa là người được truy cập vào phần mềm LIBPRO, tuy nhiên, KHÁCH chỉ có thể xem phần trợ giúp \textbf{Help} trê thanh Menu. Số lượng KHÁCH truy cập vào phần mềm là không giới hạn
 			\subsubsection{ĐỘC GIẢ}
-				ĐỘC GIẢ được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng thao tác ở mức \textbf{tùy chỉnh} (xem kỹ hơn ở mục...) \\
-				Số lượng ĐỘC GIẢ truy cập vào phần mềm là có giới hạn, tùy theo quy định của thư viện
+				ĐỘC GIẢ được định nghĩa là người được truy cập vào phần mềm LIBPRO, có thể xem sách, xem thông báo, gửi yêu cầu mượn sách đến thủ thư, điều chỉnh các thông tin cá nhân, giao diện LIBPRO.
+				Số lượng ĐỘC GIẢ truy cập vào phần mềm là có giới hạn, tùy theo quy định của thư viện.
 			\subsubsection{THỦ THƯ}
-				THỦ THƯ được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng thao tác ở mức \textbf{quản lý tài nguyên} (xem kỹ hơn ở mục...) \\
-				Số lượng THỦ THƯ truy cập vào phần mềm chỉ từ 1-2 người.
+				THỦ THƯ được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng quản lý sách, quản lý việc mượn và trả sách, gửi thông báo về sách mới, sách được mượn đến người dùng.
+				Số lượng THỦ THƯ truy cập vào phần mềm là rất ít, do QUẢN LÝ THƯ VIỆN cấp phát.
 			\subsubsection{QUẢN LÝ NGƯỜI DÙNG}
-				QUẢN LÝ NGƯỜI DÙNG được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng thao tác ở mức \textbf{quản lý con người} (xem kỹ hơn ở mục...) \\
-				Số lượng QUẢN LÝ NGƯỜI DÙNG truy cập vào phần mềm chỉ từ 1-2 người.
-		\subsection{Mức thao tác}
-			\subsubsection{Mức Quan sát}
-			Thao tác ở mức này, người dùng có thể:
-			\begin{itemize}
-				\item Xem các sách có trong thư viện, và nội dung chính của các sách đó
-				\item Xem các thông báo chung của thư viện. Để rõ hơn về thông báo chung của thư viện, xem mục (...)
-			\end{itemize}
-
-			\subsubsection{Mức Tùy chỉnh}
-			Để thao tác ở mức này, người dùng BUỘC phải đăng ký tài khoản LIBPRO, sau đó có thể:
-			\begin{itemize}
-				\item Thực hiện các thao tác mức quan sát
-				\item Gửi yêu cầu mượn sách đến THỦ THƯ
-				\item Thay đổi các thông tin tài khoản cá nhân
-				\item Điều chỉnh giao diện và ngôn ngữ của LIBPRO ở cấp độ tài khoản
-			\end{itemize}
-
-			\subsubsection{Mức Quản lý tài nguyên}
-			Để thao tác ở mức này, người dùng BUỘC phải đăng ký tài khoản LIBPRO, sau đó có thể:
-			\begin{itemize}
-				\item Thực hiện các thao tác mức quan sát
-				\item Thêm sách hoặc xóa sách khỏi thư viện
-				\item Điều chỉnh các thông số của sách
-				\item Thêm các thông số thông tin tài khoản cá nhân. Xem kỹ hơn ở mục \textit{Thông số thông tin cá nhân}
-				\item Điều chỉnh giao diện và ngôn ngữ của LIBPRO ở cấp độ tài khoản
-				\item Gửi các yêu cầu đến QUẢN LÝ NGƯỜI DÙNG
-				\item Gửi các thông báo chung và riêng đến các tài khoản ĐỘC GIẢ
-			\end{itemize}
-
-			\subsubsection{Mức Quản lý Con người}
-			Để thao tác ở mức này, người dùng BUỘC phải đăng ký tài khoản LIBPRO, sau đó có thể
-			\begin{itemize}
-				\item Thực hiên các thao tác mưc quan sát
-				\item Thêm hoặc xóa hoặc khóa các tài khoản ĐỘC GIẢ hoặc THỦ THƯ
-				\item Điều chỉnh giao diện và ngôn ngữ của LIBPRO ở cấp độ tài khoản
-				\item Gửi các thông báo riêng đến các tài khoản khác
-			\end{itemize}
+				QUẢN LÝ NGƯỜI DÙNG được định nghĩa là người được truy cập vào phần mềm LIBPRO, có khả năng quản lý hồ sơ người dùng, thêm, khóa hoặc xóa người dùng, gửi thông báo đến người dùng các thông tin liên quan đến hồ sơ người dùng.
+				Số lượng QUẢN LÝ NGƯỜI DÙNG truy cập vào phần mềm rất ít, do QUANR LÝ THƯ VIỆN cấp phát.
+		Ngoài ra, LIBRPO còn cung cấp thêm một số vai trò khác
+		\begin{enumerate}
+			\item NHÀ SƯU TẦM: có thể mua sách
+			\item NHÀ PHÊ BÌNH: có thể bình luận và đánh giá sách
+			\item SÁCH NÓI: truy cập vào kho sách nói
+			\item TƯ LIỆU PHIM ẢNH: truy cập vào kho phim tư liệu
+			\item SÁCH ĐIỆN TỬ: truy cập vào kho sách điện tử
+			\item VIP: có thể xem tất cả các loại sách, tư liệu
+			\itme QUẢN LÝ TÀI CHÍNH: quản lý các chi tiêu của thư viện và người dùng
+		\end{enumerate}
 		\subsection{Cấp độ quản lý và thực thi}
 			\subsubsection{Cấp Người dùng}
 			Đây là cấp lớn nhất và khái quát nhất trong môi trường LIBPRO.\\
@@ -148,27 +186,26 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\item Tên gọi cấp Người dùng là duy nhất và không trùng lặp, xét cả trường hợp chữ in và chữ thường
 				\item Tên gọi cấp Người dùng có độ dài không quá 32 ký tự và không chứa các ký tự đặc biệt (về các ký tự đặc biệt, xem kỹ hơn ở mục...)
 				\item Một tên Người dùng có thể đăng ký nhiều tài khoản phân biệt và không trùng lặp
-				\item Cấp người dùng chỉ được xóa khi người dùng gửi yêu cầu đến QUẢN LÝ NGƯỜI DÙNG hoặc do người dùng vi phạm các quy định của thư viện ở mức \textbf{\textit{8}} trở lên. (xem mục ...)
+				\item Cấp người dùng chỉ được xóa khi người dùng gửi yêu cầu đến QUẢN LÝ NGƯỜI DÙNG hoặc do người dùng vi phạm các quy định của thư viện ở mức nào đó trở lên.
 			\end{enumerate}
 
 			\subsubsection{Cấp Tài khoản}
 			Đây là cấp thứ hai sau cấp Người dùng trong môi trường LIBPRO.\\
 			Một số đặc điểm của cấp Tài khoản:
 			\begin{enumerate}
-				\item Cấp Tài khoản sẽ được cấp phát cho người dùng sau khi QUẢN LÝ NGƯỜI DÙNG chấp thuận yêu cầu đăng ký của người dùng.
+				\item Cấp Tài khoản sẽ có thể cấp phát cho người dùng sau khi QUẢN LÝ NGƯỜI DÙNG chấp thuận yêu cầu đăng ký của người dùng.
 				\item Tên gọi cấp Tài khoản là duy nhất và không trùng lặp, xét cả trường hợp chữ in và chữ thường
 				\item Tên gọi cấp Tài khoản có độ dài không quá 32 ký tự và không chứa các ký tự đặc biệt (về các ký tự đặc biệt, xem kỹ hơn ở mục...)
-				\item Một tên Tài khoản có thể đăng ký nhiều vai trò phân biệt và được trùng lặp
+				\item Một tên Tài khoản có thể đăng ký nhiều vai trò phân biệt và không trùng lặp
 				\item Cấp Tài khoản sẽ bị khóa nếu tài khoản đó được liệt vào danh sách đen. (Chi tiết về danh sách đen, xem mục...)
-				\item Cấp tài khoản chỉ được xóa khi người dùng gửi yêu cầu đến QUẢN LÝ NGƯỜI DÙNG hoặc do người dùng vi phạm các quy định của thư viện ở mức \textbf{\textit{6}} trở lên. (xem mục ...)
+				\item Cấp tài khoản chỉ được xóa khi người dùng gửi yêu cầu đến QUẢN LÝ NGƯỜI DÙNG hoặc do người dùng vi phạm các quy định của thư viện ở mức nào đó trở lên.
 			\end{enumerate}
 			\subsubsection{Cấp vai trò}
 			Như đã giới thiệu ở phần 2.1.1 về các vai trò người dùng, phần này xin bổ sung thêm một số quy định
 			\begin{enumerate}
-				\item Một tài khoản không thể vừa là QUẢN LÝ NGƯỜI DÙNG, vừa là ĐỘC GIẢ hoặc THỦ THƯ
 				\item Số vai trò trong 1 tài khoản tối đa có thể là 3
+				\item Mỗi vai trò đặc trưng cho khả năng khai thác thư viện của người dùng với từng mức phí khác nhau
 				\item Trong cùng một tài khoản, không thể cùng lúc thao tác ở 2 vai trò khác nhau. BUỘC phải chuyển từ vai trò A sang vai trò B để thực hiện công việc của B chứ không thể thực hiên công việc của B khi đang ở vai trò A.
-				\item Về vai trò QUẢN LÝ NGƯỜI DÙNG, sẽ có thêm các quy định cụ thể khác
 			\end{enumerate}
 		\subsection{Thủ tục đăng ký và đăng nhập}
 		Viêc truy cập vào LIBPRO hoàn toàn chưa cần đến việc đăng ký, như đã nêu ở trên, nhưng để nâng cao mức thao tác, người sử dùng cần đăng ký người dùng và tài khoản LIBPRO.\\
@@ -183,7 +220,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\item Giới tính
 				\item Quốc tịch
 				\item Dân tộc
-				\item Tôn giáo
 				\item Số chứng minh nhân dân
 				\item CMND cấp ngày
 				\item Địa chỉ hiện tại
@@ -191,16 +227,14 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\item Công việc
 				\item Cơ quan làm việc
 				\item Địa chỉ cơ quan
-				\item Tên Account đầu tiên
 			\end{enumerate}
 			\subsubsection{Về việc Đăng nhập}
-			Người dùng sẽ nhấp vào ô đăng nhập để đăng nhập vào tài khoản của mình. Khi đăng nhập, chỉ cần điền tên tài khoản và password của tài khoản đó. Sau khi đăng nhập, mọi tùy chỉnh trước lần đăng xuất cuối cùng đều sẽ được giữ nguyên.\\
-			Việc đăng nhập thường xảy ra khi muốn nâng cao mức thao tác từ mức Quan sát lên để thực hiện các chức năng ứng với từng vai trò đăng nhập.\\
+			Người dùng sẽ nhấp vào ô đăng nhập để đăng nhập vào hồ sơ người dùng của mình. Khi đăng nhập, chỉ cần điền tên người dùng và password của người dùng đó. Sau khi đăng nhập, mọi tùy chỉnh trước lần đăng xuất cuối cùng đều sẽ được giữ nguyên.\\
 			Khi người dùng muốn thoát chương trình, cần thực hiện bước đăng xuất trước khi thoát.\\
 			Nếu người dùng không đăng xuất trước khi thoát khỏi chương trình, ở lần mở chương trình tiếp theo, chương trình sẽ hiện lên tên tài khoản chưa đăng xuất và yêu cầu nhập password để truy cập vào tài khoản; hoặc truy cập như là KHÁCH.\\
 			\subsubsection{Về các ký tự đặc biệt}
 			Phần này chủ yếu dành cho việc đăt tên người dùng hoặc tên tài khoản.\\
-			Các ký hiệu đặc biệt là: %!@# \$ \% ^\&*\( \)<>? và dấu cách
+			Các ký hiệu đặc biệt là: \!\@\# \$ \% \^\&\*\( \)\<\>\? và dấu cách
 		\subsection{Quản lý sách}
 			\subsubsection{Các đặc tính của sách}
 			Sách trong LIBPRO được quản lý dựa trên các thông tin sau:
@@ -209,7 +243,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\item Tên Đầu sách
 				\item Tên tác giả (một hoặc nhiều tác giả)
 				\item Nhà xuất bản
-				\item Thể loại
+				\item Thể loại (một hoặc nhiều thể loại)
 				\item Năm xuất bản
 				\item Nội dung chính
 			\end{enumerate}
@@ -258,8 +292,8 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 			\begin{itemize}
 				\item Theo Thời điểm xuất bản (ưu tiên sách xuất bản gần đây)
 				\item Theo Bảng chữ cái (A-Z hoặc Z-A)
-				\item Theo Tên tác giả (nếu chỉ có 1 tác giả) hoặc tác giả chính (nếu có nhiều tác giả)
-				\item Theo Thể loại sách (về các thể loại sách, xin xem thêm phần (...))
+				\item Theo Tên tác giả
+				\item Theo Thể loại sách
 				\item Theo Nhà xuất bản
 			\end{itemize}
 
@@ -276,7 +310,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\begin{enumerate}
 				\item \textbf{Ai có thể mượn sách}\\
 				Chỉ cấp vai trò ĐỘC GIẢ có quyền gửi yêu cầu mượn sách.\\
-				Việc xác nhận yêu cầu mượn sách từ ĐỘC GIẢ do THỦ THƯ xử lý (xem phần (...))\\
+				Việc xác nhận yêu cầu mượn sách từ ĐỘC GIẢ do THỦ THƯ xử lý.\\
 				\item \textbf{Có thể mượn sách trong bao lâu}\\
 				Theo quy định hiện hành và phổ thông, mỗi đầu sách chỉ được mượn nhiều nhất là 2 tuần, kể từ ngày ghi trên yêu cầu mượn sách.\\
 				Nếu có nhu cầu gia hạn, cấp vai trò THỦ THƯ sẽ quyết định nếu có thể gia hạn (xem phần (...)), và chỉ được gia hạn thêm 1 tuần là tối đa.\\
@@ -290,28 +324,18 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 					Việc trả sách được thực hiện thông qua hai quy định sau:
 					\begin{enumerate}
 						\item Bất kỳ quyển sách nào được mượn đều phải trả lại thư viện trong vòng 2 tuần kể từ ngày ghi trên yêu cầu mượn sách, hoặc trong vòng 3 tuần nếu được gia hạn.\\
-						\item Thư viện có yêu cầu trả sách trước thời hạn vì một số lý do (xem phần (...))
+						\item Thư viện có yêu cầu trả sách trước thời hạn vì một số lý do cụ thể.
 					\end{enumerate}
 					Trường hợp ĐỘC GIẢ không trả sách cho thư viện theo hai quy định trên, sẽ có mức xử phạt tương ứng (xem phần (...))\\
 				\item \textbf{Tình trạng sách}\\
-					Tình trạng sách là một đại lượng có tính tương đối. Tình trạng sách tốt nhất được định nghĩa:
-					\begin{itemize}
-						\item Bìa sách còn nguyên, không sờn rách, không có nếp gấp, không có vết ố
-						\item Giấy giữ nguyên được màu tự nhiên (thường là trắng hoặc trắng ngà), không rách, không có nếp gấp, không có vết ố
-						\item Sách còn đầy đủ số trang
-						\item Sách không có những ký hiệu lạ, khác với con dấu của thư viện
-					\end{itemize}
-					Nếu sau mỗi lần mượn mà tình trạng sách giảm đi hơn $10\%$ thì ĐỘC GIẢ phải bị xử phạt theo quy định (xem phần (...))\\
-					Nếu làm mất sách, thì phải xử phạt theo quy định (xem phần (...))
+					Tình trạng sách là một đại lượng có tính tương đối tùy thuộc vào quy định thư viện.\\
+					Nếu sách bị hư hại thì thủ thư có quyền phạt tiền người dùng, bằng cách thông báo và trừ tiền trong tài khoản của ngươi dùng.\\
+					Nếu làm mất sách, thì phải xử phạt theo quy định thư viện.\\
 				\end{enumerate}
 		\subsection{Quản lý người dùng}
 		Việc quản lý người dùng được thực hiện thông qua vai trò QUẢN LÝ NGƯỜI DÙNG.\\
-			\subsubsection{Tạo cấp Người dùng và cấp Tài khoản}
-			Khi nhận được yêu cầu đăng ký tài khoản LIBPRO, QUẢN LÝ NGƯỜI DÙNG sẽ dựa theo một số tiêu chí để quyết định chấp thuận yêu cầu đăng ký.\\
-
-			\subsubsection{Tạo cấp Vai trò}
-			QUẢN LÝ NGƯỜI DÙNG chỉ được quyền xác nhận yêu cầu tạo vai trò đối với ĐỘC GIẢ và THỦ THƯ (về số lượng THỦ THƯ, xin xem phần 2.1.1.THỦ THƯ).\\
-			QUẢN LÝ NGƯỜI DÙNG không thể cấp vai trò QUẢN LÝ NGƯỜI DÙNG cho một tài khoản khác, việc này sẽ được hệ thông thực hiện qua 1 thuật toán cụ thể.\\
+			\subsubsection{Tạo cấp Người dùng}
+			Khi nhận được yêu cầu đăng ký hồ sơ người dùng LIBPRO, QUẢN LÝ NGƯỜI DÙNG sẽ quyết định chấp thuận yêu cầu đăng ký hay không.\\
 
 			\subsubsection{Cập nhật tình trạng người dùng}
 			Dựa theo lịch sử đăng nhập và đăng xuất của người dùng để đánh giá và xếp loại người dùng theo các tiêu chí ()\\ %phan nay suy nghi sau
