@@ -34,8 +34,8 @@
 	total={170mm,257mm},%C? gi?y
 	left=15mm,%L? tr?i
 	right=15mm,%L? ph?i
-	top=20mm,%L? tr?n
-	bottom=20mm,%L? d??i
+	top=15mm,%L? tr?n
+	bottom=15mm,%L? d??i
 }
 \usepackage{setspace}
 \usepackage{epsfig}
@@ -623,11 +623,15 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 
 			Với tính năng hỗ trợ Bash cho Windows 10, Linux Subsystem for Windows 10, nhóm đã nghiên cứu để tiến hành build trên Linux. Tuy có gặp một vài trở ngại trong việc sử dụng thư viện, nhưng vẫn có thể build được chương trình cho Unix.
 		\subsection{Thiết kế giao diện trên Qt GUI}
-		\subsection{Ghép giữa dữ liệu nền và giao diện}
-		\subsection{Đóng gói phần mềm}
-	\section{Thực hiện tài liệu của phần mềm}
+			\subsubsection{Thiết kế màn hình chính}
+			Màn hình chính được thiết kế đơn giản với thanh menu gồm các nút: Profile-Announcement-Library-Settings-Role-Help.\\
+			Khu vực bên dưới thanh menu sẽ trình bày các sách có trong thư viện.\\
+			Các chức năng khác được thực hiện trên các cửa sổ con.\\
+			\subsubsection{Thiết kế phần cửa sổ con}
+			Mỗi cửa sổ con thực hiện một chức nằng nhất định, và có các nút tương ứng với chức năng đó.\\
+		%\subsection{Đóng gói phần mềm}
 	\section{Thực hiện báo cáo về phần mềm}
-		Báo cáo về
+		Bản báo cáo này được thực hiện trong suốt quá trình phát triển phần mềm, nhằm cập nhật liên tục các ý tưởng của nhóm. Bản báo cáo cùng với phần báo cáo trên trực tiếp sẽ khái quát rõ hơn về phần mềm của nhóm.
 	\section{Lập tài liệu phát triển phần mềm}
 		\subsection{Tổ chức dự án}
 		SIMple được triển khai thành 2 mảng: CommandPrompt và Qt
@@ -738,7 +742,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\begin{figure}[H]
 					\centering
 					\label{F:qtstep7}
-					\includegraphics[scale = 1]{Qtstep7.png}
+					\includegraphics[scale = .7]{Qtstep7.png}
 				\end{figure}
 			\end{enumerate}
 			\subsubsection{GTest}
@@ -785,10 +789,10 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\begin{verbatim}
 					Reader login before getting book (username and password);
 					if (correct User Submit){
-						Find Submition of that Reader;
-						Create Borrowed Book in Reader user profile;
-						Add Borrowed Book in Book Library file;
-						Move submititon from pending place to receive place;
+						  Find Submition of that Reader;
+					 	  Create Borrowed Book in Reader user profile;
+						  Add Borrowed Book in Book Library file;
+						  Move submititon from pending place to receive place;
 					}else escape;
 				\end{verbatim}
 			\subsubsection{Quản lý hồ sơ người dùng}
@@ -803,17 +807,17 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 					Read Sign-up file and user-rejected file;
 					if (no user request) escape;
 					else{
-						if (user request decision is Cancel){
+						  if (user request decision is Cancel){
 							escape;
-						}
-						else if (user request decision is Yes){
-							Move user profile from sign-up file to user data file;
-							update new user in user data file;
-						}
-						else if(user request decision is No){
-							Move user profile from sign-up file to user-rejected file;
-							update new user in user-rejected file;
-						}
+						  }
+						  else if (user request decision is Yes){
+							    Move user profile from sign-up file to user data file;
+							    update new user in user data file;
+						  }
+						  else if(user request decision is No){
+							    Move user profile from sign-up file to user-rejected file;
+							    update new user in user-rejected file;
+						  }
 					}
 				update signup file;
 				\end{verbatim}
@@ -828,12 +832,19 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 					Get UserID to remove;
 					if (verifyRemove is No) escape;
 					else{
-						Move user profile from user data file to user deleted file;
-						update user data file and user deleted file;
+						  Move user profile from user data file to user deleted file;
+						  update user data file and user deleted file;
 					}
 				\end{verbatim}
 \chapter{Các vấn đề nảy sinh trong tiến trình phát triển phần mềm}
 	\section{Lưu dữ liệu người dùng bằng file *.txt là một trở ngại}
+	Trong quá trình làm việc và lưu dữ liệu, nhận thấy việc lưu dữ liệu trong file .txt rất khó truy cập và quản lý, cũng như rất khó hiểu cho người phát triển để kiểm tra dữ liệu. Cụ thể: nếu dữ liệu lưu như thế này:
+		\begin{figure}[H]
+			\centering
+			\label{F:booktext}
+			\includegraphics[scale = .7]{booktext.png}
+		\end{figure}
+	Rõ ràng dù chỉ là dữ liệu sách nhưng lưu với .txt thì không thể nào hiểu được đâu là tên sách, đâu là nhà xuất bản, đâu là tên tác giả. Nên nhất thiết phải có cách lưu dữ liệu hữu hiệu hơn.\\
 	\section{Việc đồng bộ hóa giữa dữ liệu và giao diện}
-	\section{Thiết kế phần mềm hướng đến người dùng}
+	Vì nhóm chủ yếu tập trung vào thiết kế dữ liệu, nên phần giao diện không thực sự là thế mạnh. Phần mềm chỉ mới được hiện thực các chức năng cơ bản, còn các tính năng mở rộng chỉ mới là ý tưởng.
 \end{document}
