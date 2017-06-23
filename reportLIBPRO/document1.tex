@@ -552,6 +552,19 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 
 		Với tính năng hỗ trợ Bash cho Windows 10, Linux Subsystem for Windows 10, nhóm đã nghiên cứu để tiến hành build trên Linux. Tuy có gặp một vài trở ngại trong việc sử dụng thư viện, nhưng vẫn có thể build được chương trình cho Unix.
 
+		\subsubsection{cppcheck}
+
+		Vì code rất dài, nên việc kiểm tra các hàm có dùng hay không, hay là có sử dụng thừa hoặc thiếu hoặc rút gọn được tầm của biến hoặc có thể là các lỗi về performace như truyền tham số. Tất cả đều được cppcheck chạy qua và kiểm tra các file trong thư mục. Và log được ghi vào một file cppcheck.log.
+
+		\subsubsection{clang-format}
+
+		Vì tính thống nhất trong code, nhóm sử dụng clang-format để format lại code của từng người cho đúng với style. Ngoài clang-format còn có Astyle, nhưng nhóm không sử dụng. File clang-format để ở ngoài thư mục chạy dòng lệnh
+		\begin{verbatim}
+		clang-format --style=file tên file
+		\end{verbatim}
+		Để chạy format với file đó.
+		Các quy luật của clang-format ở trên hướng dẫn của clang theo đường link \url{https://clang.llvm.org/docs/ClangFormatStyleOptions.html}. Lưu ý, hướng dẫn này là cho phiên bản 5. và phiên bản mới nhất được release tại thời điểm viết báo cáo này chỉ là 4. nên có thể có một vài tag không có tác dụng.
+
 		\subsection{Thiết kế giao diện trên Qt GUI}
 		\subsection{Ghép giữa dữ liệu nền và giao diện}
 		\subsection{Đóng gói phần mềm}
