@@ -1005,29 +1005,77 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             Với Visual Studio, cần thực hiện chọn Set as start up project với dự án đang làm để khi build chạy được.\par
         \subsubsection{Đối với Qt Creator}
             sử dụng Build của IDE để thực hiện việc biên dịch.
+        \newpage
         \subsection{Hiện thực các hàm chính yếu}
             \subsubsection{Đăng ký và Đăng nhập}
-            \begin{verbatim}
-            BEGIN
-            Load data
-            Choose SignIn
-            Enter username and password
-            IF (username or password empty)
-                do nothing and return
-            ENDIF
-            IF (the data is empty)
-                 display to user that there is no data
-            ENDIF
-            IF (username is wrong)
-                display cannot sign in
-            ENDIF
-            IF (password is wrong)
-                display cannot sign in
-            ENDIF
-            Get user info as current user
-            Display Signed In
-            END
-            \end{verbatim}
+            \begin{enumerate}
+                \item Đăng nhập
+                \begin{verbatim}
+                BEGIN
+                Load data
+                Choose SignIn
+                Enter username and password
+                IF (username or password empty)
+                    do nothing and return
+                ENDIF
+                IF (the data is empty)
+                    display to user that there is no data
+                ENDIF
+                IF (username is wrong)
+                    display cannot sign in
+                ENDIF
+                IF (password is wrong)
+                    display cannot sign in
+                ENDIF
+                Get user info as current user
+                Display Signed In
+                END
+                \end{verbatim}
+                \newpage
+                \item Đăng ký
+                \begin{verbatim}
+                BEGIN
+                Load Data
+                Choose Sign Up
+                Enter username
+                WHILE username exists
+                    display message
+                    input another username
+                ENDWHILE
+                Input normal info
+                Prompt advanced info
+                IF Yes
+                    Show advanced info
+                ENDIF
+                Choose Account package
+                IF default
+                    Account name = username
+                    Package = reader
+                ELSE 
+                    input account name
+                    Choose package
+                    IF package = VIP
+                        create account with all package
+                    ENDIF
+                ENDIF
+                Generate random password
+                Show for user to take note
+                IF wrong 
+                    END
+                ELSE 
+                    Send Request
+                ENDIF
+
+                Librarian Login
+                Browse SignUp
+                IF accept
+                    move data to user
+                ELSE 
+                    move data to rejected
+                END
+                \end{verbatim}
+            \end{enumerate}
+            \newpage
             \subsubsection{Quản lý xuất nhập sách}
             \begin{verbatim}
             BEGIN
@@ -1045,6 +1093,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             Update Book Data
             END
             \end{verbatim}
+            \newpage
             \subsubsection{Quản lý mượn trả sách}
                 \textbf{Function: BrowseBorrowBook}
                 \begin{figure}[H]
@@ -1054,21 +1103,24 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ khối hoạt động của hàm BrowseBorrowBook}
                 \end{figure}
                 \begin{verbatim}
-                    if(!Read JSON file) escape;
-                    if(!there is submition) escape;
-                    else{
-                      Read Submitions in Submition file;
-                      Find BookIndex and UserID in specific Submition;
-                      Show selection{
-                            if(Accept){
-                                  Record accepting new submition to pending place in BorrowLog file;
-                            }
-                            else Record accepting new submition to rejected place in BorrowLog file;
-                      }
-                      Move browsed submition to checked list in Submition file;
-                      Update Submition file;
+                if(!Read JSON file) escape;
+                if(!there is submition) escape;
+                else{
+                    Read Submitions in Submition file;
+                    Find BookIndex and UserID in specific Submition;
+                    Show selection{
+                        if(Accept){
+                                Record accepting new submition 
+                                to pending place in BorrowLog file;
+                        }
+                        else Record accepting new submition 
+                        to rejected place in BorrowLog file;
+                    }
+                    Move browsed submition to checked list in Submition file;
+                    Update Submition file;
                 }
                 \end{verbatim}
+                \newpage
                 \textbf{Function: GiveBook}
                 \begin{figure}[H]
                     \centering
@@ -1077,14 +1129,15 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ hoạt động hàm GiveBook}
                 \end{figure}
                 \begin{verbatim}
-                    Reader login before getting book (username and password);
-                    if (correct User Submit){
-                          Find Submition of that Reader;
-                           Create Borrowed Book in Reader user profile;
-                          Add Borrowed Book in Book Library file;
-                          Move submititon from pending place to receive place;
-                    }else escape;
+                Reader login before getting book (username and password);
+                if (correct User Submit){
+                        Find Submition of that Reader;
+                        Create Borrowed Book in Reader user profile;
+                        Add Borrowed Book in Book Library file;
+                        Move submititon from pending place to receive place;
+                }else escape;
                 \end{verbatim}
+            \newpage
             \subsubsection{Quản lý hồ sơ người dùng}
                 \textbf{Function: VerifyNewUser}
                 \begin{figure}[H]
@@ -1094,23 +1147,24 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ hoạt động hàm VerifyNewUser}
                 \end{figure}
                 \begin{verbatim}
-                    Read Sign-up file and user-rejected file;
-                    if (no user request) escape;
-                    else{
-                          if (user request decision is Cancel){
-                            escape;
-                          }
-                          else if (user request decision is Yes){
-                                Move user profile from sign-up file to user data file;
-                                update new user in user data file;
-                          }
-                          else if(user request decision is No){
-                                Move user profile from sign-up file to user-rejected file;
-                                update new user in user-rejected file;
-                          }
-                    }
+                Read Sign-up file and user-rejected file;
+                if (no user request) escape;
+                else{
+                        if (user request decision is Cancel){
+                        escape;
+                        }
+                        else if (user request decision is Yes){
+                            Move user profile from sign-up file to user data file;
+                            update new user in user data file;
+                        }
+                        else if(user request decision is No){
+                            Move user profile from sign-up file to user-rejected file;
+                            update new user in user-rejected file;
+                        }
+                }
                 update signup file;
                 \end{verbatim}
+                \newpage
                 \textbf{Function: DeleteUser}
                 \begin{figure}[H]
                     \centering
@@ -1119,12 +1173,12 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ hoạt động hàm DeleteUser}
                 \end{figure}
                 \begin{verbatim}
-                    Get UserID to remove;
-                    if (verifyRemove is No) escape;
-                    else{
-                          Move user profile from user data file to user deleted file;
-                          update user data file and user deleted file;
-                    }
+                Get UserID to remove;
+                if (verifyRemove is No) escape;
+                else{
+                    Move user profile from user data file to user deleted file;
+                    update user data file and user deleted file;
+                }
                 \end{verbatim}
 \chapter{Các vấn đề nảy sinh trong tiến trình phát triển phần mềm}
     \section{Lưu dữ liệu người dùng bằng file *.txt là một trở ngại}
