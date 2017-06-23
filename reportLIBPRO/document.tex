@@ -39,8 +39,18 @@
 }
 \usepackage{setspace}
 \usepackage{epsfig}
-\usepackage{tikz}
-\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{tikz,tikz-timing}
+\usetikzlibrary{arrows, shapes, calc}
+\tikzstyle{decision} = [diamond, draw,
+text width=3.5cm, text centered, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw,
+text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{arrow} = [draw, -latex']
+\tikzstyle{round} = [circle, draw, inner sep=0pt, minimum size=2cm]
+\tikzstyle{cloud} = [draw, ellipse, minimum height=2em]
+\tikzstyle{input} =[trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw]
+\tikzstyle{branch}=[fill, shape=circle, minimum size=3pt, inner sep=0pt]
+\def\degr{${}^\circ$}
 \usepackage[unicode]{hyperref}
 \hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true}
 \begin{document}
@@ -234,7 +244,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 			Nếu người dùng không đăng xuất trước khi thoát khỏi chương trình, ở lần mở chương trình tiếp theo, chương trình sẽ hiện lên tên tài khoản chưa đăng xuất và yêu cầu nhập password để truy cập vào tài khoản; hoặc truy cập như là KHÁCH.\\
 			\subsubsection{Về các ký tự đặc biệt}
 			Phần này chủ yếu dành cho việc đăt tên người dùng hoặc tên tài khoản.\\
-			Các ký hiệu đặc biệt là: %$!@# \$ \% ^\&*\( \)<>?$và dấu cách
+			Các ký hiệu đặc biệt là: $ ! @ \# \$ \% \textasciicircum{} \& * ( ) < > ? $ và dấu cách
 		\subsection{Quản lý sách}
 			\subsubsection{Các đặc tính của sách}
 			Sách trong LIBPRO được quản lý dựa trên các thông tin sau:
@@ -422,14 +432,202 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 			\end{figure}
 			\end{enumerate}
 	\section{Quá trình làm việc}
-		\subsection{Tạo thư mục làm việc trên VisualStudio.com}
+		\subsection{Tạo thư mục làm việc trên visualstudio.com}
+
+		Visual Studio gần đây vừa triển khai một ứng dụng mới, và Visual Studio Team Service, giúp các lập trình viên làm việc nhóm chung với nhau thông qua mô hình Agile. Để bắt đầu, bạn cần có một tài khoản của Microsoft, sau đó truy cập theo link sau \url{https://www.visualstudio.com/team-services/} và chọn "Get started for free" để tạo một tên miền của mình. Tên miền sẽ có dạng \url{https://tên miền.visualstudio.com}.\par
+		Một tên miền có thể có nhiều dự án (project) và một dự án thì có thể có nhiều nguồn (repository hay repo). Mặc định chúng ta sẽ có một dự án là My Project. Bỏ qua nó và vào trang chủ chọn New Project. Lúc này bạn sẽ có các lựa chọn về tên đự án, chỉ dẫn cho dự án và mô hình làm việc và các phương thức quản lý phiên bản (version control). Về mô hình làm việc, nhóm không biết nhiều về các mô hình này, nên để mặc định là Agile. Về quản lý phiên bản, nhóm thống nhất dùng Git.\par
+		Sau khi đã tạo xong, một màn hình yêu cầu upload code lên theo git hiện ra. Sau khi upload code lên, thì chúng ta xem như đã hiện thực xong bước đầu của việc tạo dự án trên Visual Studio Team Service.
+
 		\subsection{Sử dụng Git để quản lý và cập nhật tài liệu}
+			\subsubsection{Sơ lược về Git}
+		Tổng quan sơ vê Git. Git được hình thành từ khá lâu, bắt nguồn từ những vấn đề với những phần mềm quản lý phiên bản trước đó khi hướng theo code mà không hướng theo tài liệu. Lâu dần, Git được phát triển để từ nay thành một trong những phần mềm quản lý phiên bản được nhiều người sử dụng nhất. \par
+		Để bắt đầu với Git, bạn cần lên trang \url{https://git-scm.com/downloads} và tải về Git. Sau khi cài đặt, Git đã ở trên PATH trong máy, bạn có thể hiện thực các câu lệnh trên Git ở trên chính Shell, hoặc sử dụng Git Bash hoặc Git GUI, là những công cụ hỗ trợ riêng của Git. Ở đây nhóm không sử dụng Git GUI, nên thao tác hiện thực là trên Shell.\par
+
+			\subsubsection{Git cơ bản}
+
+			Cùng điểm qua các câu lệnh cơ bản của Git.\\
+			Để thực hiện sao lưu thay đổi trong một thư mục (kích hoạt git) thì sẽ sử dụng câu lệnh:
+			\begin{verbatim}
+				git init
+			\end{verbatim}
+			Lúc này thư mục sẽ được git quan sát các thay đổi.
+			Để lấy về một thư mục đã có, ta có hai cách:
+			\begin{verbatim}
+				1: git remote add <tên ngắn> <link>
+				2: git clone <link>
+			\end{verbatim}
+			Với clone, tên ngắn được mặc định là origin.
+			Trước khi upload, chúng ta phải kiểm tra cho máy cập nhật mới nhất với repo.
+			\begin{verbatim}
+				git fetch
+			\end{verbatim}
+			Để lấy về cập nhật và sau đó là
+			\begin{verbatim}
+				git merge
+			\end{verbatim}
+			Để ghép các thay đổi vào, xung đội sẽ được đề cập sau.
+			Hoặc dùng câu lệnh
+			\begin{verbatim}
+				git pull
+			\end{verbatim}
+			Là một hiện thực của hai câu lệnh trên.
+			Sau khi đã có code, ta thực hiện thay đôi, git sẽ tự nhận biết thay đổi. Để biết chúng ta đã thay đổi gì,
+			\begin{verbatim}
+				git status
+			\end{verbatim}
+			sẽ hiện ra các file chưa được stage, hoặc đã stage nhưng chưa commit.
+			Mọi quá trình trên Git đều diễn ra qua 3 giai đoạn,
+			\begin{verbatim}
+				Stage -> Commit -> (Fetch -> Merge -> Xung đột -> Xử lý) ->Push
+			\end{verbatim}
+			Stage là để git biết rằng nó sẽ lưu file vào. Commit là để git biết rằng chúng ta muốn lưu lại lúc này, và Push là upload lên repo.
+			Khái niệm dùng Git cơ bản khép lại ở đây, và phần nâng cao ngay phía sau.
+
+			\subsubsection{Git nâng cao}
+			Khi gặp xung đột lúc merge. Git sẽ yêu cầu xử lý xung đột, và cho chúng ta biết file và chỗ nào trong file. Lúc đó, trên bash sẽ hiện ra tên các file đã xảy ra xung đột, (xung đột thường là khi nhiều người sửa cùng file ở cùng một chỗ, vì cách lưu của Git là theo các bit nên nếu chỗ bit đó bị thay đổi bởi nhiều người thì sẽ nhận biết, ở chỗ khác sẽ không bị xung đột). Chúng ta vô file đó sẽ hiện ra các dòng thế này:\par
+
+
+			\begin{verbatim}
+			<<<<<<< HEAD
+			code của ta
+			=======
+			code trên repo
+			>>>>>>> master
+			\end{verbatim}
+			Có thể không phải là master mà là một chuỗi số, chuỗi số tượng trưng cho lần commit nào đó, hoặc là một nhánh nào đó. Tìm chuỗi đó sẽ cho chúng ta biết được tên của người đã commit lần đó. Từ đó liên hệ với nhau và sửa chỗ đó. Khi sửa xong, chúng ta vẫn push như bình thường.\par
+
+			Tiếp theo là khái niệm cần thiết trong việc làm việc Git. Nhánh. Nhánh (Branch) tương tự như việc khi chúng ta copy code ra USB rồi đưa cho một người khác sửa rồi sau đó ghép lại. Điều tốt hơn việc copy ra USB là khi Git tự động biết được những file nào mà chúng ta đã thay đổi. Đồng thời cho chúng ta xem lại code trước khi ghép lại.\par
+			Để bắt đầu tạo nhánh mới, có thể hiện thực trên repo. Hoặc trên Bash:
+			\begin{verbatim}
+			git checkout -b <tên nhánh mới>
+			\end{verbatim}
+			Nhánh mới sẽ là một copy của nhánh chúng ta đang ở.
+			\begin{verbatim}
+			git branch -a
+			\end{verbatim}
+			Là câu lệnh để biết được tất cả các nhánh, (trước khi hiện thực câu lệnh này, sẽ là một điều khôn ngoan khi lấy dữ liệu từ repo về trước, git fetch). Với dấu sao và màu chữ màu xanh chính là nhánh chúng ta đang ở. Một lưu ý, tạo nhánh trên Bash vẫn chưa được thấy trên repo cho tới khi ta push.\par
+			Khi làm việc với nhánh đã xong, chúng ta sẽ bắt đầu ghép vào nhánh gốc hoặc nhánh cha, để thực hiện, chúng ta cần lên repo và tìm pull request. Lúc này sẽ có màn hình về các thông tin đồng thời một danh sách các thanh đổi trong các file để chúng ta xem xét.\par
+			Nếu làm việc đơn lẻ, chính chúng ta có thể đồng ý cho duyệt, nhưng khi làm việc nhóm, cần có một Code reviewer, thường là admin, sẽ xem xét code và đưa ra các comment các câu hỏi nếu có thắc mắc trước khi bấm chấp nhận hoặc từ bỏ lần ghép code này.\par
+			Git nâng cao còn có nhiều điều nữa nhưng nhóm vẫn chưa thể dùng hết được. Một phần không thuộc Git nhưng lại là một tính tăng quan trọng trong việc lập trình theo một nhóm. Công nghệ tích hợp tự động, Continuous Integration.
+
+			\subsection{Continuous Integration}
+
+			Tích hợp tự động là khi có một sự thay đổi ở nhánh thì sẽ lập tức build, hoặc tích vào đối với ứng dụng web. Nhóm đã thực hiện được trên Visual Studio Team Service và build các lần push lên gần đây. Lợi thế của công cụ này là có thể biết được lỗi xảy ra khi nào và do ai push lên. Đồng thời, tạo một tag để lưu code tại thời điểm đó để có thể quay về. \par
+
+			Điều đầu tiên cần làm là phải biết cách build trên máy của ta. Sau đó hiện thực lại công thức đó trên các máy host hoặc cài một agent về máy xem như là host. Lúc này ta chỉ việc tạo công thức và nếu đúng, với mỗi lần chạy thì sẽ có thể tự động build và tự động tạo tag để ta quản lý.\par
+
+			Sau đây là một ví dụ. Có thể xem thêm thông tin chi tiết tại: \url{https://www.visualstudio.com/team-services/continuous-integration/}\par
+
+			Ví dụ:
 		\subsection{Hiện thực phần mềm trên CommandPrompt}
+			\subsubsection{Bắt đầu thực hiện và thiết kế}
+			Khi nhận được tin báo dự án, cả nhóm đã lên lịch họp và đã bắt đầu code các phần cửa sổ. Vào lúc này, do không có kiến thức nên việc compile được thực hiện một cách không đúng đắn khi include các file cpp vào để khi chạy
+			\begin{verbatim}
+			g++ -Wall -std=c++11 -c main.cpp -o LIBPRO.exe
+			\end{verbatim}
+			Thì có thể ra được file chạy hoàn chỉnh.\par
+
+			Sau nhiều ngày nghiên cứu, đã tìm được cách include đúng và compile đúng. Nhưng từ đó lại mở ra một vấn đề khác khi không thể từng tay chạy g++ ra các file o rồi link lại với nhau. Từ đó nhóm ngừng lại trong việc code và tiếp tục nghiên cứu thêm.
+			\subsubsection{Phân chia thư mục}
+			Cùng lúc đó, nhóm cũng học cách phân chia thư mục, nhận thấy trên mạng có hai cách để phân chia:
+			\begin{verbatim}
+			include
+			src
+			và
+			project
+				module A
+					src
+					include
+				module B
+					src
+					include
+			\end{verbatim}
+			Và quyêt định chọn theo cách ở trên. Vì nhóm chưa có kiến thức và kinh nghiệm trong việc code theo module.
+			\subsubsection{Sử dụng JSON cho dữ liệu}
+			Ban đầu với việc đọc dữ liệu từ file nhóm vẫn hiện thực rất tốt, nhưng khi tới vấn đề rằng sử dụng các file txt để lưu dữ liệu, một là tạo một file cpp để hiện thực các hàm lấy dữ liệu trong file hai là với mỗi file, tạo một hàm mới cho việc đọc và ghi file. Nhóm nhận thấy không có tốt khi làm theo cách này. Quyết định sử dụng một loại dữ liệu khác. \par
+			Sau khi tìm hiểu, nhóm rút lại các cách gồm có:
+			\begin{enumerate}
+				\item SQL
+				\item MongoDB (do thấy nhiều trên mạng)
+				\item thuần JSON
+			\end{enumerate}
+			Với SQL và MongoDB, học cách để liên kết với dữ liệu trở nên khó khăn và về sau có thể cản trở. Vì thế nhóm quyết định tìm một thư viện để parse JSON nhanh và dễ sử dụng.\par
+			Sau khi tìm kiếm, một số cái tên được đưa vào sự chú ý như Rapid JSON, JSON CPP, và đặc biệt nhất là Nlohmann JSON, với cấu trúc dễ dàng cài đặt nhanh chóng chỉ bằng include một file hpp.\par
+			Và nhóm quyết định sử dụng JSON, sau đây là một số câu lệnh để sử dụng cơ bản:
+			\begin{verbatim}
+			using json = nlohmann::json;
+			json A = json::object(); // tạo một json object {}
+			json B = json::array(); // tạo một json array []
+			\end{verbatim}
+			Để tạo một key trong A với giá trị item:
+			\begin{verbatim}
+			A["key"] = item;
+
+			{
+				"key": item
+			}
+			\end{verbatim}
+			Để lấy từ file, câu lệnh dùng như đọc file:
+			\begin{verbatim}
+			ifstream file(path, ios::in);
+			json C  = NULL;
+			file >> C;
+			và xuất ra:
+			file << C.dump(4);
+			\end{verbatim}
+			Để truy cập vào các phần tử,
+			\begin{verbatim}
+			D.at("key")
+			Và thêm vào [chỉ số] nếu nó là array.
+			D.at("key")[0].at("FOO") = bar;
+
+			{
+				"key": [
+					"FOO": bar
+				]
+			}
+			\end{verbatim}
+
+			\subsubsection{Build bằng Makefile}
+
+			Quay lại vấn đề build dự án, nhóm đã tìm được cách thức build dự án nhanh hơn khi dùng makefile. Nhóm đã viết các công thức cho makefile sử dụng g++ và build được dự án bằng việc viết.
+			\begin{verbatim}
+			make tênfile.o
+			để build các file cpp thành o và bỏ vào trong thư mục build.
+
+			make libpro hoặc make
+			để link các file trong build lại.
+			\end{verbatim}
+			Makefile hiện đã lỗi thời và nhóm đã xoá đi, tuy nhiên vẫn còn nằm trong lịch sử dự án trong các lần build thành công với tag từ tag 18 trở xuống.
+
+			\subsubsection{Tạo dự án bằng CMake}
+			Với việc xử lý dự án ở trên nhiều công cụ build khác nhau, Makefile phải được thay đổi. Từ đó nhóm lại đi tìm một hình thức khác để tự động hoá dự án. Và đã tìm được CMake.\par
+			CMake là công cụ sinh file project, với nhưng ai dùng GNU, CLANG thì sẽ sinh ra Makefile, với những ai dùng Visual Studio thì sẽ sinh ra file sln cùng các file project khác, và tương tự với CodeBlocks, Eclipse, XCode, hay các IDE và các bộ biên dịch khác. Ở đây, nhóm có thiết lập trước với hai compiler là GNU và MSVC (cho Visual Studio).\par
+			Sau một khoảng thời gian tìm hiểu, nhóm đã viết được CMakeLists với mục tiêu là lấy tất cả file trong dự án và tạo ra Makefiles có thể build được dự án tốt nhất. Và cũng đã thử với Visual Studio để tạo được dự án với chia thư mục đúng như thư mục đã chia.\par
+
+			Để bắt đầu tạo dự án và build, theo các bước dưới đây. Mặc định là đang ở dự án của chúng ta.
+			\begin{verbatim}
+			mkdir build & cd build
+			cmake ..
+			make
+			../bin/./LIBPRO
+			\end{verbatim}
+			Nhóm đã tích hợp unit test vào nên nếu muốn build để test:
+			\begin{verbatim}
+			cmake .. -DTEST=ON
+			make
+			../bin/./LIBPRO_TEST
+			\end{verbatim}
+
+			\subsubsection{Build cho Linux}
+
+			Với tính năng hỗ trợ Bash cho Windows 10, Linux Subsystem for Windows 10, nhóm đã nghiên cứu để tiến hành build trên Linux. Tuy có gặp một vài trở ngại trong việc sử dụng thư viện, nhưng vẫn có thể build được chương trình cho Unix.
 		\subsection{Thiết kế giao diện trên Qt GUI}
 		\subsection{Ghép giữa dữ liệu nền và giao diện}
 		\subsection{Đóng gói phần mềm}
 	\section{Thực hiện tài liệu của phần mềm}
 	\section{Thực hiện báo cáo về phần mềm}
+		Báo cáo về
 	\section{Lập tài liệu phát triển phần mềm}
 		\subsection{Tổ chức dự án}
 		SIMple được triển khai thành 2 mảng: CommandPrompt và Qt
@@ -442,11 +640,12 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 				\item test: chứa các file test
 				\item .clang-format: đồng bộ code giữa các thành viên
 				\item .gitignore: tránh update những tập tin tạm
-				\item CMakeList: tập tin chuyên biệt để sử dụng CMake biên dịch chương trình
-				\item cppcheck.log: tập tin ghi lại quá trình biên dịch
+				\item CMakeList.txt: tập tin chuyên biệt để sử dụng CMake biên dịch chương trình
+				\item cppcheck.log: tập tin kiểm tra sai sót cơ bản trong code
 				\item folder$\_$structure: tập tin ghi lại cây thư mục của dự án
 				\item LIBPRO$\_$ICON.png: tập tin hình ảnh chứa icon của chương trình
 				\item README.md: tập tin hướng dẫn sử dụng chương trình
+				\item README$\_$INSTALL.md: tập tin hướng dẫn build và cài đặt chương trình
 				\item thanhvien.txt: tập tin ghi lại thông tin người phát triển chương trình
 			\end{itemize}
 			\begin{figure}[H]
@@ -553,7 +752,86 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
 			\subsubsection{Quản lý xuất nhập sách}
 			%khoa lam phan nay
 			\subsubsection{Quản lý mượn trả sách}
+				\textbf{Function: BrowseBorrowBook}
+				\begin{figure}[H]
+					\centering
+					\label{F:browsebook}
+					\includegraphics[scale = .4]{browsebook.png}
+					\caption{Sơ đồ khối hoạt động của hàm BrowseBorrowBook}
+				\end{figure}
+				\begin{verbatim}
+					if(!Read JSON file) escape;
+					if(!there is submition) escape;
+					else{
+					  Read Submitions in Submition file;
+					  Find BookIndex and UserID in specific Submition;
+					  Show selection{
+						    if(Accept){
+							      Record accepting new submition to pending place in BorrowLog file;
+						    }
+						    else Record accepting new submition to rejected place in BorrowLog file;
+					  }
+					  Move browsed submition to checked list in Submition file;
+					  Update Submition file;
+				}
+				\end{verbatim}
+				\textbf{Function: GiveBook}
+				\begin{figure}[H]
+					\centering
+					\label{G:givebook}
+					\includegraphics[scale = .4]{givebook.png}
+					\caption{Sơ đồ hoạt động hàm GiveBook}
+				\end{figure}
+				\begin{verbatim}
+					Reader login before getting book (username and password);
+					if (correct User Submit){
+						Find Submition of that Reader;
+						Create Borrowed Book in Reader user profile;
+						Add Borrowed Book in Book Library file;
+						Move submititon from pending place to receive place;
+					}else escape;
+				\end{verbatim}
 			\subsubsection{Quản lý hồ sơ người dùng}
+				\textbf{Function: VerifyNewUser}
+				\begin{figure}[H]
+					\centering
+					\label{F:adduser}
+					\includegraphics[scale = .4]{adduser.png}
+					\caption{Sơ đồ hoạt động hàm VerifyNewUser}
+				\end{figure}
+				\begin{verbatim}
+					Read Sign-up file and user-rejected file;
+					if (no user request) escape;
+					else{
+						if (user request decision is Cancel){
+							escape;
+						}
+						else if (user request decision is Yes){
+							Move user profile from sign-up file to user data file;
+							update new user in user data file;
+						}
+						else if(user request decision is No){
+							Move user profile from sign-up file to user-rejected file;
+							update new user in user-rejected file;
+						}
+					}
+				update signup file;
+				\end{verbatim}
+				\textbf{Function: DeleteUser}
+				\begin{figure}[H]
+					\centering
+					\label{F:deleteuser}
+					\includegraphics[scale = .4]{deleteuser.png}
+					\caption{Sơ đồ hoạt động hàm DeleteUser}
+				\end{figure}
+				\begin{verbatim}
+					Get UserID to remove;
+					if (verifyRemove is No) escape;
+					else{
+						Move user profile from user data file to user deleted file;
+						update user data file and user deleted file;
+					}
+				\end{verbatim}
 \chapter{Các vấn đề nảy sinh trong tiến trình phát triển phần mềm}
 	\section{Lưu dữ liệu người dùng bằng file *.txt là một trở ngại}
 	\section{Việc đồng bộ hóa giữa dữ liệu và giao diện}
