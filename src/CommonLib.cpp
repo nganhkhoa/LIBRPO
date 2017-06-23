@@ -10,16 +10,6 @@
 
 #include <CommonLib.h>
 
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
-#ifdef __unix
-#include <termios.h>
-#include <unistd.h>
-#include <term.h>
-#endif
-
 using namespace std;
 
 void Help() {

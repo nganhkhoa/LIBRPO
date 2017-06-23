@@ -15,6 +15,16 @@
 
 #include <cctype>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+#ifdef __unix
+#include <termios.h>
+#include <unistd.h>
+#include <term.h>
+#endif
+
 #include <struct/NewUser.h>
 #include <struct/LoggedInUser.h>
 #include <struct/Role.h>
