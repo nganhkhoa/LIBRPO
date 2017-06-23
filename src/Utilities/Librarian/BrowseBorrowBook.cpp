@@ -148,11 +148,17 @@ void ValidateSubmition() {
 		string ISBN   = Submit.at("Submition")[submit_index].at("ISBN");
 		string UserID = Submit.at("Submition")[submit_index].at("User");
 
-		unsigned int book_place = FindBookIndex(ISBN);
-		unsigned int user_place = FindUserID(UserID);
 
-		ShowSubmitInfo(book_place, user_place);
-		unsigned int action = ActionSubmit();
+		unsigned int action = 0;
+		if (AutoReject(ISBN, UserID)) { action = 2; }
+		else {
+			unsigned int book_place = FindBookIndex(ISBN);
+			unsigned int user_place = FindUserID(UserID);
+
+			ShowSubmitInfo(book_place, user_place);
+			action = ActionSubmit();
+		}
+		
 		if (action == 3) return;
 
 		if (action == 1)

@@ -107,6 +107,7 @@ extern const unsigned int BOOK_PER_PAGE;
 
 extern const unsigned int MAX_BORROW;
 extern const unsigned int MAX_WEEK_BORROW;
+extern const double FINE_MONEY;
 
 extern std::string SUBMITDIRECTORY;
 

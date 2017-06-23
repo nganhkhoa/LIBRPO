@@ -61,6 +61,7 @@ bool add_success(NewUser& NewCreation) {
 	new_user["Occupation"]       = NewCreation.Occupation;
 	new_user["Institute"]        = NewCreation.Institute;
 	new_user["InstituteAddress"] = NewCreation.InstituteAddress;
+	new_user["Balance"]          = 0;
 
 
 	Signup.at("SignUp")[Signup.at("SignUp").size()] = new_user;

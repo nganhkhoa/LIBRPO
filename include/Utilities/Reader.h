@@ -19,6 +19,8 @@ void BorrowBook();
 void BookDataReturn(int&);
 void UserDataReturn(std::string&, int&);
 
+void FineLateReturn(unsigned int&);
+unsigned int CalculateFine(int&);
 void ReturnBookSubmit(int&);
 std::vector<unsigned int> GetSubmitID(unsigned int&);
 std::vector<std::string> GetSubmitISBN(unsigned int&);

@@ -53,9 +53,15 @@ void Utilities() {
 		enum Roles
 		{
 			DocGiaRole = 1,
+			NhaSuuTamRole,
+			ReviewerRole,
+			CDRole,
+			MovieRole,
+			EbookRole,
+			// VipRole, // no, vip has all of the above
 			ThuThuRole = 8,
-			QLNDRole,
-			QLTCRole
+			QLTCRole,
+			QLNDRole
 		};
 
 		switch (CurrentUser.RoleId[role - 1]) {    // switch by user own role id
@@ -78,7 +84,7 @@ void Utilities() {
 			case QLTCRole:
 				cout << "Ban dang lua chon chuc nang quan ly tai chinh" << endl;
 				pausescreen();
-				// Money();
+				Money();
 				break;
 		}
 	}

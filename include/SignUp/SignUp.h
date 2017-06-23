@@ -28,5 +28,4 @@ bool ValidateNew(NewUser&);
 void ShowInfoAndBilling(NewUser&);
 void SignUp();    // this is a prompt
 
-
 #endif
