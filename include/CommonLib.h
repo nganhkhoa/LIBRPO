@@ -152,10 +152,8 @@ extern std::string FILEAdmin;
 // ────────────────────────────────────────────────────────────────
 //
 
-extern bool debug;
 extern LoggedInUser CurrentUser;
 extern nlohmann::json UserDataJSON;
-// extern std::vector<User> UserData;
 extern nlohmann::json BookDataJSON;
 
 
