@@ -9,9 +9,6 @@
 
 #include <CommonLib.h>
 
-bool debug = false;    // debug mode switch
-// this should be #define debug
-
 
 //
 // ─── DATA

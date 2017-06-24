@@ -17,7 +17,9 @@ bool ReadUserDataJSON() {
 
 	if (!userfile.is_open()) {
 		cout << "File userdata.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
@@ -30,7 +32,9 @@ bool UpdateUserDataJSON() {
 
 	if (!userfile.is_open()) {
 		cout << "File userdata.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
@@ -44,7 +48,9 @@ json readSignUp() {
 
 	if (!signupfile.is_open()) {
 		cout << "File signup.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return NULL;
 	}
 
@@ -57,7 +63,9 @@ bool updateSignUp(json& SignUp) {
 
 	if (!signupfile.is_open()) {
 		cout << "File signup.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
@@ -71,7 +79,9 @@ json readRejected() {
 
 	if (!rejectfile.is_open()) {
 		cout << "File user_rejected.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
@@ -84,7 +94,9 @@ bool updateRejected(json& Rejected) {
 
 	if (!rejectfile.is_open()) {
 		cout << "File rejected.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
@@ -98,7 +110,9 @@ json readDeleted() {
 
 	if (!Deletefile.is_open()) {
 		cout << "File user_Deleted.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
@@ -111,7 +125,9 @@ bool updateDeleted(json& Deleted) {
 
 	if (!Deletefile.is_open()) {
 		cout << "File Deleted.json open failed" << endl;
-		if (debug) pausescreen();
+		#ifndef NDEBUG
+		pausescreen();
+		#endif
 		return false;
 	}
 
