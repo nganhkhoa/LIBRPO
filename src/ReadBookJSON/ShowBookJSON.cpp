@@ -10,7 +10,7 @@
 #include <Book/ReadBookJSON.h>
 
 using namespace std;
-
+/*
 void ShowBookDataJSON(int& Book_num) {
 	string ISBN  = BookDataJSON.at("BookLibrary")[Book_num].at("ISBN");
 	string Title = BookDataJSON.at("BookLibrary")[Book_num].at("Title");
@@ -35,3 +35,4 @@ void ShowBookDataJSON(int& Book_num) {
 	cout << "\nContent:\n ";
 	cout << Content << endl;
 }
+//*/

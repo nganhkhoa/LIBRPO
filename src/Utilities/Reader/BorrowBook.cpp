@@ -22,16 +22,22 @@ void addnewSubmit(json& Submit, string& ISBN) {
 	unsigned int check_num     = Submit.at("Checked").size();
 	unsigned int submition_num = Submit.at("Submition").size();
 
-	check_num > submition_num ? submitid = 1 + check_num
-	                          : submitid = 1 + submition_num;
+	unsigned int check_last_submitid =
+	  Submit.at("Checked")[check_num - 1].at("Submit ID");
+	unsigned int submition_last_submitid =
+	  Submit.at("Submition")[submition_num - 1].at("Submit ID");
+
+	check_last_submitid > submition_last_submitid
+	  ? submitid = 1 + check_last_submitid
+	  : submitid = 1 + submition_last_submitid;
 
 
-	newsubmit["ISBN"]         = ISBN;
-	newsubmit["User"]         = CurrentUser.UserID;
+	newsubmit["ISBN"] = ISBN;
+	newsubmit["User"] = CurrentUser.UserID;
 
-	string TODAY        = "";
-	time_t now          = time(NULL);
-	TODAY               = to_string(now);
+	string TODAY = "";
+	time_t now   = time(NULL);
+	TODAY        = to_string(now);
 
 	newsubmit["Request Date"] = TODAY;
 	newsubmit["Submit ID"]    = submitid;

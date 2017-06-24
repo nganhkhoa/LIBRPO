@@ -99,7 +99,7 @@ int main(int argc, char** argv) {
 
 		if (strcmp(argv[1], "--help") == 0) {
 			Help();
-			return 0;
+			return 1;
 		}
 
 		if (strcmp(argv[1], "--info") == 0) {
@@ -160,13 +160,13 @@ int main(int argc, char** argv) {
 			cout << setw(15) << " "
 				 << "Written by LUIBO" << endl;
 			cout << setw(15) << " " << endl;
-			return 0;
+			return 1;
 		}
 
-		return 0;
+		return 2;
 	}
 
-	if (argc > 2) return 0;
+	if (argc > 2) return 2;
 
 
 	srand(time(NULL));

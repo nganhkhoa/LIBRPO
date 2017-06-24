@@ -107,7 +107,7 @@ std::vector<std::string> ReadBookFromJson(const SearchPhrase& SearchThis) {
 
 	return result;
 }
-
+/*
 void ShowBookFound(const std::vector<std::string>& result) {
 
 	json& SearchBook = BookDataJSON;
@@ -127,6 +127,7 @@ void ShowBookFound(const std::vector<std::string>& result) {
 		}
 	}
 }
+//*/
 
 void SearchAnalize(SearchPhrase& SearchThis, std::string& core) {
 

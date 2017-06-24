@@ -10,7 +10,7 @@
 #include <Find/Find.h>
 
 using namespace std;
-
+/*
 unsigned int FindUserByName(string& name) {
 	int num_Users = UserDataJSON.at("UserList").size();
 	for (int i = 0; i < num_Users; i++) {
@@ -19,7 +19,7 @@ unsigned int FindUserByName(string& name) {
 	}
 	return num_Users;
 }
-
+//*/
 unsigned int FindUserID(string& UserID) {
 	int num_Users = UserDataJSON.at("UserList").size();
 	for (int i = 0; i < num_Users; i++) {
