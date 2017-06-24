@@ -62,7 +62,7 @@ void DeleteUser() {
 
 	if (userplace == UserDataJSON.at("UserList").size()) {
 		cout << "Nguoi dung mang ma so " << uid << " khong ton tai" << endl;
-		system("pause");
+		pausescreen();
 		return;
 	}
 	// ShowUserInfo(userplace);
@@ -74,6 +74,6 @@ void DeleteUser() {
 
 	DeleteUserplace(userplace);
 	cout << "Nguoi dung mang ma so: " << uid << " da bi xoa" << endl;
-	system("pause");
+	pausescreen();
 	return;
 }
