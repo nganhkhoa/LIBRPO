@@ -41,16 +41,6 @@
 \usepackage{epsfig}
 \usepackage{tikz,tikz-timing}
 \usetikzlibrary{arrows, shapes, calc}
-\tikzstyle{decision} = [diamond, draw,
-text width=3.5cm, text centered, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw,
-text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{arrow} = [draw, -latex']
-\tikzstyle{round} = [circle, draw, inner sep=0pt, minimum size=2cm]
-\tikzstyle{cloud} = [draw, ellipse, minimum height=2em]
-\tikzstyle{input} =[trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw]
-\tikzstyle{branch}=[fill, shape=circle, minimum size=3pt, inner sep=0pt]
-\def\degr{${}^\circ$}
 \usepackage[unicode]{hyperref}
 \hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true}
 
@@ -96,16 +86,16 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
     \section{Hướng dẫn cài đặt phần mềm}
     \section{Hướng dẫn sử dụng phần mềm}
         \subsection{Đăng nhập}
-            \subsection{Đăng ký}
+            \subsubsection{Đăng ký}
             Khi chưa có hồ sơ người dùng LIBPRO, chọn \textbf{Profile->Log In} và chọn vào ô chưa đăng ký để đăng ký.\\
             Các thông tin yêu cầu bắt buộc khi đăng ký là họ và tên người đăng ký, tên người dùng trong LIBPRO và số CMND (hoặc số thẻ căn cước).\\
             Sau khi đăng ký, người dùng sẽ được tạo một mật khẩu mới bất kỳ để đăng nhập vào LIBPRO, sau đó người dùng có thể chỉnh sửa lại mật khẩu.\\
-            \subsection{Đăng nhập}
+            \subsubsection{Đăng nhập}
             Khi đã có hồ sơ người dùng LIBPRO, chọn \textbf{Profile->Log In} và nhập tên người dùng LIBPRO và mật khẩu để đăng nhập.\\
             Nếu quên mật khẩu, hãy nhấn vào ô tạo mật khẩu mới, và lúc này, hồ sơ người dùng sẽ được khóa lại, chờ khi người dùng nhận được mật khẩu mới từ QUẢN LÝ NGƯỜI DÙNG.\\
-            \subsection{Đăng xuất}
+            \subsubsection{Đăng xuất}
             Nếu đã hoàn thành công việc trên hồ sơ của mình, người dùng có thể đăng xuất bằng cách chọn trên thanh menu \textbf{Profile->Log Out}.\\
-            \subsection{Tùy chỉnh khác}
+            \subsubsection{Tùy chỉnh khác}
             Tạo mới tài khoản : các chức năng trong thư viện được cấp phát thông qua tài khoản của người dùng, vì vậy cần thiết tạo tài khoản cho người dùng bằng cách: trên thanh menu, chọn \textbf{Profile->New Account}.\\
             Để chuyển đổi giữa các tài khoản, chọn trên thanh menu \textbf{Profile->Choose Account}.\\
             Để chỉnh sửa các thông tin người dùng, bao gồm cả tên tài khoản, và mật khẩu người dùng, chọn \textbf{Profile->Edit->...} tùy theo nhu cầu của người dùng.\\
@@ -356,7 +346,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             Dựa theo lịch sử đăng nhập và đăng xuất của người dùng để đánh giá và xếp loại người dùng theo các tiêu chí (tính năng mở rộng chưa được cập nhật)\\ %phan nay suy nghi sau
 
             \subsubsection{Danh sách Đỏ}
-            Các tài khoản vi phạm quy định thư viện từ mức 3 đến mức 1 sẽ được liệt kê vào một danh sách gọi là danh sách Đỏ.\\
+            Các tài khoản vi phạm quy định thư viện từ mức nào đó (cụ thể tùy từng thư viện) sẽ được liệt kê vào một danh sách gọi là danh sách Đỏ.\\
 
             \subsubsection{Khóa tài khoản và Danh sách Đen}
             Việc khóa tài khoản được thực hiện theo yêu cầu từ THỦ THƯ khi tài khoản này vi phạm các quy định từ mức 4 trở xuống.\\
@@ -365,8 +355,8 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             Các tài khoản bị liệt vào danh sách Đen sẽ chịu một số hạn chế khi sử dụng thư viện.\\
 
             \subsubsection{Xóa tài khoản và Xóa người dùng}
-            Các tài khoản vi phạm quy định thư viện từ mức 6 trở xuống sẽ bị xóa tài khoản cùng mọi thông tin về tài khoản đó, trừ danh sách Đỏ và danh sách Đen\\
-            Các người dùng vi phạm quy định thư viện từ mức 8 trở xuống sẽ bị xóa tài khoản cùng mọi thông tin về tài khoản đó, trừ danh sách Đỏ và danh sách Đen.\\
+            Các tài khoản vi phạm quy định thư viện từ mức nào đó (tùy thư viện) trở xuống sẽ bị xóa tài khoản cùng mọi thông tin về tài khoản đó, trừ danh sách Đỏ và danh sách Đen\\
+            Các người dùng vi phạm quy định thư viện từ mức nào đó (tùy thư viện) trở xuống sẽ bị xóa tài khoản cùng mọi thông tin về tài khoản đó, trừ danh sách Đỏ và danh sách Đen.\\
         %TÍNH NĂNG BỔ SUNG
         %tạo forum hoặc fanpage
         %hiện ra các sách liên quan đến sở thích người dùng, dùng thuật toán thống kê phân tích để xuất kết quả
@@ -376,15 +366,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
         Hồ sơ người dùng được chia ra 4 tập tin:
         \begin{enumerate}
             \item Tập tin chính quản lý người dùng
-%
-%            \begin{figure}[H]
-%                \centering
-%
-%                \label{F:userfocus}
-%                \includegraphics[scale = .3]{userfocus.png}
-%                \caption{Sơ đồ các thuộc tính quản lý người dùng}
-%            \end{figure}
-%
             \begin{verbatim}
             {
                 "UserList": [
@@ -431,13 +412,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \end{verbatim}
             \newpage
             \item Tập tin quản lý việc đăng ký
-%            \begin{figure}[H]
-%                \centering
-%
-%                \label{F:usersignup}
-%                \includegraphics[scale = .3]{user_signup.png}
-%                \caption{Sơ đồ các thuộc tính quản lý việc đăng ký}
-%            \end{figure}
             \begin{verbatim}
             {
                 "SignUp": [
@@ -475,13 +449,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \end{verbatim}
             \newpage
             \item Tập tin quản lý việc đăng ký không thành công
-%            \begin{figure}[H]
-%                \centering
-%
-%                \label{F:user_reject}
-%                \includegraphics[scale = .3]{user_rejected.png}
-%                \caption{Sơ đồ các thuộc tính quản lý việc đăng ký không thành công}
-%            \end{figure}
             \begin{verbatim}
             {
                 "Rejected": [
@@ -519,13 +486,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \end{verbatim}
             \newpage
             \item Tập tin quản lý việc xóa người dùng
-%            \begin{figure}[H]
-%                \centering
-%
-%                \label{F:userdelete}
-%                \includegraphics[scale = .3]{user_deleted.png}
-%                \caption{Sơ đồ các thuộc tính quản lý việc xóa người dùng}
-%            \end{figure}
             \begin{verbatim}
             {
                 "Deleted": [
@@ -565,13 +525,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
         \newpage
         \subsection{Sơ đồ quản lý sách}
         Các sách trong thư viện sẽ được lưu trữ trong cùng một tập tin có sơ đồ như sau:
-%            \begin{figure}[H]
-%                \centering
-%
-%                \label{F:book}
-%                \includegraphics[scale = .3]{book.png}
-%                \caption{Sơ đồ các thuộc tính quản lý sách}
-%            \end{figure}
         \begin{verbatim}
         {
             "BookLibrary": [
@@ -598,13 +551,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
         Việc lưu trữ các hoạt động mượn trả sách được lưu thành 2 tập tin, có sơ đồ như sau:
             \begin{enumerate}
                 \item Tập tin quản lý duyệt mượn sách
-%                \begin{figure}[H]
-%                \centering
-%
-%                \label{F:submition}
-%                \includegraphics[scale = .3]{submition.png}
-%                \caption{Sơ đồ các thuộc tính quản lý duyệt mượn sách}
-%            \end{figure}
             \begin{verbatim}
             {
                 "Checked": [
@@ -627,13 +573,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \end{verbatim}
                 \newpage
                 \item Tập tin quản lý mượn trả sách
-%                \begin{figure}[H]
-%                \centering
-%
-%                \label{F:borrowLog}
-%                \includegraphics[scale = .3]{borrowlog.png}
-%                \caption{Sơ đồ các thuộc tính quản lý mượn trả sách}
-%            \end{figure}
             \begin{verbatim}
             {
                 "Accepted": {
@@ -671,9 +610,15 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 ]
             }
             \end{verbatim}
-            \end{enumerate}
+        \end{enumerate}
     \newpage
     \section{Quá trình làm việc}
+        \subsection{Phân chia công việc cho các thành viên}
+        \begin{itemize}
+            \item Nguyễn Anh Khoa: thực thi các hàm về mặt dữ liệu
+            \item Phạm Quốc Nam: nghiên cứu Qt GUI và thiết kế giao diện cho chương trình
+            \item Nguyễn Minh Khôi: nghiên cứu và liên kết các hàm quản lý dữ liệu và giao diện chương trinh
+        \end{itemize}
         \subsection{Tạo thư mục làm việc trên visualstudio.com}
 
         Visual Studio gần đây vừa triển khai một ứng dụng mới, và Visual Studio Team Service, giúp các lập trình viên làm việc nhóm chung với nhau thông qua mô hình Agile. Để bắt đầu, bạn cần có một tài khoản của Microsoft, sau đó truy cập theo link sau \url{https://www.visualstudio.com/team-services/} và chọn "Get started for free" để tạo một tên miền của mình. Tên miền sẽ có dạng \url{https://tên miền.visualstudio.com}.\par
@@ -812,7 +757,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \end{verbatim}
             Để lấy từ file, câu lệnh dùng như đọc file:
             \begin{verbatim}
-            ifstream file(path, ios::in);
+            IFstream file(path, ios::in);
             json C  = NULL;
             file >> C;
             và xuất ra:
@@ -1008,8 +953,14 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
         \newpage
         \subsection{Hiện thực các hàm chính yếu}
             \subsubsection{Đăng ký và Đăng nhập}
-            \begin{enumerate}
-                \item Đăng nhập
+            \begin{figure}[H]
+                    \centering
+                    \label{F:login}
+                    \includegraphics[scale = 1]{Login.png}
+                    \caption{Sơ đồ khối hoạt động của hàm Login}
+                \end{figure}
+           \begin{enumerate}
+           \item Đăng nhập
                 \begin{verbatim}
                 BEGIN
                 Load data
@@ -1033,6 +984,16 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 \end{verbatim}
                 \newpage
                 \item Đăng ký
+                \begin{figure}[H]
+                    \centering
+                    \label{F:signup}
+                    \includegraphics[scale = .5]{signup.png}
+                    \caption{Sơ đồ khối hoạt động của hàm signup}
+
+                    \label{F:librarian}
+                    \includegraphics[scale = .5]{librariandecide.png}
+                    \caption{Sơ đồ khối hoạt động của hàm Librariandecide}
+                \end{figure}
                 \begin{verbatim}
                 BEGIN
                 Load Data
@@ -1051,7 +1012,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 IF default
                     Account name = username
                     Package = reader
-                ELSE 
+                ELSE
                     input account name
                     Choose package
                     IF package = VIP
@@ -1060,9 +1021,9 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 ENDIF
                 Generate random password
                 Show for user to take note
-                IF wrong 
+                IF wrong
                     END
-                ELSE 
+                ELSE
                     Send Request
                 ENDIF
 
@@ -1070,7 +1031,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 Browse SignUp
                 IF accept
                     move data to user
-                ELSE 
+                ELSE
                     move data to rejected
                 END
                 \end{verbatim}
@@ -1078,25 +1039,38 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \newpage
             \subsubsection{Quản lý xuất nhập sách}
             \begin{enumerate}
-                \item Nhập sách mới
-                \begin{verbatim}
-                BEGIN
-                Load data
-                User Signed In as Librarian
-                Choose add new book
-                Input ISBN
-                IF (ISBN is a book in data)
-                    Ask if add in storage
-                    IF true
-                        Book number + add in quantity
-                    ENDIF
+            \item Nhập sách mới
+            \begin{figure}[H]
+                \centering
+                \label{F:addbook}
+                \includegraphics[scale = .5]{addbook.png}
+                \caption{Sơ đồ khối hoạt động của hàm nhập sách}
+            \end{figure}
+            \begin{verbatim}
+            BEGIN
+            Load data
+            User Signed In as Librarian
+            Choose add new book
+            Input ISBN
+            IF (ISBN is a book in data)
+                Ask IF add in storage
+                IF true
+                    Book number + add in quantity
                 ENDIF
-                Input info of new book
-                Update Book Data
-                END
+            ENDIF
+            Input info of new book
+            Update Book Data
+            END
+
             \end{verbatim}
-                \item Bỏ sách, xuất sách
-                (đây là lựa chọn bỏ hoàn toàn một đầu sách)
+              \item Bỏ sách, xuất sách
+              (đây là lựa chọn bỏ hoàn toàn một đầu sách)
+            \begin{figure}[H]
+                \centering
+                \label{F:movebook}
+                \includegraphics[scale = .5]{movebook.png}
+                \caption{Sơ đồ khối hoạt động của hàm xuất sách}
+            \end{figure}
                 \begin{verbatim}
                 BEGIN
                 Load data
@@ -1115,7 +1089,6 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 END
                 \end{verbatim}
             \end{enumerate}
-            \newpage
             \subsubsection{Quản lý mượn trả sách}
                 \textbf{Function: BrowseBorrowBook}
                 \begin{figure}[H]
@@ -1125,22 +1098,23 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ khối hoạt động của hàm BrowseBorrowBook}
                 \end{figure}
                 \begin{verbatim}
-                if(!Read JSON file) escape;
-                if(!there is submition) escape;
-                else{
-                    Read Submitions in Submition file;
-                    Find BookIndex and UserID in specific Submition;
-                    Show selection{
-                        if(Accept){
-                                Record accepting new submition 
-                                to pending place in BorrowLog file;
-                        }
-                        else Record accepting new submition 
-                        to rejected place in BorrowLog file;
-                    }
+                    IF(!Read JSON file) escape;
+                    ENDIF
+                    IF(!there is submition) escape;
+                    ELSE
+                      Read Submitions in Submition file;
+                      Find BookIndex and UserID in specIFic Submition;
+                      Show selection
+                            IF(Accept)
+                                  Record accepting new submition
+                                  to pending place in BorrowLog file;
+
+                            ELSE Record accepting new submition
+                            to rejected place in BorrowLog file;
+                            ENDIF
+                    ENDIF
                     Move browsed submition to checked list in Submition file;
                     Update Submition file;
-                }
                 \end{verbatim}
                 \newpage
                 \textbf{Function: GiveBook}
@@ -1151,39 +1125,38 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ hoạt động hàm GiveBook}
                 \end{figure}
                 \begin{verbatim}
-                Reader login before getting book (username and password);
-                if (correct User Submit){
-                        Find Submition of that Reader;
-                        Create Borrowed Book in Reader user profile;
-                        Add Borrowed Book in Book Library file;
-                        Move submititon from pending place to receive place;
-                }else escape;
+                    Reader login before getting book (username and password);
+                    IF (correct User Submit)
+                          Find Submition of that Reader;
+                          Create Borrowed Book in Reader user profile;
+                          Add Borrowed Book in Book Library file;
+                          Move submititon from pending place to receive place;
+                    ELSE escape;
+                    ENDIF
                 \end{verbatim}
             \newpage
             \subsubsection{Quản lý hồ sơ người dùng}
-                \textbf{Function: VerifyNewUser}
+                \textbf{Function: VerIFyNewUser}
                 \begin{figure}[H]
                     \centering
                     \label{F:adduser}
                     \includegraphics[scale = .4]{adduser.png}
-                    \caption{Sơ đồ hoạt động hàm VerifyNewUser}
+                    \caption{Sơ đồ hoạt động hàm VerIFyNewUser}
                 \end{figure}
                 \begin{verbatim}
-                Read Sign-up file and user-rejected file;
-                if (no user request) escape;
-                else{
-                        if (user request decision is Cancel){
-                        escape;
-                        }
-                        else if (user request decision is Yes){
-                            Move user profile from sign-up file to user data file;
-                            update new user in user data file;
-                        }
-                        else if(user request decision is No){
-                            Move user profile from sign-up file to user-rejected file;
-                            update new user in user-rejected file;
-                        }
-                }
+                    Read Sign-up file and user-rejected file;
+                    IF (no user request) escape;
+                    ELSE
+                          IF (user request decision is Cancel)
+                            escape;
+                          ELSE IF (user request decision is Yes)
+                                Move user profile from sign-up file to user data file;
+                                update new user in user data file;
+                          ELSE IF(user request decision is No)
+                                Move user profile from sign-up file to user-rejected file;
+                                update new user in user-rejected file;
+                          ENDIF
+                    ENDIF
                 update signup file;
                 \end{verbatim}
                 \newpage
@@ -1195,12 +1168,12 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                     \caption{Sơ đồ hoạt động hàm DeleteUser}
                 \end{figure}
                 \begin{verbatim}
-                Get UserID to remove;
-                if (verifyRemove is No) escape;
-                else{
-                    Move user profile from user data file to user deleted file;
-                    update user data file and user deleted file;
-                }
+                    Get UserID to remove;
+                    IF (verIFyRemove is No) escape;
+                    ELSE{
+                          Move user profile from user data file to user deleted file;
+                          update user data file and user deleted file;
+                    ENDIF
                 \end{verbatim}
 \chapter{Các vấn đề nảy sinh trong tiến trình phát triển phần mềm}
     \section{Lưu dữ liệu người dùng bằng file *.txt là một trở ngại}
