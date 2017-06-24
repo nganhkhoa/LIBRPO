@@ -1077,22 +1077,44 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
             \end{enumerate}
             \newpage
             \subsubsection{Quản lý xuất nhập sách}
-            \begin{verbatim}
-            BEGIN
-            Load data
-            User Signed In as Librarian
-            Choose add new book
-            Input ISBN
-            IF (ISBN is a book in data)
-                Ask if add in storage
-                IF true
-                    Book number + add in quantity
+            \begin{enumerate}
+                \item Nhập sách mới
+                \begin{verbatim}
+                BEGIN
+                Load data
+                User Signed In as Librarian
+                Choose add new book
+                Input ISBN
+                IF (ISBN is a book in data)
+                    Ask if add in storage
+                    IF true
+                        Book number + add in quantity
+                    ENDIF
                 ENDIF
-            ENDIF
-            Input info of new book
-            Update Book Data
-            END
+                Input info of new book
+                Update Book Data
+                END
             \end{verbatim}
+                \item Bỏ sách, xuất sách
+                (đây là lựa chọn bỏ hoàn toàn một đầu sách)
+                \begin{verbatim}
+                BEGIN
+                Load data
+                User Signed In as Librarian
+                Choose Delete book
+                Input ISBN
+                IF ISBN is not exist
+                    require ISBN
+                ENDIF
+                Input export place
+                Change Book number to 0
+                Copy book to deleted
+                Add export place to book data
+                Add date export to book data
+                Update book data
+                END
+                \end{verbatim}
+            \end{enumerate}
             \newpage
             \subsubsection{Quản lý mượn trả sách}
                 \textbf{Function: BrowseBorrowBook}
