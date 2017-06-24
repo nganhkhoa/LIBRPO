@@ -25,8 +25,8 @@ project (${PROJECT_NAME} CXX)
 
 # The version number.
 set (LIBPRO_VERSION_MAJOR 1)
-set (LIBPRO_VERSION_MINOR 0)
-set (LIBPRO_VERSION_FIX 0)
+set (LIBPRO_VERSION_MINOR 2)
+set (LIBPRO_VERSION_FIX 10)
 configure_file (
   "${PROJECT_SOURCE_DIR}/${SOURCE_FOLDER}/version.h.in"
   "${PROJECT_SOURCE_DIR}/${SOURCE_FOLDER}/version.h"

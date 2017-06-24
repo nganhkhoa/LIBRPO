@@ -26,7 +26,6 @@ void NotYetLogInScreen() {
 	{
 		LoginUser = 1,
 		SignUpUser,
-		BrowseOption,
 		Manual,
 		Exit
 	};
@@ -42,16 +41,7 @@ void NotYetLogInScreen() {
 			cin.ignore();
 			SignUp();
 			break;
-		case BrowseOption:
-			// without loging in, the user can still browse
-			// we use CurrentUser.Active to know if loggin or not
-			// if no, we would not let them borrow, buy?
-			Browse();
-			pausescreen();
-			break;
-		case Manual:
-			Help();
-			break;
+		case Manual: Help(); break;
 		case Exit: {    // normal exit
 			cout << "Ban muon thoat? (y/n) ";
 			cin.ignore();
@@ -97,9 +87,7 @@ void UserLogInScreen() {
 			Browse();
 			pausescreen();
 			break;
-		case Manual:
-			Help();
-			break;
+		case Manual: Help(); break;
 		case Exit: {
 			cout << "Ban muon thoat? (y/n) ";
 			cin.ignore();
@@ -143,9 +131,7 @@ void AccountLogInScreen() {
 			Browse();
 			pausescreen();
 			break;
-		case Manual:
-			Help();
-			break;
+		case Manual: Help(); break;
 		case Exit: {
 			cout << "Ban muon thoat? (y/n) ";
 			cin.ignore();

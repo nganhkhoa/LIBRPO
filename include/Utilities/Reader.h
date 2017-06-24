@@ -27,4 +27,9 @@ std::vector<std::string> GetSubmitISBN(unsigned int&);
 int ChooseReturnBook(std::string&);
 // this one
 void ReturnBook();
+
+
+void ShowFav();
+void ShowCart();
+void ShowBorrow();
 #endif
