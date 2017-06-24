@@ -15,4 +15,5 @@ int BrowseOption();
 void Browse();
 
 void AddtoCart(nlohmann::json&, int&);
+void AddtoFav(nlohmann::json&, int&);
 #endif

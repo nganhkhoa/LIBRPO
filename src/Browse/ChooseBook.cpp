@@ -232,7 +232,14 @@ void ChooseBook(json& bookdata, int& books) {
 		}
 
 		else if (TempString == "--bosuutap") {
-			// I don't know
+			int BookFav = -1;
+			scin >> BookFav;
+			if (scin.fail()) {
+				cout << "Ban khong nhap dung cu phap" << endl;
+				continue;
+			}
+
+			AddtoFav(bookdata, BookFav);
 		}
 
 		else if (TempString == "--cart") {

@@ -24,7 +24,39 @@ void AddtoCart(json& bookdata, int& BookCart) {
 	}
 
 	string ISBN = bookdata.at("BookLibrary")[BookCart - 1].at("ISBN");
+	for (unsigned int index = 0; index < cart_num; index++) {
+		string ISBN_data = this_user.at("Cart")[index];
+		if (ISBN == ISBN_data) {
+			cout << "Quyen nay hien da co trong gio sach" << endl;
+			pausescreen();
+			return;
+		}
+	}
 	this_user.at("Cart")[cart_num]                    = ISBN;
+	UserDataJSON.at("UserList")[CurrentUser.User_num] = this_user;
+	UpdateUserDataJSON();
+	return;
+}
+
+void AddtoFav(json& bookdata, int& BookFav) {
+	json this_user       = UserDataJSON.at("UserList")[CurrentUser.User_num];
+	unsigned int Fav_key = this_user.count("Fav");
+	unsigned int Fav_num = 0;
+	if (Fav_key == 0) { this_user["Fav"] = json::array(); }
+	else {
+		Fav_num = this_user.at("Fav").size();
+	}
+
+	string ISBN = bookdata.at("BookLibrary")[BookFav - 1].at("ISBN");
+	for (unsigned int index = 0; index < Fav_num; index++) {
+		string ISBN_data = this_user.at("Fav")[index];
+		if (ISBN == ISBN_data) {
+			cout << "Quyen nay hien da co trong bo suu tap" << endl;
+			pausescreen();
+			return;
+		}
+	}
+	this_user.at("Fav")[Fav_num]                      = ISBN;
 	UserDataJSON.at("UserList")[CurrentUser.User_num] = this_user;
 	UpdateUserDataJSON();
 	return;
