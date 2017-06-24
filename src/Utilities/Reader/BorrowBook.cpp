@@ -2,8 +2,8 @@
  * @CreateTime: Jun 18, 2017 10:00 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 18, 2017 10:00 PM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 24, 2017 2:31 PM
  * @Description: Độc giả gửi yêu cầu mượn sách
  */
 
@@ -19,17 +19,32 @@ void addnewSubmit(json& Submit, string& ISBN) {
 
 	unsigned int submitid = 0;
 
-	unsigned int check_num     = Submit.at("Checked").size();
-	unsigned int submition_num = Submit.at("Submition").size();
+	unsigned int check_num      = Submit.at("Checked").size();
+	unsigned int submission_num = Submit.at("Submission").size();
 
-	unsigned int check_last_submitid =
-	  Submit.at("Checked")[check_num - 1].at("Submit ID");
-	unsigned int submition_last_submitid =
-	  Submit.at("Submition")[submition_num - 1].at("Submit ID");
+	if (check_num == 0 && submission_num == 0) { submitid = 1; }
 
-	check_last_submitid > submition_last_submitid
-	  ? submitid = 1 + check_last_submitid
-	  : submitid = 1 + submition_last_submitid;
+	else if (check_num == 0) {
+		unsigned int Submission_last_submitid =
+		  Submit.at("Submission")[submission_num - 1].at("Submit ID");
+		submitid = 1 + Submission_last_submitid;
+	}
+	else if (submission_num == 0) {
+		unsigned int check_last_submitid =
+		  Submit.at("Checked")[check_num - 1].at("Submit ID");
+		submitid = 1 + check_last_submitid;
+	}
+	else {
+		unsigned int Submission_last_submitid =
+		  Submit.at("Submission")[submission_num - 1].at("Submit ID");
+
+		unsigned int check_last_submitid =
+		  Submit.at("Checked")[check_num - 1].at("Submit ID");
+
+		check_last_submitid > Submission_last_submitid
+		  ? submitid = 1 + check_last_submitid
+		  : submitid = 1 + Submission_last_submitid;
+	}
 
 
 	newsubmit["ISBN"] = ISBN;
@@ -42,7 +57,7 @@ void addnewSubmit(json& Submit, string& ISBN) {
 	newsubmit["Request Date"] = TODAY;
 	newsubmit["Submit ID"]    = submitid;
 
-	Submit.at("Submition")[Submit.at("Submition").size()] = newsubmit;
+	Submit.at("Submission")[Submit.at("Submission").size()] = newsubmit;
 }
 
 bool CreateRequestBorrowBook(string& ISBN) {

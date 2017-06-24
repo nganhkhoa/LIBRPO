@@ -57,11 +57,11 @@ Thu thu
 
 Manager
 	~~Add user~~
-	Delete user
+	~~Delete user~~
 	Modify user
-	Search user
-	Reset password for user
-	Look and unlock user
+	~~Search user~~
+	~~Reset password for user~~
+	~~Look and unlock user~~
 
 
 */

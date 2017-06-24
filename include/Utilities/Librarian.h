@@ -15,16 +15,17 @@ std::vector<unsigned int> GetSubmitIDPendingReceived();
 bool AutoReject(std::string&, std::string&);
 
 
-bool CheckedSubmition(nlohmann::json&, unsigned int&);
+bool CheckedSubmission(nlohmann::json&, unsigned int&);
 void ShowSubmitInfo(unsigned int&, unsigned int&);
-void ValidateSubmition();
+void ValidateSubmission();
 // this one
 void BrowseBorrowBook();
 
 
 // give book to user
 void AddBorrowBook(int&);
-void CreateUserBorrow(std::string&, int&);
+bool MaxBorrowReached(std::string&);
+bool CreateUserBorrow(std::string&, int&);
 
 void ReceivedBook(unsigned int&);
 unsigned int GetPendingPlace(int&);

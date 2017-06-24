@@ -4,7 +4,7 @@
  * @Contact: ng.akhoa@yahoo.com.vn
  * @Last Modified By: luibo
  * @Last Modified Time: Jun 22, 2017 11:14 AM
- * @Description: Auto reject borrow submition
+ * @Description: Auto reject borrow Submission
  */
 
 #include <Utilities/Utilities.h>
@@ -55,10 +55,10 @@ bool AutoReject(string& ISBN, string& UserID) {
 		unsigned int this_submit   = submitid_list[index];
 		unsigned int checked_place = FindCheckedPlace(this_submit);
 
-		json submition   = Submit.at("Checked")[checked_place];
-		string ISBN_data = submition.at("ISBN");
+		json Submission  = Submit.at("Checked")[checked_place];
+		string ISBN_data = Submission.at("ISBN");
 		if (ISBN_data != ISBN) continue;
-		string UserID_data = submition.at("User");
+		string UserID_data = Submission.at("User");
 		if (UserID_data == UserID) return true;
 	}
 	return false;

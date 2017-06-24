@@ -121,7 +121,7 @@ extern const double FINE_MONEY;
 
 extern std::string SUBMITDIRECTORY;
 
-extern std::string FILESubmition;
+extern std::string FILESubmission;
 extern std::string FILEborrowLog;
 
 // ────────────────────────────────────────────────────────────────────────────────

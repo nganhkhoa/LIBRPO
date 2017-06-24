@@ -14,5 +14,5 @@ int ShowBookResult(nlohmann::json&);
 int BrowseOption();
 void Browse();
 
-
+void AddtoCart(nlohmann::json&, int&);
 #endif

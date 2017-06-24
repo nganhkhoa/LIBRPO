@@ -11,4 +11,6 @@ nlohmann::json readRejected();
 bool updateRejected(nlohmann::json&);
 nlohmann::json readDeleted();
 bool updateDeleted(nlohmann::json&);
+
+void RemoveFromCart(std::string&, std::string&);
 #endif

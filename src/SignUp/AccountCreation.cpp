@@ -2,8 +2,8 @@
  * @CreateTime: Jun 18, 2017 10:04 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 18, 2017 10:04 PM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 24, 2017 1:57 PM
  * @Description: Tạo tài khoản mới
  *
  * Thông tin cơ bản như tên tài khoản và các chức năng
@@ -98,6 +98,12 @@ void AccountCreation(NewUser& NewCreation) {
 
 	if (ChooseType == 8) {
 		DefaultAccount(NewCreation);
+		return;
+	}
+
+	if (ChooseType == 7) {
+		NewCreation.Account.AccountRoleMap = {};
+		NewCreation.Account.AccountRoleMap = {1, 2, 3, 4, 5, 6};
 		return;
 	}
 

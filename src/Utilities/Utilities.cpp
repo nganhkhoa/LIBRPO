@@ -93,19 +93,19 @@ void Utilities() {
 json readSubmitBorrow() {
 	json Submit;
 
-	ifstream submitionfile(FILESubmition, ios::in);
-	if (!submitionfile.is_open()) return NULL;
+	ifstream Submissionfile(FILESubmission, ios::in);
+	if (!Submissionfile.is_open()) return NULL;
 
-	submitionfile >> Submit;
-	submitionfile.close();
+	Submissionfile >> Submit;
+	Submissionfile.close();
 	return Submit;
 }
 
 bool updateSubmitBorrow(json& Submit) {
-	ofstream submitionfile(FILESubmition, ios::out);
-	if (!submitionfile.is_open()) return false;
-	submitionfile << Submit.dump(4);
-	submitionfile.close();
+	ofstream Submissionfile(FILESubmission, ios::out);
+	if (!Submissionfile.is_open()) return false;
+	Submissionfile << Submit.dump(4);
+	Submissionfile.close();
 	return true;
 }
 

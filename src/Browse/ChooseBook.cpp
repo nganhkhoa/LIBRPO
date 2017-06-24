@@ -2,11 +2,11 @@
  * @CreateTime: Jun 18, 2017 10:16 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 18, 2017 10:16 PM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 24, 2017 1:50 PM
  * @Description: Các lựa chọn lúc duyệt sách
- * Còn thiếu khá nhiều 
- * 
+ * Còn thiếu khá nhiều
+ *
  * --bosuutap n
  * --giosach n
  * --muon n
@@ -42,7 +42,7 @@ void ChooseHelp() {
 	cout << setw(5) << " " << left << setw(15) << "--bosuutap n" << left
 	     << setw(10) << "" << left << setw(30)
 	     << "Them n vao bo suu tap cua ban" << endl;
-	cout << setw(5) << " " << left << setw(15) << "--mua n" << left << setw(10)
+	cout << setw(5) << " " << left << setw(15) << "--cart n" << left << setw(10)
 	     << "" << left << setw(30) << "Bo n vao gio hang cua ban de mua"
 	     << endl;
 	cout << setw(5) << " " << left << setw(15) << "--muon n" << left << setw(10)
@@ -58,7 +58,7 @@ bool ChooseBack(int& books) {
 
 	// this is pure math
 
-	if (books + 1 == (int)BOOK_PER_PAGE) {
+	if (books + 1 == (int) BOOK_PER_PAGE) {
 		cout << "Ban dang o trang cao nhat" << endl;
 		cout << "Moi nhap lai: ";
 		return true;
@@ -82,12 +82,12 @@ void ChooseBookInformation(json& bookdata, int& BookToShow) {
 
 	BookToShow--;
 
-	cout << "Ten sach:" << bookdata.at("BookLibrary")[BookToShow].at("Title") << endl;
+	cout << "Ten sach:" << bookdata.at("BookLibrary")[BookToShow].at("Title")
+	     << endl;
 
 	cout << "Tac gia:" << endl;
 	int num_Author = bookdata.at("BookLibrary")[BookToShow].at("Author").size();
-	for (int author = 0; author < num_Author;
-	     author++) {
+	for (int author = 0; author < num_Author; author++) {
 		if (author == 3) {
 			cout << ", va nhieu tac gia khac";
 			break;
@@ -98,12 +98,14 @@ void ChooseBookInformation(json& bookdata, int& BookToShow) {
 			else
 				cout << ", ";
 		}
-		string Author = bookdata.at("BookLibrary")[BookToShow].at("Author")[author];
+		string Author =
+		  bookdata.at("BookLibrary")[BookToShow].at("Author")[author];
 		cout << Author;
 	}
 	cout << "." << endl;
 
-	cout << "So luong sach: " << bookdata.at("BookLibrary")[BookToShow].at("BookNumber") << endl;
+	cout << "So luong sach: "
+	     << bookdata.at("BookLibrary")[BookToShow].at("BookNumber") << endl;
 
 	cout << "Muon sach: " << true << endl;
 
@@ -111,7 +113,7 @@ void ChooseBookInformation(json& bookdata, int& BookToShow) {
 	if (/*mua sach duoc*/ true) cout << "Gia sach: $" << 10.00 << endl;
 
 	cout << "Noi dung sach: " << endl;
-	
+
 	string Content = bookdata.at("BookLibrary")[BookToShow].at("Content");
 	cout << Content;
 
@@ -146,7 +148,7 @@ void ChooseBook(json& bookdata, int& books) {
 			// a number not numbers
 			// so if the user enter exceeding that
 			// don't f*#^%*#% care
-			int BookToShow;
+			int BookToShow = -1;
 			scin >> BookToShow;
 			if (scin.fail()) {
 				cout << "Ban khong nhap dung cu phap" << endl;
@@ -231,6 +233,17 @@ void ChooseBook(json& bookdata, int& books) {
 
 		else if (TempString == "--bosuutap") {
 			// I don't know
+		}
+
+		else if (TempString == "--cart") {
+			int BookCart = -1;
+			scin >> BookCart;
+			if (scin.fail()) {
+				cout << "Ban khong nhap dung cu phap" << endl;
+				continue;
+			}
+
+			AddtoCart(bookdata, BookCart);
 		}
 
 		else if (TempString == "--refresh") {

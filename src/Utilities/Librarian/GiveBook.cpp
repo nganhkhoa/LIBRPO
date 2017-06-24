@@ -2,8 +2,8 @@
  * @CreateTime: Jun 18, 2017 10:02 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 22, 2017 10:42 AM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 24, 2017 3:20 PM
  * @Description: Đưa sách cho người nhận, có xác nhận tài khoản
  */
 
@@ -99,12 +99,34 @@ void AddBorrowBook(int& submitid) {
 				cout << "Cap nhat du lieu sach khong thanh cong" << endl;
 				pausescreen();
 			}
+
+			string userid = Submit.at("Checked")[index].at("User");
+			RemoveFromCart(ISBN, userid);
 			return;
 		}
 	}
 }
 
-void CreateUserBorrow(string& userID, int& submitid) {
+bool MaxBorrowReached(string& userID) {
+	unsigned int user_place = FindUserID(userID);
+	json this_user          = UserDataJSON.at("UserList")[user_place];
+	int cart_key            = this_user.count("Cart");
+	if (cart_key == 0) return false;
+	unsigned int num_cart = this_user.at("Cart").size();
+	if (num_cart == 4)
+		return true;
+	else
+		return false;
+}
+
+bool CreateUserBorrow(string& userID, int& submitid) {
+
+	if (MaxBorrowReached(userID)) {
+		cout << "Ban hien khong the muon sach duoc" << endl;
+		cout << "Hay tra sach ban dang muon" << endl;
+		return false;
+	}
+
 	json Submit            = readSubmitBorrow();
 	unsigned int num_check = Submit.at("Checked").size();
 
@@ -133,9 +155,10 @@ void CreateUserBorrow(string& userID, int& submitid) {
 				cout << "Cap nhat nguoi dung khong thanh cong" << endl;
 				pausescreen();
 			}
-			return;
+			return true;
 		}
 	}
+	return false;
 }
 
 int ChooseSubmitID(vector<unsigned int>& submitid_list) {
@@ -246,7 +269,7 @@ void GiveBook() {
 	int submitid = ChooseSubmitID(submitid_list);
 	if (submitid == -1) return;
 
-	CreateUserBorrow(userID, submitid);
+	if (!CreateUserBorrow(userID, submitid)) return;
 	AddBorrowBook(submitid);
 
 	unsigned int pending_place = GetPendingPlace(submitid);

@@ -44,26 +44,26 @@ unsigned int CalculateFine(int& submitid) {
 	int submit_place        = -1;
 
 	for (unsigned int index = 0; index < num_return; index++) {
-		json this_submition = borrowLog.at("Accepted").at("Returned")[index];
-		if (this_submition.at("Submit ID") == submitid) {
+		json this_Submission = borrowLog.at("Accepted").at("Returned")[index];
+		if (this_Submission.at("Submit ID") == submitid) {
 			submit_place = index;
 			break;
 		}
 	}
 
-	json this_submition = borrowLog.at("Accepted").at("Returned")[submit_place];
-	string returndate   = this_submition.at("Returned Date");
-	string borrowdate   = this_submition.at("Received Date");
+	json this_Submission =
+	  borrowLog.at("Accepted").at("Returned")[submit_place];
+	string returndate = this_Submission.at("Returned Date");
+	string borrowdate = this_Submission.at("Received Date");
 
-	int borrowdate_int = stoi(borrowdate);
-	int returndate_int = stoi(returndate);
+	double borrowdate_double = stod(borrowdate);
+	double returndate_double = stod(returndate);
 
-	double days_elapse = returndate_int - borrowdate_int;
+	unsigned int days_elapse = returndate_double - borrowdate_double;
 	days_elapse /= (60 * 60 * 24);
 
-	unsigned int dayslate = days_elapse - 7 * MAX_WEEK_BORROW;
+	if (days_elapse < 7 * MAX_WEEK_BORROW) return 0;
 
-	if (dayslate > 0) { return dayslate; }
-	else
-		return 0;
+	unsigned int dayslate = days_elapse - 7 * MAX_WEEK_BORROW;
+	return dayslate;
 }

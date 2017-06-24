@@ -1100,21 +1100,21 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 \begin{verbatim}
                     IF(!Read JSON file) escape;
                     ENDIF
-                    IF(!there is submition) escape;
+                    IF(!there is Submission) escape;
                     ELSE
-                      Read Submitions in Submition file;
-                      Find BookIndex and UserID in specIFic Submition;
+                      Read Submissions in Submission file;
+                      Find BookIndex and UserID in specIFic Submission;
                       Show selection
                             IF(Accept)
-                                  Record accepting new submition
+                                  Record accepting new Submission
                                   to pending place in BorrowLog file;
 
-                            ELSE Record accepting new submition
+                            ELSE Record accepting new Submission
                             to rejected place in BorrowLog file;
                             ENDIF
                     ENDIF
-                    Move browsed submition to checked list in Submition file;
-                    Update Submition file;
+                    Move browsed Submission to checked list in Submission file;
+                    Update Submission file;
                 \end{verbatim}
                 \newpage
                 \textbf{Function: GiveBook}
@@ -1127,7 +1127,7 @@ LIBPRO. được sự gợi ý và thúc đẩy của các Giảng viên Môn K�
                 \begin{verbatim}
                     Reader login before getting book (username and password);
                     IF (correct User Submit)
-                          Find Submition of that Reader;
+                          Find Submission of that Reader;
                           Create Borrowed Book in Reader user profile;
                           Add Borrowed Book in Book Library file;
                           Move submititon from pending place to receive place;

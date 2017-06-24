@@ -3,11 +3,12 @@
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
  * @Last Modified By: undefined
- * @Last Modified Time: Jun 18, 2017 11:04 PM
+ * @Last Modified Time: Jun 24, 2017 3:20 PM
  * @Description: Đọc và ghi các dữ liệu về profile
  */
 
 #include <Data/ReadDataJSON.h>
+#include <Find/Find.h>
 
 using namespace std;
 using json = nlohmann::json;
@@ -17,9 +18,9 @@ bool ReadUserDataJSON() {
 
 	if (!userfile.is_open()) {
 		cout << "File userdata.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
@@ -32,9 +33,9 @@ bool UpdateUserDataJSON() {
 
 	if (!userfile.is_open()) {
 		cout << "File userdata.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
@@ -48,9 +49,9 @@ json readSignUp() {
 
 	if (!signupfile.is_open()) {
 		cout << "File signup.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return NULL;
 	}
 
@@ -63,9 +64,9 @@ bool updateSignUp(json& SignUp) {
 
 	if (!signupfile.is_open()) {
 		cout << "File signup.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
@@ -79,9 +80,9 @@ json readRejected() {
 
 	if (!rejectfile.is_open()) {
 		cout << "File user_rejected.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
@@ -94,9 +95,9 @@ bool updateRejected(json& Rejected) {
 
 	if (!rejectfile.is_open()) {
 		cout << "File rejected.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
@@ -110,9 +111,9 @@ json readDeleted() {
 
 	if (!Deletefile.is_open()) {
 		cout << "File user_Deleted.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
@@ -125,12 +126,29 @@ bool updateDeleted(json& Deleted) {
 
 	if (!Deletefile.is_open()) {
 		cout << "File Deleted.json open failed" << endl;
-		#ifndef NDEBUG
+#ifndef NDEBUG
 		pausescreen();
-		#endif
+#endif
 		return false;
 	}
 
 	Deletefile << Deleted.dump(4);
 	return true;
+}
+
+
+void RemoveFromCart(string& ISBN, string& userid) {
+	unsigned int user_place = FindUserID(userid);
+	json cart             = UserDataJSON.at("UserList")[user_place].at("Cart");
+	json new_cart         = json::array();
+	unsigned int num_cart = cart.size();
+
+	for (unsigned int index = 0; index < num_cart; index++) {
+		string ISBN_data = cart[index];
+		if (ISBN == ISBN_data) continue;
+		new_cart.push_back(ISBN_data);
+	}
+	UserDataJSON.at("UserList")[user_place].at("Cart") = new_cart;
+	UpdateUserDataJSON();
+	return;
 }

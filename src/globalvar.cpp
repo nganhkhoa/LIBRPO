@@ -67,7 +67,7 @@ std::string FILERejected_JSON   = FILEDIRECTORY + "user_rejected.json";
 std::string FILEDeleted_JSON    = FILEDIRECTORY + "user_deleted.json";
 
 std::string SUBMITDIRECTORY = "borrow/";
-std::string FILESubmition   = SUBMITDIRECTORY + "submition.json";
+std::string FILESubmission  = SUBMITDIRECTORY + "Submission.json";
 std::string FILEborrowLog   = SUBMITDIRECTORY + "borrowLog.json";
 
 std::string ADMINDIRECTORY = "admin/";

@@ -45,22 +45,22 @@ void Librarian() {
 	while (true) {
 		enum Choice
 		{
-			ChoiceBrowseBorrowSubmition = 1,
+			ChoiceBrowseBorrowSubmission = 1,
 			ChoiceGetBorrowBook,
-			ChoiceBrowseBuySubmition,
+			ChoiceBrowseBuySubmission,
 			ChoiceGetBuyBook,
 			eChoiceAddBook,
 			ChoiceModifyBook,
 			Exit
 		};
 		switch (LibrarianChoice()) {
-			case ChoiceBrowseBorrowSubmition: BrowseBorrowBook(); break;
+			case ChoiceBrowseBorrowSubmission: BrowseBorrowBook(); break;
 			case ChoiceGetBorrowBook:
 				cin.ignore();
 				GiveBook();
 				break;
-			case ChoiceBrowseBuySubmition:
-				// ChoiceBrowseBuySubmition();
+			case ChoiceBrowseBuySubmission:
+				// ChoiceBrowseBuySubmission();
 				break;
 			case ChoiceGetBuyBook: break;
 			case eChoiceAddBook:

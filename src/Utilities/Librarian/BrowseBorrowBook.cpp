@@ -48,23 +48,23 @@ void updateBorrowLog(unsigned int& submitid, bool accepted) {
 
 void RejectSubmit(json& Submit, unsigned int& submit_index) {
 	unsigned int rejected =
-	  Submit.at("Submition")[submit_index].at("Submit ID");
+	  Submit.at("Submission")[submit_index].at("Submit ID");
 	updateBorrowLog(rejected, false);
 }
 void AcceptSubmit(json& Submit, unsigned int& submit_index) {
 	unsigned int accepted =
-	  Submit.at("Submition")[submit_index].at("Submit ID");
+	  Submit.at("Submission")[submit_index].at("Submit ID");
 	updateBorrowLog(accepted, true);
 }
-bool CheckedSubmition(json& Submit, unsigned int& submit_index_delete) {
-	json new_data         = json::object();
-	new_data["Submition"] = json::array();
-	new_data["Checked"]   = Submit.at("Checked");
+bool CheckedSubmission(json& Submit, unsigned int& submit_index_delete) {
+	json new_data          = json::object();
+	new_data["Submission"] = json::array();
+	new_data["Checked"]    = Submit.at("Checked");
 
-	json delete_data = Submit.at("Submition")[submit_index_delete];
+	json delete_data = Submit.at("Submission")[submit_index_delete];
 	bool deleted     = false;
 
-	unsigned int num_submit = Submit.at("Submition").size();
+	unsigned int num_submit = Submit.at("Submission").size();
 	for (unsigned int submit_index = 0; submit_index < num_submit;
 	     submit_index++) {
 
@@ -76,12 +76,12 @@ bool CheckedSubmition(json& Submit, unsigned int& submit_index_delete) {
 		}
 
 		if (!deleted) {
-			new_data.at("Submition")[submit_index] =
-			  Submit.at("Submition")[submit_index];
+			new_data.at("Submission")[submit_index] =
+			  Submit.at("Submission")[submit_index];
 		}
 		else {
-			new_data.at("Submition")[submit_index - 1] =
-			  Submit.at("Submition")[submit_index];
+			new_data.at("Submission")[submit_index - 1] =
+			  Submit.at("Submission")[submit_index];
 		}
 	}
 
@@ -137,16 +137,16 @@ void ShowSubmitInfo(unsigned int& book_place, unsigned int& user_place) {
 	cout << "___________________________________" << endl;
 }
 
-void ValidateSubmition() {
+void ValidateSubmission() {
 	json Submit             = readSubmitBorrow();
-	unsigned int num_submit = Submit.at("Submition").size();
+	unsigned int num_submit = Submit.at("Submission").size();
 	for (unsigned int submit_index = 0; submit_index < num_submit;
 	     submit_index++) {
 
 		clearscreen();
 
-		string ISBN   = Submit.at("Submition")[submit_index].at("ISBN");
-		string UserID = Submit.at("Submition")[submit_index].at("User");
+		string ISBN   = Submit.at("Submission")[submit_index].at("ISBN");
+		string UserID = Submit.at("Submission")[submit_index].at("User");
 
 
 		unsigned int action = 0;
@@ -158,7 +158,7 @@ void ValidateSubmition() {
 			ShowSubmitInfo(book_place, user_place);
 			action = ActionSubmit();
 		}
-		
+
 		if (action == 3) return;
 
 		if (action == 1)
@@ -168,14 +168,14 @@ void ValidateSubmition() {
 			// NotifyUser(Submit, submit_index);
 		}
 
-		if (!CheckedSubmition(Submit, submit_index)) {
+		if (!CheckedSubmission(Submit, submit_index)) {
 			cout << "Khong cap nhat thanh cong" << endl;
 			cout << "Bam enter de quay ve" << endl;
 			pausescreen();
 			return;
 		}
 		Submit     = readSubmitBorrow();
-		num_submit = Submit.at("Submition").size();
+		num_submit = Submit.at("Submission").size();
 		submit_index--;
 	}
 
@@ -197,13 +197,13 @@ void BrowseBorrowBook() {
 		return;
 	}
 
-	if (Submit.at("Submition").size() == 0) {
+	if (Submit.at("Submission").size() == 0) {
 		cout << "Khong co yeu cau muon sach moi" << endl;
 		cout << "Ban enter de quay ve" << endl;
 		pausescreen();
 		return;
 	}
 
-	ValidateSubmition();
+	ValidateSubmission();
 	return;
 }
