@@ -3,7 +3,7 @@
 *	Created on 30/4/2017, ‏‎11:59:37
 *	Created by Luibo
 *	LIBPRO LIBRARY SYSTEM
-*	Version: 1.0.0
+*	Version: 1.2.10
 */
 
 /*

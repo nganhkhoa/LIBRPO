@@ -60,6 +60,7 @@ void UserLogInScreen() {
 	enum WelcomeUserChoice
 	{
 		LogoutUser = 1,
+		NewAccount,
 		SettingUser,
 		ChooseAccount,
 		CreateAccount,
@@ -78,6 +79,10 @@ void UserLogInScreen() {
 			}
 			break;
 		}
+		case NewAccount:
+			cin.ignore();
+			AccountCreation();
+			break;
 		case SettingUser: Setting(); break;
 		case ChooseAccount: AccountChoose(); break;
 		case CreateAccount:

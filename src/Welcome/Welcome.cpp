@@ -41,27 +41,29 @@ int WelcomeUser() {
 	cout << left << setw(5) << "1\t"
 	     << "Dang xuat" << endl;
 	cout << left << setw(5) << "2\t"
-	     << "Cai dat" << endl;
+	     << "Tao tai khoan moi" << endl;
 	cout << left << setw(5) << "3\t"
-	     << "Chon tai khoan" << endl;
+	     << "Cai dat" << endl;
 	cout << left << setw(5) << "4\t"
-	     << "Tao tai khoan" << endl;
+	     << "Chon tai khoan" << endl;
 	cout << left << setw(5) << "5\t"
-	     << "Duyet" << endl;
+	     << "Tao tai khoan" << endl;
 	cout << left << setw(5) << "6\t"
-	     << "Huong dan thu vien" << endl;
+	     << "Duyet" << endl;
 	cout << left << setw(5) << "7\t"
+	     << "Huong dan thu vien" << endl;
+	cout << left << setw(5) << "8\t"
 	     << "Thoat" << endl;
 
 	if (UserDataJSON.at("UserList")[CurrentUser.User_num].at("First")) {
 		cout << endl << endl;
 		cout << "Chao mung ban lan dau den voi LIBPRO" << endl;
-		cout << "Chung toi khuyen ban chon so 2 de doi mat khau" << endl;
+		cout << "Chung toi khuyen ban chon so 3 de doi mat khau" << endl;
 	}
 	int Choice = 0;
 	cout << "Lua chon chuc nang: ";
 	cin >> Choice;
-	while (Choice > 7 || Choice < 1) {
+	while (Choice > 8 || Choice < 1) {
 		cout << "Chuc nang khong co, moi nhap lai: ";
 		cin >> Choice;
 	}
