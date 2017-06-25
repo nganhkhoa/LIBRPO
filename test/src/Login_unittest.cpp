@@ -2,8 +2,8 @@
  * @CreateTime: Jun 19, 2017 3:58 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 19, 2017 4:00 PM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 25, 2017 9:25 AM
  * @Description:
  *
  * Test tất cả trường hợp lúc đăng nhập
@@ -18,9 +18,20 @@
 #include <Data/ReadDataJSON.h>
 #include <Login/Login.h>
 
-std::vector<std::string> right_names = {"khoa", "thuthao"};
-std::vector<std::string> right_pwds  = {"1234", "1234"};
+std::vector<std::string> right_names = {"khoa", "khoi", "nam"};
+std::vector<std::string> right_pwds  = {"1234", "2345", "aaaa"};
 
+// sample data
+nlohmann::json sampleUserDataJSON = {{"UserList",
+                                      {{{"Username", right_names[0]},
+                                        {"Password", right_pwds[0]},
+                                        {"First", false}},
+                                       {{"Username", right_names[1]},
+                                        {"Password", right_pwds[1]},
+                                        {"First", false}},
+                                       {{"Username", right_names[2]},
+                                        {"Password", right_pwds[2]},
+                                        {"First", false}}}}};
 
 TEST(Login, EmptyData) {
 	std::string username = "khoa";
@@ -32,12 +43,17 @@ TEST(Login, EmptyData) {
 	user_json["UserList"]    = nlohmann::json::array();
 	UserDataJSON             = user_json;
 
-	EXPECT_EQ(-1, ValidateUserLogin(username, pwd));
+	int num_user = right_names.size();
 
-	ReadUserDataJSON();
+	for (int index = 0; index < num_user; index++) {
+		EXPECT_EQ(-1, ValidateUserLogin(right_names[index], right_pwds[index]));
+	}
 }
 
+
 TEST(Login, AllUserRightPassword) {
+
+	UserDataJSON = sampleUserDataJSON;
 
 	int num_user = right_names.size();
 
@@ -48,7 +64,11 @@ TEST(Login, AllUserRightPassword) {
 }
 
 TEST(Login, AllUserWrongPassword) {
-	std::vector<std::string> pwds = {"aegasgdsgag", "aFASGASDGASGA"};
+
+	UserDataJSON = sampleUserDataJSON;
+
+	std::vector<std::string> pwds = {
+	  "sgkjasldkg", "asdlkgjalskdgj", "alskdgjlksdgj"};
 
 	int num_user = right_names.size();
 
@@ -58,7 +78,10 @@ TEST(Login, AllUserWrongPassword) {
 }
 
 TEST(Login, WrongUser) {
-	std::vector<std::string> names = {"khoa123", "thuthaoabc"};
+
+	UserDataJSON = sampleUserDataJSON;
+
+	std::vector<std::string> names = {"khoa123", "khoi1111", "nam2424"};
 
 	int num_user = names.size();
 
