@@ -7,6 +7,13 @@
 #include "Admin.h"
 #include "Money.h"
 
+#include "NhaSuuTam.h"
+#include "Reviewer.h"
+#include "Audio.h"
+#include "Documentary.h"
+#include "Ebook.h"
+
+
 int ChooseUtilities();
 void Utilities();
 

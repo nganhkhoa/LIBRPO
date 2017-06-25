@@ -55,8 +55,8 @@ void Utilities() {
 			DocGiaRole = 1,
 			NhaSuuTamRole,
 			ReviewerRole,
-			CDRole,
-			MovieRole,
+			AudioRole,
+			DocumentaryRole,
 			EbookRole,
 			// VipRole, // no, vip has all of the above
 			ThuThuRole = 8,
@@ -70,6 +70,12 @@ void Utilities() {
 				pausescreen();
 				Reader();
 				break;
+
+			case NhaSuuTamRole: NHASUUTAM(); break;
+			case ReviewerRole: REVIEWER(); break;
+			case AudioRole: AUDIO(); break;
+			case DocumentaryRole: DOCUMENTARY(); break;
+			case EbookRole: EBOOK(); break;
 			case ThuThuRole:
 				cout << "Ban dang lua chon chuc nang thu thu" << endl;
 				pausescreen();
