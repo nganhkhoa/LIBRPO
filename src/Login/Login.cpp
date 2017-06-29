@@ -2,8 +2,8 @@
  * @CreateTime: Jun 18, 2017 10:09 PM
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
- * @Last Modified By: luibo
- * @Last Modified Time: Jun 19, 2017 3:49 PM
+ * @Last Modified By: undefined
+ * @Last Modified Time: Jun 25, 2017 10:58 AM
  * @Description: Xác nhận người dùng và đăng nhập
  */
 
@@ -83,7 +83,7 @@ bool UserLoginPrompt(bool& Continue) {
 	if (user_num == -1) {
 		cout << "Khong the dang nhap" << endl;
 		cout << "Du lieu nguoi dung khong ton tai" << endl;
-		system("pause");
+		pausescreen();
 		Continue = false;
 		return false;
 	}

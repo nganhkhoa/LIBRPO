@@ -7,72 +7,73 @@
 */
 
 /*
-		DESCRIPTION
-	//The program description is
-	//to be placed here
-	The LIBPRO library management system
+        DESCRIPTION
+    //The program description is
+    //to be placed here
+    The LIBPRO library management system
 */
 
 /*
-		TO DO LIST
-	//Things need to be done
-	//Help yourself
+        TO DO LIST
+    //Things need to be done
+    //Help yourself
 
-		User management
-	~~Read data~~
-	~~Login screen with username /no password~~
-	~~Choose account after username insert correct~~
-	~~Input password and check~~
-	~~Change password~~
-	New book notification
+        User management
+    ~~Read data~~
+    ~~Login screen with username /no password~~
+    ~~Choose account after username insert correct~~
+    ~~Input password and check~~
+    ~~Change password~~
+    New book notification
 
-		Find book
-	~~Find with one word~~
-	~~Find with multiple word~~
-	Find with string metric
-	Find using Levenshtein distance
-	Choose book to put to cart
-	Remove book from cart
-	~~!!!Split page~~
+        Find book
+    ~~Find with one word~~
+    ~~Find with multiple word~~
+    Find with string metric
+    Find using Levenshtein distance
+    Choose book to put to cart
+    Remove book from cart
+    ~~!!!Split page~~
 
-		Borrow book
-	~~Number of books~~
-	~~Number of books borrowing~~ // one only
-	Borrow book(s)
-	Return book(s)
-	Fine if return late
+        Borrow book
+    ~~Number of books~~
+    ~~Number of books borrowing~~ // one only
+    Borrow book(s)
+    Return book(s)
+    Fine if return late
 
-		History
-	???????????????
-	~~Log in and log out~~
+        History
+    ???????????????
+    ~~Log in and log out~~
 
 
-				UserScope
+                UserScope
 Reader
-	~~Find~~
-	~~Return~~
+    ~~Find~~
+    ~~Return~~
 
 Thu thu
-	???????????????????????
+    ???????????????????????
 
 Manager
-	~~Add user~~
-	~~Delete user~~
-	Modify user
-	~~Search user~~
-	~~Reset password for user~~
-	~~Look and unlock user~~
+    ~~Add user~~
+    ~~Delete user~~
+    Modify user
+    ~~Search user~~
+    ~~Reset password for user~~
+    ~~Look and unlock user~~
 
 
 */
 
 /*
-		FUNCTION
-	//Keep track with function to work
+        FUNCTION
+    //Keep track with function to work
 
 */
-
+#ifdef UNITTEST
 #include <gtest/gtest.h>
+#endif
 
 #include <CommonLib.h>
 
@@ -92,7 +93,7 @@ int main(int argc, char** argv) {
 	if (argc == 2) {
 		if (strcmp(argv[1], "--version") == 0) {
 			cout << "LIBPRO VERSION: " << LIBPRO_VERSION_MAJOR << "."
-				 << LIBPRO_VERSION_MINOR << "." << LIBPRO_VERSION_FIX << endl;
+			     << LIBPRO_VERSION_MINOR << "." << LIBPRO_VERSION_FIX << endl;
 			cout << "Welcome to LIBPRO" << endl;
 			return 1;
 		}
@@ -114,51 +115,51 @@ int main(int argc, char** argv) {
 
 			cout << setw(15) << " " << endl << endl;
 			cout << setw(15) << " "
-				 << "LIBPRO " << LIBPRO_VERSION_MAJOR << "."
-				 << LIBPRO_VERSION_MINOR << "." << LIBPRO_VERSION_FIX << endl;
+			     << "LIBPRO " << LIBPRO_VERSION_MAJOR << "."
+			     << LIBPRO_VERSION_MINOR << "." << LIBPRO_VERSION_FIX << endl;
 			cout << setw(15) << " "
-				 << "Lap trinh boi nhom SIMple" << endl;
+			     << "Lap trinh boi nhom SIMple" << endl;
 			cout << setw(15) << " "
-				 << "Ban quyen thuoc ve nhom SIMple" << endl;
+			     << "Ban quyen thuoc ve nhom SIMple" << endl;
 			cout << setw(15) << " "
-				 << "Bai tap lon so 2" << endl;
+			     << "Bai tap lon so 2" << endl;
 			cout << setw(15) << " "
-				 << "Ky thuat lap trinh" << endl;
+			     << "Ky thuat lap trinh" << endl;
 
 			cout << setw(15) << " " << endl;
 			cout << setw(15) << " " << endl;
 			cout << setw(15) << " "
-				 << ">>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<" << endl;
+			     << ">>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<" << endl;
 			cout << setw(15) << " "
-				 << "https://thaoxkhoa.visualstudio.com/LIBPRO" << endl;
+			     << "https://thaoxkhoa.visualstudio.com/LIBPRO" << endl;
 			cout << setw(15) << " "
-				 << "https://github.com/nganhkhoa/LIBRPO" << endl;
+			     << "https://github.com/nganhkhoa/LIBRPO" << endl;
 			cout << setw(15) << " "
-				 << ">>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<" << endl;
+			     << ">>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<" << endl;
 			cout << setw(15) << " " << endl;
 
 			cout << setw(15) << " " << endl;
 			cout << setw(15) << " "
-				 << "Danh sach thanh vien: " << endl;
+			     << "Danh sach thanh vien: " << endl;
 			cout << setw(15) << " "
-				 << "Nguyen Anh Khoa  - 1611617" << endl;
+			     << "Nguyen Anh Khoa  - 1611617" << endl;
 			cout << setw(15) << " "
-				 << "Nguyen Minh Khoi - 1611657" << endl;
+			     << "Nguyen Minh Khoi - 1611657" << endl;
 			cout << setw(15) << " "
-				 << "Pham Quoc Nam    - 1612128" << endl;
+			     << "Pham Quoc Nam    - 1612128" << endl;
 			cout << setw(15) << " " << endl;
 
 			cout << setw(15) << " " << endl;
 			cout << setw(15) << " "
-				 << "Dai hoc Bach Khoa TPHCM" << endl;
+			     << "Dai hoc Bach Khoa TPHCM" << endl;
 			cout << setw(15) << " "
-				 << "Khoa khoa hoc va ky thuat may tinh" << endl;
+			     << "Khoa khoa hoc va ky thuat may tinh" << endl;
 			cout << setw(15) << " "
-				 << "Lop MT16, khoa 2016, BK16" << endl;
+			     << "Lop MT16, khoa 2016, BK16" << endl;
 			cout << setw(15) << " "
-				 << "____________________________________________" << endl;
+			     << "____________________________________________" << endl;
 			cout << setw(15) << " "
-				 << "Written by LUIBO" << endl;
+			     << "Written by LUIBO" << endl;
 			cout << setw(15) << " " << endl;
 			return 1;
 		}
@@ -190,9 +191,9 @@ int main(int argc, char** argv) {
 		return -1;
 	}
 #ifndef NDEBUG
-		cout << UserDataJSON.dump(4) << endl;
-		pausescreen();
-		clearscreen();
+	cout << UserDataJSON.dump(4) << endl;
+	pausescreen();
+	clearscreen();
 #endif
 
 	// ────────────────────────────────────────────────────────────────────────────────
@@ -213,9 +214,9 @@ int main(int argc, char** argv) {
 		return -1;
 	}
 #ifndef NDEBUG
-		cout << BookDataJSON.dump(4) << endl;
-		pausescreen();
-		clearscreen();
+	cout << BookDataJSON.dump(4) << endl;
+	pausescreen();
+	clearscreen();
 #endif
 // ────────────────────────────────────────────────────────────────────────────────
 

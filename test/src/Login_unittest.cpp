@@ -3,11 +3,16 @@
  * @Author: luibo
  * @Contact: ng.akhoa@yahoo.com.vn
  * @Last Modified By: undefined
- * @Last Modified Time: Jun 25, 2017 9:25 AM
+ * @Last Modified Time: Jun 25, 2017 9:31 AM
  * @Description:
  *
  * Test tất cả trường hợp lúc đăng nhập
  * Yeah
+ *
+ * Còn thiếu
+ * (mã hoá)
+ * nếu là lần đầu đăng nhập, không hash chuỗi nhập vào
+ * nếu không phải lần đầu, hash chuỗi nhập và so sánh
  */
 
 
@@ -34,8 +39,6 @@ nlohmann::json sampleUserDataJSON = {{"UserList",
                                         {"First", false}}}}};
 
 TEST(Login, EmptyData) {
-	std::string username = "khoa";
-	std::string pwd      = "123";
 
 	// khi khong co du lieu
 

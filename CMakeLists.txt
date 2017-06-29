@@ -48,16 +48,22 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 		add_definitions(-DUNITTEST)
 
 		file(GLOB_RECURSE TEST_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "test/src/*.cpp")
-		set(ALL_FILES ${SOURCES}\  ${HEADERS}\  ${RESOURCE}\  ${TEST_SOURCES})
+		include_directories("googletest/include")
+
+		set(ALL_FILES ${SOURCES} ${TEST_SOURCES})
 		add_executable(${PROJECT_NAME}_TEST ${ALL_FILES})
 
-		LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/libs)
-		file(GLOB_RECURSE LIBRARIES "${LIBS_FOLDER}/*.a")
+		LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/${LIBS_FOLDER})
+		if(WIN32)
+			file(GLOB_RECURSE LIBRARIES "${LIBS_FOLDER}/*.so")
+		elseif(UNIX)
+			file(GLOB_RECURSE LIBRARIES "${LIBS_FOLDER}/*.so")
+		endif()
 		target_link_libraries(${PROJECT_NAME}_TEST ${LIBRARIES})
 
 	else(TEST)
 
-		set(ALL_FILES ${SOURCES} ${HEADERS})
+		set(ALL_FILES ${SOURCES})
 		add_executable(${PROJECT_NAME} ${ALL_FILES})
 		
 	endif(TEST)
