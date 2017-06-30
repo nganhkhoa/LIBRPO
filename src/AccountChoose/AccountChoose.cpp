@@ -5,7 +5,7 @@
  * @Last Modified By: luibo
  * @Last Modified Time: Jun 18, 2017 10:18 PM
  * @Description: Chọn tài khoản lúc đăng nhập
- * 
+ *
  * Càn kiểm tra thêm các trường hợp không thể đăng nhập
  */
 
@@ -68,15 +68,7 @@ unsigned int ShowAccountList() {
 	cout << num_account + 1 << ".\tThoat" << endl;
 	cout << "Moi ban chon: ";
 
-	unsigned int Choice = 0;
-	cin >> Choice;
-	while (Choice < 1 || Choice > num_account + 1) {
-		cout << "Lua chon khong hop le" << endl;
-		cout << "Moi ban chon lai: " << endl;
-		cin >> Choice;
-	}
-
-	return Choice;
+	return (unsigned int) ChoiceInput(num_account + 1);
 }
 
 void AccountChoose() {

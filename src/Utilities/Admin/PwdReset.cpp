@@ -27,9 +27,9 @@ void PwdReset() {
 	clearscreen();
 	cout << "Dat lai mat khau cho nguoi dung, ket qua" << endl;
 	cout << "________________________________________" << endl;
-	cout << "Tai khoan so: " << userid << endl;
+	cout << "Tai khoan so:  " << userid << endl;
 	cout << "Ten tai khoan: " << username << endl;
-	cout << "Mat khau moi: " << pwd << endl;
+	cout << "Mat khau moi:  " << pwd << endl;
 	cout << "________________________________________" << endl;
 	return;
 }

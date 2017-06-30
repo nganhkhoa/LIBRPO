@@ -76,15 +76,7 @@ unsigned int ValidateUser() {
 	cout << "3.\t"
 	     << "Thoat" << endl;
 
-	unsigned int Choice = 0;
-	cin >> Choice;
-
-	while (Choice < 1 || Choice > 3) {
-		cout << "Lua chon khong hop le" << endl;
-		cout << "Moi ban nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return (unsigned int) ChoiceInput(3);
 }
 
 void ShowSignUpData(json& new_signup) {

@@ -69,16 +69,7 @@ bool NewCommonUser(NewUser& NewCreation) {
 	cout << "           1. Nam" << endl;
 	cout << "           2. Nu" << endl;
 	cout << "           3. Trong" << endl;
-	int Choice = 0;
-	cout << "Chon: ";
-	cin >> Choice;
-
-	while (Choice < 1 || Choice > 3) {
-		cout << "Ban chon khong hop le," << endl;
-		cout << "Vui long chon lai" << endl;
-		cout << "Lua chon moi: ";
-		cin >> Choice;
-	}
+	int Choice = ChoiceInput(3);
 
 	switch (Choice) {
 		case 1: NewCreation.Gender = "Male"; break;
@@ -121,15 +112,7 @@ bool SignUpUser(NewUser& NewCreation) {
 	cout << "De dang ky nhanh, ban nhap 2" << endl;
 
 	cout << "Lua chon: ";
-	int Choice = 0;
-	cin >> Choice;
-
-	while (Choice < 1 || Choice > 2) {
-		cout << "Ban chon khong hop le," << endl;
-		cout << "Vui long chon lai" << endl;
-		cout << "Lua chon moi: ";
-		cin >> Choice;
-	}
+	int Choice = ChoiceInput(2);
 
 	if (Choice == 1) ExpandSignUp(NewCreation);
 
@@ -178,13 +161,7 @@ void SignUp() {
 		cout << "2.\tToi thay co thong tin sai, huy" << endl;
 		cout << "3.\tThoat" << endl;
 		cout << "Lua chon cua ban: ";
-		unsigned int Choice = 0;
-		cin >> Choice;
-		while (Choice < 1 || Choice > 3) {
-			cout << "Lua chon khong hop le" << endl;
-			cout << "Moi ban nhap lai: " << endl;
-			cin >> Choice;
-		}
+		unsigned int Choice = (unsigned int) ChoiceInput(3);
 
 		if (Choice == 3) return;
 

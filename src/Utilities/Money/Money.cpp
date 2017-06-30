@@ -13,7 +13,6 @@ using namespace std;
 
 int MoneyChoice() {
 	clearscreen();
-	int Choice;
 	cout << "1\t"
 	     << "Nap tien" << endl;
 	cout << "2\t"
@@ -21,14 +20,7 @@ int MoneyChoice() {
 	cout << "3\t"
 	     << "Quay ve" << endl;
 
-	cout << "Moi ban chon: ";
-	cin >> Choice;
-	while (Choice < 0 || Choice > 3) {
-		cout << "Lua chon khong co, moi ban chon lai: ";
-		cin >> Choice;
-	}
-
-	return Choice;
+	return ChoiceInput(3);
 }
 
 
@@ -45,8 +37,7 @@ void Money() {
 				cin.ignore();
 				Charge();
 				break;
-			case ChoicePay:
-				break;
+			case ChoicePay: break;
 			case Exit: return;
 		}
 	}

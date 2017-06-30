@@ -5,9 +5,9 @@
  * @Last Modified By: luibo
  * @Last Modified Time: Jun 18, 2017 10:14 PM
  * @Description: In thông tin sách với chia trang
- * 
+ *
  * Chia trang thế nào thì lấy giấy ra kiểm, đụng cái này phiền quá
- * Có nên thực hiện chia hàm nhỏ ra nữa với một hàm để show một cuốn 
+ * Có nên thực hiện chia hàm nhỏ ra nữa với một hàm để show một cuốn
  * và một hàm kiểm tra số trang rồi ghép vô hàm lớn, thấy hơi bự
  */
 
@@ -30,8 +30,7 @@ void ShowAllBook(json& bookdata) {
 		// if less than 3 show all
 		int num_Authors = bookdata.at("BookLibrary")[books].at("Author").size();
 		cout << "Tac gia: ";
-		for (int author = 0; author < num_Authors;
-		     author++) {
+		for (int author = 0; author < num_Authors; author++) {
 			if (author == 3) {
 				cout << ", va nhieu tac gia khac";
 				break;
@@ -42,15 +41,19 @@ void ShowAllBook(json& bookdata) {
 				else
 					cout << ", ";
 			}
-			string Author = bookdata.at("BookLibrary")[books].at("Author")[author];
+			string Author =
+			  bookdata.at("BookLibrary")[books].at("Author")[author];
 			cout << Author;
 		}
 		cout << "." << endl;
 
 		// book quantity
-		cout << "Hien co: "
-		     << bookdata.at("BookLibrary")[books].at("BookNumber") //- bookdata.at("BookLibrary")[books].at("Borrowed")
-		     << " quyen trong kho";
+		cout
+		  << "Hien co: "
+		  << bookdata.at("BookLibrary")[books].at(
+		       "BookNumber")    //-
+		                        //bookdata.at("BookLibrary")[books].at("Borrowed")
+		  << " quyen trong kho";
 
 		cout << endl;
 		cout << "_________________________________________" << endl;
@@ -106,14 +109,5 @@ int ShowBookResult(json& bookdata) {
 	}
 	cout << num_Books + 1 << ": Thoat" << endl;
 
-	cout << "Moi ban chon: ";
-	int Choice = 0;
-	cin >> Choice;
-
-	while (Choice < 1 || Choice > num_Books + 1) {
-		cout << "Lua chon khong co" << endl;
-		cout << "Moi ban nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return ChoiceInput(num_Books + 1);
 }

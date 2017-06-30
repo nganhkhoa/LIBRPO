@@ -24,15 +24,8 @@ int ChooseUtilities() {
 		cout << role + 1 << "\t" << LibraryRole[roleid].RoleName << endl;
 	}
 	cout << CurrentUser.RoleId.size() + 1 << "\t Thoat" << endl;
-	int role = 0;
-	cout << "Ban chon thuc hien chuc nang nao? ";
-	cin >> role;
 
-	while (role < 1 || role > (int) CurrentUser.RoleId.size() + 1) {
-		cout << "Chuc nang khong co, moi chon lai: ";
-		cin >> role;
-	}
-	return role;
+	return ChoiceInput((int) CurrentUser.RoleId.size() + 1);
 }
 
 void Utilities() {

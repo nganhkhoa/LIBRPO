@@ -54,14 +54,7 @@ unsigned int ChooseAccountType() {
 	cout << "Lua chon cua ban?" << endl;
 	cout << "Neu de mac dinh, se la doc gia" << endl;
 	cout << "Lua chon: ";
-	unsigned int Choice = 0;
-	cin >> Choice;
-	while (Choice < 1 || Choice > 8) {
-		cout << "Lua chon khong hop le" << endl;
-		cout << "Ban hay nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return (unsigned int) ChoiceInput(8);
 }
 
 void AccountType() {

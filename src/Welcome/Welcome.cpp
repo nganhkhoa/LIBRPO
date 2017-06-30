@@ -24,18 +24,10 @@ int Welcome() {
 	cout << left << setw(5) << "4\t"
 	     << "Thoat" << endl;
 
-	int Choice = 0;
-	cout << "Lua chon chuc nang: ";
-	cin >> Choice;
-	while (Choice > 4 || Choice < 1) {
-		cout << "Chuc nang khong co, moi nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return ChoiceInput(4);
 }
 int WelcomeUser() {
 	// nothing worth commenting
-	// NewUser because we say hello to user
 	clearscreen();
 	cout << "WELCOME TO LIBPRO " << CurrentUser.Username << endl;
 	cout << left << setw(5) << "1\t"
@@ -60,18 +52,11 @@ int WelcomeUser() {
 		cout << "Chao mung ban lan dau den voi LIBPRO" << endl;
 		cout << "Chung toi khuyen ban chon so 3 de doi mat khau" << endl;
 	}
-	int Choice = 0;
-	cout << "Lua chon chuc nang: ";
-	cin >> Choice;
-	while (Choice > 8 || Choice < 1) {
-		cout << "Chuc nang khong co, moi nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+
+	return ChoiceInput(8);
 }
 int WelcomeAccount() {
 	// nothing worth commenting
-	// NewUser because we say hello to user
 	clearscreen();
 	cout << "WELCOME TO LIBPRO " << CurrentUser.Username << endl;
 	cout << "Ban dang dang nhap duoi tai khoan" << endl;
@@ -89,12 +74,5 @@ int WelcomeAccount() {
 	cout << left << setw(5) << "6\t"
 	     << "Thoat" << endl;
 
-	int Choice = 0;
-	cout << "Lua chon chuc nang: ";
-	cin >> Choice;
-	while (Choice > 6 || Choice < 1) {
-		cout << "Chuc nang khong co, moi nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return ChoiceInput(6);
 }

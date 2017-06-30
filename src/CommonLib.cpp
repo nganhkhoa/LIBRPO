@@ -48,6 +48,17 @@ string TrimString(string& str) {
 	return NewString;
 }
 
+int ChoiceInput(int max) {
+	int Choice = 0;
+	cout << "Lua chon chuc nang: ";
+	cin >> Choice;
+	while (Choice > max || Choice < 1) {
+		cout << "Chuc nang khong co, moi nhap lai: ";
+		cin >> Choice;
+	}
+	return Choice;
+}
+
 
 string HidePassword() {
 	string pwd;
@@ -80,23 +91,23 @@ string HidePassword() {
 }
 
 
-void clearscreen() {
+void clearscreen() {    // system is evil
 #ifdef _WIN32
 	system("cls");
 #endif
 
 #ifdef __unix
-	system("tput clear");
+	system("clear");
 #endif
 }
 
-void pausescreen() {
+void pausescreen() {    // system is evil
 #ifdef _WIN32
 	system("pause");
 #endif
 
 #ifdef __unix
-	std::cout << "Press \'Return\' to end." << std::endl;
+	std::cout << "Press any key to continue" << std::endl;
 	std::cin.get();
 #endif
 }

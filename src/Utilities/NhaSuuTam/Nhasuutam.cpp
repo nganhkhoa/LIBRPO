@@ -13,20 +13,12 @@ using namespace std;
 
 int NHASUUTAMChoice() {
 	clearscreen();
-	int Choice;
 	cout << "1\t"
 	     << "Chuc nang nha suu tap" << endl;
 	cout << "2\t"
 	     << "Thoat" << endl;
 
-	cout << "Moi ban chon: ";
-	cin >> Choice;
-	while (Choice < 0 || Choice > 2) {
-		cout << "Lua chon khong co, moi ban chon lai: ";
-		cin >> Choice;
-	}
-
-	return Choice;
+	return ChoiceInput(2);
 }
 
 

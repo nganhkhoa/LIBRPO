@@ -45,8 +45,6 @@ void ChooseHelp() {
 	cout << setw(5) << " " << left << setw(15) << "--cart n" << left << setw(10)
 	     << "" << left << setw(30) << "Bo n vao gio hang cua ban de mua"
 	     << endl;
-	cout << setw(5) << " " << left << setw(15) << "--muon n" << left << setw(10)
-	     << "" << left << setw(30) << "Muon sach n" << endl;
 	cout << setw(5) << " " << left << setw(15) << "--thoat" << left << setw(10)
 	     << "" << left << setw(30) << "Khong duyet nua" << endl;
 	cout << endl << endl;

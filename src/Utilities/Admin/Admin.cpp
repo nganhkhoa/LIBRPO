@@ -13,7 +13,6 @@ using namespace std;
 
 int AdminChoice() {
 	clearscreen();
-	int Choice;
 	cout << "1\t"
 	     << "Xac nhan them nguoi dung" << endl;
 	cout << "2\t"
@@ -29,14 +28,7 @@ int AdminChoice() {
 	cout << "7\t"
 	     << "Quay ve" << endl;
 
-	cout << "Moi ban chon: ";
-	cin >> Choice;
-	while (Choice < 0 || Choice > 7) {
-		cout << "Lua chon khong co, moi ban chon lai: ";
-		cin >> Choice;
-	}
-
-	return Choice;
+	return ChoiceInput(7);
 }
 
 
@@ -54,7 +46,7 @@ void Admin() {
 		};
 		switch (AdminChoice()) {
 			case ChoiceAdd: AddUser(); break;
-			case ChoiceDelete: 
+			case ChoiceDelete:
 				cin.ignore();
 				DeleteUser();
 				break;
@@ -64,9 +56,9 @@ void Admin() {
 				break;
 			case ChoiceLock:
 				cin.ignore();
-				UserLock(); 
+				UserLock();
 				break;
-			case ChoiceNewLibrarian: 
+			case ChoiceNewLibrarian:
 				cin.ignore();
 				NewADMINgroup(8);
 				break;

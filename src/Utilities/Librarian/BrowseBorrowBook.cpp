@@ -95,15 +95,7 @@ unsigned int ActionSubmit() {
 	cout << "2.\t Khong" << endl;
 	cout << "3.\t Thoat" << endl;
 
-	int Choice = 0;
-	cin >> Choice;
-
-	while (Choice < 0 || Choice > 3) {
-		cout << "Lua chon khong ton tai" << endl;
-		cout << "Moi ban chon lai: ";
-		cin >> Choice;
-	}
-	return (unsigned int) Choice;
+	return (unsigned int) ChoiceInput(2);
 }
 
 

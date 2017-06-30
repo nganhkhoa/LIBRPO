@@ -18,14 +18,7 @@ int SettingMenu() {
 	cout << left << setw(5) << "2\t"
 	     << "Thoat" << endl;
 
-	int Choice = 0;
-	cout << "Lua chon chuc nang: ";
-	cin >> Choice;
-	while (Choice > 2 || Choice < 1) {
-		cout << "Chuc nang khong co, moi nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return ChoiceInput(2);
 }
 
 void Setting() {

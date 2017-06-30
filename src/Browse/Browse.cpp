@@ -37,14 +37,7 @@ int BrowseOption() {
 	cout << left << setw(5) << "10\t"
 	     << "Thoat" << endl;
 
-	int Choice;
-	cout << "Lua chon cach duyet sach: ";
-	cin >> Choice;
-	while (Choice > 10 || Choice < 1) {
-		cout << "Lua chon khong co, moi nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return ChoiceInput(10);
 }
 
 void Browse() {

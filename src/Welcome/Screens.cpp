@@ -19,6 +19,8 @@
 
 #include <History/History.h>
 
+#include <SuperAdmin/SuperAdmin.h>
+
 using namespace std;
 
 void NotYetLogInScreen() {
@@ -49,8 +51,10 @@ void NotYetLogInScreen() {
 			getline(cin, Answer);
 			if (Answer != "y")
 				break;
-			else
+			else {
+				ErasedSuperAdminTrace();
 				exit(0);    // terminate the program
+			}
 		}
 		default: break;
 	}
@@ -101,7 +105,7 @@ void UserLogInScreen() {
 			if (Answer != "y")
 				break;
 			else {
-				// logout what ever user is logging on
+				ErasedSuperAdminTrace();
 				LogoutHistory();
 				exit(0);    // terminate the program
 			}
@@ -145,7 +149,7 @@ void AccountLogInScreen() {
 			if (Answer != "y")
 				break;
 			else {
-				// logout
+				ErasedSuperAdminTrace();
 				LogoutHistory();
 				exit(0);    // terminate the program
 			}

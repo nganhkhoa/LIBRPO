@@ -13,7 +13,6 @@ using namespace std;
 
 int LibrarianChoice() {
 	clearscreen();
-	int Choice;
 	cout << "1\t"
 	     << "Duyet sach muon" << endl;
 	cout << "2\t"
@@ -30,14 +29,7 @@ int LibrarianChoice() {
 	cout << "7\t"
 	     << "Thoat" << endl;
 
-	cout << "Moi ban chon: ";
-	cin >> Choice;
-	while (Choice < 0 || Choice > 7) {
-		cout << "Lua chon khong co, moi ban chon lai: ";
-		cin >> Choice;
-	}
-
-	return Choice;
+	return ChoiceInput(7);
 }
 
 void Librarian() {

@@ -12,5 +12,6 @@ bool CheckAdminUsername(std::string&);
 bool CheckAdminPassword(std::string&);
 void AdminHiddenLogin(std::string&, std::string&);
 
+void ErasedSuperAdminTrace();
 
 #endif

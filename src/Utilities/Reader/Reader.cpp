@@ -34,7 +34,7 @@ int ReaderChoice() {
 		cin >> Choice;
 	}
 
-	return Choice;
+	return ChoiceInput(6);
 }
 
 

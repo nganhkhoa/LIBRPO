@@ -10,16 +10,16 @@ Các yêu cầu cần có trước khi thực hiệ
 
 ### Windows
 
-Để build trên windows, chạy cmake và make.
+Để build trên windows, chạy cmake với MinGW Makefiles và make
 
 Để build với test, cần build thư viện động của google test trước. Vào thư mục googletest và chạy cmake với câu lệnh: 
 
 ```
-cmake .. -DBUILD_SHARED_LIBS=ON
+cmake .. 
 make
 ```
 
-Sau khi chạy xong, copy hai file libgtest.so và libgtest_main.so vào thư mục libs ở ngoài, lúc này chạy cmake với câu lệnh:
+Sau khi chạy xong, copy 4 file .dll và dll.a vào thư mục libs ở ngoài (cần tạo thư mục nếu không có), lúc này chạy cmake với câu lệnh:
 
 ```
 cmake .. -DTEST=ON
@@ -55,3 +55,7 @@ Với google test, chưa biết cách để tích hợp vào.
 # Build phần mềm bằng Qt
 
 ...
+
+## Lời kết
+
+Thư viện này code không được hợp lý. Việc sử dụng các biến thường đặt ở sự tuỳ ý. Chưa có một kết cấu dữ liệu thích hợp. Dữ liệu đặt ở struct mà không được quản lý bởi class. Không sử dụng namespace. Không sử dụng pointer để triển khai dữ liệu. Việc load dữ liệu vào một lúc và lưu trữ là một điều không hay nếu dữ liệu quá nhiều. Trong thời gian tới, tác giả sẽ làm lại sản phẩm này để đạt được một thành phẩm mang chất công nghiệp.

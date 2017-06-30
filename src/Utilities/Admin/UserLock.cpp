@@ -11,15 +11,7 @@ unsigned int LockPromptChoose(unsigned int& user_place) {
 	json this_user           = UserDataJSON.at("UserList")[user_place];
 	unsigned int num_account = this_user.at("AccountList").size();
 
-	unsigned int Choice = 0;
-	cin >> Choice;
-
-	while (Choice < 1 || Choice > num_account + 3) {
-		cout << "Lua chon khong hop le," << endl;
-		cout << "Moi nhap lai: ";
-		cin >> Choice;
-	}
-	return Choice;
+	return (unsigned int) ChoiceInput((int) num_account + 3);
 }
 
 void LockPrompt(unsigned int& user_place) {

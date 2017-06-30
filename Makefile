@@ -4,8 +4,8 @@
 ## to anyone using GCC on Windows, MINGW
 ## this programm needs MinGW-64
 ## build gtest in folder google test
-## cmake -DBUILD_SHARED_LIBS=ON
-## copy libgtest.so and libgtest_main.so to libs
+## using cmake with MinGW Makefiles
+## copy libgtest.dll and libgtest_main.dll to libs
 ## run cmake on folder build
 
 ## if using Visual Studio, make sure VS2013+

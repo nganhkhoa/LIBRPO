@@ -65,6 +65,9 @@ void DeleteUser() {
 		pausescreen();
 		return;
 	}
+
+	// check if admin group (librarian, admin, money,...)
+
 	// ShowUserInfo(userplace);
 
 	cout << "Ban muon xoa nguoi dung nay?(y/n) ";
